@@ -1,0 +1,98 @@
+<html>
+	<title>Lab1 </title>
+<body>
+	<canvas id="linie" style="width:33%;height:33%"></canvas>
+	<canvas id="triunghi" style="width:33%;height:33%"></canvas>
+	<canvas id="dreptunghi" style="width:33%;height:33%"></canvas>
+	<canvas id="poligon" style="width:33%;height:33%"></canvas>
+	<canvas id="cerc" style="width:33%;height:33%"></canvas>
+	<canvas id="oval" style="width:33%;height:33%"></canvas>
+	<canvas id="pol" style="width:33%;height:33%"></canvas>
+	<canvas id="pizza" style="width:33%;height:33%"></canvas>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<script>
+		var linie = document.getElementById("linie"),
+			    ctx     = linie.getContext('2d');
+			ctx.beginPath();
+			ctx.lineWidth = 2;
+			ctx.strokeStyle = 'black';
+			ctx.moveTo(0, 10);
+			ctx.lineTo(parseInt($('#linie').width()), 10);
+			ctx.stroke();
+     
+	 var triunghi = document.getElementById("triunghi"),
+			    ctx     = triunghi.getContext('2d');
+			ctx.beginPath();
+			ctx.moveTo(parseInt($('#triunghi').width()/3),15);
+			ctx.lineTo(2*parseInt($('#triunghi').width()/3),2*parseInt($('#triunghi').height()/3));
+			ctx.lineTo(parseInt($('#triunghi').width()/3),2*parseInt($('#triunghi').height()/3));
+			ctx.fill();
+	var dreptunghi = document.getElementById("dreptunghi"),
+			    ctx     = dreptunghi.getContext('2d');
+			
+			ctx.beginPath();
+			ctx.fillRect(0, 0, $('#dreptunghi').width(), $('#dreptunghi').height());
+			ctx.clearRect(1, 1, parseInt($('#dreptunghi').width()-147), parseInt($('#dreptunghi').height()-70));
+			
+	var poligon = document.getElementById("poligon"),
+			    ctx     = poligon.getContext('2d');
+			//ctx.fillStyle = '#f00';
+			ctx.beginPath();
+			ctx.moveTo(50, 300);
+			ctx.lineTo(200, 110);
+			ctx.lineTo(150, 50);
+			ctx.lineTo(80, 20);
+			ctx.lineTo(80, 90);
+			ctx.lineTo(30, 120);
+			ctx.lineTo(10, 100);
+			ctx.lineTo(0, 100);
+			ctx.closePath();
+			ctx.fill();
+			ctx.beginPath();
+	
+	var cerc = document.getElementById("cerc");
+			ctx     = cerc.getContext('2d');
+			ctx.beginPath();
+			ctx.arc(100,75,50,0,2*Math.PI);
+			ctx.closePath();
+			ctx.stroke();
+	
+	var oval = document.getElementById("oval");
+			ctx     = oval.getContext('2d');
+			ctx.beginPath();
+			ctx.translate(parseInt($('#oval').width())/2.5,parseInt($('#oval').height())/2.5);
+			ctx.scale(2, 1);
+			ctx.arc(0, 0, 50, 0, Math.PI * 2, false);
+			ctx.restore();
+			ctx.closePath();
+			ctx.stroke();
+	
+	var pizza = document.getElementById('pizza');
+     		var c = pizza.getContext('2d');
+      		var centerX = 0;
+      		var centerY = 0;
+      		var radius = 80;
+      		c.save();
+      		c.translate(parseInt($('#oval').width())/2.5,parseInt($('#oval').height())/2.5);
+			c.scale(2, 1);
+			c.beginPath();
+     		c.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+			c.restore();
+
+     		c.fillStyle = '#8ED6FF';
+     		c.fill();
+     		c.strokeStyle = 'black';
+     		c.stroke();
+	var c = document.getElementById('pol').getContext('2d');
+			c.fillStyle = '#369';
+			c.moveTo(0,50);
+			c.arc(20,0,50,-2,0);
+			c.lineTo(0,50);
+			c.fill();
+			c.stroke();
+	</script>
+	
+	</body>
+</html>

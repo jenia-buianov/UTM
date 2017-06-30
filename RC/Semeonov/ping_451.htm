@@ -1,0 +1,352 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="ping
+traceroute
+
+
+
+">
+<TITLE>4.5.1 Ping и Traceroute</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="fing_452.htm" tppabs="http://book.itep.ru/4/45/fing_452.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="fing_452.htm" tppabs="http://book.itep.ru/4/45/fing_452.htm"><FONT COLOR="lightblue">4.5.2 Finger</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.1 Ping и Traceroute</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="image569.gif" tppabs="http://book.itep.ru/4/45/image569.gif"></P>
+<P ALIGN="JUSTIFY">При работе в Интернет время от времени возникают ситуации, когда нужно определить, работоспособен ли тот или иной канал или узел, а в случае работы с динамическими протоколами маршрутизации выяснить, по какому из каналов вы в данный момент работаете. Используется эта процедура и для оценки вероятности потери пакетов в заданных сегментах сети или каналах. Для 
+решения этих задач удобна программа Ping.</P>
+
+<P ALIGN="JUSTIFY">Ping - это процедура, которая базируется на ICMP- и UDP-протоколах пересылки дейтограмм и служит для трассировки маршрутов и проверки работоспособности каналов и узлов (в некоторых программных пакетах эта команда имеет имена trace, hopcheck, tracert или traceroute). Для решения поставленной задачи PING использует отклики протокола ICMP. Применяется PING и при 
+отладке сетевых продуктов. Трассировка может выполняться, например, посредством команды ping -q <Internet_адрес> (пакет PCTCP). При выполнении этой команды ЭВМ сообщит вам Internet адреса всех промежуточных узлов, их имена и время распространения отклика от указанного вами узла. Следует иметь в виду, что трассировка осуществляется непосредственно с помощью IP-протокола 
+(опция записи адресов промежуточных узлов). Ниже приведен пример использования команды Ping. Если вы просто напечатаете команду ping (пакет PCTCP), то ЭВМ выдаст на экран справочную таблицу по использованию этой команды:</P>
+<P>Usage:<BR>
+ping [-options] host<BR>
+options:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=850>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-d [bytes]</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">dump input packet</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(пропечатка входных пакетов).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-d# [bytes]</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">dump output packet</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="T">(пропечатка выходных пакетов).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-e</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">cancel extended security</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(отмена дополнительных мер безопасности)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-i seconds</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">IP time to live</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(установка времени жизни пакетов IP)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-j dest 1...dest n</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">loose source routing</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(свободная маршрутизация).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-k dest 1...dest n</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">strict source routing</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(принудительная маршрутизация).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-l length</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">set length of icmp data</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(установить длину данных для ICMP).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-n times</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">ping host times number of times</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(провести зондирование ЭВМ заданное число раз).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-o</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">no-op option</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(ни каких опций для операций).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-p precedence</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">set IP precedence</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(установка IP-предпочтения).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-q</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">trace route</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(трассировка маршрута).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-r</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">record route</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(запись маршрута).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>-s level [authority]</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">basic security</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">(базовый уровень безопасности).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">-t</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">ping forever</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(режим бесконечного ping).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-v type</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">set type of service</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(установка типа операции).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="LEFT">-w seconds</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">time to wait for answer</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(установка времени ожидания ответа).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>-x [{1|3 dest1..destn}]</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">timestamp option</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(опция временных меток).</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>-z</TD>
+<TD WIDTH="30%" VALIGN="TOP"><P ALIGN="LEFT">quiet mode</TD>
+<TD WIDTH="51%" VALIGN="TOP"><P ALIGN="LEFT">(набор статистики отключен).</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Команда трассировки маршрута ИТЭФ - сервер научно-исследовательской станции США Мак-Мурдо в Антарктиде (запись в файл route.txt):</P>
+
+<P ALIGN="JUSTIFY">ping -q mcmurdo-gw.mcmurdo.gov > route.txt</P>
+<P ALIGN="JUSTIFY">Содержимое файла route.txt будет иметь вид:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 1:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.124.224.190</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">???</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">имя для GW ИТЭФ пока не придумано</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 2:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.124.137.13</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">MSU-Tower.Moscow.RU.Radio-MSU.net</TD>
+<TD WIDTH="36%" VALIGN="TOP">
+<FONT FACE="Times New Roman" SIZE=3><P ALIGN="JUSTIFY">Вперед, в космос</FONT></TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 3:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.124.137.9</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">NPI-MSU.Moscow.RU.Radio-MSU.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">Через спутник "Радуга"</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 4:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.124.137.6</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">DESY.Hamburg.DE.Radio-MSU.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">пакеты совершили мягкую посадку в Гамбурге, ДЕЗИ</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 5:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">188.1.133.56</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">dante.WiN-IP.DFN.DE</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 6:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.172.4.12</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">duesseldorf2.empb.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 7:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.172.4.8</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">amsterdam6.empb.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 8:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">193.172.12.6</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">Amsterdam1.dante.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">Пересекаем Атлантический океан</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 9:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">194.41.0.42</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">New-York1.dante.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">вступили на землю США</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 10:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">192.103.63.5</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">en-0.cnss35.New-York.t3.ans.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 11:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">140.222.32.222</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">mf-0.cnss32.New-York.t3.ans.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 12:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">140.222.56.2</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">t3-1.cnss56.Washington-DC.t3.ans.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 13:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">140.222.145.1</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">t3-0.enss145.t3.ans.net</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 14:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">192.203.229.243</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">SURA2.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">Снова в космос</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 15:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">128.161.166.1</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">GSFC8.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">но теперь через американский</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 16:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">128.161.232.1</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">GSFC12.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">спутник</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 17:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">128.161.1.1</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">ARC1NEW.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 18:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">192.203.230.2</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">ARC1.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 19:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">192.100.12.2</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">ARC2.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">hop 20:</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">128.161.115.2</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">MCMURDO.NSN.NASA.GOV</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">Оденьте шапку, мы в Антарктиде!</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">Target</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">157.132.100.1</TD>
+<TD WIDTH="39%" VALIGN="TOP"><P ALIGN="JUSTIFY">reached on hop 21</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">round-trip time 1370 ms</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Фантастика, мы пересекли туда и обратно Европу, два океана и США с востока на запад, побывали в Антарктиде и все это менее чем за полторы секунды.</P>
+
+<P ALIGN="JUSTIFY">Ping позволяет не только проверить работоспособность канала, но измерить ряд его характеристик, включая надежность (например, версия ping для SUN):</P>
+
+<FONT SIZE=2><P>PING <I>-s cernvm.cern.ch 100 64 </I>(пакеты по 100 байт посылаются 64 раза)<BR>
+108 bytes from crnvma.cern.ch (128.141.2.4): icmp_seq=0. time=606. Ms<BR>
+.............. (результаты пересылки пакетов с номерами 1-61 опущены)<BR>
+</FONT>108 bytes from crnvma.cern.ch (128.141.2.4): icmp_seq=62. time=667. Ms<BR>
+108 bytes from crnvma.cern.ch (128.141.2.4): icmp_seq=63. time=628. Ms<BR>
+---- PING Statistics ----<BR>
+64 packets transmitted, 63 packets received, 1% packet loss (процент потерянных пакетов)</P>
+<P ALIGN="JUSTIFY">round-trip (ms) min/avg/max = 600/626/702</P>
+<P ALIGN="JUSTIFY">Для получения большей точности следует послать большее число пакетов. В последней строке приведены результаты измерения RTT, где представлены минимальное/среднее/максимальное значения.</P>
+
+<P ALIGN="JUSTIFY">Наибольшее число модификаций имеет BSD-версия ping, если на вашей ЭВМ нет этой удобной программы, можно воспользоваться общедоступной версией по адресу:</P>
+
+<P ALIGN="JUSTIFY"><A HREF="tppmsgs/msgs2.htm#275" tppabs="ftp://ftp.uu.net /unix/bsd-sources/sbin/ping">ftp.uu.net /unix/bsd-sources/sbin/ping</A> (см. также приложения).</P>
+
+<P ALIGN="JUSTIFY">Сходную информацию позволяет получить и программа traceroute (использует непосредственно IP-пакеты):</P>
+
+<P><I> traceroute -n cernvm.cern.ch</I> <BR>
+traceroute to crnvma.cern.ch (128.141.2.4) 30 hops max, 40 byte packets<BR>
+<B>1 </B>193.124.224.50 3 ms 2 ms 2 ms<BR>
+<B>2 </B>194.85.112.130 3 ms 3 ms 3 ms<BR>
+<B>3 </B>194.67.80.5 4 ms 3 ms 3 ms<BR>
+<B>4 </B>193.124.137.6 534 ms 534 ms 534 ms<BR>
+<B>5 </B>188.1.56.5 545 ms 545 ms 546 ms<BR>
+<B>6 </B>193.172.4.12 558 ms (ttl=59!) 549 ms (ttl=59!) 548 ms (ttl=59!)<BR>
+<B>7 </B>193.172.4.30 580 ms (ttl=58!) 581 ms (ttl=58!) 581 ms (ttl=58!)<BR>
+<B>8 </B>193.172.24.10 586 ms 585 ms 597 ms<BR>
+<B>9 </B>192.65.185.1 593 ms 587 ms 598 ms<BR>
+<B>10</B> 128.141.2.4 628 ms 602 ms 619 ms</P>
+
+<P ALIGN="JUSTIFY">При написании программ, использующих протокол ICMP, полезно воспользоваться отладочной опцией PING, которая позволяет получить на экране шестнадцатеричный образ посылаемого и получаемого пакетов:</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=700>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P ALIGN="JUSTIFY"><I>ping -d# 300 ns.itep.ru</I></TD>
+<TD WIDTH="72%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">(версия PCTCP, запрос отклика серверу имен, число байт, подлежащих выдаче, 
+равно 300)</TD>
+</TR>
+</TABLE>
+
+<P>Dump of outgoing packet<BR>
+Version = 4 IP header length = 5 Precedence = Routine<BR>
+Type of Service = Normal<BR>
+Total length = 284 Protocol = 1 TTL = 64<BR>
+45 00 01 1C 00 02 00 00 40 01 71 29 C0 94 A6 81 C1 7C E0 23 IP-заголовок<BR>
+08 00 8D BD E9 03 00 01 ... ICMP-заголовок<BR>
+host responding, time = 60 ms</P>
+<P ALIGN="JUSTIFY">Выдачи ради экономии места сильно сокращены. Тексты пакетов начинаются с кодов 
+IP-версии (=4) и длины заголовка (=5), далее следует байт TOS=0, два байта длины пакета (01 1С) и 
+т.д. в соответствии с требованиями IP-протокола.</P>
+<I><P>ping -d 300 ns.itep.ru </I>(команда получения текста пакета-отклика на запрос)<BR>
+host responding, time = 25 ms<BR>
+Dump of incoming packet<BR>
+Version = 4 IP header length = 5 Precedence = Routine<BR>
+Type of service = Normal<BR>
+Total length = 284 Protocol = 1 TTL = 254<BR>
+45 00 01 1C EE 29 00 00 FE 01 C5 00 C1 7C E0 23 C0 94 A6 81<BR>
+00 00 93 BD EB 03 00 01 ..............</P>
+
+<P ALIGN="JUSTIFY">В принципе, процедуру Ping и Traceroute можно реализовать и с привлечением протоколов UDP и TCP. Рассмотрим следующую модель реализации Traceroute <URL>:</P>
+<P ALIGN="JUSTIFY">Посылаем последовательно по адресу IP(URL) IP-пакеты со значением TTL=1, 2,... и т.д. Если до <URL> больше одного шага, соответствующий маршрутизатор, размещенный по пути следования к адресату, уничтожит посланный пакет и вернет ICMP-сообщение: Time Exceeded (тип ICMP-сообщения=11), указав при этом IP-адрес узла, где это произошло. Послав запрос типа get_name_by_address для присланного IP, можно получить имя узла, откуда пришло данное уведомление. Отсутствие сообщения Time Exceeded (например, после трех попыток) будет говорить о достижении <URL>-адресата. В результате такой последовательности посылок будет получена исчерпывающая информация о пути до указанной цели. </P>
+<P ALIGN="JUSTIFY">Для данной методики реализации traceroute не существенно, какой протокол использовать, UDP, ICMP или TCP.</P>
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="fing_452.htm" tppabs="http://book.itep.ru/4/45/fing_452.htm"><FONT COLOR="lightblue">4.5.2 Finger</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,118 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="X-windows
+UNIX
+
+
+
+">
+<TITLE>4.5.5 Протокол X-Windows</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="tftp4541.htm" tppabs="http://book.itep.ru/4/45/tftp4541.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="www_456.htm" tppabs="http://book.itep.ru/4/45/www_456.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="tftp4541.htm" tppabs="http://book.itep.ru/4/45/tftp4541.htm"><FONT COLOR="lightblue">4.5.4.1 Протокол TFTP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="www_456.htm" tppabs="http://book.itep.ru/4/45/www_456.htm"><FONT COLOR="lightblue">4.5.6 WWW</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.5 Протокол X-Windows</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="image576.gif" tppabs="http://book.itep.ru/4/45/image576.gif"></P>
+<P ALIGN="justify">Система X-windows была разработана в Массачусетском Технологическом институте (сотрудники этого института внесли существенный вклад и в разработку всего комплекса TCP/IP-протоколов) в качестве многооконного программного интерфейса для ЭВМ с побитовым отображением графической информации. Система предполагала отображение результатов работы 
+нескольких программ одновременно. Сегодня это одна из наиболее популярных систем. Для каждой программы выделялась отдельная область на экране - "окно". С самого начала система предназначалась для работы в различных сетях (TCP, IPX/SPX и т.д.). Система может управлять окнами как на локальной, 
+так и удаленной ЭВМ. Для управления окнами используются специальные сообщения. Для обмена этими сообщениями разработан x-windows протокол. Система X-windows состоит из двух частей Xlib и X-сервера (RFC-1198).</p>
+
+<p align="center"><img src="image577.gif" tppabs="http://book.itep.ru/4/45/image577.gif"></p>
+<p align="center">Рис. 4.5.5.1. Схема взаимодействия различных частей X-windows</p>
+<p align="justify">&#9;<b>xlib</b> является интерфейсом для любого прикладного процесса и обычно представляет собой программу, написанную на C. Xlib отвечает за обмен информацией между сервером и терминалом пользователя (X-клиент). Под приложениями здесь подразумеваются независимые процессы. Для каждого терминала инсталлируется отдельный X-сервер. Один X-сервер может обслуживать несколько 
+клиентов. X-сервер осуществляет отображение на экране всех окон, в то время как функция клиентов - управление окнами. Для управления окнами используются структуры типа стеков.</p>
+
+<p align="justify">Прикладная программа-клиент и сервер взаимодействуют друг с другом через системный протокол X-windows (RFC-1013 и RFC-1198). При этом 
+используется четыре вида сообщений:</p>
+
+<ol><li><b>Запрос</b>: инструкция, направляемая серверу рабочей станции, например, нарисовать окружность.</li>
+<li><b>Отклик</b>: направляется от сервера в ответ на запрос.</li>
+<li><b>Событие</b>: используется сервером, чтобы сообщить прикладной программе об изменениях, которые могут повлиять на ее работу (например, нажатие клавиши на терминале или мышке, запрос из сети и т.д.).</li>
+<li><b>Ошибка</b>: посылается сервером прикладной программе, если что не так (переполнение памяти, неправильно заданные параметры делают выполнение задания невозможным и пр.).</li></ol>
+
+<p align="justify">Форматы таких сообщений представлены на рис. 4.5.5.2.</p>
+</font><p align="center"><img src="image578.gif" tppabs="http://book.itep.ru/4/45/image578.gif"></P>
+<FONT FACE="Times New Roman"><P ALIGN="CENTER">Рис. 4.5.5.2 Форматы сообщений об ошибках</P>
+
+<P ALIGN="JUSTIFY">Некоторые X-запросы не нуждаются в откликах (например, связанные с перемещением манипулятора мышь), такие сообщения могут группироваться и посылаться единым потоком (batch stream). Такой подход позволяет пользователю выдать Xlib-запрос и перейти к выполнению других операций, в то время как схема запрос-отклик требует ожидания.</P>
+
+<P ALIGN="JUSTIFY">Сообщение типа событие посылается прикладной программе только в случае, если она запрашивала такого рода информацию.</P>
+
+<P ALIGN="JUSTIFY">X-Windows приложения должны установить канал связи между собой, прежде чем они смогут обмениваться сообщениями. Приложение для того, чтобы установить связь с рабочей станцией использует запрос XOpenDisplay из библиотеки Xlib. Xlib формирует структуру дисплея, которая содержит необходимую информацию, определяющую режим обмена прикладная программа &lt;-&gt; рабочая станция. После того как связь установлена прикладная программа и рабочая станция готовы к работе. Если была нажата клавиша мышки (событие - ButtonPress), а не известно, в каком из окон находится ее указатель, прикладная программа выдает в Xlib запрос XQueryPointer. Положение указателя будет прислано в отклике на этот запрос.</P>
+
+<P ALIGN="JUSTIFY">Данный протокол, строго говоря, не входит в набор TCP/IP хотя, как было сказано, он описан в RFC. Но мне представлялось важным дать в руки операторов сетей информацию, которая позволит им лучше понимать, что "гуляет" по их кабельным сегментам.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="tftp4541.htm" tppabs="http://book.itep.ru/4/45/tftp4541.htm"><FONT COLOR="lightblue">4.5.4.1 Протокол TFTP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="www_456.htm" tppabs="http://book.itep.ru/4/45/www_456.htm"><FONT COLOR="lightblue">4.5.6 WWW</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

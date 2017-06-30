@@ -1,0 +1,284 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Burrows-Wheeler
+сжатие данных
+
+
+
+
+">
+<TITLE>2.6.3 Сжатие данных с использованием  преобразования Барроуза-Вилера</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="laa_262.htm" tppabs="http://book.itep.ru/2/26/laa_262.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="fano_264.htm" tppabs="http://book.itep.ru/2/26/fano_264.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="laa_262.htm" tppabs="http://book.itep.ru/2/26/laa_262.htm"><FONT COLOR="lightblue">2.6.2 Локально адаптивный алгоритм сжатия</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="fano_264.htm" tppabs="http://book.itep.ru/2/26/fano_264.htm"><FONT COLOR="lightblue">2.6.4 Метод Шеннона-Фано</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>2.6.3 Сжатие данных с использованием  преобразования Барроуза-Вилера</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">Майкл Барроуз и Давид Вилер (Burrows-Wheeler) в 1994 году предложили свой алгоритм преобразования (BWT). Этот алгоритм работает с блоками данных и обеспечивает эффективное сжатие без потери информации. В результате преобразования блок данных имеет ту же длину, но другой порядок расположения символов. Алгоритм тем эффективнее, чем больший блок данных преобразуется (например, 256-512 Кбайт). Пояснение работы алгоритма будет выполнено на ограниченном объеме исходных данных (строка S длиной N, например, SEMENOV). Строка S рассматривается как последовательность, состоящая из N строк.</P>
+
+<P ALIGN="JUSTIFY">Сначала осуществляется циклический сдвиг строки S и формируется N-1 новая строка. 
+На практике строки не размножаются, а создается массив указателей на циклический буфер, где лежит исходная строка S.</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=307>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P> </TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<B><P ALIGN="CENTER">Строка</B></TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">S E M E N O V</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S0</TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">E M E N O V S</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S1</TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">M E N O V S E</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S2</TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">E N O V S E M</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S3</TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">N O V S E M E</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S4</TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">O V S E M E N</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S5</TD>
+</TR>
+<TR><TD WIDTH="69%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">V S E M E N O</TD>
+<TD WIDTH="31%" VALIGN="TOP">
+<P ALIGN="CENTER">S6</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Далее выполняется лексикографическое упорядочение (сортировка) этих строк (указателей). 
+Для упорядочения можно использовать С-функции типа strcmp() или memcmp() (учитывая особенности структуры буфера, 
+это должны быть их функциональные аналоги).</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=420>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<B><P ALIGN="CENTER">F</B></TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P> </TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P> </TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P> </TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P> </TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P> </TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<B><P ALIGN="CENTER">L</B></TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<B><P ALIGN="CENTER">Строка</B></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S1</TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S3</TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S2</TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S4</TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S5</TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S0</TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">V</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">S</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">M</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">E</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">N</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="CENTER">O</TD>
+<TD WIDTH="22%" VALIGN="TOP">
+<P ALIGN="CENTER">S6</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Первая колонка помечена буквой F, а последняя – L. Колонка F (EEMNOSV) содержит все символы исходной строки S, записанные в упорядоченной последовательности. Строка L представляет собой последовательность префиксных символов для строки S.</P>
+<P ALIGN="JUSTIFY">Результатом работы алгоритма BWT является строка L и первичный индекс, который представляет собой номер элемента строки L, где хранится первый символ исходной строки S. В приведенном примере индекс равен 1.</P>
+<P ALIGN="JUSTIFY">Смотри <A HREF="tppmsgs/msgs2.htm#216" tppabs="http://web2.airmail/markn/articles/bwt/bwt.htm">
+http://web2.airmail/markn/articles/bwt/bwt.htm</A> </P>
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="laa_262.htm" tppabs="http://book.itep.ru/2/26/laa_262.htm"><FONT COLOR="lightblue">2.6.2 Локально адаптивный алгоритм сжатия</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="fano_264.htm" tppabs="http://book.itep.ru/2/26/fano_264.htm"><FONT COLOR="lightblue">2.6.4 Метод Шеннона-Фано</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

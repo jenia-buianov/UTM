@@ -1,0 +1,8 @@
+Discheta contine codurile sursa si fisierele executabile pentru exemplele 
+prezentate in carte. 
+Acestea vor fi regasite sub directoarele \PETZOLD\CHAPXX unde XX reprezinta
+numarul capitolului din carte.
+Pentru compilarea programelor trebuie sa aveti instalat MICROSOFT VISUAL C++
+versiunea 4.0.
+
+Tastati <ENTER> pe INSTALL.bat

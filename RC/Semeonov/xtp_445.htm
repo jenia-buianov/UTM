@@ -1,0 +1,535 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="XTP
+
+
+
+">
+<TITLE>4.4.5 Протокол XTP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="icmp_444.htm" tppabs="http://book.itep.ru/4/44/icmp_444.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="arp_446.htm" tppabs="http://book.itep.ru/4/44/arp_446.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="icmp_444.htm" tppabs="http://book.itep.ru/4/44/icmp_444.htm"><FONT COLOR="lightblue">4.4.4 Протокол    передачи команд и сообщений об ошибках (ICMP)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="arp_446.htm" tppabs="http://book.itep.ru/4/44/arp_446.htm"><FONT COLOR="lightblue">4.4.6 Протокол    преобразования адресов ARP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.5 Протокол XTP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+
+<p ALIGN="justify">Транспортный протокол XTP (xpress transport
+protocol; <a href="tppmsgs/msgs2.htm#263" tppabs="http://www.ca.sandia.gov/xtp/">http://www.ca.sandia.gov/xtp/</a>) разработан в 1992 году, является протоколом нового поколения и имеет целью
+преодолеть недостатки такого популярного протокола как TCP (медленный старт, неэффективная работа при возникновении потерь пакетов). В XTP функции обеспечения надежной передачи данных и управления разделены, протокол допускает управление пропускной способностью канала и успешно справляется с перегрузкой канала. Принципиальной особенностью XTP является независимость от числа участников информационного обмена (обычный режим эквивалентен мультикастингу, по этой причине XTP может использоваться и как мультикастинг-протокол) и возможность работы с MAC, IP или AAL5. Протокол призван в перспективе
+заменить TCP, UDP, Appletalk и IPX. Мультикастинг в XTP в отличии от других протоколов может гарантировать доставку информации, что может оказаться важным при многоточечном управлении или в некоторых распределенных базах данных.</p>
+
+<p align="justify">При передаче больших массивов информации последовательные пакеты нумеруются. В случае потери принимающая сторона посылает отправителю список не доставленных пакетов (TCP повторяет пересылку всех пакетов, начиная с потерянного). Именно алгоритм селективной ретрансмиссии и позволяет повысить эффективность использования канала. Длина пакетов XTP кратна 64 бит. Совокупность информации, описывающей состояние XTP, называется контекстом. Каждый контекст управляет как входящим, так и исходящим потоками данных. Два
+активных контекста и поток данных образуют ассоциацию. В исходном состоянии контекст оконечной системы пассивен и находится в состоянии ожидания. Первый передаваемый пакет содержит полную адресную информацию. После получения первого пакета контекст становится активным. С этого момента ассоциация сформирована и обмен может происходить в обоих направлениях. Каждый последующий пакет несет в себе ключевой код, определяющий его принадлежность к данному контексту. При завершении передачи устанавливаются соответствующие биты опций, связь разрывается, а контексты возвращаются в пассивное состояние. Все виды XTP-пакетов имеют один и тот же формат заголовков. Управление контекстом осуществляется с помощью флагов, содержащихся в заголовке. Всего предусмотрено 15 флагов. </p>
+
+<p align="justify">На рис. 4.4.5.1 показана зависимость пропускной способности канала для сети ATM при использовании транспортных протоколов TCP и XTP, в обоих случая использовался в качестве базового протокол IP. Измерения производились для приложений типа FTP. Из рисунка видно, что даже 1%
+потерянных или поврежденных пакетов понижает пропускную способность на 30% при работе с протоколом TCP. XTP требует только три пакета, чтобы сформировать виртуальный канал, в то время как XTP требует для тех же целей семь пакетов. Благодаря своей простоте XTP может легко подменить любой транспортный протокол в любом существующем телекоммуникационном приложении. Протокол предоставляет некоторые услуги недоступные в других протоколах, что оказывается особенно
+привлекательным для приложений мультимедиа.</p>
+
+<p align="center"><img src="xtp.jpg" tppabs="http://book.itep.ru/4/44/xtp.jpg"></p>
+<p align="justify">Рис. 4.4.5.1. Зависимость пропускной способности канала при использовании протоколов TCP и XTP (<a href="tppmsgs/msgs2.htm#264" tppabs="http://www.mentat.com/documentation/white_papers/xtp_overview.html">
+www.mentat.com/xtp.xtp.html</a> и xtpdata.html XTP 95-20, Xpress Transport Protocol Specification (XTP revision 4.0), 1995, XTP Forum, Santa Barbara, CA 93108 USA<sup> </sup>)</p>
+
+<p align="justify">При 5% потерях пакетов XTP обеспечивает в 6 раз большую пропускную способность, чем TCP. В таблице 4.4.5.1 приведены сравнительные результаты измерения пропускной способности канала ATM (155 Мбит/с) при использовании протоколов TCP, UDP и XTP (использовались пакеты длиной 8190 байт).</p>
+
+<p align="center">Таблица 4.4.5.1. Сравнительные характеристики протоколов TCP, UDPи XTP </p>
+<div align="center"><center>
+
+<table border="10" cellspacing="2" cellpadding="5" width="600" bgcolor="ghostwhite">
+  <tr>
+    <td width="40%" valign="top" bgcolor="gainsboro"><b><p align="center">Название протокола</b></font></td>
+    <td width="60%" valign="top" bgcolor="gainsboro"><p align="center"> <b>Пропускная способность в Мбит/с</b></td>
+  </tr>
+  <tr>
+    <td width="40%" valign="top"><p align="center">TCP</td>
+    <td width="60%" valign="top"><p align="center">89-93</td>
+  </tr>
+  <tr>
+    <td width="40%" valign="top"><p align="center">UDP</td>
+    <td width="60%" valign="top"><p align="center">93-94</td>
+  </tr>
+  <tr>
+    <td width="40%" valign="top"><p align="center">XTP</td>
+    <td width="60%" valign="top"><p align="center">112-115</td>
+  </tr>
+</table>
+</center></div>
+
+<p align="justify">Из таблицы видно, что в нормальных условиях протокол XTP гарантирует пропускную способность на 25% выше, чем TCP или UDP.</p>
+
+<p align="justify">Все поля в XTP-пакетах передаются так, что наиболее значимый байт передается первым (порядок байт - “big-endian”). Формат заголовка XTP-пакета показан на рис. 4.4.5.2. Поле <i>ключ </i>определяет принадлежность пакета к тому или иному контексту, поле <i>команда (CMD) </i>задает
+процедуру обработки пакета. Поле<i> длина</i> (<i>DLEN</i>) определяет объем данных в пакете, а поле <i>номер по порядку</i> (<i>SEQ</i>) представляет собой порядковый номер пакета в последовательности. Поля <i>контрольная
+сумма</i> и <i>синхронизация</i> используются для проверки корректности доставки. Старший бит поля <i>ключ</i> (RTN - возврат, рис. 4.4.5.3) зарезервирован в качестве флага, указывающего на контекст передающей (=0) или принимающей стороны (принимающая сторона, посылая пакеты, ставит RTN=1).
+Код поля <i>ключ </i>должен быть уникальным. Для обеспечения этого остальная часть поля делится на два субполя: <i>индекс</i> и <i>инстанция</i> (распределение бит между ними зависит от реализации и реальных потребностей). Индекс служит для выбора контекста, а инстанция подтверждает корректность кода индекс. Так при получении пакета сначала по индексу определяется контекст, а затем производится сравнение кодов инстанции в пакете и в таблице контекстов. </p>
+
+<p align="center"><img src="image357.gif" tppabs="http://book.itep.ru/4/44/image357.gif"></p>
+<p align="center">Рис. 4.4.5.2 Формат кадра протокола XTP</p>
+
+<p align="center"><img src="image358.gif" tppabs="http://book.itep.ru/4/44/image358.gif"></p>
+<p align="center">Рис. 4.4.5.3 Структура поля <i>ключ</p></i>
+
+<p align="justify">32-разрядное поле команды содержит в себе субполе <i>опции</i>. Названия различных бит этого поля показаны на рис. 4.4.5.4.</p>
+
+<p align="center"><img src="image359.gif" tppabs="http://book.itep.ru/4/44/image359.gif"></p>
+<p align="center">Рис. 4.4.5.4. Формат поля команда</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="800">
+  <tr>
+    <td width="18%" valign="top"><p align="justify">btag=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает
+    на то, что первые восемь байт сегмента данных стали полем <i>btag</i> (beginning tag field - начальная метка). Служит для постановки меток для прикладных программ. BTAG имеет смысл только для информационных пакетов и
+    должен быть обнулен для всех остальных.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">dreq=1</td>
+    <td width="82%" valign="top"<p align="justify">для пакетов, несущих информацию, показывает, что получатель должен посылать управляющий пакет    после всех данных в очереди, включая информацию данного пакета. При установке бита в управляющем пакете он индицирует запрос отправителя к получателю с требованием присылки контрольного пакета после получения всех данных с порядковыми номерами меньше, чем указано в поле <i>SEQ</i> данного пакета.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">edge</td>
+    <td width="82%" valign="top"><p align="justify">при получении пакета значение этого бита сравнивается с со значение бита edge предыдущего пакета. Если их величины отличаются, посылается управляющий пакет. Отправитель может изменять значения этого бита, чтобы вызвать присылку управляющего пакета, не привлекая механизма SREQ или DREQ.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">end=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает на прекращение использования данного контекста, устанавливается в последнем пакете, завершающем
+    диалог, а также при ликвидации ассоциации.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">EOM</td>
+    <td width="82%" valign="top"><p align="justify">служит для обозначения границ сообщения в потоке данных. Если EOM=1, то этот пакет завершает    сообщение. Управляющие пакеты не должны иметь EOM=1. Этот бит устанавливается прикладной, а не протокольной программой.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">fastnak</td>
+    <td width="82%" valign="top"><p align="justify">показывает, что получатель должен обеспечивать быстрое отрицательное подтверждение (если необходимо).    Этот бит устанавливается отправителем лишь тогда, когда протокольный уровень ниже XTP не меняет часто порядок пакетов.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">multi=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает на использование режима мульткастинга. Значение этого бита должно быть идентичным для всех    пакетов в период жизни ассоциации.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">noerr=1</td>
+    <td width="82%" valign="top"><p align="justify">информирует получателя о том, что отправитель не будет повторно присылать пакеты и рекомендует    получателю отключить контроль ошибок.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">Nocheck=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает на то, что контрольная сумма вычислена только для полей заголовка, в противном случае - для всего пакета.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">Noflow=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает на то, что отправитель не следит за ограничениями потока данных (например, игнорирует значение <i>alloc</i>).</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">RES=1</td>
+    <td width="82%" valign="top"><p align="justify">позволяет режим резервирования. Устанавливая его, отправитель обращает внимание получателя на то, что значение <i>alloc</i>, присланные получателем в контрольных пакетах,    должно соответствовать реальному объему свободного буферного пространства.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">Sort=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает, что значение кода в поле <i>sort</i> заголовка должно интерпретироваться и использоваться для
+    приоритетного отбора пакетов.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">sreq=1</td>
+    <td width="82%" valign="top"><p align="justify">указывает получателю, что он должен немедленно послать контрольный пакет. Бит SREQ устанавливается    отправителем в соответствии со своей политикой подтверждений или в случае возникновения ошибок.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top">Wclose и Rclose</td>
+    <td width="82%" valign="top"><p align="justify">используются при диалоге отсоединения. wclose-бит указывает на то, что не будет больше записей в выходной информационный поток. rclose-бит служит для того, чтобы сообщить, что все биты, занесенные во входной поток, доставлены.</td>
+  </tr>
+</table>
+
+<p align="justify">XTP-передатчик контролирует все биты поля опции для каждого пакета. Некоторые дополнительные данные о битах субполя <i>опции</i> можно найти в таблице 4.4.5.2.</p>
+
+<p align="center">Таблица 4.4.5.2. Значения битов субполя <i>опции</p>
+  </i></font><div align="center"><center><table border="10" cellspacing="2"
+  cellpadding="5" width="800" bgcolor="ghostwhite">
+    <tr>
+      <td width="16%" valign="top" bgcolor="gainsboro"><b>Бит поля опции</b></font></td>
+      <td width="14%" valign="top" bgcolor="gainsboro"><b><p align="justify">Маска</b></td>
+      <td width="19%" valign="top" bgcolor="gainsboro"><b><p align="justify">Возможность
+      изменения</b></font></td>
+      <td width="14%" valign="top" bgcolor="gainsboro"><b><p align="justify">Использование</b></font></td>
+      <td width="38%" valign="top" bgcolor="gainsboro"><b><p align="justify">Описание</b></td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top">&nbsp;</td>
+      <td width="14%" valign="top"><p align="justify">0x800000</td>
+      <td width="19%" valign="top">&nbsp;</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top">Не используется, должно обнуляться</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">nocheck</td>
+      <td width="14%" valign="top"><p align="justify">0x400000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">Раз на контекст</td>
+      <td width="38%" valign="top">Отключение контрольной суммы</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">edge</td>
+      <td width="14%" valign="top"><p align="justify">0x200000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Пограничный запрос статуса</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">noerr</td>
+      <td width="14%" valign="top"><p align="justify">0x100000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top"> Раз на контекст</td>
+      <td width="38%" valign="top"><p align="justify">Отключение контроля ошибок</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">multi</td>
+      <td width="14%" valign="top"><p align="justify">0x080000</td>
+      <td width="19%" valign="top">Раз на ассоциацию</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Режим мультикастинга</td>
+    </tr>
+<tr>
+     <td width="16%" valign="top"><p align="justify">res</td>
+     <td width="14%" valign="top"><p align="justify">0x040000</td>
+     <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+     <td width="14%" valign="top">Раз на контекст</td>
+     <td width="38%" valign="top"><p align="justify">Режим резервирования</td>
+    </tr>
+    <tr>
+     <td width="16%" valign="top"><p align="justify">Sort</td>
+     <td width="14%" valign="top"><p align="justify">0x020000</td>
+     <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+     <td width="14%" valign="top">Раз на контекст</td>
+    <td width="38%" valign="top"><p align="justify">Допускает сортировку</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">Noflow</td>
+      <td width="14%" valign="top"><p align="justify">0x010000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">Раз на контекст</td>
+      <td width="38%" valign="top"><p align="justify">Отключает
+      управление потоком данных</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">Fastnack</td>
+      <td width="14%" valign="top"><p align="justify">0x008000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">Раз на контекст</td>
+      <td width="38%" valign="top"><p align="justify">Разрешает
+      жесткий контроль ошибок</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">SRREQ</td>
+      <td width="14%" valign="top"><p align="justify">0x004000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Запрос статуса</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">DREQ</td>
+      <td width="14%" valign="top"><p align="justify">0x002000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Запрос
+      доставки статуса</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">Rclose</td>
+      <td width="14%" valign="top"><p align="justify">0x001000</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Получатель
+      отключен</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">Wclose</td>
+      <td width="14%" valign="top"><p align="justify">0x000800</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Отправитель
+      отключен</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">EOM</td>
+      <td width="14%" valign="top"><p align="justify">0x000400</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Конец сообщения</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">End</td>
+      <td width="14%" valign="top"><p align="justify">0x000200</td>
+      <td width="19%" valign="top"><p align="justify">один раз</td>
+      <td width="14%" valign="top">&nbsp;</td>
+      <td width="38%" valign="top"><p align="justify">Конец
+      контекста или ассоциации </td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="justify">Btag</td>
+      <td width="14%" valign="top"><p align="justify">0x000100</td>
+      <td width="19%" valign="top"><p align="justify">по-пакетно</td>
+      <td width="14%" valign="top">&nbsp;</td>
+  <td width="38%" valign="top"><p align="justify">Начало метки поля данных</td>
+    </tr>
+  </table>
+  </center></div>
+<p align="justify">“По-пакетно” означает, что бит может изменяться от пакета к  пакету. “Раз на ассоциацию” означает, что все контексты ассоциации должны иметь этот бит идентичным. “Один раз” означает, что бит может быть установлен один раз за время жизни контекста</p>
+<p align="center">Таблица 4.4.5.3. Коды типов пакетов XTP (Pformat)</p>
+  <div align="center"><center><table border="10" cellspacing="2" cellpadding="5" width="700" bgcolor="ghostwhite">
+    <tr>
+      <td width="26%" valign="top" bgcolor="gainsboro"><b><p align="center">Формат пакета</b></td>
+      <td width="16%" valign="top" bgcolor="gainsboro"><b><p align="center">Код типа</b></td>
+      <td width="58%" valign="top" bgcolor="gainsboro"><b><p align="justify">Описание</b></td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">data</td>
+      <td width="16%" valign="top"><p align="center">0</td>
+      <td width="58%" valign="top"><p align="justify">Информационный пакет пользователя</td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">cntl</td>
+      <td width="16%" valign="top"><p align="center">1</td>
+      <td width="58%" valign="top"><p align="justify">Пакет управления состоянием</td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">first</td>
+      <td width="16%" valign="top"><p align="center">2</td>
+      <td width="58%" valign="top"><p align="justify">Исходный пакет ассоциации (содержит адресный сегмент)</td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">ecntl</td>
+      <td width="16%" valign="top"><p align="center">3</td>
+      <td width="58%" valign="top"><p align="justify">Пакет управления (ошибка)</td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">tcntl</td>
+      <td width="16%" valign="top"><p align="center">5</td>
+      <td width="58%" valign="top"><p align="justify">Пакет управления трафиком</td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">join</td>
+      <td width="16%" valign="top"><p align="center">6</td>
+      <td width="58%" valign="top"><p align="justify">Мультикастинг-пакет включения в группу</td>
+    </tr>
+    <tr>
+      <td width="26%" valign="top"><p align="center">diag</td>
+      <td width="16%" valign="top"><p align="center">8</td>
+      <td width="58%" valign="top"><p align="justify">Диагностический пакет</td>
+    </tr>
+  </table>
+  </center></div>
+<p align="justify">Младший байт поля команда содержит субполе <i>типа пакета</i>
+  (<i>ptype</i>). Биты 0-4 этого субполя содержат код <i>формата пакета (Pformat</i>, см. таблицу 4.4.5.3). Биты 5-7 определяют версию протокола (<i>ver</i>). Для XTP 4.0 код версии равен 001.</p>
+
+<p align="justify">Поле <i>DLEN</i> содержит число байт в массиве данных пакета, следующем непосредственно за заголовком. Так как информационные пакеты с нулевым объемом данных запрещены, код dlen не может быть равен нулю.</p>
+
+<p align="justify">Поле <i>Check</i> содержит <i>контрольную сумму. </i>Если бит nochek=1, то в поле записана контрольная сумма только заголовка, в противном случае - всего пакета.</p>
+
+<p align="justify">Поле <i>приоритет</i> (sort) предназначено для задания
+  приоритета пересылаемой информации. Это поле интерпретируется лишь в случае, если бит sort=1. При sort=0 поле <i>приоритет </i>должно быть обнулено.
+  Контексты с приоритетным трафиком посылают пакеты с sort=1 и с определенным кодом в поле <i>приоритет</i>. Бесприоритетные контексты шлют пакеты с sort=0 и
+  нулевым полем приоритета. На приемной стороне информация доставляется в соответствии с кодом приоритета. Поле <i>приоритет</i> характеризуется беззнаковым 16-разрядным числом. Код приоритет, равный нулю, указывает на самый низкий приоритет, чем больше этот код, тем выше приоритет. XTP обслуживает активные контексты в соответствии с присвоенными им приоритетами.  Высокоприоритетная информация посылается раньше низкоприоритетной. Аналогичный порядок обслуживания работает и на принимающей стороне.</p>
+
+<p align="justify">32-битовое поле <i>синхронизация</i> (<i>Sync</i>) служит для синхронизации диалога. Каждый контекст хранит код последнего посланного значения <i>Sync</i> в переменной <b>Saved_sync</b>. Когда пакет послан с Sreq=1, значение переменной <b>Saved_sync </b>увеличивается на единицу и этот код заносится в поле <i>Sync</i> отправляемого пакета. Получатель запоминает последний полученный код Sync в контекстной переменной <b>Rcvd_sync</b>. Значение этой переменной записывается в поле эхо каждого посылаемого  управляющего пакета. Когда управляющий пакет получен, код поля sync сравнивается со значением <b>Rcvd_sync.</b> Если sync <font face="symbol">і</font> Rcvd_sync, то управляющий пакет обрабатывается нормально. В противном случае управляющий пакет содержит информацию, которая  старее полученной с предыдущими пакетами, и обрабатываться не должен.</p>
+
+<p align="justify">Поле <i>номер по прядку</i> (<i>SEQ</i>) характеризуется 64-разрядным числом без знака и представляет собой порядковый номер байта в передаваемом потоке. Для первого пакета (first) поле <i>SEQ</i> характеризует  объем буферов для потока откликов, а для пакетов Join это поле содержит дентификатор получателя (ключ контекста). Join-пакет отклик на запрос содержит в поле <i>SEQ</i> порядковый номер байта для текущей ассоциации. Диапазон значений поля номер по порядку для информационных пакетов начинается с <I>SEQ</i> и простирается вплоть до <i>SEQ+ DLEN - 1</i>. Для DIAG пакетов поле <i>SEQ</i> содержит код <i>SEQ</i> входного пакета, который вызвал ошибку. Если посылка пакета DIAG вызвана не входным пакетом, код <i>SEQ</i> должен быть равен нулю.</p>
+
+<p align="justify">Вслед за заголовком обычно следует его расширение (сегмент), формат которого зависит от типа пакета. Используются управляющие и информационные сегменты.</p>
+
+<p align="justify">Управляющие сегменты несут в себе информацию о состоянии контекста, его приславшего. XTP пакеты, содержащие управляющие сегменты называются контрольными пакетами. Управляющие сегменты содержат пакеты типа Cntl, Ecntl и Tcntl. Управляющий сегмент Cntl-пакета несет в себе информацию об управлении обменом. Ecntl-пакеты включают в себя сегменты управления ошибками, а Tcntl-пакеты - сегменты управления трафиком. Формат управляющего сегмента показан на рис. 4.4.5.5.</p>
+
+<p align="center"><img src="image360.gif" tppabs="http://book.itep.ru/4/44/image360.gif"></p>
+<p align="center">Рис. 4.4.5.5 Формат общего управляющего сегмента пакета XTP</p>
+
+<p align="justify">Три поля общего управляющего сегмента представляют статусную информацию и содержатся во всех трех типах контрольных пакетов. Первые два поля <i>RSEQ</i> и <i>alloc</i> являются параметрами управления обменом. Поле <i>Echo</i> используется для идентификации контрольных пакетов, которые являются откликом на пакеты с битом SREQ=1. Поле <i>RSEQ</i> содержит в себе номер очередного байта, подлежащего пересылке, и определяет начало окна,  управляющего обменом. Поле <i>Alloc</i> интерпретируется, когда разрешено  управление обменом. Код поля <i>Alloc</i> определяет объем данных, который  отправитель может послать (а получатель принять). Если бит RES=1, то поле <i>Alloc</i> задает размер буфера, зарезервированного для данной ассоциации. Поле <i>Echo</i> используется для установления соответствия между запросом статуса и контрольными пакетами. Код поля <i>Echo</i> равен наибольшему значению sync для полученных пакетов. Это значение хранится в контекстной переменной <b>rcvd_sync</b>. Когда формируется контрольный пакет, значение <b>rcvd_sync</b> заносится в поле <i>Echo</i> этого пакета. </p>
+
+<p align="justify">Формат сегмента управления ошибками показан на рис. 4.4.5.6. Этот сегмент включает в себя все поля общего управляющего сегмента,  дополнительно использовано только два поля <i>Nspan</i> и <i>Spans,</i> которые
+  сообщают о том, какие пакеты потеряны.</p>
+
+<p align="center"><img src="image361.gif" tppabs="http://book.itep.ru/4/44/image361.gif"></p>
+<p align="center">Рис. 4.4.5.6 Формат сегмента управления ошибками</p>
+
+<p align="justify">Сегмент управления ошибками используется в пакетах Ecntl. Поле <i>Nspan</i> определяет число <i>Spans</i> в Ecntl-пакете. Так как пакет Ecntl посылается только в случае потери информации, поле <i>Nspan</i> несет в себе код не меньше 1. Поле <i>Spans</i> содержит в себе <i>Nspan</i> пар чисел, которые характеризуют интервалы номеров байт, переданных корректно. Речь здесь идет о данных, имеющих номера больше того, который указан в поле <i>RSEQ</i>. На основании этих данных можно вычислить, какая именно информация потеряна.</p>
+
+<p align="justify">Формат сегмента управления трафиком показан на рис. 4.4.5.7. Помимо полей общего управляющего сегмента здесь присутствуют поля <i>RSVD</i> и <i>XKEY</i>, а также <i>спецификация трафика</i>. Поле <i>RSVD</i> является резервным и должно содержать нуль. Поле XKEY является обязательной принадлежностью всех Tcntl-пакетов, величина этого поля должна равняться   значению ключа для контекста, посылающего пакет (бит RTN=1). Спецификация трафика используется в пакетах типа first и Tcnnl. Пакет first предлагает  параметры режима обмена, а Tcntl несет в себе отклик на это предложение.</p>
+
+<p align="center"><img src="image362.gif" tppabs="http://book.itep.ru/4/44/image362.gif"></p>
+<p align="center">Рис. 4.4.5.7 Формат сегмента управления трафиком</p>
+
+<p align="justify">Поле <i>tlen</i> определяет длину спецификации трафика, включая 4-байтовый дескриптор (<i>tlen <font face="symbol">і</font> </i>). Поле <i>service</i> используется для задания типа транспортного сервиса на фазе установления режима обмена. Коды доступных видов сервиса представлены в таблице
+  4.4.5.4. Эта информация передается в пакете типа first.</p>
+
+<p align="center">Таблица 4.4.5.4. Коды поля тип сервиса (service)</p>
+  <center><table border="10" cellspacing="2" cellpadding="9" width="700" bgcolor="ghostwhite">
+    <tr>
+      <td width="16%" valign="top" bgcolor="gainsboro"><p align="center">Код типа сервиса </td>
+      <td width="84%" valign="top" bgcolor="gainsboro"><p align="justify">Описание</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x00</td>
+      <td width="84%" valign="top"><p align="justify">Не специфицировано</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x01</td>
+      <td width="84%" valign="top"><p align="justify">Традиционная передача дейтограмм без подтверждения</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x02</td>
+      <td width="84%" valign="top"><p align="justify">Передача дейтограмм с подтверждением</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x03</td>
+      <td width="84%" valign="top"><p align="justify">Реализация транзакций</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x04</td>
+      <td width="84%" valign="top"><p align="justify">Традиционная передача потока данных с гарантированной
+      доставкой</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x05</td>
+      <td width="84%" valign="top"><p align="justify">Передача потока данных в мультикастинг-режиме без
+      подтверждения</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><p align="center">0x06</td>
+      <td width="84%" valign="top"><p align="justify">Мультикастинг режим передачи потока данных с гарантированной
+      доставкой</td>
+    </tr>
+  </table> </center>
+
+<p align="justify">Поле <i>tformat</i> определяет формат поля <i>traffic</i>. Код tformat=0 используется тогда, когда не нужно ни какой спецификации трафика, в 4-байтовое поле <i>traffic</i> в этом случае записываются нули. В противном случае используется код tformat=0x01. Формат поля <i>traffic</i> для этого арианта показан на рис. 4.4.5.8.</p>
+
+<p align="center"><img src="image363.gif" tppabs="http://book.itep.ru/4/44/image363.gif"></p>
+<p align="center">Рис. 4.4.5.8 Формат поля <i>traffic</i></p>
+
+<p align="justify">Поле <i>maxdata</i> несет в себе код максимального размера информационного сегмента, который отправитель может послать за время жизни  ассоциации. Поля <i>inrate</i> и <i>inburst</i> представляют собой параметры,  определяющие входной поток данных. Поля <i>outrate</i> и <i>outburst</i>  являются параметрами, задающими выходной поток данных.</p>
+
+<p align="justify">Информационный сегмент включает в себя пользовательскую и другую протокольную и диагностическую информацию. XTP-пакеты, содержащие информационный сегмент, называются информационными пакетами. К их числу относятся пакеты типа data, first, join и diag. Информационные пакеты могут включать в себя сегмент данных, адресный сегмент, спецификатор трафика и диагностический сегмент. Формат полей адресного сегмента показан на рис. 4.4.5.9.</p>
+
+<p align="center"><img src="image364.gif" tppabs="http://book.itep.ru/4/44/image364.gif"></p>
+<p align="center">Рис. 4.4.5.9 Формат полей адресного сегмента</p>
+
+<p align="justify">Адресный сегмент используется в пакетах типа first и join. Протокол XTP использует параметрическую схему адресации, возможны несколько форматов адресов отправителя и места назначения. Поле <i>Alen</i> определяет полную длину адресного сегмента. Поле <i>Adomain</i> представляет собой  адресный демультиплексор, допуская работу с несколькими адресными доменами. Поле <i>Adomain</i> используется в частности для того, чтобы обеспечить совместимость с протоколами UDP и TCP (для TCP Adomain=6, для UDP 17, а для XTP 36). Поле <i>Aformat</i> идентифицирует адресный синтаксис в соответствии с таблицей 4.4.5.5.</p>
+
+<p align="center">Таблица 4.4.5.5. Значения кодов поля <i>Aformat</i> </p>
+
+<center><table border="10" cellspacing="2" cellpadding="5" width="700" bgcolor="ghostwhite">
+    <tr>
+      <td width="13%" valign="top" bgcolor="gainsboro"><b><p align="center">Код поля aformat</b></td>
+      <td width="87%" valign="top" bgcolor="gainsboro"><b><p align="justify">Синтаксис адреса</b></td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x00</td>
+      <td width="87%" valign="top"><p align="justify">Нулевой адрес</td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x01</td>
+      <td width="87%" valign="top"><p align="justify">ip-адрес</td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x02</td>
+      <td width="87%" valign="top"><p align="justify">ISO адрес протокольного сетевого уровня для
+      передачи без установления связи</td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x03</td>
+      <td width="87%" valign="top"><p align="justify">Адрес сети Ксерокс</td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x04</td>
+      <td width="87%" valign="top"><p align="justify">IPX-адрес</td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x05</td>
+      <td width="87%" valign="top"><p align="justify">Локальный адрес</td>
+    </tr>
+    <tr>
+      <td width="13%" valign="top"><p align="center">0x06</td>
+      <td width="87%" valign="top"><p align="justify">IP-адрес версии 6</td>
+    </tr>
+  </table>  </center>
+
+<p align="justify">Поле <i>адрес</i> несет в себе адреса отправителя и получателя пакетов, форматы которых заданы полем <i>Aformat</i>.</p>
+
+<p align="justify">Формат полей сегмента данных показан на рис. 4.4.5.10. Эти сегменты предназначены для применения на прикладных пользовательских уровнях и программами поддержки протокола XTP не интерпретируются. Сегмент включается в пакеты типа first и data.</p>
+
+<p align="center"><img src="image365.gif" tppabs="http://book.itep.ru/4/44/image365.gif"></p>
+<p align="center">Рис. 4.4.5.10 Формат полей сегмента данных</p>
+
+<p align="justify">Размер поля <i>Data</i> имеет произвольное значение, первые 8 байт (поле <i>Btag</i>) представляют собой специальную метку (если бит опций заголовка btag=1). При Btag=0 метка отсутствует. Интерпретация поля <i>Btag</i> осуществляется исключительно прикладной программой и для XTP его значение  безразлично.</p>
+
+<p align="justify">Формат полей диагностического сегмента показан на рис. 4.4.5.11. Этот сегмент используется пакетами типа DIAG для информирования протокольной или прикладной программы о случаях ошибок. Поле <i>Code</i> определяет тип и категорию ошибки, вызвавшей отправку пакета типа DIAG. Поле <i>val </i>позволяет уточнить причину ошибки. Поле <i>message</i> является опционным и может иметь произвольную длину. Обычно это поле содержит текстовую
+  интерпретацию полей <i>Code</i> и <i>VAL</i>.</p>
+
+<p align="center"><img src="image366.gif" tppabs="http://book.itep.ru/4/44/image366.gif"></p>
+<p ALIGN="CENTER">Рис. 4.4.5.11 Форматы полей диагностического сегмента</p>
+ 
+  
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="icmp_444.htm" tppabs="http://book.itep.ru/4/44/icmp_444.htm"><FONT COLOR="lightblue">4.4.4 Протокол    передачи команд и сообщений об ошибках (ICMP)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="arp_446.htm" tppabs="http://book.itep.ru/4/44/arp_446.htm"><FONT COLOR="lightblue">4.4.6 Протокол    преобразования адресов ARP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

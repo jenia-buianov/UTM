@@ -1,0 +1,9 @@
+X:\UTM\PW\BezierApp\BezierApp\bin\Debug\BezierApp.exe.config
+X:\UTM\PW\BezierApp\BezierApp\bin\Debug\BezierApp.exe
+X:\UTM\PW\BezierApp\BezierApp\bin\Debug\BezierApp.pdb
+X:\UTM\PW\BezierApp\BezierApp\obj\Debug\BezierApp.Form1.resources
+X:\UTM\PW\BezierApp\BezierApp\obj\Debug\BezierApp.Properties.Resources.resources
+X:\UTM\PW\BezierApp\BezierApp\obj\Debug\BezierApp.csproj.GenerateResource.Cache
+X:\UTM\PW\BezierApp\BezierApp\obj\Debug\BezierApp.exe
+X:\UTM\PW\BezierApp\BezierApp\obj\Debug\BezierApp.pdb
+X:\UTM\PW\BezierApp\BezierApp\obj\Debug\BezierApp.csprojResolveAssemblyReference.cache

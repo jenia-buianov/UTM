@@ -1,0 +1,254 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="transmit IP-phone IP-телефония
+
+
+
+
+
+
+">
+<TITLE>2.4.3 Передача голоса по каналам Интернет</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="vcod_242.htm" tppabs="http://book.itep.ru/2/24/vcod_242.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="sound_24.htm" tppabs="http://book.itep.ru/2/24/sound_24.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="pic_25.htm" tppabs="http://book.itep.ru/2/25/pic_25.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="vcod_242.htm" tppabs="http://book.itep.ru/2/24/vcod_242.htm"><FONT COLOR="lightblue">2.4.2 Кодировщики голоса (Vocoder)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="sound_24.htm" tppabs="http://book.itep.ru/2/24/sound_24.htm"><FONT COLOR="lightblue">2.4 Методы    преобразования и передачи звуковых сигналов</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="pic_25.htm" tppabs="http://book.itep.ru/2/25/pic_25.htm"><FONT COLOR="lightblue">2.5 Методы преобразования и передачи изображения</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>2.4.3 Передача голоса по каналам Интернет</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<p align="center"><img src="phone1.jpg" tppabs="http://book.itep.ru/2/24/phone1.jpg"> </p>
+
+<p align="justify">Несколько лет назад появился новый вид услуг в Интернет - голосовая связь 
+(IP-phone, Vocaltec). Сегодня имеется 30 миллионов абонентов, регулярно пользующихся IP-phone и 
+его аналогами, ожидается до 200 миллионов до конца текущего десятилетия, качество передачи 
+постепенно приближается к уровню цифровой телефонии.</p>
+
+<p align="justify">Среди пользователей есть те, для кого это лишь возможность общения, как для 
+радиолюбителей; но все больше людей использует IP-phone для деловых контактов или даже как объект 
+бизнеса.</p>
+
+<p align="justify">Существуют два алгоритма сжатия звуковой информации, используемых для 
+ip-телефонных переговоров: GSM (global system for mobile communications, 
+ftp.cs.tu-berlin.de/pub/local/kbs/tubmik/gsm), которая обеспечивает коэффициент сжатия 5, и 
+алгоритм DSP-группы (true speech) с коэффициентом сжатия данных 18 (работает при частотах 7.7 
+кбит/с). Добавление аппаратных средств сжатия информации позволяет сократить необходимую полосу 
+до 6.72 Кбит/с. Потеря 2-5% пакетов остается незамеченной, 20% оставляет разговор понятным. 
+В таблице 2.4.3.1 представлена зависимость необходимой полосы телекоммуникационного канала от 
+частоты стробирования звукового сигнала, которая определяет качество воспроизведения.</p>
+
+<p align="center">Таблица 2.4.3.1. </p>
+
+<center> <table border=10 cellspacing=2 cellpadding=5 width=531 bgcolor="ghostwhite">
+<tr><td width="51%" valign="top" bgcolor="gainsboro"><b><center> <p>Пропускная способность<br>[бит/с]</b></center></td>
+<td width="49%" valign="top" bgcolor="gainsboro"><b><center> <p>Частота стробирования<br> [1/с]</b></center></td>
+</tr>
+<tr><td width="51%" valign="top"><p align="center">9600</td>
+<td width="49%" valign="top"><p align="center">4000</td>
+</tr>
+<tr><td width="51%" valign="top"><p align="center">14400</td>
+<td width="49%" valign="top"><p align="center">6000</td>
+</tr>
+<tr><td width="51%" valign="top"><p align="center">19200</td>
+<td width="49%" valign="top"><p align="center">8000</td>
+</tr>
+<tr><td width="51%" valign="top"><p align="center">28800</td>
+<td width="49%" valign="top"><p align="center">11000</td>
+</tr>
+</table></center> 
+
+<p align="justify">Для подключения к сети ip-phone необходима мультимедийная карта, микрофон, 
+динамики (или наушники), 8 Мбайт оперативной памяти, доступ к Интернет и соответствующее 
+программное обеспечение. Качество передачи звука зависит от загруженности IP-канала. В качестве 
+транспорта используется протокол UDP. Для обеспечения высокого качества звука нужна 
+гарантированная ширина IP-канала, ведь задержанные сверх меры UDP-дейтограммы теряются 
+безвозвратно, что и приводит к искажениям. Внедрение протоколов, гарантирующих определенную ширину 
+канала сделают IP-phone значительно более привлекательным. Многие компании уже предлагают такое 
+оборудование и программы. Программы и описания этого вида услуг можно найти по адресам:</p>
+
+<a href="tppmsgs/msgs2.htm#205" tppabs="ftp://book.itep.ru:80/2/24/ cs.ucl.ac.uk/mice/videoconference/vat"> ftp://cs.ucl.ac.uk/mice/videoconference </a> <br>
+<a href="tppmsgs/msgs2.htm#206" tppabs="http://www.pulver.com/netwatch"> http://www.pulver.com/netwatch</a><br>
+<a href="tppmsgs/msgs2.htm#207" tppabs="http://www.planeteers.com/">      http://www.planeteers.com </a> <br>
+<a href="tppmsgs/msgs2.htm#208" tppabs="http://www.newparadigm.com/">     http://www.newparadigm.com </a> <br>
+<a href="tppmsgs/msgs2.htm#209" tppabs="http://www.vocaltec.com/">        http://www.vocaltec.com </a> <br>
+<a href="tppmsgs/msgs2.htm#210" tppabs="http://www.itelco.com/">          http://www.itelco.com </a> <br>
+<a href="tppmsgs/msgs2.htm#211" tppabs="http://www.quarterdeck.com/">     http://www.quarterdeck.com </a> <br>
+
+<p align="justify">В последнее время технология передачи звука по каналам Интернет стала широко 
+использоваться для трансляции новостей и музыки. При этом обеспечивается вполне удовлетворительное 
+качество даже при передаче стерео программ. В этом случае имеется возможность применить более 
+эффективное сжатие информации и протоколы типа <a href="rtp_4492.htm" tppabs="http://book.itep.ru/4/44/rtp_4492.htm"> RTP и RTCP</a>. 
+Задержка при передаче в этом случае никакого значения не имеет, а качество доставки гарантировано. 
+Современные системы ip-телефонии снабжены гибкой системой буферов, позволяющих использовать для 
+передачи паузы, когда один из партнеров молчит. (См. также "RTP Payload for DTMF Digits, 
+Telephony Tones and Telephony Signals. H. Schulzrinne, S. Petrack. May 2000" RFC-2833 и  
+"URLs for Telephone Calls. A. Vaha-Sipila. April 2000". RFC-2806). </p>
+
+<p align="justify"> В настоящее время имеется практически полный набор технологий, чтобы создать 
+электронную книгу. Такая книга будет представлять собой систему размером с ноут-бук, 
+снабженное устройством для чтения CD-дисков. Текст книги вместе с иллюстрациями и необходимыми 
+командными последовательностями записывается на CD. При этом в перспективе можно рассматривать 
+возможность того, что такое устройство будет читать "книгу" вслух (вывод на наушники).  В 
+настоящее время имеется достаточно большое количество книг, записанных на cd. Это, прежде всего,
+энциклопедические словари, альбомы музеев, библия и многие другие. Преимущество такой формы книги
+уже сегодня ощутимо - вы можете использовать современные поисковые средства, чтобы найти нужный
+раздел или какую-то конкретную информацию. По мере развития этой технологии и интеграции ее с
+сетями можно будет осуществлять поиск не только по данной книге, но и по книгам или журналам,
+ссылки на которые в данной книге содержатся, что может быть особенно полезно при первичном
+знакомстве с какой-то проблемой. Я здесь не говорю о компактности, а в перспективе, и 
+долговечности такой формы записи информации. При звуковом воспроизведении читатель сможет 
+выбирать, голосом какого актера или актеров будет читаться данная книга. Разумеется, для этого 
+не потребуется начитывать данный текст самим актерам. Достаточно иметь запись характерных 
+особенностей голоса и интонаций конкретного голоса, а процессор сам при генерации звука будет 
+использовать голосовые особенности того или иного человека. Немного фантазии и можно будет 
+представить, как ЭВМ будет воспроизводить текст в виде фильма, который она сгенерировала по 
+выданному ей тексту (ведь сгенерирован же на ЭВМ корабль "Титаник" и море, по которому он плывет). 
+Аналогичные услуги смогут оказываться и через сеть Интернет. Наибольшие трудности вызовет 
+реализация качественного воспроизведения. Программы способные преобразовывать символьный текст 
+в голос уже существуют. Проблема распознавания индивидуального голоса давно решена в охранных 
+системах. Осталось научиться использовать результаты такого анализа при воспроизведении.</p>
+
+<p align="justify">Активно разрабатываются многие новые стандарты и протоколы для обеспечения 
+передачи звука по ip-каналам, проведения видеоконференций и управления в реальном масштабе времени. 
+К таким протоколам относятся <b>RTP</b> (real time protocol, RFC-1889, -1890), <b>RTCP</b> 
+(real-time control protocol), который является дополнением RTP, и RSVP (resource reservation 
+protocol, см. разделы проектов IETF nic.nordu.net, ftp.isi.edu, munnari.oz.au и ds.internic.net 
+или ftp.ietf.org/internet-drafts/draft-ietf-rsvp-spec-16.txt), служащий для обеспечения 
+своевременной доставки данных при работе в реальном времени. Протокол RTP способен работать помимо 
+UDP/IP в сетях CLNP, ATM и IPX. Он обеспечивает детектирование потерь, идентификацию содержимого, 
+синхронизацию и безопасность (доступ по шифрованному паролю, см. RFC-1423). Проблема синхронизации 
+при передаче звука особенно важна, так как даже для локальных сетей время доставки 
+пакетов может варьироваться в весьма широких пределах из-за используемого алгоритма доступа 
+(например, CSMA/CD), а это приводит к искажениям при воспроизведении. Протоколы RTP и RTCP
+позволяют одновременное голосовое общение неограниченного числа людей в рамках сети Интернет. 
+Протокол же RSVP (или его аналог) в случае внедрения гарантирует качество связи 
+(разумеется, при достаточной широкополосности канала) за счет повышения приоритета пакетов 
+реального времени. Следует иметь в виду, что голосовое общение, хотя и весьма привлекательно, не 
+является единственной и даже главной целью разработчиков. По мере совершенствования протоколов 
+Интернет сделает возможным управление в реальном масштабе времени довольно сложными 
+удаленными объектами. </p>
+
+<p align="justify">В таблице 2.4.2 представлены характеристики аудио-кодеков, которые можно 
+использовать в IP-телефонии.</p>
+
+<p align="center"><b>Таблица 2.4.2. </b>  Характеристики аудио-кодеков </p>
+
+<center><table border=10 cellspacing=2 cellpadding=5 width=500 bgcolor="ghostwhite">
+<tr><td width="20%" valign="top" bgcolor="gainsboro"><p align="center"><b> Кодек</b></td>
+<td width="80%" valign="top" bgcolor="gainsboro"><p align="justify">Выходная скорость кодека</td>
+</tr>
+<tr><td width="20%" valign="top"><p align="center"><b> G.711</b></td>
+<td width="80%" valign="top"><p align="justify">64 кбит/с</td>
+</tr>
+<tr><td width="20%" valign="top"><p align="center"><b> g.723.1</b></td>
+<td width="80%" valign="top"><p align="justify">5,3 или 6,4 кбит/с</td>
+</tr>
+<tr><td width="20%" valign="top"><p align="center"><b> g.722</b></td>
+<td width="80%" valign="top"><p align="justify">48, 56 или 64 кбит/с</td>
+</tr>
+<tr><td width="20%" valign="top"><p align="center"><b> g.728</b></td>
+<td width="80%" valign="top"><p align="justify">16 кбит/с</td>
+</tr>
+<tr><td width="20%" valign="top"><p align="center"><b> g.728/g.729a</b></td>
+<td width="80%" valign="top"><p align="justify">8 кбит/с</td>
+</tr>
+</table></center>
+
+<p align="justify">При внедрении ip-телефонии желательно, чтобы сетевая инфраструктура 
+обеспечивала:</p>
+
+<ul><li>Время задержки в одну сторону менее 100 мсек.</li>
+<li>Вероятность потери пакета менее 5%.</li>
+<li>Оборудование должно соответствовать требованиям H.323v2, а механизмы безопасности - 
+стандарту H.235.</li>
+<li>Наличие функции привратника в маршрутизаторе/шлюзе (блокирует установку новых телефонных 
+соединений при отсутствии необходимых ресурсов)</li> </ul>
+<p align="justify">Одна из возможных реализаций IP-телефонии показана на рис. 2.4.3.1. (MVD – 
+Multiflex Voice/WAN модуль, включаемый в маршрутизатор, например, Cisco-3662).</p>
+
+<p align="center"><img src="ip_pho.jpg" tppabs="http://book.itep.ru/2/24/ip_pho.jpg"> <BR>
+Рис. 2.4.3.1. Пример реализации системв IP-телефонии</P>
+
+<P ALIGN="JUSTIFY">На рисунке MVW-модуль (Multiflex Voice/WAN), включаемый в маршрутизатор, например, 
+CISCO-3662, служит для связи с общедоступной телефонной сетью. Если сеть “А” размещена в 
+Рио-де-Жанейро, а “В” в Москве, то любой клиент нижней сети сможет разговаривать с клиентом в Рио 
+“бесплатно”, а с клиентами телефонных сетей “А” и “B” по локальным тарифам. В левой части рисунка 
+показаны телефонные аппараты, которые подключаются непосредственно к сегменту локальной сети. Такие 
+приборы уже поступили в продажу.</P>
+<P ALIGN="JUSTIFY">Связь может осуществляться как с традиционной старой аналоговой телефонной сетью, 
+так и с ISDN. Телефонные аппараты могут подключаться непосредственно к интерфейсу маршрутизатора, 
+к сетевой рабочей станции или к специальному сетевому адаптеру.</P>
+
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="vcod_242.htm" tppabs="http://book.itep.ru/2/24/vcod_242.htm"><FONT COLOR="lightblue">2.4.2 Кодировщики голоса (Vocoder)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="sound_24.htm" tppabs="http://book.itep.ru/2/24/sound_24.htm"><FONT COLOR="lightblue">2.4 Методы    преобразования и передачи звуковых сигналов</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="pic_25.htm" tppabs="http://book.itep.ru/2/25/pic_25.htm"><FONT COLOR="lightblue">2.5 Методы преобразования и передачи изображения</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

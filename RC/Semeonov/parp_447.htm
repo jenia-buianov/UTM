@@ -1,0 +1,100 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="прокси-ARP
+
+
+
+
+
+
+">
+<TITLE>4.4.7 Прокси-ARP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="arp_446.htm" tppabs="http://book.itep.ru/4/44/arp_446.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="rarp_448.htm" tppabs="http://book.itep.ru/4/44/rarp_448.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="arp_446.htm" tppabs="http://book.itep.ru/4/44/arp_446.htm"><FONT COLOR="lightblue">4.4.6 Протокол    преобразования адресов ARP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="rarp_448.htm" tppabs="http://book.itep.ru/4/44/rarp_448.htm"><FONT COLOR="lightblue">4.4.8 Протокол обратного адресного преобразования RARP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.7 Прокси-ARP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">Еще одна разновидность протокола ARP служит для того, чтобы один и тот же сетевой префикс адреса можно было использовать для двух сетей. Этот протокол называется смешанным протоколом ARP (proxy). Предположим, мы имеем сеть из четырех ЭВМ (1-4; рис. 4.4.7.1), которую бы мы хотели соединить с другой сетью из четырех ЭВМ (5-8), причем так, чтобы машины взаимодействовали друг с другом так, будто они принадлежат одной сети. Решить эту проблему можно, соединив эти сети через маршрутизатор M, работающий в соответствии со смешанным протоколом ARP (функционально это IP-мост). Маршрутизатор знает, какая из машин принадлежит какой физической сети. Он перехватывает широковещательные ARP-запросы из сети 1, относящиеся к сети 2, и наоборот. Во всех случаях в качестве физического адреса маршрутизатор возвращает свой адрес. В дальнейшем, получая дейтограммы, он маршрутизирует их на физические адреса по их IP-адресам.</P>
+
+<P ALIGN="CENTER"><IMG SRC="image411.gif" tppabs="http://book.itep.ru/4/44/image411.gif"></P>
+<P ALIGN="CENTER">Рис. 4.4.7.1. Использование протокола proxy ARP</P>
+
+<P ALIGN="JUSTIFY">Не трудно видеть, что в смешанном протоколе ARP нескольким IP-адресам ставится в соответствие один и тот же физический адрес. Поэтому системы, где предусмотрен контроль за соответствием физических и IP-адресов, не могут работать со смешанным протоколом ARP. Главным преимуществом этого протокола является то, что он позволяет путем добавления одного маршрутизатора (Gateway) подключить к Интернет еще одну сеть, не изменяя таблиц маршрутизации в других узлах. Этот протокол удобен для сети, где есть ЭВМ, не способная работать с субсетями. Протокол используется при построении сетей Интранет.</P>
+
+
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="arp_446.htm" tppabs="http://book.itep.ru/4/44/arp_446.htm"><FONT COLOR="lightblue">4.4.6 Протокол    преобразования адресов ARP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="rarp_448.htm" tppabs="http://book.itep.ru/4/44/rarp_448.htm"><FONT COLOR="lightblue">4.4.8 Протокол обратного адресного преобразования RARP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

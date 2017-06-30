@@ -1,0 +1,348 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="X.500
+Поисковая система
+
+
+">
+<TITLE>4.5.8.3 X500</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="frd_4582.htm" tppabs="http://book.itep.ru/4/45/frd_4582.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="nfnd4584.htm" tppabs="http://book.itep.ru/4/45/nfnd4584.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="frd_4582.htm" tppabs="http://book.itep.ru/4/45/frd_4582.htm"><FONT COLOR="lightblue">4.5.8.2 FRED</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="nfnd4584.htm" tppabs="http://book.itep.ru/4/45/nfnd4584.htm"><FONT COLOR="lightblue">4.5.8.4 Система поиска NETFIND</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.8.3 X500</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">X.500 представляет собой протокол OSI для распределенных каталогов (индексов-оглавлений), разработанный CCITT. X.500 - протокол для работы с каталогами. X.500 предлагает распределенный каталог пользователей сети Интернет. X.500 поддерживает систему просмотра, а также добавления, модификации и удаления объектов в базе данных о людях (почтовый адрес, номер телефона, электронный адрес и пр.). Основным полем при поиске является фамилия, 
+название организации, отдела, страны. Треугольные скобки служат для выделения имени параметра, а вертикальная черта - для указания значения параметра.</P>
+
+<P ALIGN="JUSTIFY">Каждая секция каталога содержит часть глобальной базы данных и является доступной через сервер (именуемый </FONT>Directory System Agent - DSA). Каждая база данных поддерживается локально. Для пользователя же доступна вся база данных. Хотя информация, доступная через X.500, относится к людям и организациям, данная база пригодна для хранения и другой информации, например, о ресурсах сети, приложениях или оборудовании. Каждый вход в базу (объект 
+хранения, запись) в X.500 описывает один объект (человека, конкретный ресурс сети, или организацию) и носит название Distinguished Name (неповторимый идентификатор). Это имя включает в себя следующие поля: фамилия, имя, организация, e-mail для людей. Информация в каталоге X.500 (Directory Information Base - DIB) организована иерархически и носит название <I>информационное дерево каталога</I> (Directory Information Tree - DIT). На верхнем уровне - корневая запись (the World), затем следует уровень страны, уровень организации и, наконец, человека (ресурса и т.д.).</P>
+
+<P ALIGN="JUSTIFY">X.500 доступна через локальный сервер, интерактивно через telnet или через электронную почту (или X.25). Возможен доступ и с помощью WWW или GOPHER.</P>
+
+<P ALIGN="CENTER">Таблица 4.5.8.3.1</P>
+
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=3 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="42%" VALIGN="TOP" bgcolor="gainsboro"><P>Адрес сервера при доступе через Telnet (login)</TD>
+<TD WIDTH="38%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="JUSTIFY">Адрес X.25 (login)</TD>
+<TD WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="LEFT">Страна</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">jethro.ucc.su.oz.au (fred)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Австралия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">elem4.vub.ac.be (dua)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">222100611</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Бельгия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">x500.denet.dk (de)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Дания</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">login.dkuug.dk (ds)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Дания</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">nic.funet.fi (dua)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Финляндия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">20800603053201<BR>
+(login: dua, password: ucom.x)<BR>
+26245050230303</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Франция<BR>
+Франция <BR>
+Германия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">x500.ieunet.ie (de)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">272432590024</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Ирландия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">dir.ulcc.ac.uk (dua)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">UK</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P ALIGN="LEFT">ashe.cs.tcd.ie (de)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Ирландия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>jolly.nis.garr.it (de or fred)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">22225010083212</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Италия</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>zoek.nic.surfnet.nl (zoek)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Нидерланды</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>elc1.mat.torun.edu.pl (de или dish)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Польша</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>chico.rediris.es (directorio)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="JUSTIFY">2142160234013</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Испания</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>hypatia.umdc.umu.se (de)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">240374810306</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Швеция</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>nic.switch.ch (dua)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">22847971014540</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Швейцария</TD>
+</TR>
+<TR><TD WIDTH="42%" VALIGN="TOP"><P>paradise.ulcc.ac.uk (dua)</TD>
+<TD WIDTH="38%" VALIGN="TOP"><P ALIGN="LEFT">23421920014853</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Англия</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">Локальный клиент-серверы (Directory User Agent - DUA) имеются в общедоступном и коммерческом вариантах. Для получения более полного списка DUA, их описаний и места расположения рекомендуется обратиться к RFC 1292 / FYI 11 - "A Catalog of Available X.500 Implementations".</P>
+
+<P ALIGN="JUSTIFY">Существует три варианта интерфейсов для доступа к X.500 в интерактивном режиме:</P>
+
+<UL>
+<LI>строчные (de, dish, fred);</LI>
+<LI>управляемые через меню (sd, ранее известные как widget)</LI>
+<LI>базирующиеся на X-Windows (Xdi, Xlookup (или xlu), pod)</LI></UL>
+
+<P ALIGN="JUSTIFY">Сервер de (directory enquiries) рекомендуется в силу своей простоты для начинающих пользователей. Выход из de по команде q. Приведем перечень команд X.500.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">?&lt;тема&gt;</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает справочную информацию по данной теме (help).</TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">^C</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P ALIGN="JUSTIFY">(Ctrl-C) команда прерывания (например, поиска).</TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">*</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает все записи для выбранного поля. Этот же символ представляет собой подстановку для строк по умолчанию. В том качестве * может появиться где угодно, например, smit* и *smit*.</TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">-</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P ALIGN="JUSTIFY">Заменяет значение по умолчанию на пустую строку.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">После выдачи команды de пользователь должен заполнить четыре поля запроса (поиск не зависит от строчных или заглавных букв):</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="40%" VALIGN="TOP"><B><P ALIGN="LEFT">Фамилия</B></TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Символ * может использоваться где угодно. При пробеле в этом поле поиск будет проводиться по полям подразделение (отрасль) или организация.</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><B><P ALIGN="LEFT">Наименование подразделения</B></TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Название или сокращенное имя подразделения в организации, где работает искомое лицо. Напечатав *, вы выберете все подразделения. Это поле может быть опущено для мелких организаций.</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><B><P ALIGN="LEFT">Название организации</B></TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Название или сокращение для организации, где работает искомое лицо. Напечатав *, вы выберете все организации.</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><B><P ALIGN="LEFT">Название страны</B></TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Напечатав *, вы выберете все страны. В качестве названия страны можно напечатать ее код из двух букв (см. <A HREF="cntr_cod.htm" tppabs="http://book.itep.ru/10/cntr_cod.htm">приложение</A>).</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Чтобы осуществить поиск с использованием электронной почты, следует послать запрос по адресу directory@uninett.no со словом find в поле Subject. В тексте сообщения размещается запрос (один на один e-mail) в форме:</P>
+
+<B><P>find &lt;фамилия&gt; &lt;:название организации &lt;;название страны&gt;&gt; | &lt;;название страны&gt;</B> </P>
+<P ALIGN="JUSTIFY">Если название организации и страны опущены, то берутся значения по умолчанию, которые извлекаются из вашего электронного адреса. Результат поиска будет прислан по электронной почте. Для получения файла help напечатайте help вместо find. Хотя использование e-mail кажется архаичным, в некоторых случаях не слишком экстренных оно оправдано. Вы посылаете запрос и не
+ждете отклика в интерактивном режиме.</P>
+
+<P ALIGN="CENTER"><B> Примеры использования X.500.</B> </P>
+<P ALIGN="JUSTIFY">Введем команду: telnet nic.switch.ch и система свяжется с сервером:</P>
+<P>Trying 130.59.1.40 ... (IP-адрес сервера)<BR>
+Connected to nic.switch.ch.<BR>
+Escape character is '^]'.<BR>
+login: dua (здесь необходим ввод пароля)<BR>
+*** Welcome to the Swiss X.500 Directory Service ***<BR>
+*** Access to this service is exclusively allowed for ***<BR>
+*** - Swiss universities, schools &amp; organizations with a ***<BR>
+*** SWITCH service contract ***<BR>
+*** - foreign education &amp; research organizations ***<BR>
+Я опускаю процедуру выбора вида сервиса (позиция 1, как и в случае FRED).</P>
+<P ALIGN="JUSTIFY">SWITCHdirectory User Interfaces</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=765>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY"> [ 1 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">de (simple interface to find persons)</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 2 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">fred (simple white pages interface ('whois')</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 3 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">sd (menu oriented, only read functionality)</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 4 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">Dish (command line, full X.500 functionality)</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 5 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">Xdi (X window interface)</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 6 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">Xlu (X window interface)</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 7 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">XT-DUA (Commercial X window interface)</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 0 ]</TD>
+<TD WIDTH="90%" VALIGN="TOP"><P ALIGN="JUSTIFY">Leave this Menu (back to previous Menu)</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Снова вводим 1 (WHOIS-сервер) и получаем на экране:</P>
+<P>invoking interface "de", please wait....<BR>
+Welcome to the SWITCHdirectory Service<BR>
+Connecting to the Directory - wait just a moment please...<BR>
+You can use this directory service to look up telephone numbers and electronic mail addresses of people and organizations participating in the Pilot Directory Service.<BR>
+The interface offers several MODES of usage. Type ?modes for an explanation about the modes. You can change the mode by typing one of the following option letters at the prompt for a PERSON's name.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P ALIGN="JUSTIFY">s</B></TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Simple queries - the original style of this interface</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P ALIGN="JUSTIFY">p</B></TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Powerful, multiple organization searches</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P ALIGN="JUSTIFY">y</B></TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Yellow pages queries (uses power searching)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P ALIGN="JUSTIFY">u</B></TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Input queries in user-friendly name format</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P ALIGN="JUSTIFY">m</B></TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Menu to select modes or access help facilities</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">At any prompt:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">?</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">for HELP with the current question you are being asked</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">??</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">for HELP on HELP</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">q</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">to quit the Directory Service</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">Control-C</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">to abandon current query or entry of current query</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Simple query mode selected</P>
+<P ALIGN="JUSTIFY">Поищем "любые организации, известные в России", введя * в ответ на вопрос организации. Получаем:</P>
+
+<P>Department name, &lt;CR&gt; to search, * to list, ? for help<BR>
+:- *<BR>
+Organisation name, &lt;CR&gt; to search, * to list orgs, ? for help<BR>
+:- *<BR>
+Country name, &lt;CR&gt; to search, * to list countries, ? for help<BR>
+:- Russia (далее следует результат поиска по данному запросу)<BR>
+Found the following entries. Please select one from the list by typing the number corresponding to the entry you want.</P>
+<P>Russian Federation<BR>
+1 J.S.C. Mineralnye Udobreniya<BR>
+2 Moscow State University<BR>
+3 Radom-Vostok<BR>
+Organization name, &lt;CR&gt; to search, * to list orgs, ? for help</P>
+<P ALIGN="JUSTIFY">Не много, но все же..... (пример относится к 1994 году)</P>
+<P ALIGN="JUSTIFY">Печатаем 2 и получаем:</P>
+<P>Russian Federation<BR>
+Moscow State University<BR>
+In the meantime, displaying organization details.<BR>
+For information on people or departments, try again a little later.<BR>
+Russian Federation<BR>
+Moscow State University<BR>
+postal address MSU<BR>
+Moscow State University<BR>
+University Park<BR>
+Leninsky Gori<BR>
+Simple query mode selected<BR>
+Person's name, q to quit, * to list people, ? for help</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=9 WIDTH=737>
+<TR><TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">:- q</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">(прерываем сессию)</FONT></TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Для получения дополнительной информации рекомендуется прочесть RFC-1292 (доступные реализации X.500), RFC-1308 (Введение в службу каталогов, использующую протокол X.500) и RFC-1309 (технический обзор по протоколу X.500). Рекомендации по использованию X.500 можно получить, послав команду GET ITU-5233 по адресу itudoc@itu.ch. (объем документа весьма велик!). 
+Их других источников можно упомянуть:</P>
+
+<P>FTP nic.merit.edu documents/fyi/fyi_13.txt (fyi_11.txt, fyi_14.txt).<BR>
+telnet rs.internic.net.<BR>
+gopher judgmentday.rs.itd.umich.edu :7777/;<BR>
+WWW www.earn.net gnrt/x500.html;<BR>
+http1.brunel.ac.uk :8080/wlu.html.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="frd_4582.htm" tppabs="http://book.itep.ru/4/45/frd_4582.htm"><FONT COLOR="lightblue">4.5.8.2 FRED</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="nfnd4584.htm" tppabs="http://book.itep.ru/4/45/nfnd4584.htm"><FONT COLOR="lightblue">4.5.8.4 Система поиска NETFIND</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

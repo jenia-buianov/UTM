@@ -1,0 +1,8 @@
+D:\UTM\Grafica\lab1\lab1\bin\Debug\lab1.exe.config
+D:\UTM\Grafica\lab1\lab1\obj\Debug\lab1.csprojResolveAssemblyReference.cache
+D:\UTM\Grafica\lab1\lab1\obj\Debug\lab1.Properties.Resources.resources
+D:\UTM\Grafica\lab1\lab1\obj\Debug\lab1.csproj.GenerateResource.Cache
+D:\UTM\Grafica\lab1\lab1\bin\Debug\lab1.exe
+D:\UTM\Grafica\lab1\lab1\bin\Debug\lab1.pdb
+D:\UTM\Grafica\lab1\lab1\obj\Debug\lab1.exe
+D:\UTM\Grafica\lab1\lab1\obj\Debug\lab1.pdb

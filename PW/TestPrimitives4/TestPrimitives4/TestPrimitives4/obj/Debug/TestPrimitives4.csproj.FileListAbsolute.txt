@@ -1,0 +1,9 @@
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\bin\Debug\TestPrimitives4.exe.config
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\obj\Debug\TestPrimitives4.Form1.resources
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\obj\Debug\TestPrimitives4.Properties.Resources.resources
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\obj\Debug\TestPrimitives4.csproj.GenerateResource.Cache
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\bin\Debug\TestPrimitives4.exe
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\bin\Debug\TestPrimitives4.pdb
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\obj\Debug\TestPrimitives4.exe
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\obj\Debug\TestPrimitives4.pdb
+X:\UTM\PW\TestPrimitives4\TestPrimitives4\obj\Debug\TestPrimitives4.csprojResolveAssemblyReference.cache

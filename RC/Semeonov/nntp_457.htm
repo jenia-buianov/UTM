@@ -1,0 +1,630 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="NNTP
+группы новостей
+
+
+">
+<TITLE>4.5.7 Протокол новостей NNTP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="html4562.htm" tppabs="http://book.itep.ru/4/45/html4562.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="new_4571.htm" tppabs="http://book.itep.ru/4/45/new_4571.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="html4562.htm" tppabs="http://book.itep.ru/4/45/html4562.htm"><FONT COLOR="lightblue">4.5.6.2 Язык HTML</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="new_4571.htm" tppabs="http://book.itep.ru/4/45/new_4571.htm"><FONT COLOR="lightblue">4.5.7.1 Работа с сервером новостей</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.7 Протокол новостей NNTP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">Современное общество предъявляет весьма жесткие требования ко времени получения событийной информации. Это могут быть технические новинки, политические новости, уведомления о событиях (произошедших или грядущих) и т.д. Одной из форм оперативной рассылки и получения информации является электронная почта (в частности система LISTSERV). В таких системах помимо воли клиента в его почтовом ящике, как правило, скапливается огромное количество сообщений. 
+Причем в настоящее время здесь нет пока каких-либо механизмов фильтрации. Несколько иное решение предлагает протокол NNTP и сеть рассылки новостей USENET (cм. RFC-0977, Network News Transfer Protocol, B. Kantor, P.Lapsley. and RFC-1036, Standard for interchange of USENET messages, M.R. Horton, R. Adams). В USENET системе сообщение запоминается в базе данных сервера, а не в почтовых 
+ящиках подписчиков. Региональный депозитарий снабжается специальным программным обеспечением, которое позволяет подписчику отбирать статьи, представляющие для него интерес. Система имеет индексацию, облегчающую поиск, и удаление устаревших статей.</P>
+<P ALIGN="JUSTIFY">&#9;Для кластеров ЭВМ, объединенных ETHERNET (или другой быстродействующей локальной сетью) представляется целесообразным сконцентрировать функции хранения и распределения новостей в одном узле. При этом клиент может запросить любую статью тогда, когда это ему нужно, и 
+он не обязан предоставлять ресурсы для хранения копий статей. Учитывая то, что даже в небольшой локальной сети обычно достаточно много клиентов-подписчиков такая схема позволяет сэкономить достаточно большой объем дискового пространства. Следует учитывать, что интегральный поток новостей 
+сегодня превышает 300 Мбайт в сутки.</P>
+
+<P ALIGN="JUSTIFY">&#9;Сервер новостей должен размещаться в локальной сети, так как именно в этом случае время доступа минимально. Этот сервер должен заниматься сбором новостей и созданием необходимых индексных файлов. При большом числе ЭВМ такая схема дает значительную экономию дискового пространства.</P>
+
+<P ALIGN="JUSTIFY">&#9;NNTP представляет собой протокол для рассылки, подписки, поиска и доставки новостей на основе надежного протокола поточного типа (например, TCP) с использованием схемы клиент-сервер. NNTP сконструирован так, что статья, записанная в одном из серверов, становится доступной для всех подписчиков-клиентов. </P>
+
+<P ALIGN="JUSTIFY">&#9;Протокол NNTP предполагает применения стандартных сообщений, формат которых следует рекомендациям RFC 850. NNTP-сервер обычно работает в фоновом режиме. В больших сетях, где число клиентов велико, возможно использование нескольких серверов новостей, которые образуют 
+иерархическую систему. При этом клиент сначала пытается подключиться к ближайшему серверу. При неуспехе соединение либо абортируется, либо переадресуется другому серверу.</P>
+
+<P ALIGN="JUSTIFY">&#9;Единицей хранения на сервере является статья. Статьи составляют содержательную часть пересылаемых сообщений. В NNTP предусмотрены команды, которые обеспечивают непосредственный обмен статьями между взаимодействующими узлами (более эффективно, чем это позволяет, например, 
+UUCP).</P>
+<P ALIGN="JUSTIFY">Традиционный метод рассылки новостей предполагает распространение статей от узла к узлу, так что каждый сервер пересылает другому все новости, которые имеет. При этом неизбежно дублирование, связанное с этим увеличение трафика и повышенный расход ресурсов ЭВМ. Но такая схема 
+предельно проста и вполне оправдана, когда обмен новостями происходит один раз в сутки (дубликаты статей могут быть отфильтрованы позднее).</P>
+
+<P ALIGN="JUSTIFY">При использовании NNTP ЭВМ, обменивающиеся новостями, пользуются интерактивным механизмом в процессе принятия решения о том, какие статьи следует передать. При этом ЭВМ контактирует с одним или несколькими серверами новостей. Процедура начинается с запроса о формировании новых групп новостей, для чего выдается команда NEWGROUPS. Далее клиент делает запрос 
+о наличии новых статей из групп, представляющих интерес (команда NEWNEWS). В ответ сервер высылает список статей, а клиент может запросить их присылку, если он их не имеет. В заключение клиент может сообщить серверу, какие новые статьи он получил в последнее время.</P>
+
+<P ALIGN="JUSTIFY">Сервер новостей, специфицированный в NNTP, использует поточный обмен (подобный TCP), а также набор команд и откликов, схожий с SMTP. Этот сервер является единственным интерфейсом между программами и базами данных, хранящими новости. Он не выполняет взаимодействия с пользователем или каких-либо операций презентационного уровня. Эти функции передаются программам 
+клиента, которые имеют исчерпывающую информацию о среде. При работе через Интернет в рамках протокола TCP используется порт 119. На команды, посылаемые клиентом, предусмотрены текстовые и статусные отклики. Всякая сессия начинается с процедуры установления соединения между клиентом и сервером по инициативе клиента (например, с использованием протокола TCP).</P>
+
+<P ALIGN="JUSTIFY">&#9;Текст может посылаться только после цифрового статусного отклика. Текст имеет вид последовательности строк, каждая из которых завершается парой символов CR-LF. В конце текста всегда посылается строка, содержащая один символ (.), за которым следует CR-LF (как и в SMTP).</P>
+
+<P ALIGN="JUSTIFY">&#9;Если исходный текст содержит точку в начале строки, то она перед посылкой должна быть задублирована. Таким образом, клиент должен просматривать первые символы каждой полученной строки и, если это одиночная точка, прерывать дальнейший прием текста. Предполагается, что текстовый отклик будет отображен на дисплее пользователя, в то время как командно-статусный 
+отклик интерпретируется программой клиента.</P>
+
+<P ALIGN="JUSTIFY">Статусный отклик представляет собой реакцию сервера на команду, полученную от клиента. Строки статусного отклика начинаются с 3-значного десятичного кода, достаточного для описания любого отклика. Некоторые коды являются предшественниками последующего текстового отклика. 
+Первая цифра говорит об успехе, ошибке или процессе исполнения команды.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">1xx</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Информационное сообщение</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">2xx</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Команда ok</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">3xx</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Команда корректна, можно продолжать обмен.</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">4xx</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Команда корректна, но не может быть выполнена по какой-то причине.</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">5xx</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Команда неприменима, неверна или произошла серьезная ошибка в программе.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Следующая цифра кода характеризует категорию отклика.</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x0x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Соединение, установка режима, прочие сообщения</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x1x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выбор группы новостей</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x2x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выбор статьи</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x3x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Функции распределения</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x4x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отправка адресату</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x8x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Нестандартное (частное применение) расширение</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">x9x</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отладочный вывод</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Конкретное значение кодов отклика можно найти только в описании конкретной команды. Ниже приведен список кодов общего назначения, которые могут быть получены в любое время.</P>
+
+<P ALIGN="JUSTIFY">Некоторые статусные отклики могут иметь параметры (числа или имена). Число и тип параметров фиксировано для каждого конкретного отклика. Параметры отделяются от кода отклика и друг от друга одиночным пробелом. Все цифровые параметры имеют десятичное представление и могут начинаться с нулей. Все строковые параметры начинаются после пробела и завершаются пробелом или 
+символьной парой CR-LF, то есть не могут содержать в себе пробелов. Любой текст, который не является параметром отклика, должен отделяться от последнего параметра, если таковой имеется, пробелом и завершаться пробелом.</P>
+
+<P ALIGN="JUSTIFY">Не специфицированные коды-отклики могут использоваться для специфических новых команд. Такой код должен относиться к категории x8x (см. таблицу, приведенную выше). Применение не специфицированных откликов для стандартных команд запрещено.</P>
+
+<P ALIGN="JUSTIFY">&#9;Коды категории x9x зарезервированы для отладочных целей. Так как большинство отладочных откликов можно рассматривать как информационные сообщения, для отладочных выдач зарезервирован диапазон кодов 190-199.</P>
+<P ALIGN="JUSTIFY">Ниже приведен список сообщений общего назначения, которые может послать NNTP сервер. Эти отклики не привязаны к каким-то конкретным командам и могут быть присланы в результате сбоя или каких-то других необычных обстоятельств.</P>
+
+<P ALIGN="JUSTIFY">Вообще говоря, коды 1xx могут игнорироваться; коды 200 или 201 посылаются при начальном подключении к NNTP серверу в зависимости от наличия разрешения пересылки. Код 400 отправляется, когда NNTP сервер прерывает обслуживание, например по запросу оператора, а коды 5xx указывают на то, что процедура не будет выполнена, по какой-то необычной причине.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">100</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Поясняющий текст</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">190 – 199</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отладочный вывод</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">200</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сервер готов – отправка разрешена</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">201</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сервер готов – отправка запрещена</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">400</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Обслуживание прерывается</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">500</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Команда не распознана</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">501</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Синтаксическая ошибка в команде</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">502</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Доступ ограничен или нет разрешения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">503</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ошибка в программе – команда не выполнена</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Команды записываются в этом документе прописными буквами, хотя NNTP сервер игнорирует регистр, в котором они напечатаны. Параметры команд, помещенные в квадратные скобки, являются опционными. Длина команды не должна превышать 512 байт. </P>
+
+<B><P ALIGN="CENTER">Команды ARTICLE, BODY, HEAD и STAT</P>
+</B><P ALIGN="JUSTIFY">Существует две формы команды ARTICLE (и соответственно команд BODY, HEAD, и STAT), каждая из которых использует различные методы спецификации извлекаемой статьи. Когда за командой ARTICLE следует идентификатор сообщения в угольных скобках ("&lt;" и "&gt;"), используется 
+первая форма команды; когда же имеется цифровой параметр или нет параметра совсем, реализуется вторая форма. Текст статьи присылается в виде текстового отклика.</P>
+
+<P ALIGN="JUSTIFY">Команды HEAD и BODY идентичны команде ARTICLE за исключением того, что они возвращают соответственно только строки заголовка или основной текст статьи.</P>
+
+<P ALIGN="JUSTIFY">Команда STAT похожа на команду ARTICLE за исключением того, что не присылается никакого текста. Выбирая номер сообщения в пределах группы, команда STAT служит для установки указателя статьи без пересылки какого-либо текста. Возвращаемый отклик содержит идентификатор сообщения. Использование команды STAT для выбора статей по их идентификатору вполне работоспособно, 
+хотя и не слишком эффективно, так как такой отбор не изменяет текущий указатель статьи. </P>
+
+<P ALIGN="JUSTIFY"><B>ARTICLE &lt;message-id&gt;</B> </P>
+<P ALIGN="JUSTIFY">Команда отображает заголовок, пустую строку и 
+текст заданной статьи. Идентификатор сообщения (message-ID) представляет собой идентификатор, представленный в заголовке статьи. Предполагается, что клиент получит идентификатор сообщения из списка, предоставляемого командой NEWNEWS. Команда не изменяет указателя текущей статьи.</P>
+
+<B><P ALIGN="JUSTIFY">ARTICLE [nnn]</B> </P>
+<P ALIGN="JUSTIFY">Отображает заголовок, пустую строку и текст текущей или специфицированной статьи. Опционный параметр <I>nnn</I> представляет собой числовой идентификатор статьи (номер) в текущей группе новостей. Он должен быть выбран из диапазона, который был выдан при выборе группы. Если этого параметра нет, предполагается текущая статья. Эта команда устанавливает указатель текущей 
+статьи, если номер статьи указан корректно. </P>
+
+<P ALIGN="JUSTIFY">Откликом на команду будет номер текущей статьи, строка-идентификатор сообщения и собственно текст статьи. Присылаемая строка идентификатора сообщения представляет собой последовательность символов, заключенную в угловые скобки, которая извлечена из заголовка статьи 
+(согласно RFC-850). Если идентификаторная строка заголовка в статье отсутствует, в угловых скобках будет записан нуль.</P>
+
+<P ALIGN="JUSTIFY">Так как поле идентификатора сообщения для каждой статьи уникально, оно может использоваться для поиска и удаления статей-дубликатов.</P>
+<P ALIGN="JUSTIFY">Отклики:</P>
+
+<P>220 n &lt;a&gt; article retrieved – далее следует заголовок и сама статья (n = номер статьи, &lt;a&gt; = message-id)<BR>
+221 n &lt;a&gt; article retrieved – далее следует заголовок<BR>
+222 n &lt;a&gt; article retrieved – далее следует текст статьи<BR>
+223 n &lt;a&gt; article retrieved – текст запрашивается отдельно<BR>
+412 no newsgroup has been selected<BR>
+420 no current article has been selected<BR>
+423 no such article number in this group<BR>
+430 no such article found</P>
+<P ALIGN="JUSTIFY"><B> Команда GROUP ggg</B> </P>
+<P ALIGN="JUSTIFY">Обязательный параметр ggg представляет собой имя группы новостей, которая должна быть выбрана. Список доступных групп новостей может быть получен с помощью команды LIST.</P>
+
+<P ALIGN="JUSTIFY">Отклик на успешный выбор группы возвращает номера первой и последней статьи в группе и оценку общего числа статей в группе. Оценка может быть и не вполне корректной, она равна или превосходит реальное число статей.</P>
+
+<P ALIGN="JUSTIFY">Когда с помощью данной команды группа выбрана, внутренний указатель статьи устанавливается на первую запись в группе. Если выбрана несуществующая группа, остается в силе выбор предыдущей группы. При наборе имени группы выбранный регистр (строчные или прописные буквы) не играет роли.</P>
+<P ALIGN="JUSTIFY">Отклики:</P>
+
+<P ALIGN="JUSTIFY">211 n f l s group selected<BR>
+(n = оценка числа статей в группе; f = номер первой статьи в группе,<BR>
+l = номер последней статьи в группе; s = имя группы.)<BR>
+411 no such news group</P>
+<P ALIGN="JUSTIFY"><B> Команда HELP</B> </P>
+<P ALIGN="JUSTIFY">Команда дает краткое описание команд, которые может воспринять сервер. Отклик на команду имеет текстовую форму и завершается строкой с одиночной точкой в начале.</P>
+
+<P ALIGN="JUSTIFY">Отклик:&#9;100 help далее следует текст</P>
+<B><P ALIGN="JUSTIFY">Команда IHAVE &lt;messageid&gt;</P>
+</B><P ALIGN="JUSTIFY">Команда IHAVE информирует сервер о том, что клиент владеет статьей с идентификационным кодом &lt;messageid&gt;. Если сервер хочет скопировать статью, он пришлет отклик, предлагающий клиенту прислать ее. Если же сервер по какой-либо причине не хочет, чтобы ему прислали копию этой статьи (например, он ее уже имеет), он оповещает клиента об этом в своем отклике.</P>
+
+<P ALIGN="JUSTIFY">Если запрошена передача статьи, клиент должен выслать полный текст статьи, включая заголовок. Сервер в этом случае пришлет отклик, уведомляющий об успехе или неудаче этой операции.</P>
+
+<P ALIGN="JUSTIFY">Эта процедура отличается от команды POST в том, что последняя предназначена для пересылки полученных извне статей. Сервер может и не пересылать полученную статью другим серверам, в этом случае будут переданы коды ошибок 436 или 437.</P>
+
+<P ALIGN="JUSTIFY">Причиной отказа в рассылке может стать неверный код группы, ошибка в заголовке, неприемлемая длина статьи или ограничения дискового пространства. Обычно эти ограничения связаны с конфигурацией программного обеспечения на сервере.</P>
+
+<P ALIGN="JUSTIFY">Отклики:</P>
+<P>235 article transferred ok<BR>
+335 send article to be transferred. Завершение последовательностью &lt;CR-LF&gt;.&lt;CR-LF&gt;<BR>
+435 article not wanted – статью посылать не следует<BR>
+436 transfer failed – попытайтесь еще раз позднее<BR>
+437 article rejected – и не пытайтесь</P>
+<P ALIGN="JUSTIFY">Так как некоторые серверы новостей не могут немедленно принять решение относительно рассылки конкретной статьи, прием статьи подтверждается (код 235), а позднее она может быть молча выброшена. Такое решение не идеально, возможно оно будет пересмотрено позднее.</P>
+<B><P ALIGN="JUSTIFY">Команда LAST </P>
+</B><P ALIGN="JUSTIFY">Внутренний указатель на статью устанавливается на предшествующую запись в текущей группе. Если указатель уже установлен на первую статью, отправляется сообщение об ошибке, а указатель остается неизменным.</P>
+<P ALIGN="JUSTIFY">Отклик содержит текущий номер статьи и ее идентификатор.</P>
+<P ALIGN="JUSTIFY">Отклики:</P>
+<P>223 n a article retrieved – выборочно запрашивает текст<BR>
+(n = номер статьи, a = уникальный идентификатор статьи)<BR>
+412 no newsgroup selected<BR>
+420 no current article has been selected<BR>
+422 no previous article in this group</P>
+<P ALIGN="JUSTIFY"><B> Команда LIST</B> </P>
+<P ALIGN="JUSTIFY">Присылает список доступных групп новостей. Каждой группе новостей соответствует строка в следующем формате:</P>
+<P ALIGN="JUSTIFY">group last first p</P>
+<P ALIGN="JUSTIFY">где &lt;<I>group</I>&gt; название группы новостей, &lt;last&gt; номер последней известной статьи в данной группе, &lt;first&gt; номер первой статьи в группе, и &lt;p&gt; может быть либо 'y' либо 'n', указывая на наличие или отсутствие разрешения на рассылку соответственно.</P>
+
+<P ALIGN="JUSTIFY">Поля &lt;first&gt; и &lt;last&gt; являются числовыми. Они могут начинаться с нулей. Если код поля &lt;last&gt; превосходит код поля &lt;first&gt;, в файле данной группы новостей нет ни одной статьи.</P>
+<P ALIGN="JUSTIFY">Обратите внимание на то, что рассылка может быть запрещена клиенту, хотя команда LIST указывает на то, что она разрешена для данной группы новостей. Флаг рассылки существует для каждой группы новостей, так как некоторые группы подвергаются редактированию или обобщению и по этой причине не могут рассылаться. Присылаемая статья сначала по почте пересылается 
+посреднику-редактору, который может осуществить ее рассылку. Это не зависит от права рассылки, предоставленного клиенту NNTP-сервером.</P>
+
+<P ALIGN="JUSTIFY">Заметьте, что пустой список может быть вполне корректным откликом и означает, что в данный момент на сервере нет новостей.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отклик:</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">215 далее следует список групп новостей</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY"><B> Команда NEWGROUPS date time [GMT] [&lt;distributions&gt;]</B> </P>
+<P ALIGN="JUSTIFY">Список групп новостей создан с &lt;date и time&gt; будет представлен в том же формате, что и в случае команды LIST.</P>
+
+<P ALIGN="JUSTIFY">Дата посылается в виде 6 цифр в формате ГГММДД, где ГГ последние две цифры года, MM – номер месяца (с нулем в начале, если требуется) и ДД номер дня в месяце. Дополнение для года берется из предположения о ближайшем тысячелетии, так 86 предполагает 1986, 30 - 2030, 99 - 1999, 
+а 00 – 2000 годы.</P>
+
+<P ALIGN="JUSTIFY">Время должно характеризоваться также 6 цифрами в формате ЧЧMMСС, где ЧЧ – часы с начала суток в 24-часовом исчислении, MM минуты 00-59, а СС секунды 00-59. Временная зона определяется сервером, в противном случае появляется символьная комбинация "GMT", в этом случае и время и дата привязаны к нулевому меридиану.</P>
+
+<P ALIGN="JUSTIFY">Опционный параметр "distributions" представляет собой список групп рассылки, заключенный в угловые скобки. Если параметр задан, рассылаемая часть новых групп новостей будет сравниваться с данным списком, и только при совпадении включается в список. Если необходимо использовать более одного такого фильтра, то они разделяются друг от друга запятыми в пределах 
+угловых скобок.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отклик:</TD>
+<TD WIDTH="83%" VALIGN="TOP"><P ALIGN="JUSTIFY">231 далее следует список новых групп </TD>
+</TR>
+</TABLE>
+
+<B><P ALIGN="JUSTIFY">Команда NEWNEWS newsgroups date time [GMT] [&lt;distribution&gt;]</P>
+</B><P ALIGN="JUSTIFY">Команда формирует список идентификаторов статей для заданной группы новостей, с датой после указанной. Для каждого идентификатора сообщения в списке выделяется одна строка. Список завершается строкой с одиночным символом точки, за которым следует CR-LF. Дата и время задаются в том же формате, что и для команды NEWGROUPS.</P>
+
+<P ALIGN="JUSTIFY">Для расширения зоны поиска в имени группы новостей можно использовать символ "*". Программа может подставить вместо звездочки любую комбинацию символов. Если вместо имени группы подставлен символ звездочка, поиск будет проведен по всем группам новостей. </P>
+
+<P ALIGN="JUSTIFY">Если звездочка в имени группы отсутствует, новые статьи будут искаться только в группе, имя которой приведено в качестве параметра запроса. Имя группы должно быть взято из списка доступных групп. Допускается спецификация нескольких групп (имена разделяются запятыми). После 
+последнего имени группы не должно быть запятой.</P>
+
+<P ALIGN="JUSTIFY">&#9;Для отрицания соответствия может использоваться восклицательный знак. Это можно использовать для селективного исключения определенных групп новостей с целью сокращения размера списка. Например, спецификация групп "net.*,mod.*,!mod.map.*" определяет, что следует 
+просмотреть все статьи в группах net.&lt;что-то&gt; и mod.&lt;что-то&gt; за исключением mod.map.&lt;что-то&gt;. Восклицательный знак должен использоваться непосредственно перед первым символом выбранного имени группы новостей.</P>
+
+<P ALIGN="JUSTIFY">Опционный параметр "distributions" представляет собой список групп рассылки, заключенный в треугольные скобки. Если этот параметр задан, производится отбор статей, соответствующих категориям, приведенным в списке distribution.</P>
+
+<P ALIGN="JUSTIFY">Заметьте, что пустой список является вполне допустимым откликом и означает отсутствие новых статей. </P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=818>
+<TR><TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отклик:</TD>
+<TD WIDTH="87%" VALIGN="TOP"><P ALIGN="JUSTIFY">230 далее следует список идентификаторов новых 
+статей </TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY"><B> Команда NEXT </B> </P>
+<P ALIGN="JUSTIFY">Команда перемещает указатель текущей статьи на следующую запись в текущей группе новостей. Если в группе нет больше статей, посылается сообщение об ошибке, а указатель текущей статьи остается не измененным.</P>
+<P ALIGN="JUSTIFY">В качестве отклика на команду возвращается номер текущей статьи и идентификатор сообщения. Никаких текстовых сообщений не посылается.</P>
+<P ALIGN="JUSTIFY">Отклики:</P>
+
+<P>223 n a article retrieved, где n = номер статьи, a = уникальный 
+идентификатор статьи<BR>
+412 no newsgroup selected<BR>
+420 no current article has been selected<BR>
+421 no next article in this group</P>
+<P ALIGN="JUSTIFY"><B> Команда POST</B> </P>
+<P ALIGN="JUSTIFY">Если рассылка разрешена, в качестве отклика присылается код 340, который указывает, что статью, предназначенную для рассылки, можно присылать. Код отклика 440 указывает, что рассылка запрещена по причинам, зависящим от инсталляции. </P>
+
+<P ALIGN="JUSTIFY">Если рассылка разрешена, статья должна быть представлена в формате, описанном в RFC-850, и должна включать в себя все необходимые строки заголовка. После передачи заголовка и текста статьи от клиента к серверу последующий отклик будет свидетельствовать об успехе или неудаче доставки.</P>
+
+<P ALIGN="JUSTIFY">Сервер не осуществляет какой-либо фильтрации текста, и он в неизмененном виде будет рассылаться.</P>
+<P ALIGN="JUSTIFY">Отклики:</P>
+
+<P>240 article posted ok<BR>
+340 send article to be posted. Конец отмечается последовательностью &lt;CR-LF&gt;.&lt;CR-LF&gt;<BR>
+440 posting not allowed<BR>
+441 posting failed</P>
+<P ALIGN="JUSTIFY"><B> Команда QUIT </B> </P>
+<P ALIGN="JUSTIFY">Сервер подтверждает получение команды QUIT и затем закрывает канал связи с клиентом. Эта команда предоставляет клиенту корректную возможность сообщить NNTP-серверу, что все операции завершены и сессия закончена.</P>
+
+<P ALIGN="JUSTIFY">Если клиент просто разорвет связь, сервер должен также прекратить попытки взаимодействовать с клиентом.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отклик:</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">205 closing connection - goodbye!</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY"><B> Команда SLAVE </B> </P>
+<P ALIGN="JUSTIFY">Команда сообщает серверу, что он связывается не с пользователем, а с обслуживающим сервером (slave). Эта команда позволяет разделить случаи соединения сервера с отдельным пользователем и промежуточными обслуживающими серверами. Это может использоваться для предоставления приоритета запросам от таких клиентов, так как они обслуживают многих пользователей. Это может быть также использовано при возникновении проблем с внутренними ресурсами сервера, когда он может разорвать связи с некоторыми клиентами, сохраняя каналы с обслуживающими серверами. В NNTP-серверах, где приоритетное обслуживание не предусмотрено, команда должна все равно 
+распознаваться и подтверждаться ее получение</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отклик:</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">202 slave status noted</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Ниже приведены примеры (Примеры заимствованы из RFC-0977, Network News Transfer Protocol, B. Kantor, P.Lapsley. (Там их больше)) диалога между клиентом и сервером. Букве <B>C:</B> соответствует клиент, а букве <B>S:</B> - сервер. </P>
+
+<B><P ALIGN="JUSTIFY">Пример 1 – относительный доступ с помощью команды NEXT</P></B>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">прослушивает порт 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">запрашивает соединения к порту 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">200 wombatvax news server ready - posting ok</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Клиент запрашивает список текущих новостей)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">LIST</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">215 далее следует список групп новостей</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">net.wombats 00543 00501 y</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">net.unix-wizards 10125 10011 y</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(какая-то еще информация)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">net.idiots 00100 00001 n</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Клиент выбирает группу новостей)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">GROUP net.unix-wizards</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">211 104 10011 10125 net.unix-wizards group selected</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(В файле 104 статьи с 10011 по 10125)</P>
+<P ALIGN="JUSTIFY">(Клиент выбирает статью для чтения)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">STAT 10110</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">223 10110 &lt;23445@sdcsvax.ARPA&gt; article retrieved - statistics</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">only (article 10110 selected, its message-id is</P>
+<P ALIGN="JUSTIFY">&lt;23445@sdcsvax.ARPA&gt;)</P>
+<P ALIGN="JUSTIFY">(Клиент просматривает заголовок)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">HEAD</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">221 10110 &lt;23445@sdcsvax.ARPA&gt; article retrieved – далее следует заголовок</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Клиент хочет просмотреть текст статьи)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">BODY</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">222 10110 &lt;23445@sdcsvax.ARPA&gt; article retrieved – далее следует текст статьи</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Клиент хочет просмотреть следующую статью данной группы)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">NEXT</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">223 10113 &lt;21495@nudebch.uucp&gt; article 
+retrieved - statistics only (статья 10113 является следующей в группе)</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Клиент завершает сессию)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">QUIT</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">205 goodbye.</TD>
+</TR>
+</TABLE>
+
+<B><P ALIGN="JUSTIFY">Пример 2 – абсолютный доступ к статье с помощью команды ARTICLE</P></B>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">прослушивает порт 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">запрашивает соединения к порту 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">201 UCB-VAX netnews server ready – рассылка 
+запрещена</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">GROUP msgs</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">211 103 402 504 msgs Your new group is msgs</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Здесь 103 статьи с 402 по 504)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">ARTICLE 401</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">423 No such article in this newsgroup</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">ARTICLE 402</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">220 402 &lt;4105@ucbvax.ARPA&gt; Article retrieved</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">Следует заголовок текст и статьи</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">HEAD 403</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">221 403 &lt;3108@mcvax.UUCP&gt; Article retrieved, header follows</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">Следует заголовок статьи</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">QUIT</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">205 UCB-VAX news server closing connection. Goodbye.</TD>
+</TR>
+</TABLE>
+
+<B><P ALIGN="JUSTIFY">Пример 3 – Команда NEWGROUPS</P></B>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">прослушивает порт 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">запрашивает соединения к порту 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">200 Imaginary Institute News Server ready (posting ok)</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Клиент запрашивает группы новостей после 3-го апреля 1985)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">NEWGROUPS 850403 020000</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">231 Далее следуют группы новостей после 03/04/85 02:00:00 follow</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">net.music.gdead</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">net.games.sources</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">GROUP net.music.gdead</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">211 0 1 1 net.music.gdead Newsgroup selected</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">(Нет статей в этой группе новостей, номера первой и последней статей следует игнорировать)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">QUIT</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">205 Imaginary Institute news server ceasing service. Bye!</TD>
+</TR>
+</TABLE>
+
+<B><P ALIGN="JUSTIFY">Пример 4 – рассылка новых статей</P></B>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">прослушивает порт 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">запрашивает соединения к порту 119 TCP</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">200 BANZAIVAX news server ready, рассылка разрешена.</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">POST</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">340 Continue posting; Period on a line by itself to end</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">Передает статью в формате RFC850</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">.</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">240 Article posted successfully.</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">C:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">QUIT</TD>
+</TR>
+<TR><TD WIDTH="5%" VALIGN="TOP"><P ALIGN="JUSTIFY">S:</TD>
+<TD WIDTH="95%" VALIGN="TOP"><P ALIGN="JUSTIFY">205 BANZAIVAX closing connection. Goodbye.</TD>
+</TR>
+</TABLE>
+Сессия завершается, канал закрывается.
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="html4562.htm" tppabs="http://book.itep.ru/4/45/html4562.htm"><FONT COLOR="lightblue">4.5.6.2 Язык HTML</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="new_4571.htm" tppabs="http://book.itep.ru/4/45/new_4571.htm"><FONT COLOR="lightblue">4.5.7.1 Работа с сервером новостей</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,17 @@
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\bin\Debug\an.exe.config
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\bin\Debug\an.exe
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\bin\Debug\an.pdb
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\obj\Debug\an.Form1.resources
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\obj\Debug\an.Properties.Resources.resources
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\obj\Debug\an.csproj.GenerateResource.Cache
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\obj\Debug\an.exe
+c:\users\andrei1\documents\visual studio 2012\Projects\an\an\obj\Debug\an.pdb
+D:\UTM\Grafica\an\an\bin\Debug\an.exe.config
+D:\UTM\Grafica\an\an\obj\Debug\an.exe
+D:\UTM\Grafica\an\an\obj\Debug\an.pdb
+D:\UTM\Grafica\an\an\bin\Debug\an.exe
+D:\UTM\Grafica\an\an\bin\Debug\an.pdb
+D:\UTM\Grafica\an\an\obj\Debug\an.Form1.resources
+D:\UTM\Grafica\an\an\obj\Debug\an.Properties.Resources.resources
+D:\UTM\Grafica\an\an\obj\Debug\an.csproj.GenerateResource.Cache
+D:\UTM\Grafica\an\an\obj\Debug\an.csprojResolveAssemblyReference.cache

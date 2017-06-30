@@ -1,0 +1,387 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="FRED
+Поисковая система
+
+
+
+">
+<TITLE>4.5.8.2 FRED</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="who_4581.htm" tppabs="http://book.itep.ru/4/45/who_4581.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="x50_4583.htm" tppabs="http://book.itep.ru/4/45/x50_4583.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="who_4581.htm" tppabs="http://book.itep.ru/4/45/who_4581.htm"><FONT COLOR="lightblue">4.5.8.1 Whois</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="x50_4583.htm" tppabs="http://book.itep.ru/4/45/x50_4583.htm"><FONT COLOR="lightblue">4.5.8.3 X500</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.8.2 FRED</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">FRED - система поиска информации о пользователях ЭВМ, сходная с WHOIS. Пользователи в архивах Интернет ("белые страницы", OSI X.500) идентифицируются уникальным образом, например:</P>
+
+<P ALIGN="JUSTIFY">"@c=RU@o=Institute for Theoretical and Experimental Physics@cn=Director"</P>
+<P ALIGN="JUSTIFY">Так как в системе WHOIS пользователи идентифицируются короткими ключами, содержащими, например, три символа, система FRED использует в процессе своей работы список цифровых псевдонимов.</P>
+<P ALIGN="JUSTIFY">Доступ к системе осуществляется, напимер, командой: telnet wp.psi.net. В качестве имени-идентификатора нужно ввести слово FRED. После этого появляется приглашение FRED&gt; и вы можете приступать к работе. Система имеет удобную систему команд, основная из которых whois имеет несколько модификаций:</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois "semenov"</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Поиск записей с таким именем в области по умолчанию.</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois surname "semenov"</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Поиск записей с данной фамилией.</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P>whois fullname "yuri semenov"</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Поиск записей с указанным полным именем.</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois "semenov" -org itep</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Поиск записей с указанным именем во всех организациях, в названии которых присутствует "itep".</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">whois "semenov" -area "@c=RU@o=Institute for Theoretical and Experimental Physics команда используется, когда название "area" (место) известно.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois semenov@itep</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Идентична предшествующей команде;</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois semenov@cl.itep.ru</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Поиск записей с указанным почтовым адресом.</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois -title operator</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Поиск записей, относящихся к операторам.</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois -org *</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Выдача списка всех зарегистрированных организаций (для данной области поиска).</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="LEFT">whois -org * -geo @c=US</TD>
+<TD WIDTH="66%" VALIGN="TOP"><P ALIGN="LEFT">Выдача списка зарегистрированных организаций для домена US.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Сначала FRED считывает файл fredrc в системном каталоге ISODE (обычно /usr/etc/). Затем FRED читает файл .fredrc в каталоге пользователя. В этих файлах, если они присутствуют, содержатся описания предпочтений пользователя. После этого система выдает приглашение для ввода команд поиска. Команда INTR, выданная на базовом уровне, не вызывает 
+никаких последствий, выдача ее дважды подряд вызовет завершение работы FRED (аналог QUIT). На других уровнях работы FRED команда INTR прерывает выполнение процедуры. Приведем перечень служебных команд.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=850>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">alias имя</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="LEFT">При отсутствии аргументов печатает все псевдонимы, описанные в ходе данной сессии, если же аргумент имеется, определяет числовой псевдоним для данного имени.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">Help команда ...</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="LEFT">Выдает справочную информацию о командах.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">Manual</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="LEFT">Распечатывает подробное руководство по применению FRED.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">Quit</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Уход из системы FRED.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">report subject</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="LEFT">Позволяет вам ввести текст сообщения, которое по почте будет передано вашему местному менеджеру справочной системы "белые страницы".</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">set переменная значение</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="LEFT">Производит присвоение нужных значений системным переменным FRED.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><I><P ALIGN="LEFT">version –fred</I></TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="LEFT">Сообщает версию программного обеспечения.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Список системных переменных FRED представлен в таблице:</P>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=3 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="LEFT">Переменная FRED</TD>
+<TD WIDTH="80%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="LEFT">Описание</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">debug</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Отладка FRED</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">manager</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Почтовый адрес местного менеджера "белых страниц".</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">namesearch</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Тип имени, используемый при поиске, "fullname", "surname" или "frandly".</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">pager</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Программа, используемая для разбивки текста на терминале на страницы</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">query</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Подтверждение двух-шаговых операций</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">server</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">IP-адрес вспомогательного сервера</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">timelimit</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="JUSLEFTTIFY">Максимальное число секунд, которое может быть потрачено на поиск</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">verbose</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Интерактивный режим с полной выдачей диагностической информации</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">ufn</TD>
+<TD WIDTH="80%" VALIGN="TOP"><P ALIGN="LEFT">Тип фильтрации при поиске: "none", "approx" или "wild".</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Вообще говоря синтаксис команды whois (FRED) аналогичен тому, что используется в системе WHOIS:</P>
+<P ALIGN="JUSTIFY">входное_поле тип_записи признак_области_поиска управление_выводом</P>
+<P ALIGN="JUSTIFY">Эти четыре компоненты могут встречаться в любом порядке и только входное_поле должно присутствовать обязательно. Это поле характеризует то, что вы желаете найти. Поле тип_записи говорит о том, какой вид записи в банке данных вас интересует. Поле признак_области_поиска может содержать ключи: -org (сокращение от "организация"); -unit или -locality, за которыми следует имя. Поле управление_выводом может содержать следующие ключи:</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="6%" VALIGN="TOP"><B><P ALIGN="LEFT">*</B></TD>
+<TD WIDTH="94%" VALIGN="TOP"><P ALIGN="LEFT">выдача детальной информации со ссылками;</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP"><B><P ALIGN="LEFT">~</B></TD>
+<TD WIDTH="94%" VALIGN="TOP"><P ALIGN="LEFT">выдача минимальной информации;</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP"><B><P ALIGN="LEFT">%</B></TD>
+<TD WIDTH="94%" VALIGN="TOP"><P ALIGN="LEFT">выдача результатов поиска в одну строку и ссылок;</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP"><B><P ALIGN="LEFT">|</B></TD>
+<TD WIDTH="94%" VALIGN="TOP"><P ALIGN="LEFT">выдача полной информации.</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">FRED имеет некоторые преимущества перед WHOIS и, возможно, вы предпочтете именно эту систему. Введем команду вызова сервера:</P>
+<I><P>telnet nic.switch.ch<BR>
+</I>Trying 130.59.1.40 ...<BR>
+Connected to nic.switch.ch.<BR>
+Escape character is '^]'.</P>
+<P ALIGN="JUSTIFY">После установления связи сервер выдаст на экран:</P>
+<P ALIGN="JUSTIFY">SWITCH (Swiss Academic and Research Network)</P>
+<P ALIGN="JUSTIFY">SunOS UNIX (nic) (ttyp9)</P>
+<P ALIGN="JUSTIFY">login: <I>dua</P>
+</I><P ALIGN="JUSTIFY">SWITCHdirectory main menu (choose desired service)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=772>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY"> [ 1 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Query the Directory, select a User Interface</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 2 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Information about the User Interfaces</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 3 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Terminal/X Window Configuration</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 4 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Send Message to Administrator</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 5 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Information about the Directory Project</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 6 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Acknowledgement</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 0 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Leave this Menu (back to previous Menu)</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Выберем пункт 1 (с другими видами сервиса читателям предлагается познакомиться самостоятельно):</P>
+<P ALIGN="JUSTIFY">SWITCHdirectory User Interfaces</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=772>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY"> [ 1 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">de (simple interface to find persons)</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 2 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">fred (simple white pages interface ('whois')</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 3 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">sd (menu oriented, only read functionality)</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 4 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Dish (command line, full X.500 functionality)</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 5 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Xdi (X window interface)</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 6 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">Xlu (X window interface)</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 7 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">XT-DUA (Commercial X window interface)</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY"><BR>[ 0 ]</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY"><BR>Leave this Menu (back to previous Menu)</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Выбираем пункт 2 и получаем:</P>
+<P>invoking interface "fred", please wait....<BR>
+fred&gt; whois -org cern<BR>
+CERN (1) +41 22<BR>
+767 6111<BR>
+aka: European Laboratory for Particle Physics</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">CERN CH-1211 Geneve 23</P>
+<P ALIGN="JUSTIFY">FAX: +41 22 767 6555</P>
+<P ALIGN="JUSTIFY">Mailbox information:</P>
+<P ALIGN="JUSTIFY">X.400:&#9;/S=postmaster/O=CERN/PRMD=CERN/ADMD=ARCOM/C=CH/</P>
+<P ALIGN="JUSTIFY">High Energy Physics research<BR>
+Business: Research Laboratory Research Lab<BR>
+Locality: Geneve<BR>
+Name: CERN, CH (1)<BR>
+Modified: Wed Aug 31 09:03:59 1994 <BR>
+by: DSAmanager, SWITCHdirectory, SWITCH, CH (2)</P>
+<P ALIGN="JUSTIFY">20 imprecise matches for '*', select from them [y/n] ? <I>y</I> </P>
+<P ALIGN="JUSTIFY">После ряда ответов на вопросы (Y/N) получаем:</P>
+<P ALIGN="JUSTIFY">7 matches found.</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">1.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">CERN +41 22 767 6111</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">4.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">Hochschule St. Gallen +41 71 30 2111</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">5.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">IDIAP +41 26 22 7664</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">6.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">Ingenieurschule HTL Biel +41 32 273 111</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">7.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">Paul Scherrer Institute +41 56 992111</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">8.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">Schweizerische Hochschulkonferenz +41 31 302 55 33</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="LEFT">10.</TD>
+<TD WIDTH="93%" VALIGN="TOP"><P ALIGN="LEFT">SWITCH +41 1 268 1515</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Теперь посмотрим, что имеется в Германии (код=DE), для этого введем команду: <I>whois -org * -geo @c=DE</I>.</P>
+<P ALIGN="JUSTIFY">100 matches found. (найдено 100 записей)</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">16. BASF-AG</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 621-600</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">21. Berufsakademie Stuttgart</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 711 6673-6965</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">29. Competence Center Informatik</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49-5931-805-0</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">30. Computer-Communication Networks</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 211 905828</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">40. Deutsche Fernkabel Gesellschaft mbH</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 30 54686-256</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">41. Deutsche Forschungsgemeinschaft</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 228/885-2485</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">44. Deutsches Forschungsnetz</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 30 884299-20</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">51. DKRZ Hamburg</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 40-41173-0</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">53. ECRC</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 89 92 69 90</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">54. ERNO Raumfahrttechnik GmbH</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 421 539 - 0</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">55. EUnet Deutschland GmbH</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 231 972-00</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">58. European Space Agency</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 6151-90-0</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">63. Fachhochschule Darmstadt</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 6151-168876</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">64. Fachhochschule Dortmund</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 231 9112-0</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">71. Fachhochschule Fulda</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49 661 9640-0</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">83. Fachhochschule Nuernberg</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+49/911/58800</TD>
+</TR>
+<TR><TD WIDTH="49%" VALIGN="TOP"><P ALIGN="LEFT">85. Fachhochschule Rheinland-Pfalz</TD>
+<TD WIDTH="51%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">+41 6131 23920</TD>
+</TR>
+<TR><TD WIDTH="52%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">87. Fachhochschule Schweinfurt</TD>
+<TD WIDTH="48%" VALIGN="TOP"><P ALIGN="LEFT">(049) 9721 940 5</TD>
+</TR>
+<TR><TD WIDTH="52%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">96. Fraunhofer-Gesellschaft</TD>
+<TD WIDTH="48%" VALIGN="TOP"><P ALIGN="LEFT">+49 89 1205 x01</TD>
+</TR>
+<TR><TD WIDTH="52%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">97. Freie Universitaet Berlin</TD>
+<TD WIDTH="48%" VALIGN="TOP"><P ALIGN="LEFT">+49 30 838-1</TD>
+</TR>
+<TR><TD WIDTH="52%" VALIGN="TOP" COLSPAN=2><P ALIGN="LEFT">105. GMD</TD>
+<TD WIDTH="48%" VALIGN="TOP"><P ALIGN="LEFT">+49 2241 14-0</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Список, разумеется, напечатан в сокращенном виде.</P>
+<P ALIGN="JUSTIFY">fred&gt; q (до свидания FRED!).</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="who_4581.htm" tppabs="http://book.itep.ru/4/45/who_4581.htm"><FONT COLOR="lightblue">4.5.8.1 Whois</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="x50_4583.htm" tppabs="http://book.itep.ru/4/45/x50_4583.htm"><FONT COLOR="lightblue">4.5.8.3 X500</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

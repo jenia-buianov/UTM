@@ -1,0 +1,9 @@
+X:\UTM\PW\Picturiser\Picturiser\bin\Debug\Picturiser.exe.config
+X:\UTM\PW\Picturiser\Picturiser\bin\Debug\Picturiser.exe
+X:\UTM\PW\Picturiser\Picturiser\bin\Debug\Picturiser.pdb
+X:\UTM\PW\Picturiser\Picturiser\obj\Debug\Picturiser.csprojResolveAssemblyReference.cache
+X:\UTM\PW\Picturiser\Picturiser\obj\Debug\Picturiser.Form1.resources
+X:\UTM\PW\Picturiser\Picturiser\obj\Debug\Picturiser.Properties.Resources.resources
+X:\UTM\PW\Picturiser\Picturiser\obj\Debug\Picturiser.csproj.GenerateResource.Cache
+X:\UTM\PW\Picturiser\Picturiser\obj\Debug\Picturiser.exe
+X:\UTM\PW\Picturiser\Picturiser\obj\Debug\Picturiser.pdb

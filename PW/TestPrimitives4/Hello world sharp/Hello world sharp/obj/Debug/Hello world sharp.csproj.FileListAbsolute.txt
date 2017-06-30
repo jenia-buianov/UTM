@@ -1,0 +1,9 @@
+X:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.exe.config
+X:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.exe
+X:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.pdb
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello_world_sharp.Form1.resources
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello_world_sharp.Properties.Resources.resources
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.csproj.GenerateResource.Cache
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.exe
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.pdb
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.csprojResolveAssemblyReference.cache

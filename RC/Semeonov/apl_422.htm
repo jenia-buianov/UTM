@@ -1,0 +1,167 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="appletalk 
+
+
+
+
+
+">
+<TITLE>4.2.2 AppleTalk</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="nds_4215.htm" tppabs="http://book.itep.ru/4/42/nds_4215.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="novl_421.htm" tppabs="http://book.itep.ru/4/42/novl_421.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="wan_43.htm" tppabs="http://book.itep.ru/4/43/wan_43.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="nbio_423.htm" tppabs="http://book.itep.ru/4/42/nbio_423.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="nds_4215.htm" tppabs="http://book.itep.ru/4/42/nds_4215.htm"><FONT COLOR="lightblue">4.2.1.5 Служба каталогов NetWare (NDS)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="novl_421.htm" tppabs="http://book.itep.ru/4/42/novl_421.htm"><FONT COLOR="lightblue">4.2.1 Протоколы Novell (IPX/SPX)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="wan_43.htm" tppabs="http://book.itep.ru/4/43/wan_43.htm"><FONT COLOR="lightblue">4.3 Региональные сети</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="nbio_423.htm" tppabs="http://book.itep.ru/4/42/nbio_423.htm"><FONT COLOR="lightblue">4.2.3 NetBIOS</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.2.2 AppleTalk</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="a_talk.jpg" tppabs="http://book.itep.ru/4/42/a_talk.jpg"></P>
+
+<p align="justify">Сеть APPLETALK разработана компанией apple computer inc. (ЭВМ Macintosh, 
+1987 г) Эти сети могут работать в среде Ethernet, Token Ring, FDDI и localtalk (собственная сеть apple, использующая 
+скрученные пары). В AppleTalk специфицирован собственный стек протоколов, которые управляют потоком данных в сети. Для 
+целей маршрутизации AppleTalk использует модифицированную версию внутреннего протокола маршрутизации IGRP. Стек протоколов 
+appletalk phase ii включает в себя (схема структуры стека протоколов показана на рис. 4.2.2.1; смотри 
+<a href="tppmsgs/msgs2.htm#255" tppabs="http://bbs-win.uniinc.msk.ru/product/bay/routers/protocol">http://bbs-win.uniinc.msk.ru/product/bay/routers/protocol</a>, 
+а также RFC-1378, -1419, -1504, -1742):</p>
+
+<ul>
+<li>Протокол доступа к каналу Tokentalk (<b>TLAP</b> - Tokentalk link access protocol)</li>
+<li>Протокол доступа к каналу Ethertalk (<b>ELAP</b> - Ethertalk link access protocol)</li>
+<li>Протокол доступа к каналу Localtalk (<b>LLAP</b> - Localtalk link access protocol)</li>
+<li>Протокол доставки дейтограмм (<b>DDP</b> - datagram delivery protocol)</li>
+<li>протокол поддержки маршрутных таблиц (<b>RTMP</b> - routing table maintenance protocol)</li>
+<li>Протокол определения адресов Appletalk (<b>AARP</b> - appletalk address resolution protocol)</li>
+<li>Протокол работы с именами (<b>NBP</b> - name binding protocol)</li>
+<li>Протокол для работы с зонной информацией (<b>ZIP</b> - zone information protocol)</li>
+<li>Протокол откликов в Appletalk (<b>AEP</b> - appletalk echo protocol)</li>
+<li>Протокол актуализации маршрутной информации (<b>AURP</b> - Appletalk update routing protocol)</li>
+<li>Протокол управления потоком данных (<b>adsp</b> - appletalk data stream protocol)</li>
+<li>Протокол сессий (<b>ASP</b> - Appletalk session protocol)</li>
+<li>Протокол доступа к принтеру (<b>PAP</b> - printer access protocol)</li>
+<li>Протокол операций (<b>ATP</b> - Appletalk transaction protocol)</li>
+<li>Файловый протокол (<b>AFP</b> - Appletalk filing protocol)</li></ul>
+
+<p align="justify">Из рисунка 4.2.2.1 видно, что стек протоколов appletalk полностью согласуется с семиуровневой схемой OSI. <b>DDP</b> представляет собой протокол передачи данных, не ориентированный на соединение. Дейтограмма DDP использует 13-байтовый заголовок, который включает в себя:</p>
+
+<p align="justify">поле <i>числа маршрутизаторов</i> (число шагов), через которые прошел пакет; поле <i>длины дейтограммы</i>; 
+поле <i>контрольной суммы</i>; поля <i>сети назначения</i> и <i>отправителя</i> и т.д. (см. рис. 4.2.2.2. - смотри 
+<a href="tppmsgs/msgs2.htm#256" tppabs="http://www.stanford.edu/group/networking/adminatalk/atalk_3.html">http://www.stanford.edu/group/networking/adminatalk/atalk_3.html</a>).</p>
+
+<p align="justify">Вслед за заголовком следует информация, которая может содержать до 586 байт. Максимальный размер пакета (MTU) равен 599 байтам. Число узлов в сети может достигать 16 миллионов.</p>
+
+<p align="center"><img src="image221.gif" tppabs="http://book.itep.ru/4/42/image221.gif"></p>
+<p align="center">Рис. 4.2.2.1. Диаграмма стека протоколов appletalk</p>
+
+<p align="justify">Протокол <b>adsp</b> позволяет двум программам обмениваться потоками информации 
+в полном дуплексном режиме с гарантией доставки. Протоколы <b>TLAP, ELAP</b> и <b>LLAP</b> служат 
+для обеспечения сопряжения с соответствующими физическими протоколами (Token Ring, Ethernet и Arcnet), 
+скрывая от программ других уровней специфические особенности используемого сетевого оборудования. 
+Протокол <b>ATP</b> надежно передает запросы и отклики, детектирует ошибки и организует пакетный 
+обмен. Этот протокол используется в свою очередь протоколами ZIP, ASP и PAP, что видно из рис. 
+4.2.2.1. Протокол <b>AFP</b> является протоколом поддержки приложений и позволяет пользователям ЭВМ 
+Macintosh работать с общими файлами. Программное обеспечение Netware для Macintosh включает в себя 
+файл AFP NLM<sup>tm</sup>, который обеспечивает поддержку Netware-серверов. Протокол <b>AURP</b> 
+(appletalk update-based routing protocol) служит для целей маршрутизации, но в отличии от некоторых 
+других протоколов передает маршрутную информацию только в случае изменения ситуации. Он поддерживает 
+также IP-туннели. </p>
+
+<p align="center"><img src="image222.gif" tppabs="http://book.itep.ru/4/42/image222.gif"></P>
+<P ALIGN="CENTER">Рис. 4.2.2.2. Формат пакетов в сети Apple Talk Phase II (в скобках указаны размеры полей в байтах)</P>
+
+<P ALIGN="JUSTIFY">Адрес отправителя и получателя имеют по 24 бита, из них 16 бит составляет адрес сети. Идентификатор узла назначения (локальная часть адреса) выбирается произвольно самой рабочей станции при установлении связи. ЭВМ берет случайное 8-битовое число в качестве локального адреса и посылает его в сеть. Если какая-то ЭВМ использует этот адрес, она откликается, тогда код меняется и делается повторная попытка. Процесс продолжается пока не будет найден свободный адрес. Протокол <B>RTMP</B> является протоколом маршрутизации, где в качестве метрики используется вектор расстояния до адресата, этот протокол собирает маршрутную информацию и предоставляет ее протоколу DDP для обеспечения транспортировки пакетов по сети. Маршрутные таблицы RTMP хранятся в каждом из маршрутизаторов AppleTalk и базируются на номерах сетей адресатов. Таблица содержит в себе расстояние до адресата, измеренное в шагах (hop), идентификатор порта маршрутизатора, через который достижим адресат, и статус маршрута.</P>
+<P ALIGN="JUSTIFY">Маршрутизаторы AppleTalk формируют и актуализируют маршрутные таблицы, посылая регулярно (раз в 10 сек) 
+широковещательные RTMP-пакеты соседним узлам и сетям. Запись в маршрутной таблице, своевременно не подтвержденная, спустя 
+определенное время стирается. Записи в маршрутной таблице попадают в разряд “подозреваемых” при отсутствии отклика от них в 
+течение 20 сек, в разряд “умирающих” - спустя 40 сек, в категорию “умерших” - через 60 сек. Запись удаляется из таблицы, 
+если отклик не удается получить в течение 80 сек.</P>
+
+<P ALIGN="JUSTIFY">Адреса сетевого уровня ставятся в соответствие адресам MAC-уровня с помощью адресного протокола <B>AARP</B>. Узлы сети Apple Talk хранят эту информацию в специальных таблицах (<B>AMT</B> - Address Mapping Table). Таблица просматривается всякий раз, когда AppleTalk посылает пакет. Если поиск не увенчался успехом, узел-отправитель посылает широковещательный AARP-запрос. При получении отклика на этот запрос вносятся коррективы в AMT-таблицу. Особенностью сети AppleTalk является согласование при присвоении локальных адресов объектам сети. При инициализации узла ему присваивается временный адрес. Протокол AARP проверяет, не принадлежит ли данный адрес кому-то еще, для этого он посылает 10 AARP-запросов. Если данный временный адрес уже используется, инициализируемому узлу присваивается новый временный адрес и процедура проверки повторяется до тех пор, пока узлу не будет присвоен уникальный адрес. Протокол NBP преобразует локальные AppleTalk адреса в имена, присвоенные сетевому объекту пользователем и наоборот. Это избавляет пользователя от необходимости помнить полный сетевой адрес принт- или файл-сервера, почтового сервера и т.д..</P>
+
+<P ALIGN="JUSTIFY">Протокол <B>ZIP</B> допускает логическое группирование оконечных сетевых узлов в некоторые объединения, 
+называемые зонами, что позволяет ЭВМ, принадлежащие к одному отделу, но расположенные в разных зданиях, находиться в одной зоне (субсети). Зона может представлять собой комбинацию локальных сетей, а в случае EtherTalk Phase II - часть локальной сети. Информация о зонах хранится в маршрутизаторах в виде специальных таблиц (<B>ZIT</B> - Zone Information Table). Таблица содержит по одной записи на сетевой сегмент. Запись включает в себя номер сетевого сегмента и список объектов, входящих в зону. Протокол ZIP отслеживает изменения в RTMP-таблицах и при появлении в них записей, относящихся к новым объектам или сетям, маршрутизатор посылает <B>ZIP</B> -запрос и на основе полученной информации корректирует ZIT-таблицу.</P>
+
+<P ALIGN="JUSTIFY">Протокол <B>AEP</B> выполняет отладочные и диагностические функции, предоставляя возможность выполнения 
+процедур <B>ping</B> (до какой-то степени это аналог протокола ICMP). При необходимости проверить состояние сети или 
+какого-либо узла посылается AEP-дейтограмма, а зондируемый узел, который при ее получении должен послать отклик отправителю 
+исходного запроса. Протокол позволяет проверить время распространения пакетов между узлами сети. Протокол может 
+использоваться в начале любой сессии для проверки доступности того или иного сетевого объекта.</P>
+
+<P ALIGN="JUSTIFY">Протокол <B>AURP</B> является внешним протоколом сетевой маршрутизации и служит для взаимодействия сетей AppleTalk c Интернет. Протокол поддерживает технологию IP-туннелей с использованием UDP/IP инкапсуляции. Рассылка сетевой информации осуществляется AURP только при возникновении каких-либо изменений в состоянии сети. Протокол AURP поддерживает гибкую систему переадресаций, исключая конфликты адресов при подключении новых сетей AppleTalk, и выявляет маршрутные петли. Существуют специальные фильтры, которые позволяют разделять пакеты по приоритетам, что бывает важно, например, при передаче мультимедиа информации. Сети AppleTalk хорошо согласуются с другими сетями, например, NetWare. Следует иметь в виду, что ЭВМ, работающие с протоколами Phase I и Phase II, могут работать друг с другом только через специальные мосты, так как форматы пакетов для этих протоколов не совместимы.</P>
+
+<P ALIGN="JUSTIFY">Управление сетями Apple Talk осуществляется с помощью протокола SNMP и управляющей базы данных MIB.</P>
+
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="nds_4215.htm" tppabs="http://book.itep.ru/4/42/nds_4215.htm"><FONT COLOR="lightblue">4.2.1.5 Служба каталогов NetWare (NDS)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="novl_421.htm" tppabs="http://book.itep.ru/4/42/novl_421.htm"><FONT COLOR="lightblue">4.2.1 Протоколы Novell (IPX/SPX)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="wan_43.htm" tppabs="http://book.itep.ru/4/43/wan_43.htm"><FONT COLOR="lightblue">4.3 Региональные сети</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="nbio_423.htm" tppabs="http://book.itep.ru/4/42/nbio_423.htm"><FONT COLOR="lightblue">4.2.3 NetBIOS</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

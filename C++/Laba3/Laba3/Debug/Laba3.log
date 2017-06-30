@@ -1,0 +1,18 @@
+﻿Построение начато 10.11.2016 8:26:14.
+     1>Проект "D:\UTM\C++\Laba3\Laba3\Laba3.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Laba3.cpp
+         Laba3.cpp
+     1>d:\utm\c++\laba3\laba3\laba3.cpp(1): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+     1>d:\utm\c++\laba3\laba3\laba3.cpp(178): warning C4715: operator==: значение возвращается не при всех путях выполнения
+     1>d:\utm\c++\laba3\laba3\laba3.cpp(214): warning C4715: operator<: значение возвращается не при всех путях выполнения
+     1>d:\utm\c++\laba3\laba3\laba3.cpp(190): warning C4715: operator!=: значение возвращается не при всех путях выполнения
+     1>d:\utm\c++\laba3\laba3\laba3.cpp(202): warning C4715: operator>: значение возвращается не при всех путях выполнения
+       Link:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\UTM\C++\Laba3\Debug\Laba3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\UTM\C++\Laba3\Debug\Laba3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\UTM\C++\Laba3\Debug\Laba3.lib" /MACHINE:X86 Debug\Laba3.obj
+         Laba3.vcxproj -> D:\UTM\C++\Laba3\Debug\Laba3.exe
+     1>Построение проекта "D:\UTM\C++\Laba3\Laba3\Laba3.vcxproj" завершено (целевые объекты Build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:03.46

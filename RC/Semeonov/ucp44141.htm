@@ -1,0 +1,888 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="UUCP
+
+
+
+">
+<TITLE>4.4.14.1 Протокол обмена UUCP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="smtp4414.htm" tppabs="http://book.itep.ru/4/44/smtp4414.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="pop34414.htm" tppabs="http://book.itep.ru/4/44/pop34414.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="smtp4414.htm" tppabs="http://book.itep.ru/4/44/smtp4414.htm"><FONT COLOR="lightblue">4.4.14 Протокол электронной почты SMTP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="pop34414.htm" tppabs="http://book.itep.ru/4/44/pop34414.htm"><FONT COLOR="lightblue">4.4.14.2 Почтовый протокол POP3</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.14.1 Протокол обмена UUCP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<p ALIGN="JUSTIFY">Этот протокол сыграл немалую роль в становлении современных телекоммуникационных технологий. Первые системы электронной почты использовали протокол UUCP (Unix-to-Unix Copy Program). Основополагающие идеи ОС UNIX расширили область взаимодействия вычислительных и управляющих процессов за рамки центрального процессора ЭВМ. Хотя большинство современных почтовых серверов базируется на протоколе SMTP, протокол UUCP продолжает применяться во многих приложениях, использующих ОС UNIX (см. <A HREF="tppmsgs/msgs2.htm#270" tppabs="http://www.isf.ru/%7estas/doc/uucp-1.06/uucp_7.html">www.isf.ru/~stas/doc/uucp-1.06/uucp_7.html</A>).</p>
+
+<p ALIGN="justify">Современные программные пакеты UUCP поддерживают приоритеты для всех команд, которые варьируются от a (наивысший) до z и далее a-z. В UNIX
+эти коды приоритетов вставляются в имена командных файлов, создаваемых UUCP или UUX. Имя командного файла обычно имеет вид: <i>c.nnnngssss</i>, где<i> g – </i> код приоритета (от слова grade), nnnn – имя удаленной системы, а ssss – четырех символьный номер. Например, командный файл создаваемый системой sun2
+с уровнем приоритета d может иметь имя c.sun2d1111. При этом в имени удаленной системы сохраняется лишь 7 символов, чтобы обеспечить совместимость с
+14-символьным ограничением для имен файлов.</p>
+
+<p align="center"><img src="image551.gif" tppabs="http://book.itep.ru/4/44/image551.gif"></p>
+
+<p align="justify">UUCP-протокол определяет взаимодействие между двумя программами. Этот диалог включает в себя три этапа: установление канала,
+последовательность запросов пересылки файлов и закрытие канала. Прежде чем начать диалог, инициатор обмена должен авторизоваться в ЭВМ, с которой планируется обмен, и активизировать тамошнюю систему UUCP. На рисунке инициатор обмена назван клиентом (в литературе можно также встретить также название master). Все сообщения начинаются с символа ^p (восьмеричный код ‘\020’) и
+завершаются нулевым байтом (\000). В некоторых системах для завершения сообщений используется код перевода строки (\012).</p>
+
+<p align="justify">Установление канала инициируется сервером, который посылает сообщение <b>\020shere=hostname\000</b>, где <i>hostname</i> – имя ЭВМ сервера. В устаревших пакетах uucp можно встретить инициирующие сообщения вида <b>\020shere\000</b>.</p>
+
+<p align="justify">Клиент должен откликнуться сообщением <b>\020shostname options\000</b>, где <i>hostname </i> соответствует имени клиента
+(инициатора обмена). При этом допустимы следующие опции (опции могут и отсутствовать).</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="18%" valign="top" bgcolor="gainsboro"><p align="justify">Опция</td>
+    <td width="82%" valign="top" bgcolor="gainsboro"><p align="justify">Описание</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">-qseq</td>
+    <td width="82%" valign="top"><p align="justify">Сообщает порядковый номер сообщения. Порядковые номера запоминаются как клиентом, так и сервером их    значения инкрементируются при каждом вызове. Порядковые номера контролируются, что обеспечивает дополнительную надежность</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">-xlevel</td>
+    <td width="82%" valign="top"><p align="justify">Требует, чтобы сервер установил требуемый отладочный уровень (поддерживается не всеми системами)</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">-vgrade=grade</td>
+    <td width="82%" valign="top"><p align="justify">Требует, чтобы сервер передавал файлы заданного сорта (grade)</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">-r</td>
+    <td width="82%" valign="top"><p align="justify">Указывает на то, что клиент знает, как повторно запустить обмен в случае сбоя</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">-ulimit</td>
+    <td width="82%" valign="top"><p align="justify">Сообщает предельный размер файла, который может создать клиент. Размер задается в шестнадцатеричном формате и обозначает число 512 байтных блоков в файле, например –ux300000.</td>
+  </tr>
+</table></div>
+
+<p align="justify">На запрос <b>\020rok\000</b> возможно несколько откликов:</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="31%" valign="top"><p align="justify">rok</td>
+    <td width="69%" valign="top"><p align="justify">Запрос принимается, диалог переходит к согласованию
+    протокола;</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top"><p align="justify">rlck</td>
+    <td width="69%" valign="top"><p align="justify">Сервер заблокирован, что говорит о том, что ЭВМ уже осуществляют обмен;</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top"><p align="justify">rcb</td>
+    <td width="69%" valign="top"><p align="justify">Сервер осуществляет обратный запрос клиенту, что позволяет исключить ложные вызовы;</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top"><p align="justify">rbadseq</td>
+    <td width="69%" valign="top"><p align="justify">Неверен порядковый номер сообщения;</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top"><p align="justify">rlogin</td>
+    <td width="69%" valign="top"><p align="justify">Клиент использовал неверное имя при авторизации;</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top"><p align="justify">ryou are unknown to me</td>
+    <td width="69%" valign="top"><p align="justify">Клиент неизвестен серверу (uucp не позволяет соединение с неизвестными системами).</td>
+  </tr>
+</table>
+
+<p align="justify">Если отклик не rok, то обе стороны прерывают сессию.</p>
+
+<p align="justify">Запрос сервера <b>\020pprotocols\000</b>, где protocols
+характеризует список поддерживаемых протоколов, причем каждому протоколу соответствует лишь один символ. Клиент может послать сообщение <b>\020uprotocols\000</b>, где инициатор сессии выбирает протокол из предлагаемого сервером списка. Если в предлагаемом списке нет нужного протокола,
+посылается сообщение <b>\020un\000</b> и обе стороны разрывают сессию.</p>
+
+<p align="justify">Когда канал сформирован и определены его параметры, может начаться обмен командами. Если в процессе обмена командами выявляется
+ошибка, участники обмена переходят к диалогу для закрытия канала.</p>
+
+<p align="justify">Клиент может послать команды: s, r, x, e, или h (команды посылает только клиент). В качестве параметров этих команд используются имена файлов. Это могут быть абсолютные имена файлов, начинающиеся с символа /, файлы из публичного каталога с именами, которые начинаются с символов ~/, файлы из каталога пользователя, начинающиеся с строки ~user/, или файлы из временного буфера (spool). Собственно имена начинаются с <b>c</b>. для командных файлов, с <b>d.</b> для файлов данных, или с <b>x.</b> для исполнительных файлов.</p>
+
+<p align="justify"><b>Команда клиента s</b>, предназначенная для посылки файлов серверу, имеет формат: <b>s from to user –options temp mode notify size</b>. Параметр <i>from</i><b> </b> представляет собой имя посылаемого файла, <i>to</i> – имя файла на сервере, куда будет скопирован файл, <i>user</i> – имя
+пользователя, инициировавшего пересылку файла, <i>options</i> – список опций, управляющих обменом, <i>temp</i> – имя пересылаемого файла в случае использования опции С. После успешного завершения обмена сервер стирает файл temp. Параметр <i>mode</i> задает разновидность файла на сервере. Если файл не из каталога spool, клиент создает его с mode=0666. Параметр <i>notify</i> может отсутствовать, он имеет смысл лишь при наличии опции n. В этом случае при успешном завершении обмена посылается уведомление через электронную почту по адресу <i>notify</i>. Поле <i>size</i> задает размер файла в байтах.</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="15%" valign="top" bgcolor="gainsboro"><p align="center">Опция</td>
+    <td width="85%" valign="top" bgcolor="gainsboro"><p align="center">Описание</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">c</td>
+    <td width="85%" valign="top"><p align="justify">Файл
+    копируется в каталог spool (клиент должен использовать temp, а не from)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">c</td>
+    <td width="85%" valign="top"><p align="justify">Файл не должен копироваться в каталог spool (по умолчанию)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">d</td>
+    <td width="85%" valign="top"><p align="justify">Сервер должен сформировать каталог, если необходимо (по умолчанию)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">f</td>
+    <td width="85%" valign="top"><p align="justify">Сервер не должен формировать каталог, если необходимо, а вместо этого он должен оборвать связь</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">m</td>
+    <td width="85%" valign="top"><p align="justify">Клиент должен послать электронное почтовое сообщение пользователю (user) по завершении обмена</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">n</td>
+    <td width="85%" valign="top"><p align="justify">Сервер должен послать e-mail по адресу, указанному в параметре notify, по завершении обмена</td>
+  </tr>
+</table></div>
+
+<p align="justify">Сервер может откликнуться на s-команду следующими способами.</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="15%" valign="top" bgcolor="gainsboro"><p align="center">Отклик</td>
+    <td width="85%" valign="top" bgcolor="gainsboro"><p align="center">Описание</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sy start</td>
+    <td width="85%" valign="top"><p align="justify">Сервер готов принять файл и обмен начинается. Поле start присутствует в случае использования рестарта и характеризует позицию в файле, с которой осуществляется рестарт. Для нового файла start=0x0</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn2</td>
+    <td width="85%" valign="top"><p align="justify">Сервер не выдает разрешение на пересылку файла. Это может означать, например, что недоступен нужный    каталог. Такой отклик говорит о том, что пересылка принципиально невозможна.</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn4</td>
+    <td width="85%" valign="top"><p align="justify">Сервер не может создать нужный временный файл, можно повторить попытку обмена позднее</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn6</td>
+    <td width="85%" valign="top"><p align="justify">Используется версией taylor uucp. Сервер считает файл слишком длинным (в данный момент места нет, но возможно ситуация изменится в будущем)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn7</td>
+    <td width="85%" valign="top"><p align="justify">Используется версией taylor UUCP. Сервер считает файл настолько большим, что пересылка вообще невозможна</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn8</td>
+    <td width="85%" valign="top"><p align="justify">Используется версией taylor UUCP. Означает, что файл был уже получен ранее. Это может произойти при потере подтверждения завершения обмена.</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn9</td>
+    <td width="85%" valign="top"><p align="justify">Используется версией taylor UUCP и uuplus. Означает, что удаленная система не может открыть другой канал и можно позднее попытаться передать файл еще раз</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">sn10</td>
+    <td width="85%" valign="top"><p align="justify">Используется только svr4 uucp и означает, что размер файла слишком велик</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">cy</td>
+    <td width="85%" valign="top"><p align="justify">Передача файла успешно завершилась</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">cym</td>
+    <td width="85%" valign="top"><p align="justify">Передача успешно завершена и сервер хочет стать клиентом</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">cn5</td>
+    <td width="85%" valign="top"><p align="justify">Временный файл не может быть перемещен в окончательное
+    положение, что означает невозможность завершения обмена.</td>
+  </tr>
+</table></div>
+
+<p align="justify">Последние три отклика сервера называются С-командами. При получении С-команды клиент может послать новую команду-запрос. Такой командой может быть <b>r-команда</b>, которая имеет следующий формат. </p>
+
+<p align="justify"><b>r from to user –options size</b></p>
+
+<p align="justify">Это запрос клиента на получение файла от сервера. Параметр <i>from</i> – имя файла на сервере. Это не может быть spool-файл,
+имя не может иметь символов подмены (wildcard). Параметр <i>to</i>
+– имя файла, который должен появиться у клиента, <i>user</i> – имя пользователя,
+инициировавшего обмен, options – список опций, контролирующих обмен, size –
+определяет максимальный размер файла, который может принять клиент. Допускаются следующие опции.</p>
+<center>
+<table cellspacing="0" border="10" cellpadding="2" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="6%" valign="top" bgcolor="gainsboro"><p align="justify">d</td>
+    <td width="94%" valign="top" bgcolor="gainsboro"><p align="justify">клиент
+    должен создать каталог, если необходимо (по умолчанию);</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="top"><p align="justify">f</td>
+    <td width="94%" valign="top"><p align="justify">клиент не должен создать каталог, если необходимо,вместо этого он должен прервать сессию;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="top"><p align="justify">m</td>
+    <td width="94%" valign="top"><p align="justify">клиент должен послать e-mail по адресу user в случае успешного завершения обмена.</td>
+  </tr>
+</table></center>
+
+<p align="justify">Сервер может прислать следующие отклики на r-команду.</p>
+<div align="center"><center>
+
+<table border="10" cellspacing="1" cellpadding="5" width="850" bgcolor="ghostwhite">
+  <tr>
+    <td width="19%" valign="top" bgcolor="gainsboro"><p align="center">Отклик</td>
+    <td width="81%" valign="top" bgcolor="gainsboro"><p align="justify">Описание</td>
+  </tr>
+  <tr>
+    <td width="19%" valign="top"><p align="center">ry mode [size]</td>
+    <td width="81%" valign="top"><p align="justify">Сервер готов послать файл и начинает эту процедуру.
+    Аргумент mode – восьмеричный код модификатора файла на сервере. Для некоторых
+    версий bsd uucp аргумент mode может иметь в конце символ М, означающий, что сервер
+    хочет стать клиентом и выдать команду-запрос</td>
+  </tr>
+  <tr>
+    <td width="19%" valign="top"><p align="center">rn2</td>
+    <td width="81%" valign="top"><p align="justify">Сервер не может послать файл, так как это запрещено или
+    потому, что такой файл отсутствует</td>
+  </tr>
+  <tr>
+    <td width="19%" valign="top"><p align="center">rn6</td>
+    <td width="81%" valign="top"><p align="justify">Используется версией taylor uucp. Файл слишком велик (например, не
+    соответствует ограничениям клиента)</td>
+  </tr>
+  <tr>
+    <td width="19%" valign="top"><p align="center">rn9</td>
+    <td width="81%" valign="top"><p align="justify">Используется версией taylor uucp и fsuucp. Удаленная система не может
+    открыть еще один канал. Можно попробовать позднее</td>
+  </tr>
+</table>
+</center></div>
+
+<p align="justify">По завершении обмена клиент может послать следующие команды (сервер их может проигнорировать). </p>
+
+<p align="justify">cy файл благополучно передан;</p>
+
+<p align="justify">cn5 временный файл не может быть перемещен в окончательную позицию.</p>
+
+<p align="justify">Клиент может использовать <b>команду x</b>
+для запуска uucp на сервере. Команда может иметь формат <b>x from to user –options</b>. Параметр <i>from</i> – имя файла (или файлов) на ЭВМ-сервере, пересылку которого затребовал клиент. Команда может служить для пересылки файлов из сервера посторонней третьей системе. Параметр <i>to</i> является именем файла или каталога, куда будут перенесен файл (или файлы). Например, если клиент хочет получить файлы сам, можно использовать запись master!path. Сервер может прислать следующие отклики на команду x.</p>
+
+<p align="justify">xy запрос принят, соответствующие команды пересылки файлов поставлены в очередь для последующего исполнения.</p>
+
+<p align="justify">xn Запрос отклонен (причина отклонения не сообщается, может быть сервер не поддерживает Х-запросы).</p>
+
+<p align="justify">Клиент может послать <b>команду Е,</b> которая имеет следующий формат:</p>
+
+<p align="justify"><b>e from to user –options temp mode notify size command</b></p>
+
+<p align="justify">Е-команда поддерживается системой taylor uucp и служит для реализации запросов исполнения без использования файлов x.*. Эта команда применяется в случае, когда исполняемая команда требует входного файла, который используется ей в качестве стандартного ввода. Основные параметры команды имеют то же значение, что и в случае команды s. Список опций, управляющих
+обменом, представлен в таблице.</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="12%" valign="top" bgcolor="gainsboro"><p align="center">Опция</td>
+    <td width="88%" valign="top" bgcolor="gainsboro"><p align="center">Описание</td>
+  </tr>
+  <tr>
+    <td width="12%" valign="top"><p align="center">c</td>
+    <td width="88%" valign="top"><p align="justify">Файл копируется в каталог spool (клиент должен
+    использовать <i>temp</i>, а не <i>from</i>)</td>
+  </tr>
+  <tr>
+    <td width="12%" valign="top"><p align="center">c</td>
+    <td width="88%" valign="top"><p align="justify">Файл не копируется в каталог spool (по умолчанию)</td>
+  </tr>
+  <tr>
+    <td width="12%" valign="top"><p align="center">n</td>
+    <td width="88%" valign="top"><p align="justify">e-mail сообщение не посылается даже в случае неудачи. Это
+    эквивалентно n-команде в файле x.*.</td>
+  </tr>
+  <tr>
+    <td width="12%" valign="top"><p align="center">z</td>
+    <td width="88%" valign="top"><p align="justify">Е-mail сообщение посылается, если при исполнении
+    команды произошла ошибка (значение по умолчанию). Эквивалентно команде z в файле Х.*</td>
+  </tr>
+  <tr>
+    <td width="12%" valign="top"><p align="center">r</td>
+    <td width="88%" valign="top"><p align="justify">Е-mail сообщение о результате выполнения посылается
+    адресату, записанному в параметре notify. Эквивалентно команде r в файле Х.*</td>
+  </tr>
+  <tr>
+    <td width="12%" valign="top"><p align="center">e</td>
+    <td width="88%" valign="top"><p align="justify">Исполнение должно проводиться с /bin/sh. Эквивалентно команде <b>e</b>
+    файла Х.*.</td>
+  </tr>
+</table></div>
+
+<p align="justify">В поле <i>command</i> записывается команда, которая должна быть исполнена. Это эквивалентно команде c файла Х.*. Отклики сервера на Е-команду эквивалентны откликам на команду s, только начальное s заменяется на Е.</p>
+
+<p align="justify">Для переведения соединения в пассивное состояние клиент может использовать <b>h-команду </b>(не имеет параметров или опций). Сервер
+реагирует на нее h-откликом. </p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="750">
+  <tr>
+    <td width="5%" valign="top"><p align="justify">hy</td>
+    <td width="95%" valign="top"><p align="justify">сервер согласен заблокировать обмен. В некоторых пакетах uucp клиент также посылаете команду hy. После этого стартует процедура закрытия канала.</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top"><p align="justify">hn</td>
+    <td width="95%" valign="top"><p align="justify">Сервер
+    не готов заблокировать обмен. После этого клиент
+    и сервер меняются ролями, такой обмен ролями
+    возможен несколько раз за время сессии.</td>
+  </tr>
+</table>
+
+<p align="justify">Если обмен завершен и клиент не намерен выдавать какие-либо запросы, связь прерывается. Клиент посылает сообщение <b>\020ОООООО\000</b>,
+на что сервер откликается посылкой строки <b>\02ООООООО</b>\000 (6 символов ‘О’ в первом и 7 – во втором случае). Какой-либо смысловой нагрузки этот обмен не несет, по этой причине некоторые пакеты его не производят.</p>
+
+<p align="justify">В рамках UUCP предусмотрено несколько вспомогательных протоколов.</p>
+
+<b>
+<p align="justify">g-протокол</b> предназначен для коррекции ошибок и поддерживается всеми версиями UUCP. Стандартная ширина окна в этом протоколе равна 3, а размер пакета 64 байтам, но в принципе предусмотрена возможность расширения окна при реализации потоков до 7 при размере пакетов 4096 байт. Протокол базируется на стандартных пакетных драйверах. Для реализации g-протокола используются пакеты с 6-байтовыми заголовками (управляющие пакеты
+содержат только заголовок). Формат этих пакетов представлен на рис. 4.4.14.1.1.</p>
+
+<p align="center"><img src="image552.gif" tppabs="http://book.itep.ru/4/44/image552.gif"></p>
+<p align="center">Рис. 4.4.14.1. Формат пакетов g-протокола</p>
+
+<p align="justify">Пакет начинается с восьмеричного кода <i>020</i>, далее следует поле <i>k</i> (1 <font face="symbol">Ј</font> <i>k</i> <font face="symbol">Ј</font> 9). Для управляющих пакетов k=9. Для информационных
+пакетов k определяет размер поля данных. k=1 соответствует 32 байтам данных, а k=9 – 4096 байтам. Далее следуют два байта <i>контрольной суммы</i>,
+<i>контрольный байт</i>, определяющий тип пакета, и <i>xor-байт</i>. Последний
+равен результату операции xor для полей k, младшего байта контрольной суммы, старшего байта контрольной суммы и контрольного байта. Этот байт служит для контроля целостности заголовка пакета.</p>
+
+<p align="justify"><i>Управляющий байт</i> заголовка содержит в себе три субполя (ttxxxyyy). Поле
+<i>tt </i> может принимать следующие значения.</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="5%" valign="top"><p align="justify">0 </td>
+    <td width="95%" valign="top"><p align="justify">Указатель
+    управляющего пакета (k должно быть равно 9). При
+    этом поле <i>xxx</i> определяет
+    тип управляющего пакета;</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top"><p align="justify">1 </td>
+    <td width="95%" valign="top"><p align="justify">Не используется UUCP;</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top"><p align="justify">2 </td>
+    <td width="95%" valign="top"><p align="justify">Информационный пакет;</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top"><p align="justify">3 </td>
+    <td width="95%" valign="top"><p align="justify">Короткий информационный пакет. </td>
+  </tr>
+</table>
+
+<p align="justify">Пусть длина поля данных, заданная k, равна 1, пусть также первый байт поля данных равен b1. Если b1 меньше 128, тогда истинное число байт в поле данных равно 1 – b1, начиная со второго байта. Если b1<font face="symbol">і</font> 128 и второй байт поля данных b2, то истинное число байт
+в поле данных равно 1 – ((b1 & 0x7f) + (b2 << 7)), начиная с третьего байта. Контрольная сумма вычисляется для всех байтов поля данных. </p>
+
+<p align="justify">Один байт данных пересылается в любом случае. Для всех типов информационных пакетов поле <i>ххх</i> определяет порядковый номер пакета,
+а поле <i>yyy</i> определяет номер последнего пакета, принятого без ошибки, что и определяет максимальный размер окна, равный 7. Каждая из сторон, участвующих в обмене, использует окно, чтобы регистрировать число пакетов, которое может быть послано без получения подтверждения. Размер этого окна может лежать в пределах 1-7. Пакеты посылаются строго по очереди, получение всех пакетов должно быть подтверждено в том порядке, в каком они были посланы.</p>
+
+<p align="justify">В пакетах управления поле <i>ххх </i>может принимать следующие значения:</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="18%" valign="top"><p align="justify">CLOSE</td>
+    <td width="82%" valign="top"><p align="justify">Соединение должно быть оборвано немедленно (например, обнаружено слишком много ошибок).</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">RJ или NAK</td>
+    <td width="82%" valign="top"><p align="justify">Последний пакет доставлен с ошибкой. В поле <i>ууу</i> записан номер последнего пакета, доставленного корректно.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">SRJ</td>
+    <td width="82%" valign="top"><p align="justify">Выборочный отказ. Поле <i>ууу</i> содержит номер пакета, доставленного с ошибкой. Пакет должен быть послан повторно. В UUCP обычно не используется.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">RR или ACK</td>
+    <td width="82%" valign="top"><p align="justify">Подтверждение получения пакета. Поле <i>ууу</i> содержит код номера последнего пакета, полученного корректно.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">INITA</td>
+    <td width="82%" valign="top"><p align="justify">Первый пакет инициализации. Поле ууу содержит код максимального размера окна.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">INITB</td>
+    <td width="82%" valign="top"><p align="justify">Второй пакет инициализации. Поле <i>ууу</i> содержит код размера пакетов, который планируется использовать.</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><p align="justify">INITC</td>
+    <td width="82%" valign="top"><p align="justify">Третий пакет инициализации. Поле <i>ууу</i> содержит размер окна, который будет использован.</td>
+  </tr>
+</table>
+
+<p align="justify">Контрольная сумма управляющего пакета равна 0хаааа – с, где с – контрольный байт заголовка. Контрольная сумма информационного пакета равна 0хаааа – (check ^ c), где ^ обозначает операцию исключающее ИЛИ, а check результат работы программы, приведенной ниже и обрабатывающей поле данных.
+Исходными параметрами для этой программы является указатель на начало блока данных z и число байтов в блоке c.</p>
+
+Int<br>
+igchecksum (z, c)
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="28%" valign="top"></td>
+    <td width="72%" valign="top">register const char *z;
+    </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top"></td>
+    <td width="72%" valign="top">register int c;
+    </td>
+  </tr>
+</table>
+
+{
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="29%" valign="top" colspan="2"><font size="4"></font></td>
+    <td width="71%" valign="top">register unsigned int ichk1, ichk2;
+    </td>
+  </tr>
+  <tr>
+    <td width="29%" valign="top" colspan="2"></td>
+    <td width="71%" valign="top">ichk1 = 0xffff;
+    </td>
+  </tr>
+  <tr>
+    <td width="29%" valign="top" colspan="2"><font size="4"></font></td>
+    <td width="71%" valign="top">ichk2 = 0;
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top" colspan="2">do
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top" colspan="2">{
+    </td>
+  </tr>
+  <tr>
+    <td width="29%" valign="top" colspan="2"><font size="4"></font></td>
+    <td width="71%" valign="top">register unsigned int b;
+    </td>
+  </tr>
+</table>
+
+/*  rotate ichk1 left.  */
+
+<table cellspacing="0" border="0" cellpadding="2" width="564">
+  <tr>
+    <td width="28%" valign="top"><font size="4"></font></td>
+    <td width="72%" valign="top" colspan="2">if ((ichk1 & 0x8000) == 0)
+    </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top"><font size="4"></font></td>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="58%" valign="top">ichk1 <<= 1;
+    </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top"><font size="4"></font></td>
+    <td width="72%" valign="top" colspan="2">else
+    </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top"></td>
+    <td width="14%" valign="top"></td>
+    <td width="58%" valign="top">{
+    </td>
+  </tr>
+  <tr>
+    <td width="42%" valign="top" colspan="2"></td>
+    <td width="58%" valign="top">ichk1 <<= 1;
+    </td>
+  </tr>
+  <tr>
+    <td width="42%" valign="top" colspan="2"></td>
+    <td width="58%" valign="top">++ichk1;
+    </td>
+  </tr>
+  <tr>
+    <td width="42%" valign="top" colspan="2"></td>
+    <td width="58%" valign="top">}
+    </td>
+  </tr>
+</table>
+
+/*  add the next character to ichk1.  */
+
+<table cellspacing="0" border="0" cellpadding="9" width="563">
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">b = *z++ & 0xff;
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">ichk1 += b;
+    </td>
+  </tr>
+</table>
+
+/*  add ichk1 xor the character position in the buffer counting from the back to ichk2. */<br>
+	ichk2 += ichk1 ^ c;
+/* if the character was zero, or adding it to ichk1 caused an overflow, xor ichk2 to ichk1.  */
+
+<table cellspacing="0" border="0" cellpadding="2" width="563">
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">if (b == 0 || (ichk1 & 0xffff) < b)
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">ichk1 ^= ichk2;
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">}
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">while (--c > 0);
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top"><font size="4"></font></td>
+    <td width="86%" valign="top">return ichk1 & 0xffff;
+    </td>
+  </tr>
+</table>
+
+}
+
+<p align="justify">Когда g-протокол запускается в работу, посылается управляющий пакет INITA с кодом желательного значения максимального размера
+окна. Сервер откликается пакетом INITA со своим предложением размера окна. После этого аналогичный обмен производится пакетами INITB и INITC. В результате каждая из сторон может использовать свой размер окна и длину посылаемых
+пакетов.</p>
+
+<p align="justify">Когда UUCP выдает команду, посылается один или более пакетов. В конце команды всегда посылается нулевой байт, который указывает на
+завершение командной строки. Когда пересылается файл, его завершение отмечается коротким информационным пакетом, содержащим нули. Прекращение работы протокола осуществляется посылкой управляющего пакета close.</p>
+
+<b>
+<p align="justify">f-протокол</b>. Этот протокол предназначен для пересылки 7-битных текстовых файлов. Здесь используются только символы от \040 (пробел) до \176 (~) и возврат каретки. Протокол весьма не эффективен для транспортировки
+8-битовых данных. Его система контрольного суммирования не слишком надежна для больших файлов. Первоначально этот протокол предназначался для работы в сетях Х.25. В f-протоколе не предусмотрена процедура инициализации. При пересылке команды передается строка, завершающаяся символом возврат каретки. В процессе передачи файлов каждый байт b преобразуется в соответствии с таблицей.</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="11%" valign="top">0
+    </td>
+    <td width="30%" valign="top"><= <var>b</var> <=  037:
+    </td>
+    <td width="32%" valign="top">0172, <var>b</var> + 0100
+    </td>
+    <td width="27%" valign="top">(0100 дo 0137)
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top">040
+    </td>
+    <td width="30%" valign="top"><= <var>b</var> <= 0171: 
+    </td>
+    <td width="32%" valign="top"><var>b</var>
+    </td>
+    <td width="27%" valign="top"> (040 до 0171)
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top">0172
+    </td>
+    <td width="30%" valign="top"><= <var>b</var> <= 0177:
+    </td>
+    <td width="32%" valign="top">0173, <var>b</var> – 0100
+    </td>
+    <td width="27%" valign="top">( 072 до 077)
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top">0200
+    </td>
+    <td width="30%" valign="top"><= <var>b</var> <= 0237:
+    </td>
+    <td width="32%" valign="top">0174, <var>b</var> – 0100
+    </td>
+    <td width="27%" valign="top">(0100 до 0137)</font>
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top">0240
+    </td>
+    <td width="30%" valign="top"><= <var>b</var> <= 0371:
+    </td>
+    <td width="32%" valign="top">0175, <var>b</var> – 0200
+    </td>
+    <td width="27%" valign="top">( 040 до 0171)
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top">0372
+    </td>
+    <td width="30%" valign="top"><= <var>b</var> <= 0377:
+    </td>
+    <td width="32%" valign="top">0176, <var>b</var> – 0300
+    </td>
+    <td width="27%" valign="top">( 072 до 077)
+    </td>
+  </tr>
+</table>
+
+<p align="justify">Таким образом, байты между \040 и \171 включительно передаются без изменений, остальные перед отправкой преобразуются. Когда
+файл данных переслан, посылается 7-байтовая последовательность, включающая в себя два байта \176, за которыми следует 4 ASCII байта контрольной суммы (в шестнадцатеричном формате) и символ возврата каретки. Если контрольная сумма равна 0x1a2b, то будет послана последовательность \176\1761a2b\r.</p>
+
+<p align="justify">При вычислении контрольной суммы туда сначала заносится код 0xffff. Для вычисления контрольной суммы (ichk) используется следующая программа, которая выполняется перед отправкой каждого байта.</p>
+
+/* rotate the checksum left.  */
+
+<table cellspacing="0" border="0" cellpadding="2" width="850">
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">if ((ichk & 0x8000) == 0)
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">ichk <<= 1;
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">else
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">{
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">ichk <<= 1;
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">++ichk;
+    </td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">}
+    </td>
+  </tr>
+</table>
+
+/* add the next byte into the checksum.  */
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="89%" valign="top">ichk += <var>b</var>;
+    </td>
+  </tr>
+</table>
+
+<p align="justify">Принимающая файл сторона также вычисляет контрольную сумму данных и сравнивает ее с полученной по каналу. По результату этого сравнения передающей стороне посылается одно-символьный отклик, за которым следует код
+возврата каретки.</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="6%" valign="top"><p align="justify">G</td>
+    <td width="94%" valign="top"><p align="justify">Файл принят без ошибок;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="top"><p align="justify">R</td>
+    <td width="94%" valign="top"><p align="justify">Ошибка в контрольной сумме, файл надо передать повторно;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="top"><p align="justify">Q</td>
+    <td width="94%" valign="top"><p align="justify">Контрольная сумма неверна, но уже совершено много попыток и
+    сессию следует прервать</td>
+  </tr>
+</table>
+
+<p align="justify"><b>t-протокол</b>. Протокол предназначен для каналов, обеспечивающих надежную связь по схеме точка-точка (аналог TCP) для 8-битных данных. При посылке команды сначала определяется ее длина <b>с</b>. Затем посылается (с/512 +1)*512 байт, которые включают в себя строку команды и
+соответствующее число нулевых байтов. При пересылке файлов обмен идет блоками по 1024 байта. Каждый блок начинается с 4 байтов, характеризующих объем данных в блоке (формат аналогичен используемому UNIX-утилитой htonl). В конце файла передается блок нулевых байтов.</p>
+<b>
+
+<p align="justify">e-протокол</b>. Протокол подобен t-протоколу. Но здесь нет управления потоком и контроля ошибок. При посылке команды передается командная строка, завершающаяся нулевым байтом. При пересылке файла сначала посылается код его размера в виде ASCII десятичных цифр. Эта строка дополняется до 20 символов нулевыми байтами. Так, если длина файла 40000 байт,
+сначала посылается последовательность 40000\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0, после чего посылается собственно файл.</p>
+<b>
+
+<p align="justify">G-протокол</b>. Протокол используется SVR4 UUCP. Он идентичен G-протоколу за исключением того, что можно модифицировать окно и размер пакетов. В SVR4 реализации G-протокола размер окна всегда равен 7 а длина пакета 64 байтам.</p>\
+
+<b>
+<p align="justify">i-протокол</b>. Протокол написан Яном Лансом Тейлором и использован в taylor UUCP. Это протокол пересылки данных со скользящим окном,
+подобно G-протоколу. Но в отличие от этого протокола i-протокол поддерживает обмен данными в двух направлениях одновременно. Пакеты в этом протоколе имеют 6-байтовый заголовок. За полем данных следует 4-байтовая контрольная сумма.
+Определено 5 типов пакетов: DATA, SYNC, ACK, NAK, SPOS и CLOSE. Все они могут содержать поле данных. Пакеты типа DATA, SPOS и CLOSE имеют порядковые
+номера. Каждая из сторон нумерует пакеты независимо по модулю 32. Каждый из пакетов характеризуется локальным и удаленным номерами каналов. Каждому типу команд в локальной системе ставится в соответствие ненулевой локальный
+номер канала. Аналогичное правило справедливо и для удаленной системы. Это позволяет решить проблему одновременного двухстороннего информационного обмена. Для каждого файла протокол формирует указатель, в исходный момент равный нулю. После получения очередного пакета указатель соответствующим образом инкрементируется. Исключение представляют пакеты типа spos, которые служат для
+изменения указателя файла. Формат пакета i-протокола представлен на рис. 4.4.14.1.2.</p>
+
+<p align="center"><img src="image553.gif" tppabs="http://book.itep.ru/4/44/image553.gif"></p>
+<p align="center">Рис. 4.4.14.1.2. Формат пакета i –протокола</p>
+
+<p align="justify">Заголовок начинается с флага ^g (восьмеричный код \007), далее следует 5-битовое поле <i>пакет</i>. Пакеты DATA, SPOS и CLOSE используют это поле для номера пакета. В пакетах NAK сюда заносится номер пакета, подлежащий повторной пересылке. В пакетах же ACK и SYNC это поле заполняется нулями. Поле <i>ACK</i> содержит 5 бит и служит для записи номера последнего пакета, принятого без ошибки. Это поле используется всеми типами пакетов. В
+трехбитовое поле <i>тип</i> определяет назначение пакета и может принимать следующие значения.</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="700">
+  <tr>
+    <td width="10%" valign="top"><p align="justify">0 ‘DATA’</td>
+    <td width="90%" valign="top"><p align="justify">Информационный пакет;</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top"><p align="justify">1 ‘SYNC’</td>
+    <td width="90%" valign="top"><p align="justify">Пакет sync используется при инициализации соединения,
+    поле <i>пакет </i>в для этого типа обнуляется;</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top"><p align="justify">2 ‘ACK’</td>
+    <td width="90%" valign="top"><p align="justify">Пакет-отклик.
+    Так как пакет типа data также может использоваться
+    для отклика, ack предназначен для случая, когда
+    одной из сторон нечего посылать. Пакеты ack не
+    нумеруются.</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top"><p align="justify">3 ‘NAK’</td>
+    <td width="90%" valign="top"><p align="justify">Отрицательное подтверждение. Пакет посылается, когда при приеме произошла ошибка. В этом случае в поле <i>пакет</i> записывается номер пакета, подлежащего повторной пересылке.</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top"><p align="justify">4 ‘SPOS’</td>
+    <td width="90%" valign="top"><p align="justify">Пакет служит для изменения указателя файла. Пакет содержит 4 байта указателя файла (наиболее значащий байт первый).</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top"><p align="justify">5 ‘CLOSE’</td>
+    <td width="90%" valign="top"><p align="justify">Пакет служит для сообщения о прерывании связи. Противоположная сторона должна откликнуться пакетом CLOSE.</td>
+  </tr>
+</table>
+
+<p align="justify">Однобитовое поле <i>d</i> =1 для пакетов клиента и =0 для
+пакетов сервера. Поле <i>длины поля данных</i> состоит из двух секций (полный байт содержит младшую часть), имеет суммарную протяженность 12 бит, что позволяет варьировать поле данных в пределах от 0 до 4095 байт. Однобайтовое поле <i>контрольная сумма</i> содержит код, который представляет собой
+результат операции XOR, выполненной для байт заголовка, начиная со второго по пятый. После заголовка следует поле данных, за которым помещается 32-разрядная контрольная сумма информационного поля (CRC).</p>
+
+<p align="justify">При инициализации i-протокола стороны обмениваются SYNC-пакетами, которые содержат по крайней мере 3 байта. Первые два байта несут в
+себе максимальный размер пакетов, посылаемых удаленной стороной (старший байт первый). Третий байт определяет размер окна, используемый удаленной стороной. При этом могут посылаться пакеты любого размера, но не больше указанного
+максимального. Если SYNC содержит четвертый байт, то он хранит в себе номер канала (1-7), который может использовать удаленная система. Размер окна определяет число пакетов, которое может быть послано, не дожидаясь подтверждения получения. Подтверждаться может не каждый пакет. Если получено подтверждение получения пакета n, все предшествующие считаются полученными
+корректно. Если потерян пакет, посланный одной из сторон, другая может передавать пакеты, как ни в чем не бывало. Команды посылаются в виде
+последовательности информационных пакетов с ненулевым полем <i>номера локального канала</i>. Последний из пакетов в этом случае должен содержать нулевой байт в конце (обычно команда укладывается в один пакет). Файла
+передаются в виде последовательности пакетов, завершающейся пакетом нулевой длины. При получении отклика sn пересылка файла абортируется. Применение номеров каналов позволяет посылать команды и пересылать файлы одновременно.</p>
+<b>
+
+<p align="justify">j-протокол</b>. Этот протокол является разновидностью i-протокола написанного тем же автором. Протокол предназначен для коммуникационных каналов с возможностью перехвата некоторых символов, например xon или xoff. Протокол не выполняет детектирования или исправления ошибок. При инициализации j-протокола системы обмениваются последовательностями печатных ascii-символов, чтобы указать, какие из них стороны хотят исключить из употребления. Такая последовательность должна начинаться с символа ^ (восьмеричный код 136) и завершаться символом ~ (восьмеричный код 176). После
+отправления такой строки система ждет аналогичной посылки с противоположной стороны. Строки состоят из esc-последовательностей типа \ooo, где o – восьмеричная цифра. Например, посылка последовательности ^\021\023~ означает, что следует избегать символов xon и xoff. Блокировка использования символов из диапазона \040 - \176 запрещена. После указанного обмена включается
+стандартный i-протокол, но пакеты i-протокола вкладываются в j-пакеты. Заголовок j-пакетов содержит 7 байт. Формат заголовка пакета j-протокола показан на рис. 4.4.14.1.3.</p>
+
+<p align="center"><img src="image554.gif" tppabs="http://book.itep.ru/4/44/image554.gif"></p>
+<p align="center">Рис. 4.4.14.1.3. Формат заголовка j-пакета</p>
+
+<p align="justify">Заголовок начинается с кода символа ^. Далее следует два байта поля <i>длина </i>(первый из них старший), которые характеризуют полную длину пакета в байтах. Запись в этом поле осуществляется в виде ascii-символов. Истинная длина пакета вычисляется согласно формуле: (l1 – 040)*0100 + (l2 – 040), где 040 <font face="symbol">Ј</font> l1 < 0177 и 040 <font face="symbol">Ј</font> l2 < 0140. После поля <i>длина</i> следует байт 075 (символ =), за которым следует два байта <i>длины поля данных</i> (равна размеру вложенного i-пакета в октетах). Заголовок завершается символом @ (восьмеричный код 0100). Все символы, запрещенные к использованию при инициализации, в случае их наличия в i-пакете подменяются печатными ASCII-символами. При этом для каждой такой подмены вводится два индексных байта (index-h и index_l). Индексные байты непосредственно следуют за байтами данных. В индексных байтах закодировано положение “запретного” символа в i-пакете. Преобразование запретных символов производится следующим образом. Если код символа больше или равно 0200, из него вычитается 0200, если при этом результат меньше 020 или равен 0177, над ним производится операция xor 020. Индексные байты представляют собой ASCII-символы. Истинное положение запретного символа вычисляется по формуле: (index-h – 040) * 040 + (index_l – 040). Значение index_l
+должно лежать в пределах</font> 040 <font face="symbol">Ј</font><font
+face="times new roman"> index_l < 0100, а index-h – 040 </font><font face="symbol">Ј</font> index-h < 0176.</p>
+
+<b>
+<p align="justify">x-протокол</b>. Протокол ориентирован на машины со встроенными картами Х.25 и предназначен для непосредственной пересылки 8-битовых данных без взаимодействия со слоями Х.28 или Х.29. Пересылка осуществляется 512 байтными пакетами.</p>
+<b>
+
+<p align="justify">y-протокол</b>. Протокол разработан Йоргом Квиком и используется в FX uucico. Протокол осуществляет контроль и коррекцию ошибок, он
+предназначен для передачи 8-битовых данных в поточном режиме. Здесь не предусмотрено подтверждения получения пакетов, по этой причине протокол удобен для полудуплексных каналов. Каждый пакет имеет 6-байтовый заголовок. Формат
+заголовка для y-пакетов показан на рис. 4.4.14.1.4.</p>
+
+<p align="center"><img src="image555.gif" tppabs="http://book.itep.ru/4/44/image555.gif"></p>
+<p ALIGN="CENTER">Рис. 4.4.14.1.4. Формат заголовка для y-пакетов</p>
+
+<p ALIGN="JUSTIFY">Первое поле <i>номер</i> содержит два байта номера пакета, причем первый из байтов является младшей частью номера (это справедливо и для других полей заголовка). Нумерация начинается с нуля. Так как первый пакет всегда SYNC, информационные пакеты имеют номера, начиная с 1. Каждая из систем, участвующих в обмене, нумеруют пакеты независимо. Если старший бит 16-битового
+поля <i>длины</i> равен нулю, то в этом поле записано число байт в поле данных, следующем за заголовком. Если же старший бит равен 1, то данных в пакете нет, а сам он является управляющим пакетом. В этом случае поле <I>длина</I> определяет тип пакета. Содержимое двухбайтового поля <I>контрольная сумма</I> вычисляется по программе, приведенной в описании протокола f. Для пакетов, не содержащих данных, контрольная сумма равна нулю. Инициализация протокола начинается с того, что стороны обмениваются SYNC-пакетами. SYNC-пакет должен содержать по меньшей мере 4 байта данных. Первый из них содержит код версии протокола. Далее следует байт длины пакета, которая измеряется в блоках по 256 байт (максимальный размер поля данных 32768 байт, что соответствует коду длины 128). Завершается блок данных пакета SYNC двумя байтами флагов. В настоящее время их функции не определены и их следует обнулять. Определены следующие типы управляющих пакетов. </p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">0хFFFE ‘YPKT_ACK’</td>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">подтверждение корректного приема файла;</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">0xFFFD ‘YPKT_ERR’</td>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">указывает на ошибку в контрольной сумме;</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">0xFFFC ‘YPKT_BAD’</td>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">указывает на ошибку в порядковом номере, в поле длины или
+    какую-либо еще ошибку.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Если получен управляющий пакет, отличный от ‘YPKT_ACK’, соединение обрывается (это же делается при обнаружении других ошибок). Команда в y-протоколе представляет собой последовательность пакетов, завершающаяся нулевым байтом. Конец передачи файла отмечается посылкой пакета с нулем в поле
+ <i>длина</i>. </p>
+
+<p ALIGN="JUSTIFY">Существуют также <b>d</b>-, <b>h</b>- и </font><b>v</b>-протоколы UUCP, но они не имеют заметного применения.</p>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="smtp4414.htm" tppabs="http://book.itep.ru/4/44/smtp4414.htm"><FONT COLOR="lightblue">4.4.14 Протокол электронной почты SMTP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="pop34414.htm" tppabs="http://book.itep.ru/4/44/pop34414.htm"><FONT COLOR="lightblue">4.4.14.2 Почтовый протокол POP3</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

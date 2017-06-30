@@ -1,0 +1,1880 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="
+
+
+
+
+
+">
+<TITLE>10.10.3 [C]</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="b.htm" tppabs="http://book.itep.ru/10/abbr/b.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="d.htm" tppabs="http://book.itep.ru/10/abbr/d.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="b.htm" tppabs="http://book.itep.ru/10/abbr/b.htm"><FONT COLOR="lightblue">10.10.2 [B]</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><FONT COLOR="lightblue">10.11 Адреса    серверов ведущих фирм, работающих в сфере телекоммуникаций</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="d.htm" tppabs="http://book.itep.ru/10/abbr/d.htm"><FONT COLOR="lightblue">10.10.4 [D]</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>10.10.3 [C]</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<CENTER> <TABLE CELLSPACING=0 BORDER=10 CELLPADDING=5 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="17%" VALIGN="TOP" bgcolor="gainsboro"><B>Сокращение</B></TD>
+<TD WIDTH="36%" VALIGN="TOP" bgcolor="gainsboro"><B>Английская расшифровка</B></TD>
+<TD WIDTH="47%" VALIGN="TOP" bgcolor="gainsboro"><B>Русская расшифровка</B></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>C Programming Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык программирования СИ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.C</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла исходного текста программы на языке СИ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" rowspan=5><B><P>CA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Application (SAA)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общее применение</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Certification Authority</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сертификационная служба</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Call Appearance</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Приход вызова</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cellular Automata</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Клеточный автомат</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Collision Avoidance</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Избежание столкновений</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CAC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carrier Access Code</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Программа доступа к каналу</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Connection Admission Control</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Контроль доступа в сеть</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Design</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для автоматизации проектирования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CADD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Design and Drafting</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для проектирования и рисования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CAE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Engineering</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для автоматизации инженерного труда</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Application Environment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Среда применения ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Controllable ATM Fabric</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляемая структура АTM (Fabric)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAFS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Content Addressable File Store</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Ассоциативная файловая память</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Column Address Generator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Генератор адреса колонки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Instruction</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Инструкции, выполняемые ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CAL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Calendar</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Календарь</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Learning</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обучение с помощью ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CALC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Customer Access Line Charge</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Оплата доступа клиента к каналу</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CALS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Acquisition and Logistics Support</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Использование ЭВМ для сбора данных и принятия решений</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CAM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Access Method</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Метод общего доступа</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Manufacturing</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для автоматизации производства</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Contents Addressable Memory</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Память с адресацией по содержанию (ассоциативная)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CAN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Campus Area Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сеть университета (между LAN и WAN)</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>CANcel</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Аннулировать</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Controller Area Network [Bosch]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляющая сеть реального времени</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=5><B><P>CAP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Arbitration Point</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Точка централизованного арбитража</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Communication Application Platform</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Платформа коммуникационных приложений</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Competitive Access Provider</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сервис-провайдер конкурент</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Carrierless Amplitude/Phase modulation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Амплитудно-фазовая модуляция без несущей (используется в ADSL)</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Publishing</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для автоматизации издательской деятельности</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CAP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Capture (file name extension)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAPD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computing To Assist Persons With Disabilities [Johns Hopkins University]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для помощи инвалидам</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CAPS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Capitals</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Заглавные буквы</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cassette Programming System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Кассетная система программирования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CARAM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Content Addressable Random Access Memory</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Ассоциативная память с произвольной выборкой</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CARL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Colorado Alliance of Research Libraries (Internet)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Альянс исследовательских библиотек Колорадо</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CART</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Classification and Regression Tree</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Дерево классификации и регрессии</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=5><B><P>CAS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Column Address Select</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Выбор адреса колонки</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Communications Application Specification</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Спецификация коммуникационного приложения</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Styling</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управление стилями с помощью ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Channel-Associated Signaling</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Внутриканальная сигнализация</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Column Address Strobe</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Строб адреса колонки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CasCor</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cascade Correlation (SL)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Каскадная корреляция</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CASE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Software Engineering</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ для автоматизации программирования</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Application Service Elements</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сервисные элементы общего приложения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CASL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Crosstalk Application Scripting Language [DCA]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык программирования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CASS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Assisted Search Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Служба поиска с помощью ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CASSIS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Classified and Search Support Information System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационная система для классификации и поиска</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>CAT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Testing</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Испытания с помощью ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Tomography</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Томография с применением ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Aided Transcription</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Транскрипция с применением ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Concatenate</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Объединить</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CAT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Catalog </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла каталог</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CATS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Committee Analyzing Transport Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Комитет анализа транспортных услуг</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CATV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>CAble TeleVision</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Кабельное телевидение</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Community Antenna TeleVision</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Телевидение с общей антенной</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Constant Angular Velocity</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Постоянная угловая скорость</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CAW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Address Word </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Адресное слово канала </TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Board</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Пульт управления</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBAC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Context-based Access Control</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Контекстно-ориентированное управление доступом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cipher Block Chaining</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цепной шифр</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBCR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Byte Count Register</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Регистр-счетчик числа байт в канале</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBDS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless Broadband Data Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Широкополосная служба передачи данных без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBEMA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer and Business Equipment Manufacturers Association</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Вычислительное и деловое оборудование</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Based Learning</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обучение, базирующееся на ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CBL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>COBOL source code</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла исходного текста программы (COBOL)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBMS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer-Based Mail System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Почтовая система, базирующаяся на ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBNN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cascade Backpropagation Neural Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Каскадная нейронная сеть с обратным распространением</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CВR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Constant Bit Rate</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Постоянная частота бит (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Colored Book Software (JANET protocols)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Программы из цветной книги (протоколы JANET)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Based Training</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обучение, базирующееся на ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Convert Byte to Word</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Преобразовать байт в слово</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CBX</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer-Controlled Branch Exchange</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обмен по магистрали, контролируемый ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cascade Correlation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Каскадная корреляция</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Country Code</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Код страны</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cluster Controller</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Контроллер кластера</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Control Block</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Блок управления вызовом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Charge Coupled Device</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Прибор с зарядовой связью (ПЗС)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCFT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cold Cathode Fluorescent Tube</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Флуоресцентная лампа с холодным катодом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCH</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Check Handler</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Хандлер управления каналом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCIR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Consultative Committee on International Radio communications</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Международный консультативный комитет по радио и телевидению</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCIS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Channel Interoffice Signaling</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Межофисная сигнальная система с общим каналом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCITT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Comite Consultatif Internacionale pour la Telephonie et la Telegraphie</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Международный консультативный комитет по телефонии и телеграфии</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cyber Control Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляющий язык Cyber</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCLC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carrier Common Line Charge</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conventional Command Mode</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обычный командный режим</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCNN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cascade Correlation Neural Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Каскадная корреляционная нейронная сеть</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCOT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cross Office Transfer Time</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Время передачи в пределах офиса</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Console Command Processor</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Процессор команд консоли</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CCR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Commitment, Concurrence and Recovery</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Передача, согласованность, восстановление</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Customer Controlled Reconfiguration</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Реконфигурация, контролируемая клиентом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CCS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Communication Support (SAA)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общая поддержка коммуникаций</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Channel Signaling</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сигнальная система общего канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCSA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Control Switching Arrangement</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система переключения с общим управлением</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCTLD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Country Code Top Level Domain</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Национальный домен верхнего уровня</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Clock Unit</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Блок центрального синхросигнала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CCW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Command Word</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляющее слово канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=6><B><P>CD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carrier Detected</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Несущая принята</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Change Directory</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Изменить каталог</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Collision Detection</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Зафиксировано столкновение</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Color Display</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цветной дисплей</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный диск</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Clock Driver</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Формирователь тактовых импульсов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C/D</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Data</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляющие данные</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C2D</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Character To Decimal [REXX]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Преобразование символа в десятичный код</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compound Document Architecture [DEC]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Архитектура составных документов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Data Bus</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общая шина данных</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Data Corporation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Название корпорации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD_CHRDY</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Card Channel Ready [IBM]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Канал карты готов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clarion Database Developer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Разработчик баз данных Clarion</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDDI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Copper Distributed Data Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>100Мбит/с интерфейс на основе медного кабеля</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CDE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cooperative Development Environment (Oracle)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Среда кооперативной разработки</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Desktop Environment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общая рабочая среда</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Complex Data Entry</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Комплексный ввод данных</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CDF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Custom Defined Function</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Заказная функция</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Channel Definition Format</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Формат описания канала (Microsoft)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CDF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Comma Delimited Format</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла с запятой в качестве разделителя</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-I</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk – Interactive</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный диск – интерактивный</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Design Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык проектирования на ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Code Division Multiplex</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Мультиплексная передача с кодовым уплотнением каналов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDMA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Code Division Multiple Access</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Множественный доступ с распределением кодов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-MO</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk - Magneto Optical</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Магнитооптический компактный диск</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDOS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Concurrent Disk Operating System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Совмещенная операционная дисковая система</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CDP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conditional Di-Phase</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Условное ди-фазное цифровое кодирование</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cheops Data Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол данных Cheops</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDPD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cellular Digital Packet Data</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сотовые цифровые пакетные данные</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Detail Record</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Запись параметров вызова</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-R</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk – Recordable</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный перезаписываемый диск</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-RDx</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk - Read Only Memory Data Exchange Standard</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный диск – стандарт на информационный обмен для систем памяти, ориентированных только на чтение</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDRL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Contract Data Requirements List</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Список требований к контрактным данным</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDROM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk Read Only Memory</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система памяти на лазерном компактном диске (только для чтения)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-RTOS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk - Real Time Operating System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Операционная система реального времени на компактном диске</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-RW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disc Read-Writable</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компакт-диск с возможностью записи</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Current Directory Structure (DOS, 88-bytes/DIR)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Текущая структура каталогов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Daylight Time</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральное дневное время</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Display Unit</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центальный дисплей</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Delay Variation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Вариация задержки ячейки (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-V</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk – Video</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный видеодиск</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CDVT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Delay Variation Tolerance</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Допустимое отклонение задержки ячейки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-WO</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk - Write Once</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный диск с одноразовой записью</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CDX</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compound Index</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла комбинированного индекса [Fox Pro]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CD-XA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compact Disk – Extended Architecture</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный диск – расширенная архитектура</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>CE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cache Enable</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Активация буферной памяти</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Chip Enable</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Выбор кристалла</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Collision Elimination</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Исключение столкновений</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Convert Enable</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Разрешение преобразования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CEDAR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Center Of Excellence for Document Analysis and Recognition</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центр высокого качества для анализа и распознавания документов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CEG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Continuous Edge Graphics</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Графика с непрерывным контуром</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CEI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conducted Electromagnetic Interference</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Кондуктивная электромагнитная интерференция</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CELP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Code Excited Linear Prediction</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Линейное предсказание по коду</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CEPT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Committee European de Post et Telegraph</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Европейский комитет по почте и телеграфу</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Conference of European Post and Telegraph</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Европейская конференция по почте и телеграфу</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CER</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Error Ratio</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Отношение числа ячеек с ошибкой к общему числу ошибок</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CERT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Emergency Response Team</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Европейская организация по стандартизации в области почты и телекоммуникаций</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CES</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Circuit Emulation Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Эмуляция схемы (мультиплексирование в ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CFB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cipher Feedback</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цифровая обратная связь</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CFD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Flow Diagram</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Диаграмма управления потоками</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CFG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Configuration</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конфигурация (расширение имени файла)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CFL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Context-Free Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Бесконтекстный язык</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CFV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call For Votes [Bitnet]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Запрос в сети BITNET</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Categorial Grammer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Категориальная грамматика</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Character Generator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Генератор символов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CGA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Color Graphics Adapter</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цветной графический адаптер</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CGI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Generated Images</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Изображения, генерируемые ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Gateway Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерфейс общего внешнего порта</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Graphics Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Графический интерфейс ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CGM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Graphics Metafile </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Графический метафайл</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CGM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Graphics Metafile</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Графический метафайл (расширение имени файла)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CGS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Configurer Graphics Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Служба графической конфигурации</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Compact Gateway Server</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компактный сервер сетевого порта</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHAOSnet</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевой протокол, разработанный MIT</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHAP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Challenge (Handshake) Authentication Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол идентификации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHAR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Character</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Символ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHAT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conversational Hypertext Access Technology [Internet]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Разговорная гипертекстная технология доступа</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHCK</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Check</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Проверка канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHCP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Change Code Page</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Изменить страницу программы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CHS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cylinder, Head, Sector</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система адресации на диске (цилинр-головка-сектор)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Classical IP over ATM</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Классическое IP поверх ATM</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CIC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Certificate Integrity Check</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Проверка корректности идентификации</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Carrier Identification Code</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Код идентификации несущей</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CICS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Customer Information Control System (IBM)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система контроля информации пользователя</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CICS/VS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Customer Information Control System/Virtual Storage </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система управления информацией клиента/Виртуальная память [IBM]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CID</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Configuration/Installation/Distribution</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конфигурация/инсталяция/распределение</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Craft Interface Device</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерфейс на основе терминала или PC для локального управления</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel ID</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Идентификатор канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIDR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Classless Inter Domain Routing</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Бесклассовая интердоменная маршрутизация</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Intermediate (Interchange) Format (TV) Format</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Стандарт представления цветного изображения (352*288)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CIM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Integrated Manufacture</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Производство, интегрированное с помощью ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>CompuServe Information Manager</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационный менеджер CompuServe</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIO</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Chief Information Officer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Главный специалист по информации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIOCS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Communication Input/Output Control System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система управления коммуникацией ввода/вывода</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CIP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command Interface Port</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Порт командного интерфейса</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Interface Processor</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Процессор канального интерфейса</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Committed Information Rates </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Оговоренные скорости передачи (Frame Relay)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIRC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Circular Reference</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Кольцевая ссылка</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CIS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Card Information Structure</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационная структура карты</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>CompuServe Information Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационный сервис CompuServe</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Information Systems</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компьютерные информационные системы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CISC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Complex Instruction Set Computer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>ЭВМ с комплексным набором команд (противоположность RISC)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CISPR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Special International Committee on Radio</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Специальный международный комитет по радио</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CIX</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Commercial Internet eXchange</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммерческий обмен в Интернет</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CJLI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compulink Information Exchange</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационный обмен Compulink</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Command Job Language Interpreter</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерпретатор командного языка управления заданиями</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CKD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Count Key Data (device)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Без связи</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compilar Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык компилятора</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLAI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless Access Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерфейс доступа без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLAR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Local Address Register</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Регистр адреса локального канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CLASS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Custom Local-Area Signaling Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Заказные локальные сигнальные услуги</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>CLient Access to Systems and Services</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Доступ клиента к системе и сервису</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cooperative Library Agency for Systems and Services</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Кооперативное библиотечное агентство для систем и сервиса</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLAW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Link Access for Workstations</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общий доступ к каналу для рабочих станций</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clear Carry Flag</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Флаг сброса переноса</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clear Direction Flag</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сброс флага направления</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLDS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>ConnectionLess Data Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационная служба без установления связи</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLEC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Competitive Local Exchange Carrier</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Местный сервис-провайдер</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>СLFS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless Function Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Функции служб без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>CLI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call-Level Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерфейс уровня вызова</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command Language Interpreter</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Инткрпретатор команд</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Clear Interrupt Flag</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сброс флага прерываний</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Command Line Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерфейс командных строк</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLIST</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command List</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Список команд</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLK</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clock</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Часы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>ConnectionLess Mode</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Режим без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLNAP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>ConnectionLess Network Access Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол доступа к сети без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLNI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless Network Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевой интерфейс без установления соединений</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLNIP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless Network Interface Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол интерфейса без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLNP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Less Network Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевой протокол без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLNS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Less Network Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевой сервис без установления соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell-Loss Priority field</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Поле приоритета потери ячейки (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CLP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clipboard [Windows]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла Clipboard</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Loss Ratio</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Вероятность потери ячейки (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clear Screen</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Очистка экрана</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CLT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Communication Line Terminal</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Терминал линии связи</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Language Translator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Транслятор на машинный язык</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLTP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connectionless Transport Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Транспортный протокол не требующий соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLTS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clear Task Switch Flag</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сброс флага задания</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLUI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command Line User Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Пользовательский интерфейс командной строки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLUT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Color Look-Up Table [Macintosh]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Таблицы просмотра для управления цветом</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CLV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Constant Linear Velocity Interference</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Интерфейс постоянной линейной скорости</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Mode</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Режим с установлением соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>CRC Message Block</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Поле CRC сообщения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CMC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Mediated Communications</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Межкомпьютерные коммуникации</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Call Modification Completed message</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сообщение-отклик на запрос (CMR), подтверждающее его исполнение</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Coded Mark Inversion</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Двухуровневый двоичный код без возвращения к нулю с изменением 
+полярности для каждой логической 1 и с изменением полярности в середине передачи 0 (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMIP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Management Information Protocols </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общие протоколы управления для сетей ISO (RFC-1189)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMIS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Management Information Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Служба общей управляющей информации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMISE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Management Information Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сервис общей управляющей информации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CML</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Managed Learning</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обучение под управлением ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Current Mode Logic</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Логика текущего режима</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMMS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computerized Maintenance Management Software</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Программное обеспечение контроля работы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMMU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cache/Memory Management Unit [Motorola]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Блок управления памятью </TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMNS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Mode Network Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевые услуги в режиме соединения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMOS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Complementary Metal-Oxide Semiconductor</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>КМОП-полупроводник (типа метал-оксид)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMOT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>CMIP Over TCP </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>CMIP через TCP (RFC1095)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CMP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compare</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сравнение</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMPS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compare word String</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сравнение строк из слов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CMR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Modification Request Message</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сообщение, которое может быть послано в любом направлении, для 
+модификации сессии, например, для перехода от передачи данных к передаче голоса (ISDN)</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Misinsersion Rate</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Частота ошибочных доставок ячеек (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMRJ</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Modification Reject Message</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сообщение-отклик на запрос CMR, оповещающее об отклонении этого запроса (ISDN).</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CMS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conversational Monitor System (IBM interactive OS)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Разговорная мониторная система</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Code Management System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система управления программой</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Compiler Monitor System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система мониторирования компилятора</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Management</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управление связью</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMTS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cable Modem Termination System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Оконечная система для кабельного модема (например, маршрутизатор)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Matrix Unit</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Блок коммутирующей матицы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMY</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cyan-Magenta-Yellow</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цветовой код (альтернатива RGB – голубой-красный-желтый)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CMYK</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cyan-Magenta-Yellow-Black (color model)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цветовая модель “голубой-красный-желтый-черный”</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Name Abbreviation (X.400)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сокращение общего имени</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Customer Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Абонентская сеть</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Certified NetWare Administrator [Novell]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сертифицированный администратор NetWare</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computerized Numerical Control</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цифровое управление с помощью ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CND</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Caller Number delivery (caller ID)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Получение вызывающего номера </TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Certified NetWare Engineer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сертифицированный инженер NetWare</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CNF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Configuration</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла конфигурации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Calling</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Тоновый вызов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cellular Neural Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Ячеечная нейронная сеть</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carrier to Noise Ratio</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Отношение несущей к шуму</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNRI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Corporation for National Research Initiatives</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корпорация национальных исследовательских инициатив</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Neural System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральная нейронная система</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNSS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Core Nodal Switching Subsystem </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Узловая субсистема переключения [Internet]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conventional</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обычная (относится к памяти)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNVT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Convert</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Преобразовать</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CNX</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Certified Network Expert</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сертифицированный сетевой эксперт</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CO</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Office</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральный офис</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Command Output</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Выход команд</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Convert Out</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Выход преобразования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COAM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Customer Owned And Maintained</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляемый и принадлежащий пользователю</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.COB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>COBOL source code (file name extension)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла исходного текста </TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COBOL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Business-Oriented Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык программирования, ориентированный на бизнес</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.COD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Code List</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла списка программ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CODASYL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conference on Data System Languages </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конференция по информационно-системным языкам (группа создателей COBOL)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CODEC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Coder/Decoder</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Кодировщик/декодировщик</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Compression/Decompression</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сжатие (архивация) – восстановление</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CODS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Oriented Data Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационные услуги, ориентированные на соединение</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COEM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Commercial Original Equipment Manufacturer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммерчески независимый производитель оборудования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COFF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Object File Format </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общий формат объектных файлов [Unix]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COGO</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Coordinate Geometry </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык программирования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>COL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Collision</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Столкновение</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Oriented Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык, ориентированный на ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COLD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Output to Laser Disk</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Вывод данных из ЭВМ на лазерный диск</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>COM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Commercial</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммерческий (секция имени домена в Интернет)</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Component Object Model</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компонентно-объектная модель</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Continuation of Message</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Продолжение сообщения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.COM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени командного файла</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COM1, 2, 3, 4 </B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>First serial Port</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Первый (второй, третий и четвертый) последовательный (асинхронный) порт</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COMDEX</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Dealers Exposition</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Экспозиция дилера ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COMET</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cornell Macintosh Terminal Emulator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корнельский терминальный эмулятор Макинтоша</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>COMP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compare</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сравнить</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Communications</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммуникации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COMPASS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Communications Program for Advanced Switching Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммуникационная программа для продвинутой системы коммутации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COMSAT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Communications Satellite Corporation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корпорация коммуникационных спутников</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CON</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Console</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Консоль (клавиатура и дисплей)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CONFIG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Configuration</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конфигурация</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CONF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Configuration Failure</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Ошибка конфигурации</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CONNECT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computational Neural Network Centre</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Вычислительный центр нейронных сетей</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CONP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection-Oriented Network Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевой протокол, ориентированный на соединение</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CONS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Connection Oriented Network Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сетевая услуга, ориентированная на соединение</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CONTONE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Continuous Tone</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Длинный гудок</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COOS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Commanded OOS</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Ресурс не доступен, так как введен в виде команды</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COPS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Oracle Password and Security</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Пароль в ЭВМ и безопасность (Oracle)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CORBA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Object Request Broker Architecture</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Единая архитектура программы-посредника, обрабатывающая запросы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CORE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Centrally Operated RISC Environment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральная часть RISC-среды</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CoREN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Corporation for Research and Enterprise Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корпорация исследовательских и коммерческих сетей</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>COS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Corporation for Open Systems</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корпорация открытых систем</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Class Of Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Класс услуг</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Compatible Operating System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Совместимые операционные системы</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Corporation of Operating System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корпорация открытых систем (наименование фирмы)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>COSE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Combined Office Standard Environment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Комбинированная стандартная среда для офиса</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Open Software Environment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общая открытая среда программирования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COSINE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cooperation for OSI Networking in Europe (RFC1274)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сотрудничество в Европе в области сетей OSI</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COSMIC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Software Management and Information Center </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центр компьютерного программного управления и информации [NASA]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COSMOS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer System for Mainframe Operations</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Компьютерная система для работы с базовой ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Continuity Test</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Контроль несущей. Требование протокола SS7.</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>COTS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Commercial Off-The-Shelf</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммерческий продукт, поставляемый немедленно</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>CP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Copy Protected</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Защищенный от копирования</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clock Pulse</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Тактовый импульс</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Point</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Контрольная точка</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Processor</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляющий процессор</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Calling Party Category</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Категория источника вызова</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CPCS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Part Convergence Sublayer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общая часть подуровня конвергенции</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Processing Control System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Система управления обработкой вызовов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CPE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Customer Premises Equipment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Терминальное оборудование клиента</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Processing Element</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральный процессорный элемент</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Progress Message</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сообщение, посылаемое адресатом вызывающей стороне и информирующее о том, что имело место какое-то событие</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>CPI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Characters Per Inch</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Число символов на дюйм</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Clock Per Instruction</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Число тактов на команду</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Programming Interface [IBM]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общий программный интерфейс</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Part Indicator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Однооктетный индикатор общей части (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CPI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Code Page Information</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла программной страницы [MS-DOS]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPI-C</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Programming Interface for С</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общий интерфейс программирования для СИ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Current Privilege Level</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Текущий уровень привилегий</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CPM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command Processing Module</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Модуль обработки команд</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Critical Pass Method</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Метод критического пути</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CP/M</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Program for Microcomputer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Программа управления для микро-ЭВМ (операционная система Digital Research)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CPN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Customer Premises Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Собственная сеть клиента</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer Product News</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Новости о компьютерных товарах</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPNIE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Called Party Number Information Element</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационный элемент номера адресата</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>C++</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>СИ++</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CPS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Characters Per Second</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Число символов в секунду</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cycles Per Second</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Число циклов в секунду</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CPT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cisco Protocol Translator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Транслятор протокола CISCO</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Command Pass Through</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Прохождение команды</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CPU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Processing Unit</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральный блок процессора</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carriage Return</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Возврат каретки</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Request</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Запрос</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command Register</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Регистр команд</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C/R</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command/Response</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Команда/отклик</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CRC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cyclic Redundancy Check (Control)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Циклическая контрольная сумма</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cyclic Redundancy Code</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Циклический избыточный код</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CREN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Corporation for Research and Education Networking</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Корпорация сетей для исследований и образования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=3><B><P>CRF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cable Retransmission Facility</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Устройство для ретрансмиссии по кабелю</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cross Reference File</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Файл перекрестных ссылок</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Concentrator Relay Function </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Передающая функция концентратора (атрибут, характеризующий имеющиеся ресурсы сети ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CR/LF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carriage Return/Line Feed</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Возврат каретки/перевод строки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CRL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Core Routine Library</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Библиотека базовых программ</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Certificate Revocation List</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Список аннулирования сертификатов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CRMA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cyclic-Reservation Multiple Access protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол множественного доступа с циклическим резервированием</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CROM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Read Only Memory</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управляющая память, рассчитанная только на чтение</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CRT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cathode Ray Tube</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Катодная лампа</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CRTC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>CRT Controller</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Контроллер ЭЛТ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CRV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Reference Value</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Идентификатор ISDN-вызова (Q.931, I.451)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=5><B><P>CS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cognitive Science</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Наука познания</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Chip Select</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Выбор микросхемы</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Clear to Send</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Готовность к посылке</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Code Segment</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сегмент программы</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Convergence Sublayer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Подуровень конвергенции (объединения) (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C/S</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Client/Server</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Клиент/сервер</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Canadian Standard Association</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Канадская ассоциация по стандартам</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSAR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel System Address Register</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Регистр адреса системного канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSC-MC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>CiSCo Memory Card</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Карта памяти Cisco</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Corrective Service Diskette [IBM]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Дискета коррекции</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSDS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Packet Switched Data Service</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационная служба с пакетной коммутацией</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CSE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computing Support for Engineering</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применение ЭВМ в инженерной работе</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Certified System Engineer</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сертифицированный системный инженер</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CSECSG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Constructive Solid Geometry</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конструктивная объемная геометрия</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Consulting Services Group </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Консультационная группа поддержки [Lotus]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Convergence Sublayer Indicator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Индикатор подуровня конвергенции (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Simulation Facility</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральное устройство моделирования</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cannel Status Indicator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Указатель состояния канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Sensitive Language</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык, зависящий от ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSLIP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compressed SLIP </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол SLIP со сжатием (RFC-1144, 19200бит/с или меньше)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CSM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Communications Services Manager</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Менеджер служб коммуникации</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Call Switching Module</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Модуль переключения вызовов</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSMA/CD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Carrier Sense Multiple Access/Collision Detection </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Способ множественного доступа с регистрацией столкновений (Ethernet)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSNet</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer+Science Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Сеть для ЭВМ и науки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSNP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Complete Sequence Number PDU</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>PDU посылаемый специяльным маршрутизатором OSPF c целью синхронизации баз данных</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=4><B><P>CSP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Constraint Satisfaction Problem</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Проблема удовлетворения требованиям</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Commercial Subroutine Package</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммерческий пакет подпрограмм</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Communicating Sequential Processes</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Взаимодействующие последовательные процессы</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>CompuCom Speed Protocol </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол управления скоростью CompuCom</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSPCSPDN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Circuit Switched Public Data Network</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Коммутируемая общедоступная информационная сеть</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSPDN</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Circuit Switching Public Data Networks</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общественные коммутируемые сети передачи данных</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CSR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Continuous Speech Recognition</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Непрерывное распознавание голоса</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control/Status Register</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Регистр управления и состояния (внешние устройства ЭВМ)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSRC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Contributing Source</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Источник составлящей потока</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CSS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Continuous System Simulator </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Язык программирования</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Cascading Style Sheets</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Каскадируемые стилевые листы (HTML)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CST</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Central Standard Time</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Центральное стандартное время</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSTA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer-Supported Telephony Applications</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Применения ЭВМ в телефонии</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CSU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Channel Service Unit (User DSU -&gt; DDS lines)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Блок обслуживания канала</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CSV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Comma-Separated Variables</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Переменные, разделенные запятыми</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common Services Verbs (interface) [Microsoft]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C&amp;T</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Chips and Technologies</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>ИС и технология</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Intelligence Access</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Доступ к ресурсам ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cipher Type Byte</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Байт типа шифра</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTC</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Conditional Transfer of Control</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Условная передача управления</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Transfer Delay</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Задержка передачи ячейки</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Content-Transfer-Encoding</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Транспортное кодирование содержимого (MIME)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTERM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Command Terminal Protocol</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Протокол терминальных команд (слой 6, служба виртуального терминала)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Transfer Delay</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Задержка передачи ячейки (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer-Telephone Integration</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Объединение ЭВМ и телефонии</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTM</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Communication Terminal Module</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Оконечный коммуникационный терминал</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTOS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computerized Tomography Operating System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Операционная система для компьютерной томографии</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTPA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Coax-to-Twisted-Pair Adapter</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Адаптер коаксиальный кабель – скрученная пара</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Technical Regulation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общие технические условия</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTRBF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Constructive Tree RBF</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конструктивное дерево RBF</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTRL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Управление</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CTS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clear To Send</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Готовность к посылке</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common Transport Semantic</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общая транспортная семантика (базовая стратегия IBM, нацеленная на сокращение числа сетевых протоколов)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CTSS</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compatible Time Sharing System</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Совместимая система разделения времени</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>See You (*)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Пока</TD>
+</TR>
+<TD WIDTH="36%" VALIGN="TOP"><P>Control Unit</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Устройство управления</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Common User Access (SAA)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общий доступ пользователей</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUB</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cursor Backward</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Курсор назад</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cursor Down</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Курсор вниз</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Custom Updates and Extras (card) [Egghead Software]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Обычная актуализация и дополнения</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cursor Forward</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Курсор вперед</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUG</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Closed User Group</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Замкнутая группа пользователей</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>See You Later (*)</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Увидимся позже</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CUI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Character-Oriented User Interface</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Пользовательский интерфейс, ориентированный на символы</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Common User Interface [IBM]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Общий пользовательский интерфейс </TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUP</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cursor Position</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Положение курсора</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUPID</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Completely Universal Processor I/O Design </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Конструкция полностью универсального ввода/вывода процессора [AST]</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>.CUR</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cursor</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Расширение имени файла курсора</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUTE</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Clarkston University Terminal Emulator</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Терминальный эмулятор университета Clarkston</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CUU</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cursor Up</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Курсор вверх</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>СV</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Code Violation</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Нарушение регулярной кодовой последовательности</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CVDT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cell Variation Delay Tolerance</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Допустимое отклонение вариации задержки ячейки (ATM)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CVF</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Compressed Volume File </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Файл, подвергнутый сжатию (double-space)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CVGA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Color Video Graphics Array</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Матрица (массив) цветной видеографики</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CVIA</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Computer Virus Industry Association</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Промышленная ассоциация по компьютерным вирусам</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CVT</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Convert</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Преобразовать</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CVW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>CodeView for Windows</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Просмотр программы</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CW</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Continuous Wave</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Непрерывный режим (для лазеров)</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Computer World</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Мир ЭВМ</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP" ROWSPAN=2><B><P>CWD</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Convert Word to Double Word</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Преобразовать обычный код в слово двойной длины</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P>Change Working Directory </TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Изменить текущий каталог</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CWI</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Campus Wide Information Service/System [Internet]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Информационная служба/система кампуса (университетского городка)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>C2X</B></TD><TD WIDTH="36%" VALIGN="TOP"><P>Character To Hexadecimal [REXX]</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Преобразование символа в шестнадцатеричный код</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP"><B><P>CYL</B></TD>
+<TD WIDTH="36%" VALIGN="TOP"><P>Cylinder</TD>
+<TD WIDTH="47%" VALIGN="TOP"><P>Цилиндр</TD>
+</TR>
+</TABLE></CENTER> 
+<BR>
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="b.htm" tppabs="http://book.itep.ru/10/abbr/b.htm"><FONT COLOR="lightblue">10.10.2 [B]</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><FONT COLOR="lightblue">10.11 Адреса    серверов ведущих фирм, работающих в сфере телекоммуникаций</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="d.htm" tppabs="http://book.itep.ru/10/abbr/d.htm"><FONT COLOR="lightblue">10.10.4 [D]</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,221 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="коды управления доступом
+Token Ring
+
+
+">
+<TITLE>10.6 Таблица типов кадров управления доступом для сети Token Ring</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="netw_105.htm" tppabs="http://book.itep.ru/10/netw_105.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="s_vec107.htm" tppabs="http://book.itep.ru/10/s_vec107.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="netw_105.htm" tppabs="http://book.itep.ru/10/netw_105.htm"><FONT COLOR="lightblue">10.5 Таблица операций службы каталогов Netware</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><FONT COLOR="lightblue">10.11 Адреса    серверов ведущих фирм, работающих в сфере телекоммуникаций</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="s_vec107.htm" tppabs="http://book.itep.ru/10/s_vec107.htm"><FONT COLOR="lightblue">10.7 Типы субвекторов кадров управления доступом</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>10.6 Таблица типов кадров управления доступом для сети Token Ring</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+ 
+<CENTER> <TABLE BORDER=10 CELLSPACING=2 CELLPADDING=5 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="12%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Код команды</B></FONT></TD>
+<TD WIDTH="50%" VALIGN="TOP" bgcolor="gainsboro"><B><FONT FACE="Arial"><P ALIGN="CENTER">Наименование</B></FONT></TD>
+<TD WIDTH="13%" VALIGN="TOP" bgcolor="gainsboro"><B><FONT FACE="Arial"><P>Класс адресата</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" bgcolor="gainsboro"><B><FONT FACE="Arial"><P>Класс отправителя</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x0</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Отклик (является реакцией на команды управления доступом)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Источник запроса</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x2</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Аварийный сигнал (используется станциями для восстановления работоспособности после устойчивой ошибки)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция кольца</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция кольца</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x3</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос маркера (используется для выбора активного монитора)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x4</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Очистка кольца (посылается активным монитором для повторного запуска маркерного доступа)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x5</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Активное мониторирование (используется активным монитором для опроса кольца)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x6</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Резервное мониторировние (используется дополнительным монитором для опроса кольца)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x7</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Проверка дублирования адреса (посылается станцией самой себе после подключения к кольцу)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x8</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Проверка среды ответвителя (проверяется целостность адаптера станции и ответвителя) </TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x9</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Пересылка вперед (служит для проверки наличия пути между станциями)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0xB</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Удаление станции из кольца (если станция получает кадр с таким кодом и своим адресом получателя, она должна отключиться от сети)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0xC</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Изменение параметров (используется сервером конфигурации для информирования станций об изменении параметров адаптера)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0xD</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Инициализация станции (используется сервером параметров для пересылки данных в адаптер станции при ее инициализации)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер параметров кольца</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0xE</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос адреса станции (посылается серверу конфигурации в ответ на 
+запрос)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0xF</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос состояния станции (Посылается сервером конфигурации для получения данных о состоянии станции)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x10</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос подключения станции (используется станцией в ответ на запрос сервера конфигурации о подключении)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Рабочая станция</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x20</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос инициализации (используется для получения данных от сервера параметров)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер параметров кольца</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x22</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос об адресе станции (посылается сервером конфигурации стации с целью определения ее адреса)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x23</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос о состоянии станции (запрос о состоянии станции, посылаемый сервером конфигурации)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x24</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Запрос о подключении станции (используется сервером конфигурации для получения данных об адаптере станции)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x25</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Сообщение нового активного монитора (используется новым активным монитором для информирования о себе сервера конфигурации)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x26</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Сообщение об изменении адреса предшественника (используется станцией для сообщения серверу конфигурации об изменении ближайшего активного предшественника)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x27</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Сообщение о незавершенном опросе кольца (используется активным монитором для передачи монитору ошибок сообщений о нарушении порядка опроса)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Монитор ошибок</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x28</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Сообщение об ошибке монитора (используется станцией для оповещения монитора ошибок о сбоях)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Монитор ошибок</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x29</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Сообщение об ошибке (используется станциями для передачи серверу ошибок содержимого счетчиков нестабильных ошибок)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Монитор ошибок</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+<TR><TD WIDTH="12%" VALIGN="TOP"><P ALIGN="CENTER">0x2A</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P>Отклик на передачу вперед (используется станцией для передачи серверу конфигурации результата передачи вперед)</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P>Сервер конфигурации</TD>
+<TD WIDTH="25%" VALIGN="TOP"><P>Рабочая станция</TD>
+</TR>
+</TABLE></CENTER> 
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="netw_105.htm" tppabs="http://book.itep.ru/10/netw_105.htm"><FONT COLOR="lightblue">10.5 Таблица операций службы каталогов Netware</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><FONT COLOR="lightblue">10.11 Адреса    серверов ведущих фирм, работающих в сфере телекоммуникаций</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="s_vec107.htm" tppabs="http://book.itep.ru/10/s_vec107.htm"><FONT COLOR="lightblue">10.7 Типы субвекторов кадров управления доступом</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

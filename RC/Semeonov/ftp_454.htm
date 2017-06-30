@@ -1,0 +1,945 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="FTP
+
+
+
+
+">
+<TITLE>4.5.4 Протокол пересылки файлов FTP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="radius1.htm" tppabs="http://book.itep.ru/4/45/radius1.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="tftp4541.htm" tppabs="http://book.itep.ru/4/45/tftp4541.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="radius1.htm" tppabs="http://book.itep.ru/4/45/radius1.htm"><FONT COLOR="lightblue">4.5.3.1 Система аутентификации удаленных пользователей при подключении через модем RADIUS</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="tftp4541.htm" tppabs="http://book.itep.ru/4/45/tftp4541.htm"><FONT COLOR="lightblue">4.5.4.1 Протокол TFTP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.4 Протокол пересылки файлов FTP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+<tr>
+ <td WIDTH="25%" VALIGN="TOP"><p ALIGN="JUSTIFY"><img SRC="filepile.jpg" tppabs="http://book.itep.ru/4/45/filepile.jpg"></td>
+ <td WIDTH="75%" VALIGN="TOP"><p ALIGN="JUSTIFY">FTP (RFC-959) обеспечивает файловый обмен между удаленными пользователями. Протокол FTP формировался многие годы. Первые реализации в МТИ относятся к 1971. (RFC 114 и 141). RFC 172 рассматривает протокол, ориентированный на пользователя, и 
+предназначенный для передачи файлов между ЭВМ. Позднее в документах RFC 265 и RFC 281 протокол был усовершенствован. Заметной переделке протокол подвергся в 1973, и окончательный вид он обрел в 1985 году. Таким образом, данный протокол является одним из старейших.</p> 
+
+<p ALIGN="JUSTIFY"> Для реализации обмена между двумя персональными ЭВМ в пределах сети (программные пакеты PCTCP, и т.д.) можно резидентно загрузить FTPSRV или другую эквивалентную программу. Также как и в случае TELNET необходима идентификация, но многие депозитарии допускают анонимный вход (имя пользователя ANONYMOUS, RFC-1635), который не требует слова пропуска (пароля) или допускает ввод вашего почтового адреса вместо него. </p>
+
+<p ALIGN="JUSTIFY">Работа FTP на пользовательском уровне содержит несколько этапов: 
+</td>
+</tr>
+</table>
+
+
+<table cellspacing="0" border="0" cellpadding="2" width="800">
+  <tr>
+    <td width="7%" valign="top"><p align="justify">1.</td>
+    <td width="93%" valign="top"><p align="justify">Идентификация (ввод имени-идентификатора и 
+     пароля).</td>
+  </tr>
+  <tr>
+    <td width="7%" valign="top"><p align="justify">2.</td>
+    <td width="93%" valign="top"><p align="justify">Выбор каталога.</td>
+  </tr>
+  <tr>
+    <td width="7%" valign="top"><p align="justify">3.</td>
+    <td width="93%" valign="top"><p align="justify">Определение режима обмена (поблочный, поточный, ascii или
+    двоичный).</td>
+  </tr>
+  <tr>
+    <td width="7%" valign="top"><p align="justify">4.</td>
+    <td width="93%" valign="top"><p align="justify">Выполнение команд обмена (get, mget, dir, mdel, mput или put).</td>
+  </tr>
+  <tr>
+    <td width="7%" valign="top"><p align="justify">5.</td>
+    <td width="93%" valign="top"><p align="justify">Завершение процедуры (quit или close).</td>
+  </tr>
+</table>
+
+<p align="justify">FTP довольно необычная процедура, так как поддерживает две логические связи между ЭВМ (Рис 4.5.4.1). Одна связь служит для удаленного доступа и использует протокол Telnet. Другая связь предназначена для обмена данными. Сервер производит операцию passive open для порта 21 и ждет соединения с клиентом. Клиент осуществляет операцию active open для порта 21. Канал остается активным до завершения процедуры FTP. TOS (тип IP-сервиса)
+соответствует минимуму задержки, так как этот канал используется для ручного ввода команд. Канал для передачи данных (TCP) формируется каждый раз для пересылки файлов. Канал открывается перед началом пересылки и закрывается по коду end_of_file (конец файла). IP-тип сервиса (TOS) в этом случае ориентирован на максимальную пропускную способность.</p>
+
+<p align="justify">Конечный пользователь взаимодействует с протокольным интерпретатором, в задачи которого входит управление обменом информацией между пользователем и файловой системой, как местной, так и удаленной. Схема взаимодействия различных частей Internet при работе FTP изображена на рис. 4.5.4.1.</p>
+
+<p align="justify">Сначала по запросу клиента формируется канал управления, который в дальнейшем используется для передачи команд от клиента и откликов от сервера. Информационный канал формируется сервером по команде клиента, он не должен существовать постоянно на протяжении всей FTP-сессии и может формироваться и ликвидироваться по мере необходимости. Канал управления может быть закрыт только после завершения информационного обмена. Для канала
+управления используется протокол <b>Telnet</b>. После того как управляющий канал
+сформирован, клиент может посылать по нему команды. Сервер воспринимает, интерпретирует эти команды и передает отклики.</p>
+
+<p align="center"><img src="image573.gif" tppabs="http://book.itep.ru/4/45/image573.gif"></p>
+<p align="center">Рис. 4.5.4.1 Схема работы протокола ftp.</p>
+
+<p align="justify">Возможна и другая схема взаимодействия, когда по инициативе клиента осуществляется файловый обмен между двумя ЭВМ, ни одна из которых не является машиной клиента (см. рис. 4.5.4.2).</p>
+
+<p align="center"><img src="image574.gif" tppabs="http://book.itep.ru/4/45/image574.gif"></p>
+<p ALIGN="CENTER">Рис. 4.5.4.2. Организация информационного обмена между двумя удаленными машинами</p>
+
+<p ALIGN="JUSTIFY">На фазе задания режима обмена предоставляются следующие возможности:</p>
+
+<p ALIGN="JUSTIFY">Команда Block сохраняет структуру логических записей файла.</p>
+
+<p ALIGN="JUSTIFY">Команда Stream устанавливает режим, при котором не производится пересылки контрольной информации для блоков. Это наиболее быстрый режим обмена, он работает по умолчанию.</p>
+
+<p ALIGN="JUSTIFY">Команда TYPE может задать режимы обмена IMAGE, ASCII или EBCDIC. Из них ASCII - используется по умолчанию. Режим EBCDIC применяется для обменов между ЭВМ, работающими с набором символов EBCDIC. Режим IMAGE предполагает обмен 8-битными байтами, используется для передачи двоичной (а не текстовой) информации. Более подробный список команд помещен ниже. Структурно 
+информация может передаваться в виде файлов (структура по умолчанию), в виде последовательности записей (применимо для текстовых файлов ASCII или EBCDIC) или постранично (последняя структура не относится к числу рекомендуемых).</p>
+
+<p ALIGN="JUSTIFY">Для копирования файла из удаленного сервера используется команда GET, для копирования группы файлов - MGET, в последнем случае применяются символы заменители, например, MGET *.txt (или RFC-18*.txt, при этом скопируются файлы с RFC-1800.txt до RFC-1899.txt, если таковые существуют в текущем каталоге). Аналогом команды GET в какой-то степени является команда DIR (ls), только она переносит содержимое каталога, что для некоторых операционных систем эквивалентно. При использовании модификации mget проявляйте
+осторожность - вы можете заблокировать телекоммуникационный канал длительным
+копированием. Для записи файла в удаленный сервер применяется команда PUT.
+При операциях обмена обычно используется текущий каталог локальной ЭВМ. В вашем
+распоряжении всегда имеется возможность поменять местный каталог с помощью команды LCD или ее аналога. Любая команда обмена выполняется в несколько этапов:</p>
+
+<OL>
+  <LI> Формирование канала под управлением клиента, так как именно клиент выдал команду get, dir, put и т.д.</LI>
+  <LI> Клиент выбирает произвольный номер порта на своей ЭВМ и осуществляет процедуру passive open для этого порта.</LI>
+  <LI> Клиент посылает номер порта серверу по каналу управления (порт 21), используя команду PORT. Можно обойтись и без команды PORT (используется тот же
+  порт, что и в командном канале), но это увеличивает задержки и по этой причине не рекомендуется.</LI>
+  <LI> Сервер получает номер порта по каналу управления и выдает команду active open в указанный порт ЭВМ-клиента. Сервер для канала данных всегда использует порт с номером 20.</LI>
+</OL>
+
+<p ALIGN="JUSTIFY">Рассмотрим пример FTP-сессии. Для этого выдадим команду (тексты, набираемые с клавиатуры, выделены курсивом):</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="737">
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><i><p ALIGN="JUSTIFY">FTP -d ns.itep.ru</i></td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">(флаг -d означает установку отладочного режима, при котором выдаются все сообщения и внутренние команды на экран терминала).</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">FTP Trying...<b>Open<br>
+220- *** Welcome at FTP-Server ftp.ITEP.RU ***<br>
+220-<br>
+220 ns.itep.ru FTP server ready.<br>
+Userid for logging in on ns.itep.ru (SEMENOV)? <i>semenov</i></p>
+</b>
+
+<p ALIGN="JUSTIFY">FTP command: <b>USER</b> semenov<br>
+FTP response: 331 Password required for semenov.<br>
+331 Password required for semenov.<br>
+Password for logging in as semenov on ns.itep.ru? XXXXXXXX</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="737">
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><p ALIGN="JUSTIFY">PASS XXXXXXXX</td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="JUSTIFY">(ввод пароля не отображается на экране)</td>
+  </tr>
+</table>
+
+<p>FTP response: 230 User semenov logged in.<br>
+230 User semenov logged in.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="738">
+  <tr>
+    <td WIDTH="25%" VALIGN="TOP"><p ALIGN="JUSTIFY">ftp:ns.itep.ru&gt; <i>hel</i></td>
+    <td WIDTH="75%" VALIGN="TOP"><p ALIGN="JUSTIFY">(просьба
+    выдать список доступных на данном сервере FTP-команд)</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Any unambiguous abbreviation for a command may be used.</p>
+
+<p ALIGN="JUSTIFY">Available commands are:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="850">
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">!</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">acct</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">append</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">ascii</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">binary</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">bye</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">cd</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="JUSTIFY">debug</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">delete</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">dir</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">drive</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">exit</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">fcd</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">fdir</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">fpwd</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">get</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="JUSTIFY">help</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">iget</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">image</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">iput</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">lcd</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">ldir</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">lmkdir</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">local</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">login</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="JUSTIFY">lpwd</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">ls</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">mdelete</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">mget</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">mkdir</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">mput</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">option</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">parent</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">passive</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="JUSTIFY">put</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">pwd</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">quit</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">quote</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">rename</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">retrieve</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">rmdir</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">send</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">server</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="JUSTIFY">show</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">stat</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">store</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">take</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">tenex</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">tget</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">tput</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">type</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">user</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="JUSTIFY">verbose</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">version</p>
+
+<p>ftp:ns.itep.ru&gt; <i>quit<br>
+</i>FTP command: <b>QUIT<br>
+</b>FTP response: 221 Goodbye.</p>
+
+<p ALIGN="JUSTIFY">Уход из FTP производится по команде quit. В приведенном примере файловый обмен не производился, но и команда HELP требует переноса информации (также как и dir), так как вам выдается список команд, доступных на удаленном сервере. Из воспроизведенного списка команд, самая опасная mdelete, так как способна стереть целый каталог. Нетекстовые файлы (архивированные, 
+графические и программные) следует пересылать в режиме binary. Для перевода в этот режим используется одноименная команда. Для перехода из одного каталога в другой на удаленном сервере служит команда cd имя_каталога, а для возврата в предшествующий cd .. . Например, cd /pub/msdos.</p>
+
+<p ALIGN="JUSTIFY">Ссылка на объект, доступный через анонимное FTP, обычно записывается в виде:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="737">
+  <tr>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="LEFT">Название ресурса</td>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Имя сервера</td>
+    <td WIDTH="49%" VALIGN="TOP"><p ALIGN="LEFT">Имя каталога в сервере.</td>
+  </tr>
+</table>
+
+Например:
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="738">
+  <tr>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">Internet-cmc</td>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="JUSTIFY"><a HREF="tppmsgs/msgs2.htm#277" tppabs="ftp://ftp.rpi.edu/">ftp.rpi.edu</a></td>
+    <td WIDTH="49%" VALIGN="TOP"><p ALIGN="JUSTIFY">/pub/communications/internet-cmc.txt</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">ftp://ftp.rpi.edu/pub/communications/internet-cmc.txt</p>
+
+<p ALIGN="JUSTIFY">Internet-cmc (CMC - computer-mediated communication) -это межкомпьютерный обмен  по сети Internet.</p>
+
+<p ALIGN="JUSTIFY">Ниже приведен список базовых команд FTP. Следует разделять внутренний набор команд FTP, которыми обмениваются клиент и сервер по командному каналу, и набор команд доступный пользователю. Служебные команды содержат три или четыре заглавные буквы. Эти наборы команд
+перекрываются лишь частично. Служебные команды унифицированы (они выделены в приведенном выше примере FTP-сессии жирным шрифтом, в помещенной ниже таблице эти команды представлены в ее верхней части), пользовательский же набор команд может варьироваться от реализации к реализации. Если выдать команду FTP без аргументов, система обычно откликается приглашением FTP&gt; и вы можете
+выполнить некоторые из приведенных ниже команд (весь набор становится доступным только после идентификации).</p>
+
+<p ALIGN="CENTER">Таблица 4.5.4.1</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="850" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP" bgcolor="gainsboro"><b><p ALIGN="LEFT">Субкоманды FTP</b></td>
+    <td WIDTH="58%" VALIGN="TOP" bgcolor="gainsboro"><b><p ALIGN="LEFT">Описание</b></td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">ABOR</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Прерывание исполнения предыдущей FTP-команды 
+и связанного с ней обмена</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">ACCT&lt;SP&gt; &lt;account-information&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT"> Ввод идентификатора пользователя (ID);</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">ALLO &lt;SP&gt; &lt;десятичное целое&gt; [&lt;SP&gt; R &lt;SP&gt; 
+    &lt;десятичное целое&gt;]</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Зарезервировать
+    достаточно места (в байтах) для пересылки файла. Для файлов с постраничной структурой после
+    символа R указывается число записей</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">APPE &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Присовокупить
+    передаваемые данные к файлу, указанному в параметре проход</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">CDUP</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Переход в каталог прародитель</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">CWD &lt;SP&gt;
+    &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Изменить рабочий каталог (CD);</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">DELE &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Стереть файл (del);</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">HELP </td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Выдать
+    справочную информацию о выполнимых командах</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">HELP [&lt;SP&gt; &lt;строка&gt;]</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Выдать
+    описание работы данной команды</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">LIST [&lt;SP&gt; &lt;проход&gt;]</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Вывод
+    списка файлов или каталогов (dir);</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">MKD &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Создать каталог</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">MODE &lt;SP&gt; &lt;код
+    режима&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Режим обмена = поток, блоки или со сжатием</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">NLST [&lt;SP&gt;
+    &lt;проход&gt;]</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Переслать оглавление каталога от сервера к клиенту</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">NOOP</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Пустая команда</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">PASS &lt;SP&gt;
+    &lt;пароль&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Слово-пропуск (пароль) пользователя, заполняется пользователем</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">PASV</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Перевести сервер в режим прослушивания информационного порта на предмет установления соединения</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">PORT &lt;SP&gt; &lt;порт ЭВМ&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">IP-адрес и номер порта клиента</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">PWD </td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Выдать имя текущего каталога</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">QUIT</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Уход из FTP</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">REIN</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Завершение сессии и открытие новой</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">REST &lt;SP&gt; &lt;маркер&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Возобновление
+    обмена, начиная с места, указанного маркером</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">RETR &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Переслать копию файла (get) другому адресату</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">RMD &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Удалить каталог</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">RNFR &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Начало процедуры переименования файла (Rename From)</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">RNTO &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Указание
+    нового имени файла при переименовании (Rename To)_</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">SITE &lt;SP&gt; &lt;строка&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Используется сервером для реализации локально специфических команд</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">SMNT &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Позволяет
+    пользователю смонтировать нужную файловую систему</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">STAT</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Выдать текущие значения параметров (STATUS)</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">STOR &lt;SP&gt; &lt;проход&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Сервер
+    должен запомнить полученные данные в виде файла</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">STOU</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Аналог команды STOR но записывает файл в текущий каталог и присваивает файлу уникальное имя</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">STRU &lt;SP&gt; &lt;код структуры&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Структура файла = файл, запись или страница</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">SYST</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Сервер сообщает тип системы</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">TYPE <font FACE="Times New Roman">&lt;SP&gt;
+    &lt;код типа&gt;</font></td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Специфицирует тип информации, часто для этой цели используются команды binary и ASCII</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">USER &lt;SP&gt; &lt; <font
+    FACE="Times New Roman">[имя [пропуск]] </font>&gt;</td>
+    <td WIDTH="58%" VALIGN="TOP">Идентифицирует пользователя, запрашивается сервером</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">?</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">тоже что и HELP;</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">lcd</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Изменить локальный каталог (на вашей ЭВМ);</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">!</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Выйти временно из FTP и уйти в Shell (UNIX)</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">! команда</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Исполнить команду Shell (UNIX)</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">close</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Прервать связь с удаленным сервером, оставаясь в FTP</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">open [имя_ЭВМ]</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Установить связь с указанным удаленным сервером</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">dir</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">Выдать содержимое удаленного каталога</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">&lt;SP&gt; пробел; все команды завершаются последовательностью &lt;CRLF&gt; возврат каретки + перевод строки. В квадратных скобках записан опционный аргумент. Выполнение любой команды можно прервать с помощью Ctrl-C.</p>
+
+<p ALIGN="JUSTIFY">Возможная форма обращения к FTP (SunOS 4.1): <b>FTP [ -опции ] [ имя_ЭВМ ]</b></p>
+
+<p ALIGN="JUSTIFY">Допустимы следующие опции (модификаторы) команды:</p>
+<div align="center"><center>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="737">
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">-d</b></td>
+    <td WIDTH="91%" VALIGN="TOP"><p ALIGN="JUSTIFY">включение отладочного режима.</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">-g</b></td>
+    <td WIDTH="91%" VALIGN="TOP"><p ALIGN="JUSTIFY">блокировка группового исполнения команд.</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">-i</b></td>
+    <td WIDTH="91%" VALIGN="TOP"><p ALIGN="JUSTIFY">Выключение интерактивного приглашения при множественной
+    пересылке файлов.</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">-v</b></td>
+    <td WIDTH="91%" VALIGN="TOP"><p ALIGN="JUSTIFY">Отображает все отклики удаленного сервера и статистику
+    обмена; этот режим работает обычно по умолчанию.</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">В рамках процедуры FTP доступны следующие команды (приведенный перечень команд является неполным):</p> 
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><p ALIGN="JUSTIFY"><b>! [ команда ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="JUSTIFY">Исполняется
+    команда интерпретатора shell вашей ЭВМ (UNIX). Если имя команды явно не введено, система переходит в интерактивный режим shell.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">$ имя-макро [ аргументы ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Выполняется макро, имя которого введено, аргументы используются этим макро.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT"> account [ пароль ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Позволяет ввести пароль, необходимый для доступа в удаленный сервер.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">append имя_местного_файла <br>
+    [ имя_удаленного_файла ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Добавить
+    местный файл к файлу на удаленном сервере.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">Bye</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Завершает FTP-сессию.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">case</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Переключает регистр символов, которыми записаны имена файлов на удаленной ЭВМ, в процессе выполнения команды  MGET. Если case включен (по умолчанию выключен), все прописные буквы в именах  файлов на удаленной ЭВМ, меняются при переносе в вашу ЭВМ на строчные.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">close</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Завершает FTP-сессию и возвращает систему в интерактивный командный режим. Все описанные ранее макро стираются.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">debug [ debug-value ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Включает/выключает режим отладки. Значение debug-value определяет отладочный уровень. Если отладка включена, FTP отображает на экране каждую команду, посылаемую удаленной ЭВМ. Эта информация помечается символом '--&gt;'.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b>dir [ удаленный каталог ] <br>
+    [ местный файл ]</b></font></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Выдает на экран содержимое удаленного каталога. Если в качестве параметра указано имя местного файла,    результат заносится в него. Если имя удаленного каталога не указано, команда выполняется для текущего каталога.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">disconnect</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">синоним close.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">hash</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">включает/выключает знак (#). Во включенном состоянии отмечается пересылка каждого блока, что позволяет визуально контролировать процесс обмена.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">macdef macro-name</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Определяет макро. Последующие строки запоминаются в качестве текста макро с именем macro-name. Нулевая   строка (двойное нажатие клавиши RETURN) завершает ввод текста макро. Можно ввести до 16 макро с суммарным объемом до 4096 символов.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">mdelete [
+    имена_файлов_на удаленной_ЭВМ
+    ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">удаляет файлы на удаленной ЭВМ.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">open имя-ЭВМ [ </font>port ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">устанавливает связь с указанным FTP-сервером (ЭВМ) через специфицированный порт.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">prompt</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">включает/выключает нтерактивные запросы со стороны ЭВМ. Это бывает полезным при выполнении групповых команд MPUT, MGET или MDELETE и позволяет проводить соответствующие операции над файлами выборочно.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">proxy</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">ftp-команда выполняет FTP-команду на вторичной удаленной ЭВМ. Эта команда позволяет связать два удаленных FTP-сервера и осуществить пересылку файлов между ними. Первой proxy-командой должна быть команда open, необходимая для связи со вторичным сервером. Введите команду proxy ?, чтобы проверить выполнимость этих команд на данном сервере.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">quit</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">синоним bye.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">recv</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">удаленный_файл
+    [ местный_файл ] синоним команды get.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">remotehelp
+    [ имя_команды ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Запрашивает справочную информацию у удаленного FTP-сервера.
+    Если имя_команды задано, запрашивается информация о конкретной команде.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><p ALIGN="LEFT"><B>runique</B></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Включает режим записи файлов в вашу ЭВМ только с уникальными именами. Если файл с таким именем уже существует, то новому файлу будет присвоено имя с расширением .1, если и такое имя уже есть, то с расширением .2. Это может продолжаться вплоть до расширения .99, после чего будет выдано сообщение об ошибке. Впрочем, такую ситуацию вообразить крайне трудно, если вы сами не наплодили файлов с цифровыми расширениями.    Для команды mget это крайне полезная функция, которая застрахует вас от стирания ваших файлов из текущего каталога, имеющих имена, совпадающие с именами на удаленном сервере. По умолчанию runique не включено.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">send local-file [ remote-file ]</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Синоним команды put.</td>
+  </tr>
+  <tr>
+    <td WIDTH="41%" VALIGN="TOP"><b><p ALIGN="LEFT">status</b></td>
+    <td WIDTH="59%" VALIGN="TOP"><p ALIGN="LEFT">Отображает текущее состояние ftp.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">В депозитариях можно встретить файлы следующих разновидностей (все виды ниже перечисленных файлов пересылаются в режиме binary, а не ASCII):</p>
+
+<p ALIGN="CENTER">Таблица 4.5.4.2</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="800" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY">Тип файла</td>
+    <td WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="LEFT">Пример записи имени файла</td>
+    <td WIDTH="51%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="LEFT">Программа обработки файла</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="LEFT">Архивированный файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.Z</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">compress, uncompress</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">tar-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.tar</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="JUSTIFY">tar</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP" ROWSPAN="2"><p ALIGN="LEFT">Архивированный tar-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.tar.Z</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">tar, compress, uncompress</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.tar.gz</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">Применен архиватор GZIP</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">uuencode-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.uue</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">uuencode, uudecode</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="LEFT">Архивированный uuencode-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="LEFT">файл.uue.Z</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">uuencode, uudecode, compress, uncompress</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">zip-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.zip</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">pkzip, pkunzip</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">shar-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.shar</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">shar, sh, unshar</td>
+  </tr>
+  <tr>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="JUSTIFY">сжатый shar-файл</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">файл.shar.Z</td>
+    <td WIDTH="51%" VALIGN="TOP"><p ALIGN="LEFT">shar, sh, unshar, compress, uncompress</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">При выполнении FTP система возвращает трехразрядные десятичные коды-отклики, которые позволяют судить о корректности обмена и диагностировать процедуру. Выдача кода сопровождается текстом-комментарием. Первая цифра может принимать значения от 1 до 5. Структура кодов показана в таблице 4.5.4.3:</p>
+
+<p ALIGN="CENTER">Таблица 4.5.4.3. Коды диагностики</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="800" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Значение кода-отклика</td>
+    <td WIDTH="82%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY">Описание</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">1yz</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Позитивный    предварительный отклик, который означает, что операция начата. До завершения процедуры следует ожидать как минимум еще один отклик</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">2yz</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Сигнал успешного завершения процедуры, говорящий о том, что можно ввести новую команду</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">3yz</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Положительный промежуточный отклик, указывающий на то, что команда воспринята, но для продолжения требуется дополнительная информация</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">4yz</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Негативный отклик, свидетельствующий о том, что команда не воспринята, но можно попробовать ее исполнить еще раз</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">5yz</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Отклик, говорящий о том, что команда не выполнена и не может быть выполнена вообще</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">Значение кода &quot;y&quot; в вышеприведенной таблице может принимать значения от 0 до 5. Значения кодов &quot;y&quot; приведены ниже:</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="800" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Значение кода-отклика</td>
+    <td WIDTH="82%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY">Описание</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">x0z</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Указывает на синтаксическую ошибку; синтаксис верен но команда не имеет смысла</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">x1z</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Указание на необходимость ввода дополнительной информации</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">x2z</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Отклик, связанный с управлением каналом связи</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">x3z</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Отклик для команд идентификации пользователя и проверки пароля</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">x4z</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Функция не определена</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">x5z</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Отклик, характеризующий состояние файловой системы</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">Далее в тексте встречается выражение &quot;анонимное FTP&quot;, это подразумевает следующую процедуру (см. также RFC-1635):</p>
+
+<p>ftp&gt; login: <i>anonymous<br>
+</i>ftp&gt; password: <i>[ваш полный E-mail адрес]</p>
+</i>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="4" WIDTH="800">
+  <tr>
+    <td WIDTH="230" VALIGN="TOP"><p ALIGN="LEFT">ftp&gt; cd &lt;имя_каталога &gt;</td>
+    <td WIDTH="592" VALIGN="TOP"><p ALIGN="LEFT">(смена каталога)</td>
+  </tr>
+  <tr>
+    <td WIDTH="230" VALIGN="TOP"><p ALIGN="LEFT">ftp&gt; <i>binary</i></td>
+    <td WIDTH="592" VALIGN="TOP"><p ALIGN="LEFT">(если
+    текст, например, архивирован, в противном случае команду выдавать не нужно)</td>
+  </tr>
+  <tr>
+    <td WIDTH="230" VALIGN="TOP"><p ALIGN="LEFT">ftp&gt; <i>get
+    &lt;имя_файла&gt;</i></td>
+    <td WIDTH="592" VALIGN="TOP"><p ALIGN="LEFT">(копирование файла)</td>
+  </tr>
+  <tr>
+    <td WIDTH="230" VALIGN="TOP"><p ALIGN="LEFT">ftp&gt; <i>quit</i></td>
+    <td WIDTH="592" VALIGN="TOP"><p ALIGN="LEFT">(уход из процедуры)</td>
+  </tr>
+</table>
+
+
+<p ALIGN="JUSTIFY">Следует иметь в виду, что некоторые анонимные FTP-серверы (также как, например, GOPHER-серверы) требуют, чтобы ЭВМ, с которой осуществляется ввод, имела не только IP-адрес, но и зарегистрированное в локальном DNS-сервере имя. Эти FTP-серверы, получив запрос, пытаются выяснить
+имя ЭВМ, так как они ведут &quot;журнал посещений&quot;, и в случае неуспеха прерывают сессию. Таким образом, анонимное FTP может считаться таковым лишь условно, в смысле ненужности быть авторизованным на сервере, чтобы иметь к нему доступ. Конкретные примеры кодов статуса обмена для FTP</p>
+
+<p ALIGN="CENTER">Таблица 4.5.4.4. Коды откликов</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="800" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Код-отклик</td>
+    <td WIDTH="83%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY">Описание</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">110</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Комментарий</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">120</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Функция будет реализована через nnn минут</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">125</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Канал открыт, обмен данными начат</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">150</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Статус файла правилен, подготавливается открытие канала</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">200</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Команда корректна</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">211</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Системный
+    статус или отклик на справочный запрос </td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">212</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Состояние каталога</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">213</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Состояние файла</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">214</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Справочное поясняющее сообщение</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">220</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Слишком много подключений к FTP-серверу (можете попробовать позднее). В некоторых версиях указывает на успешное завершение промежуточной процедуры</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">221</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Благополучное
+    завершение по команде quit</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">225</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Канал сформирован, но информационный обмен отсутствует</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">226</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Закрытие
+    канала, обмен завершен успешно</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">230</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Пользователь идентифицирован, продолжайте</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">250</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Запрос прошел успешно</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">331</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Имя пользователя корректно, нужен пароль</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">332</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Для входа в систему необходима аутентификация</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">421</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Процедура не возможна, канал закрывается</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">425</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Открытие информационного канала не возможно</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">426</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Канал закрыт, обмен прерван</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">450</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Запрошенная функция не реализована, файл не доступен,
+    например, занят</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">451</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Локальная ошибка, операция прервана</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">452</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Ошибка при записи файла (не достаточно места)</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">500</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Синтаксическая ошибка, команда не может быть 
+     интерпретирована (возможно она слишком длинна)</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">501</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Синтаксическая
+    ошибка (неверный параметр или аргумент)</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">502</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Команда не используется (нелегальный тип MODE)</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">503</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Неудачная последовательность команд</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">504</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="JUSTIFY">Команда не применима для такого параметра</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">530</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="LEFT">Система не загружена (not logged in)</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">532</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="LEFT">Необходима аутентификация для запоминания файла</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">550</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="LEFT">Запрошенная функция не реализована, файл не доступен,
+    например, не найден</td>
+  </tr>
+  <tr>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">552</td>
+    <td WIDTH="83%" VALIGN="TOP"><p ALIGN="LEFT">Запрошенная операция прервана, недостаточно выделено памяти</td>
+  </tr>
+</table>
+</center></div>
+<p ALIGN="JUSTIFY">В настоящее время разработаны версии FTP для работы с IPv6 (RFC-2428).</P>
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="radius1.htm" tppabs="http://book.itep.ru/4/45/radius1.htm"><FONT COLOR="lightblue">4.5.3.1 Система аутентификации удаленных пользователей при подключении через модем RADIUS</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="tftp4541.htm" tppabs="http://book.itep.ru/4/45/tftp4541.htm"><FONT COLOR="lightblue">4.5.4.1 Протокол TFTP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

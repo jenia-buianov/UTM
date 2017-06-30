@@ -1,0 +1,780 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="NNTP
+NETNEWS
+
+
+
+
+">
+<TITLE>4.5.7.1 Работа с сервером новостей</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="nntp_457.htm" tppabs="http://book.itep.ru/4/45/nntp_457.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="nntp_457.htm" tppabs="http://book.itep.ru/4/45/nntp_457.htm"><FONT COLOR="lightblue">4.5.7 Протокол новостей NNTP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.7.1 Работа с сервером новостей</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<p ALIGN="JUSTIFY">NETNEWS (или Usenet, RFC-1036) - всемирная система
+обмена сообщениями, использующая для этого единый формат. Сообщения рассортированы по темам, которые носят названия newsgroups (группы
+новостей). Эти сообщения имеют огромный суммарный объем и передаются от ЭВМ к ЭВМ. Они могут содержать текстовую или кодированную двоичную информацию. Сообщение имеет несколько строк заголовка, которые определяют, откуда
+пришло сообщение, через какие узлы поступило и т.д.</p>
+
+<p ALIGN="JUSTIFY">Основные группы новостей, рассылаемые по всему миру, это: alt, comp, misc, news, rec, sci, soc и talk. Существует много других базовых категорий новостей, например, bionet, biz, vmsnet, которые рассылаются также повсеместно или в рамках какого-то региона или организации (например, ieee),
+а также коммерческие (например, clari). Последние категории рассылаются только ограниченно. Сообщения многих Bitnet LISTSERV серверов также
+рассылаются в виде новостей и относятся к категории bit.</p>
+
+<p ALIGN="CENTER">Наиболее важные группы новостей:</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="2" WIDTH="800"  bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="18%" bgcolor="gainsboro"><P ALIGN="CENTER"><b>Имя группы новостей</b></td>
+    <td WIDTH="82%" bgcolor="gainsboro"><b><p ALIGN="JUSTIFY">Тематика</b></td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">alt</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Много различных тем (альтернативные группы новостей)</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">bionet</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Биология</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">bit</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Многие темы: из подписного листа Bitnet</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">biz</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Бизнес, маркетинг, реклама</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">comp</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">ЭВМ</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">ddn</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Defense Data Network (сеть министерства обороны)</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">gnu</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Фонд общедоступного программного обеспечения, проект
+    GNU</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">ieee</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Institute of Electrical and Electronics
+    Engineers (Институт инженеров электриков и электронщиков)</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">info</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Многие темы из листа рассылки Университета Иллинойса</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">k12</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">От детских садов до высшей школы</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">misc</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Все, что не попадает в одну из категорий news о 
+самой Usenet</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">rec</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Хобби, искусство, развлечения, отдых</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">sci</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Науки всех направлений</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">soc</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Социальная тематика</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">talk</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">Обсуждение полемических тем</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">u3b</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">AT&amp;T 3B ЭВМ</td>
+  </tr>
+  <tr>
+    <td WIDTH="18%" VALIGN="TOP"><p ALIGN="CENTER">vmsnet</td>
+    <td WIDTH="82%" VALIGN="TOP"><p ALIGN="JUSTIFY">DEC VAX/VMS и DECNET системы</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">Базовые категории разбиваются на более чем 1200 групп новостей по различным вопросам и темам (от образования для инвалидов до
+Star Trek и от науки об окружающей среде до политики в странах бывшего Советского Союза). Качество дискуссий в этой среде не гарантируется. Некоторые группы имеют посредников, которые просматривают сообщения перед рассылкой. Usenet была разработана в 1979 году для системы UNIX. В настоящее время в сети новостей работает несколько тысяч узлов, охватывающих практически весь земной шар.</p>
+
+<p ALIGN="JUSTIFY">Новости доступны как через локальный сервер, так и через телефонные коммутируемые сети. Программы для поддержки локального сервера
+новостей доступны в Интернет, UUCP, EARN/Bitnet и Fidonet. Если вам доступна только электронная почта, тогда для вас Usenet не доступна. Однако, многие
+группы новостей подключены к спискам почтовой рассылки и вы можете подписаться на них. Для этого шлите запрос в LISTSERV@AMERICAN.EDU со строкой: GET NETGATE GATELIST. Более того, многие документы, которые появляются в новостях,
+доступны по электронной почте в mail-server@rtfm.mit.edu. Для получения руководства по применению в поле subject напишите HELP.</p>
+
+<p ALIGN="CENTER">Команды (базовые), используемые при выборе групп новостей</p>
+<p ALIGN="CENTER">Основные команды</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="68" VALIGN="TOP"><p ALIGN="JUSTIFY">h</td>
+    <td WIDTH="799" VALIGN="TOP"><p ALIGN="JUSTIFY">Отобразить справочную информацию;</td>
+  </tr>
+  <tr>
+    <td WIDTH="68" VALIGN="TOP"><p ALIGN="JUSTIFY">q</td>
+    <td WIDTH="799" VALIGN="TOP"><p ALIGN="JUSTIFY">quit rn (чтение новостей) - прерывание чтения новостей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="68" VALIGN="TOP"><p ALIGN="JUSTIFY">x</td>
+    <td WIDTH="799" VALIGN="TOP"><p ALIGN="JUSTIFY">quit rn, изменения, внесенные в ваш файл .newsrc, не будут
+    сохранены;</td>
+  </tr>
+  <tr>
+    <td WIDTH="68" VALIGN="TOP"><p ALIGN="JUSTIFY">v</td>
+    <td WIDTH="799" VALIGN="TOP"><p ALIGN="JUSTIFY">Показать, c какой версией rn вы работаете. RN – прикладная программа, предназначенная для просмотра новостей.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Начало чтения статей</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">Space</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Выполнение команды по умолчанию;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">y</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Чтение текущей группы новостей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">-</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Тоже самое, что и y, но отображает список тем (subjects);</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">^N</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Переход к следующей нечитанной статье по тому же вопросу;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">k</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Пометить как читанные все статьи по текущей теме (subject).</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">=</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Выдать список всех нечитанных статей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">число</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Переход к статье с данным номером;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">#</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Отобразить номер последней статьи.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Управление группами новостей</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">n</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Переход к следующей группе новостей с нечитанными статьями;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">p</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Переход к предшествующей группе с нечитанными статьями;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">P</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Назад к следующей статье читанной или не читанной;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">^P</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Назад к предыдущей статье по той же теме;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">^</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Переход к первой группе новостей с нечитанными статьями;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">^R</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Заново вывести на экран текущую статью;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">$</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Переход в конец списка групп новостей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="LEFT">g группа новостей</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY"> Переход к заданной группе новостей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">/эталон</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY"> Поиск в прямом направлении группы, содержащей
+    эталон;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">? эталон</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY"> Поиск в обратном направлении группы, содержащей эталон;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">/</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Поиск в прямом направлении предшествующего эталона;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">G</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Повторить поиск с направлением вперед;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Поиск в обратном направлении предшествующего эталона;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">u</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Ликвидация подписки на текущую группу новостей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">v</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Заново вывести на экран текущую статью вместе с
+    заголовком;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">l эталон</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY"> Выдача списка неподписанных групп, содержащих
+    эталон;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">L</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Выдача состояния групп новостей в файле .newsrc;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">^L</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Заново вывести на экран текущую страницу;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">b</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Возврат назад на одну страницу;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">c</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Пометить все новости в группе как прочитанные;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">A</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Пренебречь всеми изменениями в данной группе новостей;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">j</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Пометить статью, как прочитанную и перейти в конец;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">^X</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Декодировать текущую статью, используя ROT-13;</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">X</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="JUSTIFY">Декодировать
+    текущую страницу, используя ROT-13;</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Отклик на статью</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">r</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Послать отклик автору статьи по электронной почте;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">R</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">То же, что и r, но в ответ включается исходный текст;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">f</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">Запуск программы Pnews для написания статьи отклика;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">F</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY">То же, что и f, но с включением текста исходной статьи.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Сохранение статей</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">s файл</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY"> Запись статьи в файл;</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">w файл</td>
+    <td WIDTH="88%" VALIGN="TOP"><p ALIGN="JUSTIFY"> То же, что и s, но без записи заголовка.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Ввод Unix-команд</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">! команда</td>
+    <td WIDTH="85%" VALIGN="TOP"><p ALIGN="JUSTIFY">Выполнить данную Unix-команду;</td>
+  </tr>
+  <tr>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">!</td>
+    <td WIDTH="85%" VALIGN="TOP"><p ALIGN="JUSTIFY">Прервать исполнение rn и уйти в Shell.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Если Usenet доступен с вашего терминала, используйте один из многих программных пакетов, пригодных для чтения новостей. Эти пакеты
+используют либо доступ к местному серверу, либо работают на основе протокола доступа к новостям (NNTP Network News Transfer Protocol),
+осуществляя связь с другими ЭВМ сети. Рекомендуется прочесть брошюру &quot;How to become a USENET site&quot;, которая посылается периодически в news.answers
+newsgroup. Она также доступна через анонимное FTP по адресу <A HREF="tppmsgs/msgs2.htm#283" tppabs="ftp://rtfm.mit.edu/pub/usenet/news.answers/site-setup">rtfm.mit.edu</A> в каталоге /pub/usenet/news.answers/site-setup или по почте в mail-server@rtfm.mit.edu со строкой send usenet/news.answers/site-setup.</p>
+
+<p ALIGN="JUSTIFY">Существует поддержка Usenet в самых разных операционных системах: Unix, VMS, MS-DOS, OS/2, Macintosh, MVS, а также в различных средах: MS-Windows, X-Windows, Windows-NT, Emacs. Имеются интерфейсы для системы USENET и для электронной почты. Многие, реально почти все, программные продукты обеспечивают следующие возможности:</p>
+
+<ul>
+  <li>Подписка на группы новостей. Это означает, что именно новости данной группы будут немедленно доступны и вы сможете их просмотреть, когда
+    пожелаете.</li>
+  <li>Аннулирование подписки на группы новостей. Группа удаляется из вашего списка.</li>
+  <li>Чтение оглавления групп новостей. Ваш локальный сервер выдает вам оглавление новостей и отслеживает, какие из них вы уже читали.</li>
+  <li>Нить дискуссии. Вы можете отслеживать оглавления групп новостей, имеющих отношение к одной и той же теме или предмету.</li>
+  <li>Посылка сообщения в группу новостей. Вы можете участвовать в дискуссии, ваш сервер новостей знает, куда послать ваше сообщение.</li>
+  <li>Отклик на сообщение. Вы можете послать отклик на любое сообщение (это часто называется follow-up [отклик]) или обратиться к автору сообщения (это
+    обычно называется replay [ответ]).</li>
+</ul>
+
+<p ALIGN="JUSTIFY">Выбрав с помощью стрелки группу новостей и нажав клавишу &lt;Enter&gt;, вы получите оглавление статей в группе. Символ &quot;+&quot; указывает на то, что не все сообщения в цепочке были прочитаны. После выбора конкретной статьи вам будет предоставлено ее содержание.</p>
+
+<p ALIGN="JUSTIFY">Когда вы введете TIN (программа просмотра новостей), вы получите список групп новостей, на которые вы подписались:</p>
+
+<p ALIGN="JUSTIFY">tin 1.2 PL2 [UNIX] (c) Copyright 1991-93 Iain Lea.<br>
+(загрузка просмотрщика новостей)<br>
+Reading news active file...<br>
+Reading attributes file...</p>
+
+<p ALIGN="JUSTIFY">Reading newsgroups file... h=help</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">Group</td>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">Selection (3658)</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">(выдается базовое меню групп новостей)</td>
+  </tr>
+</table>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">1</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">26</td>
+    <td WIDTH="73%" VALIGN="TOP" COLSPAN="2"><p ALIGN="JUSTIFY">alt.0d</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">2</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">72</td>
+    <td WIDTH="73%" VALIGN="TOP" COLSPAN="2"><p ALIGN="JUSTIFY">alt.1d ?</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">3</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">50426</td>
+    <td WIDTH="73%" VALIGN="TOP" COLSPAN="2"><p ALIGN="JUSTIFY">alt.2600</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">4</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">79</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.3d</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">Dis</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">5</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">496</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.abortion.inequity</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">Pat</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">6</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">83</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.abuse.recovery</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">7</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">41087</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.activism</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">Act</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">8</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">231</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.activism.d</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">A p</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">9</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">106</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.activism.death-penalty</td>
+    <td WIDTH="36%" VALIGN="TOP"></td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">10</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">208</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.adoption</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">Ado</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">11</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">37</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.aeffle.und.pferdle</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">Ger</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">12</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">40</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.agriculture.fruit</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">13</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">26</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.agriculture.misc</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">Gen</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">14</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">8</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.aldus.freehand</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">15</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">5</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.aldus.misc</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">16</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">78</td>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="JUSTIFY">alt.aldus.pagemaker</td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="JUSTIFY">?</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Приведем краткий перечень возможных команд, для выполнения которых достаточно нажать клавишу-символ, отмеченную правой круглой скобкой.</p>
+<div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="2" WIDTH="750" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">&lt;n&gt;=set current to n,</td>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="JUSTIFY">TAB=next unread,</td>
+    <td WIDTH="22%" VALIGN="TOP"><p ALIGN="JUSTIFY">/=search pattern,</td>
+    <td WIDTH="16%" VALIGN="TOP"><p ALIGN="JUSTIFY">c)atchup,</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">g)oto,</td>
+  </tr>
+  <tr>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">j=line down,</td>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="JUSTIFY">k=line up,</td>
+    <td WIDTH="22%" VALIGN="TOP"><p ALIGN="JUSTIFY">h)elp,</td>
+    <td WIDTH="16%" VALIGN="TOP"><p ALIGN="JUSTIFY">m)ove,</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">q)uit,</td>
+  </tr>
+  <tr>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">r=toggle all/unread,</td>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="JUSTIFY">s)ubscribe,</td>
+    <td WIDTH="22%" VALIGN="TOP"><p ALIGN="JUSTIFY">S)ub pattern,</td>
+    <td WIDTH="16%" VALIGN="TOP"><p ALIGN="JUSTIFY">u)nsubscribe,</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">U)nsub</td>
+  </tr>
+  <tr>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">pattern,</td>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="JUSTIFY">y)ank in/out</td>
+    <td WIDTH="22%" VALIGN="TOP">&nbsp;</td>
+    <td WIDTH="16%" VALIGN="TOP">&nbsp;</td>
+    <td WIDTH="12%" VALIGN="TOP">&nbsp;</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">Если выбрать команду g (goto), то предоставляется возможность ввести имя группы новостей, которая вас интересует. Например, выберем группу comp.inforsystems.gopher:</p>
+
+<p ALIGN="JUSTIFY">Goto newsgroup [comp.mail.misc]&gt; comp.inforsystems.gopher</p>
+
+<p ALIGN="JUSTIFY">(получаем новое меню, выбранная тема помечена стрелкой на левом поле)</p>
+
+<p ALIGN="JUSTIFY">Group Selection (3658)</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1825</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>189 comp.graphics.animation Tec</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1826</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>26 comp.graphics.visualization Inf</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1827</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>19 comp.groupware Har</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1828</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>180 comp.groupware.lotus-notes.misc</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1829</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>151 comp.home.automation</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1830</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>comp.home.misc</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1831</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>53 comp.human-factors Iss</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1832</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>27 comp.infosystems Any</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1833</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>comp.infosystems.announce</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1834</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>130 comp.infosystems.gis All</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P>--&gt;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1835</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>8 comp.infosystems.gopher Dis</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1836</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>1 comp.infosystems.interpedia</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1837</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>comp.infosystems.kiosks</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1838</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>27 comp.infosystems.wais The</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P> </TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1839</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>302 comp.infosystems.www.misc</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P>1840</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>16 comp.internet.library Dis</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Нажимаем &lt;Enter>&gt; и входим в раздел comp.infosystems.gopher. Система выдает список имеющихся документов.</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="7%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="10%" VALIGN="TOP"><P ALIGN="CENTER">1</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>+ 3 mime-type Wolfgang Zekoll</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="10%" VALIGN="TOP"><P ALIGN="CENTER">2</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>+ Harmony Binary Release 1.1 Mansuet Gaisbauer</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="10%" VALIGN="TOP"><P ALIGN="CENTER">3</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>+ IRD Internet Gopher sites file Fritz Bohnet</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P>--&gt;</TD>
+<TD WIDTH="10%" VALIGN="TOP"><P ALIGN="CENTER">4</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>+ telnet via gopher Monty FullerDC</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="10%" VALIGN="TOP"><P ALIGN="CENTER">5</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>+ WWW shop of British fine tea from Williamson webmaster@sswi.com</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="10%" VALIGN="TOP"><P ALIGN="CENTER">6</TD>
+<TD WIDTH="82%" VALIGN="TOP"><P>+ WWW shop of Billy Riggs' sermon tapes webmaster@sswi.com</TD>
+</TR>
+</TABLE>
+
+<p ALIGN="JUSTIFY">Выбираем сначала пункт 4. Там лежит сообщение:</p>
+</font>
+
+<p ALIGN="JUSTIFY">Does anyone have a list of sights through which one can access telnet by way of gopher? Thanks for any help. Sincerely, Monty Fuller</p>
+
+<p ALIGN="JUSTIFY">Посмотрим следующее сообщение (пункт 5):</p>
+
+<p ALIGN="JUSTIFY">Hi,</p>
+
+<p ALIGN="JUSTIFY">I would like to invite everybody to visit our WWW shop of British fine tea from Williamson &amp; Magor: Assam, Celebration Blend, Darjeeling, Earl Grey, English Breakfast, Lifeboat.</p>
+
+<p ALIGN="JUSTIFY">Go to http://www.sswi.com/, and look under &quot;Shopping Mall&quot;: Have a nice holiday. Web Master</p>
+
+<p ALIGN="JUSTIFY">http://www.sswi.com/ (может быть интересно для
+любителей хорошего чая).</p>
+
+<p ALIGN="JUSTIFY">В документе 3 найдем полезную информацию об адресе, где лежит список Gopher-серверов:</p>
+
+<p ALIGN="JUSTIFY">I have found the IRD Gopher sites file to be a very useful tool for searching the Internet. For those of you who want to have a look, here is the download site:</p>
+
+<p ALIGN="JUSTIFY"><a HREF="tppmsgs/msgs2.htm#284" tppabs="http://www.mbmarktcons.com/mbmarkt/irdhome.htm"><font SIZE="2">http://www.mbmarktcons.com/mbmarkt/irdhome.htm</font></a>
+or via FTP from:</p>
+
+<p ALIGN="JUSTIFY">ftp://ftp.mbmarktcons.com/pub/mbmarkt/ird/Fritz</p>
+
+<p ALIGN="JUSTIFY">Вернувшись назад в предыдущее меню и выбрав позицию 1838 (comp.infosystems.wais), мы получим другой список документов:</p>
+
+<p ALIGN="JUSTIFY">comp.infosystems.wais (19T 26A 0K 0H R)</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">1</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ searching for an underscore (&quot;_&quot;) Thomas Carter</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">2</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Multi-field search w/freeWAIS-sf Paul Bingman</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">3</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ 2 Help, compiling FreeWAIS under Sun OS 4.1.4 Adrian Blakey</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">4</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Harmony Binary Release 1.1 Mansuet Gaisbauer</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">5</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ 2 freewais-sf BIO patches? Tak</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">6</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Indiceing single letters with freeWAIS-sf-2.0 B. D.O.Adams</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">7</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Wais database and html page question? Hans Baartmans</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">8</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Help on Virtual Warehousing Daniel Chang</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">9</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Question on freeWAIS and SFgate Anna Lee</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">10</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ 2 Combining numeric fields in boolean search Frances Blomeley</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">11</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ 2 Indexing PDF files Robert M. Ioffe</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">12</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ extending length of filenames in freewais-sf Brenda Levesque</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">13</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ Question: Timestamp problem with wais? Hans Baartmans</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">14</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ 3 sockets.c – make errors Jason Wilkes</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">15</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ freewais, wais, and Solaris Philippe Cuif</td>
+  </tr>
+  <tr>
+    <td WIDTH="7%" VALIGN="TOP"><p ALIGN="JUSTIFY">16</td>
+    <td WIDTH="93%" VALIGN="TOP"><p ALIGN="JUSTIFY">+ 2 freeWAIS-sf Can't compile on BSD Jack Ellis</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Процесс этот почти беспределен.....</p>
+
+<p ALIGN="JUSTIFY">Серверы новостей взаимодействуют друг с другом согласно стандартным протоколам, некоторые из которых описаны в Internet RFC. В настоящее время в этом списке имеются:</p>
+
+<p ALIGN="JUSTIFY">RFC-977 описывает NNTP (Network News Transfer Protocol)</p>
+<p ALIGN="JUSTIFY">RFC-1036 определяет формат статей Usenet.</p>
+
+<p ALIGN="JUSTIFY">Некоторые группы новостей содержат статьи и дискуссионные материалы по использованию Usenet. Например: news.announce.newusers, news.answers и news.newusers.questions. Многие статьи, которые появляются
+в этих группах новостей доступны также с помощью анонимного FTP по адресу rtfm.mit.edu или по электронной почте по адресу: mail-server@rtfm.mit.edu.</p>
+
+
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="nntp_457.htm" tppabs="http://book.itep.ru/4/45/nntp_457.htm"><FONT COLOR="lightblue">4.5.7 Протокол новостей NNTP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

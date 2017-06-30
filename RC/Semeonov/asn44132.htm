@@ -1,0 +1,1037 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="ASN.1
+BER
+DER
+
+
+">
+<TITLE>4.4.13.2 Нотация ASN.1</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="mib44131.htm" tppabs="http://book.itep.ru/4/44/mib44131.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="smtp4414.htm" tppabs="http://book.itep.ru/4/44/smtp4414.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="mib44131.htm" tppabs="http://book.itep.ru/4/44/mib44131.htm"><FONT COLOR="lightblue">4.4.13.1 Управляющая база данных MIB</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="smtp4414.htm" tppabs="http://book.itep.ru/4/44/smtp4414.htm"><FONT COLOR="lightblue">4.4.14 Протокол электронной почты SMTP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.13.2 Нотация ASN.1</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<p ALIGN="JUSTIFY">Одной из наиболее сложных систем сегодня являются открытые системы связи OSI (Open System Interconnection). OSI представляет собой достаточно формализованную стандартную архитектуру управления межкомпьютерными коммуникациями. Для описания этой системы была разработана абстрактный синтаксис нотаций ASN.1 (Abstract Syntax Notation; См. A Layman’s Guide to a Subset of ASN.1, BER, and DER. Burton S. Kaliski Jr., RSA Data Security, Inc. Redwood City, CA, 1991). ASN.1 является формальным языком, который обладает двумя основными чертами.</p>
+
+<p ALIGN="JUSTIFY">Используемая в документах нотация легко читаема и понимаема, а в компактном кодовом представлении информация может использоваться коммуникационными протоколами. Неотъемлемой частью ASN.1 являются базовые правила кодирования BER (Basic Encoding Rules), которые позволяют определить большое разнообразие типов данных. BER описывает то, как представить или закодировать любую величину в рамках стандарта ASN.1. Практически все величины здесь представляются в виде последовательности 8-битных октетов. Восьмой бит октета всегда считается самым старшим. BER позволяет закодировать величину более чем одним способом. Имеется также поднабор правил кодирования DER (Distinguished Encoding Rules, описаны в документе Х.509), которые определяют однозначные способы кодирования величин ASN.1.</p>
+
+<p ALIGN="JUSTIFY">Ниже приведены базовые правила обозначений метасинтаксиса ASN.1.</p>
+<CENTER>
+<table CELLSPACING="0" BORDER="10" CELLPADDING="2" WIDTH="700" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><i><b><p ALIGN="JUSTIFY">n</b></i></td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">(полужирный курсив) обозначает переменную</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">[]</b></td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">(квадратные скобки, напечатанные полужирным шрифтом) указывают на то, что терм является опционным.</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">{}</b></td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">(фигурные скобки, напечатанные полужирным шрифтом) группируют родственные термы.</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">|</b></td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">(вертикальная черта, напечатанная полужирным шрифтом) выделяет альтернативные значения.</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">…</b></td>
+    <td WIDTH="90%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">(</b>многоточие,<b>
+    </b> напечатанное полужирным шрифтом) обозначает повторения.</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">=</b></td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">(знак равенства, напечатанный полужирным шрифтом) описывает терм как субтерм.</td>
+  </tr>
+</table></center>
+
+<p ALIGN="JUSTIFY">ASN.1 имеет четыре разновидности типов: простые типы, не имеющие компонент, структурные типы, имеющие компоненты, помеченные (tagged) типы, которые получаются из других типов, а также прочие типы, которые включают в себя типы CHOICE и ANY. Типам и значениям могут присваиваться имена с помощью оператора (<b>::=</b>). Эти имена в дальнейшем могут использоваться для определения других типов и величин.</p>
+
+<p ALIGN="JUSTIFY">Все типы ASN.1 кроме CHOICE и ANY имеют метки, которые состоят из класса и неотрицательного кода метки. Типы ASN.1 тождественны, если их числовые метки совпадают. Существует четыре класса меток.</p>
+<div align="center">
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="700" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">universal</td>
+    <td WIDTH="85%" VALIGN="TOP"><font FACE="Times New Roman"><p ALIGN="JUSTIFY">для типов, значения которых является неизменным для всех приложений. Эти типы определены в документе Х.208.</td>
+  </tr>
+  <tr>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">application</td>
+    <td WIDTH="85%" VALIGN="TOP"><p ALIGN="JUSTIFY">для типов со значением, специфическим для приложений, таких как служба каталогов Х.500. Типы двух разных приложений могут иметь одну и ту же метку и разные значения.</td>
+  </tr>
+  <tr>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">private</td>
+    <td WIDTH="85%" VALIGN="TOP"><p ALIGN="JUSTIFY">для типов, которые являются специфическими для данного предприятия.</td>
+  </tr>
+  <tr>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="JUSTIFY">content-specific</td>
+    <td WIDTH="85%" VALIGN="TOP"><p ALIGN="JUSTIFY">для типов со значением, специфическим для данного структурного типа.</td>
+  </tr>
+</table></div>
+
+<p ALIGN="JUSTIFY">Ниже приведена таблица 4.4.13.2.1 типов и их меток универсального класса.</p>
+
+<p ALIGN="CENTER">Таблица 4.4.13.2.1. Типы и их метки</p>
+<div align="center">
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="700" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Тип</td>
+    <td WIDTH="31%" VALIGN="TOP" bgcolor="gainsboro">Комментарий</td>
+    <td WIDTH="29%" VALIGN="TOP" bgcolor="gainsboro">Цифровая метка (шестнадцатеричное)</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">INTEGER</td>
+    <td WIDTH="31%" VALIGN="TOP">Любое целое число</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">02</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">BIT STRING</td>
+    <td WIDTH="31%" VALIGN="TOP">Произвольная строка бит</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">03</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">OCTET STRING</td>
+    <td WIDTH="31%" VALIGN="TOP">Произвольная последовательность октетов</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">04</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">NULL</td>
+    <td WIDTH="31%" VALIGN="TOP">0</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">05</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">OBJECT IDENTIFIER</td>
+    <td WIDTH="31%" VALIGN="TOP">Последовательность целых компонент, идентифицирующих объект</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">06</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">SEQUENCE and SEQUENCE OF</td>
+    <td WIDTH="31%" VALIGN="TOP"> </td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">10</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">SET and SET OF</td>
+    <td WIDTH="31%" VALIGN="TOP"> </td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">11</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">PrintableString</td>
+    <td WIDTH="31%" VALIGN="TOP">Последовательность печатных символов</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">13</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">IA5String</td>
+    <td WIDTH="31%" VALIGN="TOP">Произвольная строка символов IA5 (ASCII)</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">16</td>
+  </tr>
+  <tr>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="JUSTIFY">UTCTime</td>
+    <td WIDTH="31%" VALIGN="TOP">Универсальное время (по Гринвичу; GMT)</td>
+    <td WIDTH="29%" VALIGN="TOP"><p ALIGN="CENTER">17</td>
+  </tr>
+</table></div>
+
+<p ALIGN="JUSTIFY">ASN.1 типы и значения выражаются в нотации, близкой к используемой в языках программирования. Множественные пробелы и разрывы строк рассматриваются как один пробел. Комментарии выделяются парами дефисов или парой дефисов и переводом строки. Идентификаторы (имена значений и полей) и имена типов состоят из букв, цифр и пробелов. Идентификаторы начинаются
+со строчной буквы, а имена типов – с прописной.</p>
+
+<p ALIGN="JUSTIFY">В SMI (Structure of Management  Information) не используется полный набор типов объектов, предусмотренный в ASN.1, разрешены только следующие типы примитивов: INTEGER, OCTET STRING, OBJECT IDENTIFIER
+и NULL.</p>
+
+<p ALIGN="JUSTIFY">Стандарт ASN.1 определяет форму представления информации и имен. Для строчных типов может быть введено ограничение на максимальный размер. В ASN.1 определено четыре структурированных типов:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="750">
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="LEFT">SEQUENCE </td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="LEFT">упорядоченный набор из одного или более типов.</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="LEFT">SEQUENCE OF</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="LEFT">упорядоченный набор из нуля или более представителей данного типа.</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="LEFT">SET</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="LEFT">неупорядоченный набор из одного или более типов.</td>
+  </tr>
+  <tr>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="LEFT">SET OF</td>
+    <td WIDTH="80%" VALIGN="TOP"><p ALIGN="LEFT">неупорядоченный набор из нуля или более 
+представителей данного типа.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Структурированные типы могут иметь опционные компоненты, в том числе со 
+значениями по умолчанию.</p>
+
+<p ALIGN="JUSTIFY">Существуют типы помеченные явно и неявно. Неявно помеченные типы получаются из других типов путем изменения метки. Для неявной пометки используется ключевое слово IMPLICIT. Явно помеченные типы получаются из других типов путем добавления внешней метки. Помеченный явно тип – это структурированный тип, состоящий из одного компонента основного типа. Для явной пометки используется ключевое слово EXPLICIT. Пометка (тэгирование) весьма удобна для различия типов в пределах одного приложения.</p>
+
+<p ALIGN="JUSTIFY">Тип CHOICE обозначает объединение одного или более альтернатив. Тип ANY служит для обозначения произвольной величины для произвольного типа.</p>
+
+<p ALIGN="JUSTIFY">Правила BER определяют один или более способов представить любую величину в виде строки октетов. Существует три метода кодирования величин (в рамках BER): примитивный с известной длиной; конструктивный при известной длине и конструктивный при неизвестной длине. Выбор метода зависит от типа величины и от того, известна ли длина преобразуемой величины. Для простых не строчных типов используется примитивный метод кодирования. В каждом методе
+BER-кодирование имеет три или четыре части:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="25%" VALIGN="TOP"><p ALIGN="LEFT">Identifier octets</td>
+    <td WIDTH="75%" VALIGN="TOP"><p ALIGN="LEFT">Определяет класс и числовую метку значения, а 
+    также указывает, является ли метод примитивным или конструктивным.</td>
+  </tr>
+  <tr>
+    <td WIDTH="25%" VALIGN="TOP"><p ALIGN="LEFT">Length octets</td>
+    <td WIDTH="75%" VALIGN="TOP"><p ALIGN="LEFT">Для методов кодирования с известной длиной
+    определяет число октетов содержимого.</td>
+  </tr>
+  <tr>
+    <td WIDTH="25%" VALIGN="TOP"><p ALIGN="LEFT">Contents octets</td>
+    <td WIDTH="75%" VALIGN="TOP"><p ALIGN="LEFT">Для примитивных методов с заданной длиной дает
+    конкретное выражение значения.</td>
+  </tr>
+  <tr>
+    <td WIDTH="25%" VALIGN="TOP"><p ALIGN="LEFT">End-of-contents octets</td>
+    <td WIDTH="75%" VALIGN="TOP"><p ALIGN="LEFT">Для конструктивных методов с неопределенной длиной указывает на конец содержимого.</td>
+  </tr>
+</table>
+
+<p><B>Примитивный метод кодирования с заданной длиной</b></p>
+
+<p ALIGN="JUSTIFY">Этот метод применим для простых типов и типов полученных из простых типов путем неявной пометки. Здесь необходимо, чтобы длина величины была известна заранее. <i>Октеты идентификатора</i> имеют два формата: для числовых меток от 0 до 31, и для числовых меток более 31. В первом случае биты 7 и 8 определяют класс (см. таблицу 4.4.13.2.2), бит 6 равен нулю, указывая на то, что метод кодирования <i>primitive</i>. Остальные биты используются для записи кода числовой метки. Во втором случае используется два или более октетов. В первом октете кодировка аналогична первому варианту за
+исключением того, что биты 1-5 содержат единицы.</p>
+
+<p ALIGN="CENTER"><b>Таблица 4.4.13.2.2.</b> Коды классов</p>
+<div align="center">
+
+<table BORDER="10" CELLSPACING="1"  CELLPADDING="5" WIDTH="496" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="71%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY"><b>Класс</b></td>
+    <td WIDTH="14%" VALIGN="TOP" bgcolor="gainsboro"><b><p ALIGN="CENTER">Бит 8</b></td>
+    <td WIDTH="14%" VALIGN="TOP" bgcolor="gainsboro"><b><p ALIGN="CENTER">Бит 7</b></td>
+  </tr>
+  <tr>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">Универсальный</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+  </tr>
+  <tr>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">Прикладной</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+  </tr>
+  <tr>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">Контекстно-ориентированный</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+  </tr>
+  <tr>
+    <td WIDTH="71%" VALIGN="TOP"><p ALIGN="JUSTIFY">Частный</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+    <td WIDTH="14%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+  </tr>
+</table></div>
+
+<p ALIGN="JUSTIFY">Для октетов длины примитивного метода имеется два формата: короткий (один октет для длин 0-127) и длинный (2-127 октетов). Для короткой формы 8-ой бит октета всегда равен нулю. Для длинной формы восьмой бит первого октета всегда равен 1, биты 1-7 содержат код числа дополнительных октетов длины. Старшая цифра записывается первой.</p>
+
+<p ALIGN="JUSTIFY"><b>Конструктивный метод с заданной длиной</b></p>
+
+<p ALIGN="JUSTIFY">Этот метод используется для простых строчных и структурированных типов, типов, производных от простых строчных типов, и некоторых других. Здесь <i>октеты идентификатора</i> и октеты длины имеют формат, идентичный используемому примитивным методом, за исключением того, что бит 6 первого октета идентификатора равен 1.</p>
+
+<p ALIGN="JUSTIFY"><b>Конструктивный метод кодирования с незаданной длиной</b></p>
+
+<p ALIGN="JUSTIFY">Метод используется для простых строчных типов, структурированных типов и типов, полученных из простых и структурированных типов с помощью неявной пометки. Октеты идентификатора идентичны предшествующему. Октет длины содержит код 80. Два октета конца содержательной части содержат 00 00.</p>
+
+<p ALIGN="JUSTIFY">Нотация типов, помеченных неявно, имеет вид:</p>
+
+<p ALIGN="JUSTIFY">[<b>[</b>class<b>]</b> number] IMPLICIT <i>Type</p>
+
+<p ALIGN="JUSTIFY">class = </i>UNIVERSAL <b>|</b> APPLICATION <b>|</b> PRIVITE</p>
+
+<p ALIGN="JUSTIFY">где <i>Type</i> – тип, class – опционное имя класса и number 
+– цифровая метка (неотрицательное целое число).</p>
+
+<p ALIGN="JUSTIFY">Если имя класса отсутствует, тогда метка является контекстно-ориентированной. Такие метки могут появляться только в структурных компонентах или в типе CHOICE. Например:</p>
+
+<p>PrivateKeyInfo ::= SEQUENCE {<br>
+version Version, <br>
+privateKeyAlgorithm PrivateKeyAlgorithmIdentifier,<br>
+privateKey PrivateKey,<br>
+attributes [0] IMPLICIT Attributes OPTIONAL }</p>
+
+<p ALIGN="JUSTIFY">Здесь исходным (порождающим) типом является Attributes, класс отсутствует (т.е. контекстно-ориентированный), а числовая метка равна нулю. Кодирование компоненты <i>attributes</i> величины PrivateKeyInfo осуществляется следующим образом.</p>
+
+<p ALIGN="JUSTIFY">Октеты идентификатора равны 80, если значение порождающей величины Attributes имеет конструктивное BER-кодирование. Октеты длины и содержимого строго соответствуют октетам порождающей величины Attributes.</p>
+
+<p ALIGN="JUSTIFY">Непосредственная (явная) пометка
+используется для опционных компонент SEQUENCE c
+порождающим типом ANY и для компонент <i>version</i> типа <i>Certificate</i>
+(X.509 и RFC-1114). Нотация типов, помеченных явно, имеет
+формат.</p>
+
+<p ALIGN="JUSTIFY">[ <b>[</b>class<b>]</b> number] EXPLICIT <i><b>Type</p>
+
+<p ALIGN="JUSTIFY">class = </b></i>UNIVERSAL <b>|</b> APPLICATION <b>|</b> PRIVATE</p>
+
+<p ALIGN="JUSTIFY">где <i><b>Type</b></i> – тип, <i><b>class</b></i> – опционное
+имя класса, а <i><b>number </b></i> – числовая метка в пределах класса
+(неотрицательное целое число). Пример:</p>
+
+<p>ContentInfo ::= SEQUENCE {<br>
+ContebtType ContentType,<br>
+Content [0] EXPLICIT ANY DEFINED BY contentType OPTIONAL }</p>
+
+<p ALIGN="JUSTIFY">Тип ContentInfo имеет опционную компоненту content 
+с явной контекстно-ориентированной меткой. Здесь порождающим типом является ANY DEFINED BY contentType, класс отсутствует, а числовая метка в пределах класса равна 0.</p>
+
+<p ALIGN="JUSTIFY">Другим примером может являться тип Certificate
+[X.509], имеющий компоненту с явной контекстно-ориентированной меткой (ключевое
+слово EXPLICIT опущено).</p>
+
+<p>Certificate <b>::=</b> <b>…<br>
+</b>Version [0] Version DEFAULT v1988,<br>
+<b>…</b></p>
+
+<p ALIGN="JUSTIFY">BER-кодирование величин, помеченных явно, является всегда конструктивным. Октеты содержимого идентичны соответствующим октетам порождающей величины. Например, BER-кодирование компоненты content величины ContentInfo имеет следующий вид.</p>
+
+<p ALIGN="JUSTIFY">Октеты идентификатора равны нулю, Октеты длины представляют длину BER-кодирования порождающей величины ANY DEFINED BY contentType.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип ANY</b></p>
+
+<p ALIGN="JUSTIFY">Тип ANY обозначает произвольную величину произвольного типа, где произвольный тип возможно определен при регистрации идентификатора объекта или является целочисленным индексом. Нотация типа ANY имеет формат:</p>
+
+<p ALIGN="JUSTIFY">ANY [DEINED BY <i><b>identifier</b></i>]</p>
+
+<p ALIGN="JUSTIFY">где <i><b>identifier</b></i> – опционный идентификатор. Форма ANY DEINED BY <i><b>identifier </b></i> может появиться только в компоненте типа SEQUNCE или SET, для которой <i><b>identifier </b></i> определяет какую-то другую компоненту и эта компонента имеет тип INTEGER или OBJECT IDENTIFIER. В этой форме истинный тип задается величиной этой другой компоненты. Например, тип AlgorithmIdentifier [X.509] имеет компоненту типа ANY:</p>
+
+<p>AlgorithmIdentifier ::= SEQUENCE {<br>
+algorithm OBJECT IDENTIFIER,<br>
+parameter ANY DEFINED BY algorithm OPTIONAL }</p>
+
+<p ALIGN="JUSTIFY">Здесь истинный тип компоненты parameter зависит от величины компоненты algorithm. Истинный тип будет определен при регистрации объекта величины идентификатора длякомпоненты algorithm.</p>
+
+<p><b>Битовые строки</b></p>
+
+<p ALIGN="JUSTIFY">Тип BIT STRING обозначает произвольные битовые последовательности произвольной длины (включая ноль). Тип BIT STRING используется для цифровых сигнатур типа ExtendedCertificate или Certificate [X.509]. Нотация BIT STRING имеет формат.</p>
+
+<p ALIGN="JUSTIFY">BIT STRING</p>
+
+<p ALIGN="JUSTIFY">Например, тип SubjectPublicKeyInfo имеет компоненту типа BIT STRING:</p>
+
+<p ALIGN="JUSTIFY">SubjectPublicKeyInfo <b>::=</b> SEQUENCE {<BR>
+Algorithm AlgorithmIdentifier,<BR>
+PublicKey BIT STRING }</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование величины BIT STRING может быть примитивным или конструктивным. При примитивном кодировании первый октет содержимого несет в себе длину битовой строки в октетах. В последующих октетах записывается сама
+битовая последовательность. Процедура кодирования может включать в себя дополнение битовой строки до целого числа октетов нулями (если это необходимо). Строка делится на октеты.</p>
+
+<p ALIGN="JUSTIFY">При конструктивном кодировании октеты содержимого представляют собой соединение последовательности субстрок, только последняя из которых содержит код длины, выраженный в октетах. Например, при BER-кодировании значения BIT STRING “0111 1101 1001 1111 11” может быть представлена в одном из следующих видов, в зависимости от выбора схемы дополнения до целого числа 
+октетов, от формата октетов длины и от метода кодирования примитивный/конструктивный).</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="900">
+  <tr>
+    <td WIDTH="31%" VALIGN="TOP"><p ALIGN="LEFT">03 04 06 7D 9F C0</td>
+    <td WIDTH="69%" VALIGN="TOP"><p ALIGN="LEFT">DER-кодирование</td>
+  </tr>
+  <tr>
+    <td WIDTH="31%" VALIGN="TOP"><p ALIGN="LEFT">03 04 06 7D 9F E0</td>
+    <td WIDTH="69%" VALIGN="TOP"><p ALIGN="LEFT">Дополнение кодом “100000”</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="31%" VALIGN="TOP"><p ALIGN="LEFT">03 81 04 06 7D 9F C0</td>
+    <td WIDTH="69%" VALIGN="TOP"><p ALIGN="LEFT">Длинная форма представления октетов длины</td>
+  </tr>
+  <tr>
+    <td WIDTH="31%" VALIGN="TOP" HEIGHT="69"><p ALIGN="LEFT">23 09<BR>
+    03 03 00 7D 9F<BR>
+    03 02 06 C0</td>
+    <td WIDTH="69%" VALIGN="TOP" HEIGHT="69"><p ALIGN="LEFT">Конструктивное
+    кодирование “01111101 1001 1111” +”11”</font></td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Первый октет первых трех представлений содержат код типа (для BIT STRING = 03). Второй октет в первых двух представлениях – код октетов длины (ведь далее следует 4 октета). Третий октет первой и второй строк содержит число добавленных нулей до числа бит, кратного восьми. Во втором байте третей строки записана 8, что указывает на длинную форму представления октетов длины. Последующая 1 говорит о том, что использован один дополнительный октет длины. Код длины в четвертом примере записан также во втором октете (далее следует 9 октетов). В этом варианте битовая строка разбита на две субстроки, первая из которых имеет длину в два октета. DER-кодирование предполагает всегда примитивный метод представления с дополнением строки нулями до длины, кратной целому числу октетов.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип CHOICE</b></p>
+
+<p ALIGN="JUSTIFY">Этот тип служит для объединения одной или более альтернатив. Нотация типа CHOICE имеет формат.</p>
+
+<p ALIGN="JUSTIFY">CHOICE {<BR>
+
+[<i><b>identifier</b></i><sub>1</sub>] <i><b>Type</b></i><sub>1</sub>,<br>
+<b>…</b>,<br>
+[<i><b>identifier<sub>n</sub></b></i>] <i><b>Type</b></i><sub>n</sub> }</p>
+
+<p ALIGN="JUSTIFY">где </font><i><b>identifier</b></i><sub>1, </sub><i><b>…,
+identifier<sub>n </sub></b></i> являются опционными идентификаторами альтернатив, а типы <i><b>Type</b></i><sub>1</sub>,
+…, <i><b>Type</b></i><sub>n</sub> – альтернативы. Идентификаторы нужны для
+документирования и не играют какой-либо роли при кодировании. Типы должны иметь определенные метки. Рассмотрим пример типа ExtendedCertificateOrCertificate,
+который относится к типу CHOICE.</p>
+
+<p>ExtendedCertificateOrCertificate <b>::=</b> CHOICE {<br>
+certificate Certificate, -- X.509 certificate<br>
+extendedCertificate [0] IMPLICIT ExtendedCertificate }</p>
+
+<p ALIGN="JUSTIFY">Здесь идентификаторами для альтернатив являются certificate и extendedCertificate, а сами альтернативы представлены типами Certificate и [0] IMPLICIT ExtendedCertificate. BER-кодирование для типа CHOICE сводится к кодированию альтернатив. При этом октеты
+идентификатора для рассмотренного примера содержат код 30, если выбранная альтернатива certificate, и A0 – в случае ExtendedCertificate.</p>
+
+<p ALIGN="JUSTIFY"><b>Строки IA5</b></p>
+
+<p ALIGN="JUSTIFY">Тип IA5String представляет любые последовательности IA5-символов (международный алфавит 5 – эквивалентно ASCII). Длина строки может быть любой, включая нуль. Этот тип используется для адресов электронной почты и неструктурированных имен. Нотация типа IA5String имеет простой формат.</p>
+
+<p ALIGN="JUSTIFY">IA5String</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование величины IA5String может быть примитивным или
+структурированным. При примитивном кодировании октеты содержимого представляют собой символы IA5 в ASCII-кодов. При конструктивном кодировании октеты содержимого представляют собой соединение ряда IA5-субстрок. Рассмотрим примеры
+представления значения IA5-строки “test1@rsa.com”.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="750">
+  <tr>
+    <td WIDTH="61%" VALIGN="TOP"><p ALIGN="LEFT">12 0D 74 65 73 74 31 40 72 73 61 2E 63 6F
+    6D</td>
+    <td WIDTH="39%" VALIGN="TOP"><p ALIGN="JUSTIFY">DER-кодирование</td>
+  </tr>
+  <tr>
+    <td WIDTH="61%" VALIGN="TOP">12 81 0D 74 65 73 74 31 40 72 73 61 2E 63 6F 6D</td>
+    <td WIDTH="39%" VALIGN="TOP">Длинная форма октетов длины</td>
+  </tr>
+  <tr>
+    <td WIDTH="61%" VALIGN="TOP">32 13<BR>12 05 74 65 73 74 31<BR>
+    12 01 40<BR>
+    12 07 72 73 61 2E 63 6F 6D</td>
+    <td WIDTH="39%" VALIGN="TOP">Конструктивное <BR>кодирование: “test1”<BR>+ “@” +<BR>
+    “rsa.com”</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">DER-кодирование является всегда примитивным, октеты содержимого идентичны случаю BER-кодирования.</p>
+
+<p ALIGN="JUSTIFY"><b>Целое</b></p>
+
+<p ALIGN="JUSTIFY">Тип INTEGER представляет любые целые числа (положительные, отрицательные или 0). Тип INTEGER используется для номеров версий, криптографических параметров (показателей, модулей) и типов RSAPublicKey, RSAPrivatKey, DHParameter PBEParameter. Нотация типа INTEGER имеет формат:</p>
+
+<p ALIGN="JUSTIFY">INTEGER <b>[</b>{<i><b>identifier</b></i><sub>1</sub>(<i><b>value<sub>1</sub></b></i>)
+… <i><b>identifier</b></i><sub>n</sub>(<i><b>value<sub>n</sub></i>) }]</b></p>
+
+<p ALIGN="JUSTIFY">где <b><i>identifier</i></b><sub>1</sub> … <i><b>identifier</b></i><sub>n </sub> являются опционными идентификаторами, а <i><b>value<sub>1</sub></b></i>… <i><b>value<sub>n </sub></b></i> опционные целые значения. Например, Version  RFC-1114 относится к целому типу со значением:</p>
+
+<p ALIGN="JUSTIFY">Version ::= INTEGER { 1988(0) }</p>
+
+<p ALIGN="JUSTIFY">Идентификатору v1988 поставлено в соответствие значение 0. Тип <i>Certificate</i> RFC-1114 использует идентификатор <i>v1988</i>для присвоения значения по умолчанию компоненту <i>version</i>:</p>
+
+<p>Certificate <br>
+version Version DEFAULT v1988,<br>
+<b>…</b></p>
+
+<p ALIGN="JUSTIFY">BER-кодирование значения INTEGER является всегда примитивным. Октеты содержимого представляют значение целого по модулю 256 в форме дополнения по модулю 2. Старшая цифра является первой. Значение нуль кодируется одним октетом 00. Примеры BER-кодирования (совпадающего в данном случае с DER-кодированием) представлены в таблице 4.4.13.2.3.</p>
+
+<p ALIGN="CENTER">Таблица 4.4.13.2.3. Примеры BER-кодирования</p>
+<div align="center">
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="378" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Значение целого</td>
+    <td WIDTH="50%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">BER-код</td>
+  </tr>
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="JUSTIFY">02 01 00</td>
+  </tr>
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="CENTER">127</td>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="JUSTIFY">02 02 00 7F</td>
+  </tr>
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="CENTER">128</td>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="JUSTIFY">02 02 00 80</td>
+  </tr>
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="CENTER">256</td>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="JUSTIFY">02 02 01 00</td>
+  </tr>
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="CENTER">-128</td>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="JUSTIFY">02 01 80</td>
+  </tr>
+  <tr>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="CENTER">-129</td>
+    <td WIDTH="50%" VALIGN="TOP"><p ALIGN="JUSTIFY">02 02 FF 7F</td>
+  </tr>
+</table></div>
+
+<p ALIGN="JUSTIFY"><b>NULL</b></p>
+
+
+<p ALIGN="JUSTIFY">Тип NULL обозначает нулевую величину и предназначен для использования в качестве параметра алгоритмов. Нотация для типа NULL имеет формат:</p>
+
+<p ALIGN="JUSTIFY">NULL</p>
+
+<p ALIGN="JUSTIFY">Кодирование для типа NULL является всегда примитивным, октеты содержимого пусты. Например, BER-представление значения NULL может иметь одну из приведенных ниже форм (зависит от используемого представления октетов длины).</p>
+
+<p ALIGN="JUSTIFY">05 00<BR>
+05 81 00</p>
+
+<p ALIGN="JUSTIFY">DER-кодирование типа NULL является также примитивным и совпадает с первой строкой приведенного выше примера.</p>
+
+<p ALIGN="JUSTIFY"><b>Объектные идентификаторы</b></p>
+
+<p ALIGN="JUSTIFY">Тип OBJECT IDENTIFIER служит для обозначения дентификаторов, которые представляют собой последовательность целочисленных компонент,
+которые идентифицируют такие объекты, как алгоритм или атрибут имени каталога. Значение OBJECT IDENTIFIER может содержать любое число неотрицательных компонент. Этот тип не относится в числу строчных. Значения OBJECT IDENTIFIER присваиваются при регистрации. </p>
+
+<p ALIGN="JUSTIFY">Тип OBJECT IDENTIFIER используется для  идентификации содержимого ContentInfo, алгоритмов в X.509 (AlgorithmIdentifier) и атрибутов Attribute и AttributeValueAssertion (X.501). Нотация OBJECT IDENTIFIER имеет формат.</p>
+
+<p ALIGN="JUSTIFY">OBJECT IDENTIFIER</p>
+
+<p ALIGN="JUSTIFY">Нотация величины OBJECT IDENTIFIER имеет вид:</p>
+
+<p ALIGN="JUSTIFY">{ [<i><b>identifier</b></i>] <i>component<sub>1</sub>… component<sub>n</sub></i>}<BR>
+
+<i><b>component<sub>i</sub> = identifier<sub>i</sub> | identifier<sub>i</sub>
+(value<sub>i</sub>) | value<sub>i</sub></b></i></p>
+
+<p ALIGN="JUSTIFY">где <i><b>identifier, identifier<sub>1</sub>, … identifier<sub>n </sub></b></i> являются идентификаторами, а <i><b>value<sub>1</sub></b></i> <b>…, <i>value<sub>n </sub></i></b> – опционные целые числа. Идентификаторы без целых значений могут встретиться только для объектов, описанных в Х.208.</p>
+
+<p ALIGN="JUSTIFY">Например, нижеприведенные величины объектных идентификаторов присвоены RSA DATA Security, Inc.</p>
+
+<p ALIGN="JUSTIFY">{ iso(1) member-body(2) 840 113549 }<BR>
+{ 1 2 840 113549 }</p>
+
+<p ALIGN="JUSTIFY">В таблице 4.4.13.2.4 представлены некоторые объектные идентификаторы и их значения.</p>
+
+
+<p ALIGN="CENTER"><b>Таблица 4.4.13.2.4. Некоторые объектные идентификаторы и их значения</p>
+</b><div align="center"><center>
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="650" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Величина объектного идентификатора</td>
+    <td WIDTH="62%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY">Назначение</td>
+  </tr>
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="CENTER">{ 1 2 }</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">Члены ISO</td>
+  </tr>
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="CENTER">{ 1 2 840 }</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">US (ANSI)</td>
+  </tr>
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="CENTER">{ 1 2 840 113549}</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">RSA Data Security, Inc.</td>
+  </tr>
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="CENTER">{ 1 2 840 113549 }</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">RSA Data Security, Inc. PKCS (Public
+    Key Cryptography Standard)</td>
+  </tr>
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="CENTER">{ 2 5 }</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">Служба каталогов (X.500)</td>
+  </tr>
+  <tr>
+    <td WIDTH="38%" VALIGN="TOP"><p ALIGN="CENTER">{ 2 5 8 }</td>
+    <td WIDTH="62%" VALIGN="TOP"><p ALIGN="JUSTIFY">Служба каталогов - алгоритмы</td>
+  </tr>
+</table>
+</center></div>
+
+<p ALIGN="JUSTIFY">BER-кодирование OBJECT IDENTIFIER является всегда примитивным. Октеты содержимого представляют собой объединение n-1 строки
+октетов, где n число компонент объектного идентификатора. Каждая октетная строка несет в себе целое число по модулю 128 (старшая часть первая). 8-ой бит каждого октета, кроме последнего, равен 1. Пусть value<sub>1</sub>, …, value<sub>n</sub> целые значения компонентов объектного идентификатора. Тогда n-1 субидентификаторов, из которых формируется октетная строка, будут иметь следующий вид.</p>
+
+<ol>
+  <li>Первый субидентификатор равен 40<i>value<sub>1</sub></i>
+    + <i>value<sub>2</sub></i>. (значение <i>value<sub>1</sub></i> 
+    лежит в пределах 0-2 включительно, а <i>value<sub>2</sub></i> 
+    в интервале 0-39, когда <i>value<sub>1</sub></i> 
+    равна 0 или 1.</li>
+  <li>i-ый субидентификатор равен <i>value<sub>i+1</sub> ; 2
+    <FONT FACE="Symbol">Ј</font> i<font FACE="Symbol">Ј</font> n-1.</li>
+</ol>
+</i>
+
+<p ALIGN="JUSTIFY">Например, субидентификаторы объектного идентификатора RSA Data Security, Inc. равны 42 = 40<font FACE="Symbol">ґ</font> 1 + 2, 840, 113549 и 1. В шестнадцатеричном представлении BER-код этого объектного идентификатора имеет вид: </p>
+
+<p ALIGN="JUSTIFY">06 07 2A 86 48 86 F7 0D 01</p>
+
+<p ALIGN="JUSTIFY">DER-кодирование в данном случае совпадает с BER.</p>
+
+<p ALIGN="JUSTIFY"><b>Строки октетов</b></p>
+
+<p ALIGN="JUSTIFY">Тип OCTET STRING служит для представления произвольных последовательностей октетов. Значение OCTET STRING может иметь любую длину, включая нуль. OCTET STRING используется для представления сообщений, включая зашифрованные, а также для типа PBEParameter. Нотация типа OCTET STRING имеет формат.</p>
+
+<p ALIGN="JUSTIFY">OCTET STRING <b>[</b>SIZE ({<i><b>size | size<sub>1</sub>..size<sub>2</sub></b></i>})<b>]</p>
+</b>
+
+<p ALIGN="JUSTIFY">где <i><b>size, size<sub>1 </sub>и size<sub>2</sub></b></i> опционные ограничения размера. В форме OCTET STRING SIZE(<i><b>size</b></i>)
+строка октетов должна иметь октеты <i><b>size</b></i>. В формате OCTET STRING 
+SIZE(<i><b>size<sub>1</sub> .. size<sub>2</sub></b></i>) строка должна
+содержать число октетов между <i><b>size<sub>1</sub></b></i> и <b><i>size<sub>2</sub></i>. </b> Например, тип PBEParameter имеет компоненту типа OCTET STRING:</p>
+
+<p ALIGN="JUSTIFY">PBEParameter ::= SEQUENCE {<BR>
+salt OCTET STRING SIZE (8),<BR>
+iterationCount INTEGER }</p>
+
+<p ALIGN="JUSTIFY">Здесь размер компоненты salt всегда равен 8 октетам. BER-кодирование типа OCTET STRING может быть примитивным или конструктивным. При примитивном кодировании октеты содержимого несут в себе октеты строки с первого по последний. При конструктивном кодировании содержимое октетов представляет собой последовательное объединение субстрок значения OCTET STRING. Например, BER-код значения OCTET STRING 01 23 45 67 89 AB CD EF может иметь один из следующих видов, в зависимости от формата октетов длины и вида кодирования (примитивное/конструктивное).</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="47%" VALIGN="TOP"><p ALIGN="LEFT">04 08 01 23 45 67 89 AB CD EF</td>
+    <td WIDTH="53%" VALIGN="TOP"><p ALIGN="LEFT">DER-кодирование</td>
+  </tr>
+  <tr>
+    <td WIDTH="47%" VALIGN="TOP"><p ALIGN="LEFT">04 81 08 01 23 45 67 89 AB CD EF</td>
+    <td WIDTH="53%" VALIGN="TOP"><p ALIGN="LEFT">Длинный формат октетов длины</td>
+  </tr>
+  <tr>
+    <td WIDTH="47%" VALIGN="TOP"><p ALIGN="LEFT">24 0С</font></td>
+    <td WIDTH="53%" VALIGN="TOP"><p ALIGN="LEFT">Конструктивное кодирование </td>
+  </tr>
+  <tr>
+    <td WIDTH="47%" VALIGN="TOP"><p ALIGN="LEFT">04 04 01 23 45 67</td>
+    <td WIDTH="53%" VALIGN="TOP"><p ALIGN="LEFT">“01 23 45 67” + “89 AB CD EF”</td>
+  </tr>
+  <tr>
+    <td WIDTH="47%" VALIGN="TOP"><p ALIGN="LEFT">04 04 89 AB CD EF</td>
+    <td WIDTH="53%" VALIGN="TOP"></td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY"><b>Строки печатных символов</b></p>
+
+<p ALIGN="JUSTIFY">Тип PrintableString предназначен для описания
+произвольных последовательностей печатных символов из набора:</p>
+
+<p ALIGN="JUSTIFY">A, B,…,Z<BR>
+a,b,…,z<BR>
+0,1,…,9<BR>
+(пробел) ‘ () +, - . / : = ?</p>
+
+<p ALIGN="JUSTIFY">Этот тип используется для представления атрибутов имен (Х.520). Нотация типа PrintableString имеет вид:</p>
+
+<p ALIGN="JUSTIFY">PrintableString</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование значения PrintableString может быть примитивным или конструктивным. При примитивном кодировании печатных символов байты содержимого несут в себе строки октетов печатных ASCII-кодов. При конструктивном кодировании содержимое октетов представляет собой последовательное объединение субстрок. Например, BER-код значения
+PrintableString “Test User 1” может быть представлено одним из ниже приведенных способов.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="60%" VALIGN="TOP"><p ALIGN="LEFT">13 0B 54 65 73 74 20 55 73 65 72 20 31</td>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="LEFT">DER-кодирование</td>
+  </tr>
+  <tr>
+    <td WIDTH="60%" VALIGN="TOP"><p ALIGN="LEFT">13 81 0B 54 65 73 74 20 55 73 65 72 20 31</td>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="LEFT">Длинная форма октетов длины</td>
+  </tr>
+  <tr>
+    <td WIDTH="60%" VALIGN="TOP"><p ALIGN="LEFT">33 0F</td>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="LEFT">Конструктивная форма,</td>
+  </tr>
+  <tr>
+    <td WIDTH="60%" VALIGN="TOP"><p ALIGN="LEFT">13 05 54 65 73 74 20</td>
+    <td WIDTH="40%" VALIGN="TOP"><p ALIGN="LEFT">“Test” + “User 1”</td>
+  </tr>
+  <tr>
+    <td WIDTH="60%" VALIGN="TOP"><p ALIGN="LEFT">13 06 55 73 65 72 20 31</td>
+    <td WIDTH="40%" VALIGN="TOP"></td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY"><b>Тип SEQUENCE</b></p>
+
+<p ALIGN="JUSTIFY">Тип SEQUENCE обозначает упорядоченную последовательность одного или более типов. Нотация типа SEQUENCE имеет вид:</p>
+
+<p ALIGN="JUSTIFY">SEQUENCE {<BR>
+<b>
+[<i>identifier<sub>1</sub></i>] <i>Type<sub>1</sub></i></b> <b>[</b>{OPTIONAL
+| DEFAULT <i><b>value<sub>1</sub></b></i>}<b>]</b>,<BR>
+<b>
+…,<BR>
+[<i>identifier<sub>n</sub></i>] <i>Type<sub>n</sub></i></b> <b>[</b>{OPTIONAL
+| DEFAULT <i><b>value<sub>n</sub></b></i>}<b>]</b>,</p>
+
+<p ALIGN="JUSTIFY">где <i><b>identifier<sub>1 </sub>, …, identifier<sub>n</sub>
+</b></i> являются опционными идентификаторами компонентов, <i><b>Type<sub>1</sub></b></i> <b>, …, <i>Type<sub>n</sub></i> </b> - типы компонентов, а <i><b>value<sub>1</sub></b></i> <b>,…, <i>value<sub>n</sub></i></b> опционные значения компонентов по умолчанию. Квалификатор OPTIONAL указывает на то, что значения компонентов являются опционными. Квалификатор DEFAULT говорит о том, что величина компонента является опционной и ей присваивается определенное значение, если компонент отсутствует. Например, тип Validity [X.509] относится к типу SEQUENCE и имеет
+два компонента.</p>
+
+<p ALIGN="JUSTIFY">Validity ::= SEQUENCE {<BR>
+start UTCTime,<BR>
+end UTCTime }</p>
+
+<p ALIGN="JUSTIFY">Здесь start и end являются идентификаторами компонент, а типом компонент служит UTCTime. BER-кодирование значения SEQUENCE является всегда конструктивным. Октеты содержимого представляют последовательное
+объединение BER-кодов значений компонентов последовательности.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип SEQUENCE OF</b></p>
+
+<p ALIGN="JUSTIFY">Тип SEQUENCE OF обозначает упорядоченную последовательность из нуля или более компонентов данного типа, используется для имен в X.501. Нотация SEQUENCE OF имеет вид:</p>
+
+<p ALIGN="JUSTIFY">SEQUENCE OF <i><b>Type</p>
+</b></i>
+
+<p ALIGN="JUSTIFY">Так например, тип RNDSequence состоит из нуля или более компонент типа RelativeDistinguishedName.</p>
+
+<p ALIGN="JUSTIFY">RNDSequence <b>::=</b> SEQUENCE OF RelativeDistinguishedName</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование SEQUENCE OF является всегда
+конструктивным. Октеты содержимого представляют собой объединение BER-кодов значений элементов последовательности в порядке их расположения. DER-кодирование имеет тот же формат.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип SET</b></p>
+
+<p ALIGN="JUSTIFY">Тип SET представляет собой неупорядоченное объединение из одного или более типов. Нотация типа SET имеет вид.</p>
+
+<p ALIGN="JUSTIFY">SET {<BR>
+<b>
+[<i>identifier<sub>1</sub></i>] <i>Type<sub>1</sub> Type<sub>1</sub></i></b>
+<b>[</b>{OPTIONAL | DEFAULT <i><b>value<sub>1</sub></b></i>}<b>]</b>,<BR>
+<b>
+…,<BR>
+[<i>identifier<sub>n</sub></i>] <i>Type<sub>n</sub></i></b> <b>[</b>{OPTIONAL
+| DEFAULT <i><b>value<sub>n</sub></b></i>}<b>]</b>,</p>
+
+<p ALIGN="JUSTIFY"> где <i><b>identifier<sub>1 </sub>, …, identifier<sub>n</sub>
+</b></i> являются опционными идентификаторами компонентов, </font><i><b>Type<sub>1</sub></b></i>
+<b>, …, <i>Type<sub>n</sub></i> </b> - типы компонентов, а <i><b>value<sub>1</sub></b></i> <b>,…, <i>value<sub>n</sub></i>
+</b> опционные значения компонентов по умолчанию. Квалификатор OPTIONAL
+указывает на то, что значения компонентов являются опционными. Квалификатор DEFAULT говорит о том, что величина компонента является опционной
+и ей присваивается определенное значение, если компонент отсутствует.</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование для типа SET является всегда конструктивным. Октеты содержимого представляют последовательное объединение BER-кодов значений компонентов набора.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип SET OF</b></p>
+
+<p ALIGN="JUSTIFY">Тип SET OF представляет неупорядоченный набор, состоящий из нуля или более компонентов заданного типа и предназначенный для атрибутов
+PKCS (Public-Key Cryptography Standard) и имен X.501. Нотация типа SET OF имеет вид:</p>
+
+<p ALIGN="JUSTIFY">SET OF <i><b>Type</p>
+</b></i>
+
+<p ALIGN="JUSTIFY">где <i><b>Type – </b></i> тип. Так тип RelativeDistinguishedName состоит из нуля или более компонентов типа AttributeValueAssertion.</p>
+
+<p ALIGN="JUSTIFY">RelativeDistinguishedName <b>::= </b>SET OF AttributeValueAssertion</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование типа SET OF является всегда конструктивным. Октеты содержимого представляют собой объединение BER-кодов величин компонентов в порядке их исходного расположения. DER-кодирование также является всегда конструктивным, октеты содержимого представляются как и в случае BER-кодировки. Но компоненты лексикографически упорядочиваются.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип UTCTime</b></p>
+
+<p ALIGN="JUSTIFY">Тип UTCTime служит для обозначения универсального местного времени с привязкой по Гринвичу (GMT). Значение UTCTime характеризует местное время с точностью минут или секунд и временной сдвиг по отношению к GMT. Оно может иметь следующие формы:</p>
+
+<p>YYMMDDhhmmZ<br>
+YYMMDDhhmm+hh`mm`<br>
+YYMMDDhhmm-hh`mm`<br>
+YYMMDDhhmmssZ<br>
+YYMMDDhhmmss+ hh`mm`<br>
+YYMMDDhhmmss- hh`mm`</p>
+<font FACE="Times New Roman">
+
+<p ALIGN="JUSTIFY">где </p>
+</font>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">YY</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">младшие две цифры года</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">ММ</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">код месяца (01 – 12)</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">DD</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">код дня (01 – 31)</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">hh</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">код часа (00 – 23)</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">mm</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">код минут (00 – 59)</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">ss</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">код секунд (00 – 59)</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">Z</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">означает
+    местное время по Гринвичу, + указывает на то, что
+    местное время отстает от GMT, а – указывает на то,
+    что местное время опережает GMT.</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">hh`</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">абсолютное
+    значение смещения по отношению к GMT в часах</td>
+  </tr>
+  <tr>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="JUSTIFY">mm`</td>
+    <td WIDTH="90%" VALIGN="TOP"><p ALIGN="JUSTIFY">абсолютное смещение по отношению к GMT в минутах.</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">UTCTime используется для определения типа Validity [X.509]. Нотация типа UTCTime имеет вид.</p>
+
+<p ALIGN="JUSTIFY">UTCTime</p>
+
+<p ALIGN="JUSTIFY">BER-кодирование значения UTCTime может быть примитивным или конструктивным. При примитивном кодировании октеты представляют собой символы
+строки в виде ASCII-кодов. При конструктивном кодировании октеты образуют
+объединение BER-кодов последовательных субстрок. В качестве примера рассмотрим варианты представления времени 4:45:40 после полудня 6 мая 1991 года (Pacific Daylight Time) в виде величины UTCTime.</p>
+
+<p ALIGN="JUSTIFY">“910506164540-0700”<BR>
+“910506234540Z”</p>
+
+<p ALIGN="JUSTIFY">Это представление эквивалентно следующим BER-кодам:</p>
+
+<p>17 0D 39 31 30 35 30 36 32 33 34 35 34 30 5A<br>
+17 11 39 31 30 35 30 36 31 36 34 35 34 30 2D 30 37 30 30</p>
+
+<p ALIGN="JUSTIFY">DER-кодирование типа UTCTime всегда является примитивным.</p>
+<p ALIGN="JUSTIFY">Ниже приводится пример ASN.1 нотации имен типа X.501.</p>
+
+<p ALIGN="JUSTIFY">Name <b>::=</b> CHOICE { RNDSequence }</p>
+
+<p>RNDSequence <b>::=</b> SEQUENCE OF RelativeDistinguishedName<br>
+RelativeDistinguishedName <b>::=</b> SET OF AttributeValueAssertion<br>
+AttributeValueAssertion <b>::=</b> SEQUENCE { AttributeType, AttributeValue }<br>
+AttributeType ::= OBJECT IDENTIFIER<br>
+AttributeValue ::= ANY</p>
+
+<p ALIGN="JUSTIFY">Тип Name идентифицирует объект в каталоге X.500. Name имеет тип CHOICE с одной альтернативой RNDSequence. Тип RNDSequence указывает проход
+по дереву каталогов X.500, начиная с корневой части. RNDSequence имеет тип SEQUENCE OF, состоящий из нуля или более компонентов RelativeDistinguishedName. Тип RelativeDistinguishedName присваивает уникальное имя объекту на дереве каталога. RelativeDistinguishedName имеет тип SET OF, состоящий из нуля или более компонентов AttributeValueAssertion. Тип AttributeValueAssertion присваивает значение атрибуту имени (например, определяющее принадлежность к
+стране). AttributeValueAssertion имеет тип SEQUENCE, состоящий из двух компонентов AttributeType и AttributeValue. AttributeType идентифицирует атрибут
+с помощью объектного идентификатора. AttributeValue присваивает значение атрибуту. Ниже предлагается пример DER-кодирования типа Name. В качестве имени использовано RSA Data Security, Inc. NOTARY (отдел Internet Privacy Enhanced Mail).</p>
+
+<p ALIGN="CENTER">(root)<br>
+|<br>
+countryName = ”US”<br>
+|<br>
+organizationName = ”RSA Data Security, Inc.”<br>
+|<br>
+organizationalUnitName = ”NOTARY”</p>
+
+<p ALIGN="JUSTIFY">Каждый уровень соответствует одному значению RelativeDistinguishedName, в выбранном случае они имеют только одно значение AttributeValueAssertion. Значение AttributeType помещается до знака равенства, а AttributeValue (строка печатных символов с заданным типом атрибута) - после знака равенства.</p>
+
+<p ALIGN="JUSTIFY"><b>Тип атрибута</b></p>
+
+<p ALIGN="JUSTIFY">DER-кодирование трех значений AttributeType согласно примитивному методу с 
+заданной длиной дает следующие строки октетов.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="710">
+  <tr>
+    <td WIDTH="33%" VALIGN="TOP"><p ALIGN="JUSTIFY">06 03 55 04 06</td>
+    <td WIDTH="67%" VALIGN="TOP"><p ALIGN="JUSTIFY">countryName</td>
+  </tr>
+  <tr>
+    <td WIDTH="33%" VALIGN="TOP"><p ALIGN="JUSTIFY">06 03 55 04 0A</td>
+    <td WIDTH="67%" VALIGN="TOP"><p ALIGN="JUSTIFY">organizationName</td>
+  </tr>
+  <tr>
+    <td WIDTH="33%" VALIGN="TOP"><p ALIGN="JUSTIFY">06 03 55 04 0B</td>
+    <td WIDTH="67%" VALIGN="TOP"><p ALIGN="JUSTIFY">organizationalUnitName</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Здесь countryName, organizationName и organizationalUnitName
+являются типами атрибутов Х.520, которые имеют следующие определения.</p>
+
+<p>AttributeType OBJECT IDENTIFIER ::= { joint-iso-ccitt(2) ds(5) 4 }<br>
+countryName OBJECT IDENTIFIER <b>::=</b> { AttributeType 6 }<br>
+organizationName OBJECT IDENTIFIER <b>::=</b> { AttributeType 10 }<br>
+organizationalUnitName OBJECT IDENTIFIER <b>::=</b> { AttributeType 11 }</p>
+
+<p ALIGN="JUSTIFY">Октеты идентификатора имеют формат с меткой, так как метка равна 6 для OBJECT IDENTIFIER. Биты 8 и 7 равны 0, указывая на универсальный класс, бит 6 также равен 0, что говорит о примитивном методе кодирования. Октеты длины ориентированы на короткую форму представления. Октеты содержимого представляют собой объединения трех-октетных строк, полученных из
+субидентификаторов: 85 = 40x2 + 5; 4 и 6, 10 или 11.</p>
+
+<p ALIGN="JUSTIFY"><b>Значение атрибута</b></p>
+
+<p ALIGN="JUSTIFY">DER-кодирование трех значений AttributeValue в
+соответствии с примитивным методом при заданной длине дает следующие строки:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="709">
+  <tr>
+    <td WIDTH="43%" VALIGN="TOP"><p ALIGN="LEFT">13 02 55 53</td>
+    <td WIDTH="57%" VALIGN="TOP"><p ALIGN="LEFT">“US”</td>
+  </tr>
+  <tr>
+    <td WIDTH="43%" VALIGN="TOP"><p ALIGN="LEFT">13 17 52 53 41 20</td>
+    <td WIDTH="57%" VALIGN="TOP"><p ALIGN="LEFT">“RSA </td>
+  </tr>
+  <tr>
+    <td WIDTH="43%" VALIGN="TOP"><p ALIGN="LEFT">44 61 74 61 20</td>
+    <td WIDTH="57%" VALIGN="TOP"><p ALIGN="LEFT">Data </td>
+  </tr>
+  <tr>
+    <td WIDTH="43%" VALIGN="TOP"><p ALIGN="LEFT">53 65 63 75 72 69 74 79 2C 20</td>
+    <td WIDTH="57%" VALIGN="TOP"><p ALIGN="LEFT">Security, </td>
+  </tr>
+  <tr>
+    <td WIDTH="43%" VALIGN="TOP"><p ALIGN="LEFT">49 6E 63 2E</td>
+    <td WIDTH="57%" VALIGN="TOP"><p ALIGN="LEFT">Inc.”</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Метка равна 19 (PrintableString) биты 8 и 7 равны 0, указывая на универсальный класс, бит 6 также равен 0, отмечая примитивный метод кодирования. Октеты длины имеют “короткий” формат, а октеты содержимого являются ASCII-представлением значения атрибута.</p>
+
+<p ALIGN="JUSTIFY"><b>Атрибут ValueAssertion</b></p>
+
+<p ALIGN="JUSTIFY">DER-кодирование трех значений AttributeValueAssertion в соответствии с конструктивным методом дает следующие строки октетов.</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="717">
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP">30 09<BR>
+    06 03 55 04 06<BR>
+    13 02 55 53</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">countryName = “US”</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">30 1E<BR>
+    06 03 55 04 0A<BR>
+    13 17 52 53 41 20<BR>
+    44 61 74 61 20<BR>
+    53 65 63 75 72 69 74 79 2C 20<BR>
+    49 6E 63 2E</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">organizationName = “RSA Data Security,
+    Inc.”</td>
+  </tr>
+  <tr>
+    <td WIDTH="42%" VALIGN="TOP"><p ALIGN="LEFT">30 0D<BR>
+    06 03 55 04 0B<BR>
+    13 06 4E 4F 54 41 52 59</td>
+    <td WIDTH="58%" VALIGN="TOP"><p ALIGN="LEFT">organizationalUnitName = “NOTARY”</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Октеты идентификатора используют короткий формат (low-octet form), так как для SET OF метка равна 17. Биты 8 и 7 равны 0 (универсальный класс), а бит 6 равен 1 (конструктивное кодирование). Октеты длины следуют “короткому” формату, а октеты содержимого представляют собой объединение DER-кодов компонент attributeType и attributeValue.</p>
+
+<p ALIGN="JUSTIFY"><b>RelativeDistinguishedName<</b>/p>
+
+<p ALIGN="JUSTIFY">DER-кодирование трех значений RelativeDistinguishedName, выполняемое согласно конструктивному методу, дает следующие строки октетов.</p>
+
+<p ALIGN="JUSTIFY">31 0B<BR>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="6%" VALIGN="TOP"></td>
+    <td WIDTH="94%" VALIGN="TOP">30 09 … 55 53</td>
+  </tr>
+</table>
+
+31 20<BR>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="700">
+  <tr>
+    <td WIDTH="6%" VALIGN="TOP"></td>
+    <td WIDTH="94%" VALIGN="TOP">30 1E … 63 2E</td>
+  </tr>
+</table>
+
+31 0F<BR>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="772">
+  <tr>
+    <td WIDTH="6%" VALIGN="TOP"></td>
+    <td WIDTH="94%" VALIGN="TOP">30 0D … 52 59</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Октеты идентификатора используют короткий формат (low-octet form), так как для SET OF метка равна 17. Биты 8 и 7 равны 0 (универсальный класс), а бит 6 равен 1 (конструктивное кодирование). Октеты длины следуют “короткому” формату, а октеты содержимого представляют собой объединение DER-кодов компонент AttributeValueAssertion.</p>
+
+<pALIGN="JUSTIFY"><b>RDNSequence</b></p>
+
+<p ALIGN="JUSTIFY">DER-кодирование значений RDNSequence, выполняемое согласно конструктивному методу при заданной длине, дает следующие строки октетов.</p>
+
+<p ALIGN="JUSTIFY">30 40<br>
+31 0B … 55 53<br>
+31 20 … 63 2E<br>
+31 0F … 52 59</p>
+
+<p ALIGN="JUSTIFY">Октеты идентификатора используют короткий формат (low-octet form), так как для SEQUENCE OF метка равна 16. Биты 8 и 7 равны 0 (универсальный класс), а бит 6 равен 1 (конструктивное кодирование). Октеты длины следуют “короткому” формату, а октеты содержимого представляют собой объединение DER-кодов трех компонент RelativeDistinguishedName в порядке их следования.</p>
+
+<p ALIGN="JUSTIFY"><b>Name</b></p>
+
+<p ALIGN="JUSTIFY">DER-кодирование значений Name выполняется аналогично значениям RDNSequence и выдает следующие результаты.</p>
+
+30 40
+<DIR>31 0B<br>
+<DIR>30 09<br>
+<DIR>06 03 55 04 06<br>
+13 02 55 53<br> </DIR></DIR></DIR>
+31 20
+<DIR>30 1E<br>
+<DIR>06 03 55 04 0A<br>
+13 17 52 53 41 20 44 61 74 61 20 53 65 63 75 72 69<br>
+<DIR>74 79 2C 20 49 6E 63 2E<br></DIR></DIR></DIR>
+31 0F
+<DIR>30 0D<br>
+<DIR>06 03 55 04 0B<br>
+13 06 4E 4F 54 41 52 59</DIR></DIR></p>
+
+
+
+
+
+ </TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="mib44131.htm" tppabs="http://book.itep.ru/4/44/mib44131.htm"><FONT COLOR="lightblue">4.4.13.1 Управляющая база данных MIB</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="smtp4414.htm" tppabs="http://book.itep.ru/4/44/smtp4414.htm"><FONT COLOR="lightblue">4.4.14 Протокол электронной почты SMTP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

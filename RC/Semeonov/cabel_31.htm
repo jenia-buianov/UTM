@@ -1,0 +1,361 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Кабели
+UTP
+скрученные пары
+
+
+
+
+">
+<TITLE>3.1 Кабельные каналы связи</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="net_4.htm" tppabs="http://book.itep.ru/4/net_4.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="optic_32.htm" tppabs="http://book.itep.ru/3/optic_32.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="net_4.htm" tppabs="http://book.itep.ru/4/net_4.htm"><FONT COLOR="lightblue">4 Сети передачи данных. Методы доступа</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="optic_32.htm" tppabs="http://book.itep.ru/3/optic_32.htm"><FONT COLOR="lightblue">3.2 Оптоволоконные каналы</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>3.1 Кабельные каналы связи</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="lacoon.jpg" tppabs="http://book.itep.ru/3/lacoon.jpg"></P>
+
+<P ALIGN="justify">Кабельные каналы для целей телекоммуникаций исторически использовались первыми. 
+Да и сегодня по суммарной длине они превосходят даже спутниковые каналы. Основную долю этих каналов, 
+насчитывающих многие сотни тысяч километров, составляют телефонные медные кабели. Эти кабели 
+содержат десятки или даже сотни скрученных пар проводов. Полоса пропускания таких кабелей обычно 
+составляет 3-3,5 кГц при длине 2-10 км. Эта полоса диктовалась ранее нуждами аналогового 
+голосового обмена в рамках коммутируемой телефонной сети. c учетом возрастающих требованиям к 
+широкополосности каналов скрученные пары проводов пытались заменить коаксиальными кабелями, 
+которые имеют полосу от 100 до 500 МГц (до 1 Гбит/с), и даже полыми волноводами. Именно 
+коаксиальные кабели стали в начале транспортной средой локальных сетей ЭВМ (10base-5 и 10base-2; 
+см. рис. 3.1.1). </p>
+
+<p align="center"><img src="coax.jpg" tppabs="http://book.itep.ru/3/coax.jpg"></P>
+<P ALIGN="CENTER">Рис. 3.1.1. <B><I>1</B></I> – центральный проводник; <B><I>2</B></I> – изолятор; 
+<B><I>3</B></I> – проводник-экран; внешний изолятор</P>
+
+<P ALIGN="JUSTIFY">Коаксиальная система проводников из-за своей симметричности вызывает 
+минимальное внешнее электромагнитное излучение. Сигнал распространяется по центральной медной 
+жиле, контур тока замыкается через внешний экранный провод. При заземлении экрана в нескольких 
+точках по нему начинают протекать выравнивающие токи (ведь разные “земли” обычно имеют неравные 
+потенциалы). Такие токи могут стать причиной внешних наводок (иной раз достаточных для выхода из 
+строя интерфейсного оборудования), именно это обстоятельство является причиной требования 
+заземления кабеля локальной сети только в одной точке. Наибольшее распространение получили 
+кабели с волновым сопротивлением 50 ом. Это связано с тем, что эти кабели из-за относительно 
+толстой центральной жилы характеризуются минимальным ослаблением сигнала (волновое сопротивление 
+пропорционально логарифму отношения диаметров внешнего и внутреннего проводников). Но 
+по мере развития технологии скрученные пары смогли вытеснить из этой области коаксиальные кабели. 
+Это произошло, когда полоса пропускания скрученных пар достигла 200-350 МГц при длине 100м 
+(неэкранированные и экранированные скрученные пары категории 5 и 6), а цены на единицу длины сравнялись. 
+Скрученные пары проводников позволяют использовать биполярные приемники, что делает систему 
+менее уязвимой (по сравнению с коаксиальными кабелями) к внешним наводкам. Но основополагающей 
+причиной вытеснения коаксиальных кабелей явилась относительная дешевизна скрученных пар. 
+Скрученные пары бывают одинарными, объединенными в многопарный кабель или оформленными в виде 
+плоского ленточного кабеля. Применение проводов сети переменного тока для локальных сетей и 
+передачи данных допустимо для весьма ограниченных расстояний. В таблице 3.1.1 приведены 
+характеристики каналов, базирующихся на обычном и широкополосном коаксиальном кабелях.</P>
+
+<P ALIGN="CENTER">Таблица 3.1.1</P>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="40%" VALIGN="TOP"><P> </TD>
+<TD WIDTH="31%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Стандартный кабель</TD>
+<TD WIDTH="29%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Широкополосный</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">Максимальная длина канала</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="CENTER">2 км</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">10 – 15 км</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">Скорость передачи данных</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="CENTER">1 – 50 Мбит/с</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">100 – 140 Мбит/с</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">Режим передачи</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="CENTER">полудуплекс</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">дуплекс</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P>Ослабление влияния электромагнитных и радиочастотных наводок</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="CENTER">50 дБ</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">85 дБ</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">Число подключений</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="CENTER">< 50 устройств</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">1500 каналов с одним или более устройств на канал</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">Доступ к каналу</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="CENTER">CSMA/CD</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">FDM/FSK</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">На рис. 3.1.2 показана зависимость ослабления кабеля (внешний диаметр 0,95 см) 
+от частоты передаваемого сигнала.</P>
+
+<P ALIGN="JUSTIFY">При диагностировании сетей не всегда под руками может оказаться настоящий 
+сетевой тестер типа WaveTek, и часто приходится довольствоваться обычным авометром. В этом случае 
+может оказаться полезной таблица 3.1.2, где приведены удельные сопротивления используемых сетевых 
+кабелей. Произведя измерение сопротивления сегмента, вы можете оценить его длину. </P>
+
+<P ALIGN="CENTER"><IMG SRC="cab_att.jpg" tppabs="http://book.itep.ru/3/cab_att.jpg">
+
+<CENTER> Рис. 3.1.2. Зависимость ослабления сигнала в кабеле от его частоты</P></CENTER> 
+<B> <P ALIGN="CENTER"> Таблица 3.1.2 Сопротивление кабеля по постоянному току</P></B>
+
+<P ALIGN="CENTER"> <CENTER><TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=555 bgcolor="ghostwhite">
+<TR><TD WIDTH="34%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER"><B>Коаксиал</B></TD>
+<TD WIDTH="23%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Ом/сегмент</B></TD>
+<TD WIDTH="43%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Максимальная длина сегмента</B></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="CENTER">10BASE5</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">5</TD>
+<TD WIDTH="43%" VALIGN="TOP"><P ALIGN="CENTER">500 м</TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP"><P ALIGN="CENTER">10BASE2</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">10</TD>
+<TD WIDTH="43%" VALIGN="TOP"><P ALIGN="CENTER">185 м</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+<P>Эти данные взяты из <B>Handbook of LAN Cable Testing. Wavetek Corporation, California</B></P>.
+
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=320 bgcolor="ghostwhite">
+<TR><TD WIDTH="59%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER"><B>Скрученная пара</B></TD>
+<TD WIDTH="41%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Ом/100 м</B></TD>
+</TR>
+<TR><TD WIDTH="59%" VALIGN="TOP"><P ALIGN="CENTER">24 AWG</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">18,8</TD>
+</TR>
+<TR><TD WIDTH="59%" VALIGN="TOP"><P ALIGN="CENTER">22 AWG</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">11,8</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">Данные, приведенные в таблице, могут использоваться для оперативной 
+предварительной оценки качества кабельного сегмента (соответствует стандарту EIA/TIA 568, 1991 год). 
+Частотные характеристики неэкранированных пар категории 6 представлены в табл. 3.1.3.</P>
+
+<P ALIGN="CENTER"><B>Таблица 3.1.3</B>. Параметры неэкранированных пар категории 6</P>
+<CENTER><TABLE BORDER=10 CELLSPACING=2  CELLPADDING=5 WIDTH=472 bgcolor="ghostwhite">
+<TR><TD WIDTH="25%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Частота, МГц</TD>
+<TD WIDTH="29%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Затухание, дБ/100м</TD>
+<TD WIDTH="23%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">NEXT, дБ</TD>
+<TD WIDTH="23%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">ACR, дБ/100м</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="CENTER">1</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">2,3</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">62</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">60</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="CENTER">10</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">6,9</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">47</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">41</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="CENTER">100</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">23,0</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">38</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">23</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="CENTER">300</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">46,8</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">31</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">4</TD>
+</TR>
+</TABLE>
+</CENTER>
+Смотри <A HREF="tppmsgs/msgs2.htm#224" tppabs="http://www.osp.ru/lan/lan_6_96/source/57.htm">www.osp.ru/lan/lan_6_96/source/57.htm</A><BR>
+ACR - Attenuation-to-Crosstalk Ratio.<BR>
+NEXT - Near End CrossTalk.
+
+<P ALIGN="JUSTIFY">Кабели, изготовленные из скрученных пар категории 5 (волновое сопротивление 
+100,15 Ом), с полосой 100 Мгц обеспечивают пропускную способность при передаче сигналов ATM 155 
+Мбит/с. При 4 скрученных парах это позволяет осуществлять передачу до 622 Мбит/с. Кабели категории 
+6 сертифицируются до частот 300 Мгц, а экранированные и до 600 Мгц (волновое сопротивление 100 Ом). 
+В таблице 3.1.4 приведены данные по затуханию и перекрестным наводкам. Приведены характеристики 
+такого кабеля с 4-мя скрученными экранированными парами (S-FTP).</P>
+
+<P ALIGN="CENTER"><B>Таблица 3.1.4</P></B>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER=10 CELLSPACING=2 CELLPADDING=5 WIDTH=496 bgcolor="ghostwhite">
+<TR><TD WIDTH="40%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Частота, МГц</TD>
+<TD WIDTH="24%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Затухание, дБ/100м</TD>
+<TD WIDTH="16%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">NEXT, дБ</TD>
+<TD WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">ACR, дБ/100м</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="CENTER">1</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">2,1</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="CENTER">80</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">77,9</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="CENTER">10</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">6,0</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="CENTER">80</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">74</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="CENTER">100</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">19,0</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="CENTER">70</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">51</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="CENTER">300</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">33,0</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="CENTER">70</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">37</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="CENTER">600</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">50</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="CENTER">60</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">10</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+NEXT - Near End Cross Talk - перекрестные наводки ближнего конца кабеля.<BR>
+ACR - Attenuation-to Crosstalk Ratio.
+<P ALIGN="JUSTIFY">Такой кабель пригоден для передачи информации со скоростью более 1 Гбит/с. 
+ACR - Attenuation-to-Crosstalk Ratio (отношение ослабления к относительной величине 
+перекресных наводок).</P>
+
+<P ALIGN="JUSTIFY">Ниже на рис. 3.1.3 показана зависимость наводок на ближнем конце кабеля, 
+содержащего скрученные пары, (NEXT – Near End CrossTalk) от частоты передаваемого сигнала.</P>
+
+<P ALIGN="CENTER"><IMG SRC="next.jpg" tppabs="http://book.itep.ru/3/next.jpg"></P>
+<P ALIGN="CENTER">Рис. 3.1.3. Зависимость наводок NEXT от частоты передаваемого сигнала.</P>
+
+<P ALIGN="JUSTIFY">На рис. 3.1.4 представлена зависимость ослабления сигнала в неэкранированной 
+скрученной паре (именно такие кабели наиболее часто используются для локальных сетей) от частоты 
+передаваемого сигнала. Следует иметь в виду, что при частотах в области сотен мегагерц и выше 
+существенный вклад начинает давать поглощение в диэлектрике. Таким образом, даже если проводники 
+изготовить из чистого золота, существенного продвижения по полосе пропускания достичь не удастся.</P>
+
+<P ALIGN="CENTER"><IMG SRC="att_utp.jpg" tppabs="http://book.itep.ru/3/att_utp.jpg"></P>
+<P ALIGN="CENTER">Рис. 3.1.4. Зависимость ослабления сигнала от частоты для неэкранированной скрученной пары</P>
+
+<P ALIGN="JUSTIFY">Для неэкранированной скрученной пары 5-ой категории зависимость отношения 
+сигнал-шум от длины с учетом ослабления и наводок NEXT показана на рис. 3.1.5.</P>
+
+<P ALIGN="CENTER"><IMG SRC="s_n_r.jpg" tppabs="http://book.itep.ru/3/s_n_r.jpg"></P>
+<P ALIGN="CENTER">Рис. 3.1.5 Зависимость отношения сигнал/шум от частоты с учетом ослабления и наводок на ближнем конце кабеля</P>
+
+<P ALIGN="JUSTIFY">Характеристики неэкранированных скрученных пар американского стандарта 24 AWG (приведены характеристики кабелей, используемых при построении локальных сетей) для кабелей различной категории собраны в таблице 3.1.5.</P>
+
+<P ALIGN="CENTER"><B>Таблица 3.1.5.</P></B>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=673 bgcolor="ghostwhite">
+<TR><TD WIDTH="18%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="JUSTIFY"><B>Категория кабеля</B></TD>
+<TD WIDTH="28%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="JUSTIFY">Сопротивление по постоянному току (L=300м)</B></TD>
+<TD WIDTH="26%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Ослабление [дБ]</B></TD>
+<TD WIDTH="28%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">NEXT [дБ]</B></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">III</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">28,4</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="CENTER">17 @ 4 МГц<BR>
+30 @ 10 МГц<BR>
+40 @ 16 МГц</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">32 @ 4 МГц<BR>
+26 @ 10 МГц<BR>
+23 @ 16 МГц</TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">IV</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">28,4</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="CENTER">13 @ 4 МГц<BR>
+22 @ 10 МГц<BR>
+27 @ 16 МГц<BR>
+31 @ 20 МГц</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">47 @ 4 МГц<BR>
+41 @ 10 МГц<BR>
+38 @ 16 МГц<BR>
+36 @ 20 МГц</TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">V</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">28,4</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="CENTER">13 @ 4 МГц<BR>
+20 @ 10 МГц<BR>
+25 @ 16 МГц<BR>
+28 @ 20 МГц<BR>
+67 @ 100 МГц</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">53 @ 4 МГц<BR>
+47 @ 10 МГц<BR>
+44 @ 16 МГц<BR>
+42 @ 20 МГц<BR>
+32 @ 100 МГц</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">Подводя итоги можно сказать, что при расстояниях до 100 метров с успехом 
+могут использоваться скрученные пары и коаксиальные кабели, обеспечивая полосу пропускания до 150 
+Мбит/с, при больших расстояниях или более высоких частотах передачи оптоволоконный кабель предпочтительнее. Следует заметить, 
+что работа с кабелями предполагает необходимость доступа к системе канализации (иногда это требует специальных лицензий; 
+а там часто размещаются усилители-повторители). Кабельное хозяйство требует обслуживания. В этом отношении радиоканалы 
+предпочтительнее, ведь случаев коррозии электромагнитных волн не зарегистрировано, да и крысы их 
+не грызут. Справедливости ради отмечу, что здесь серьезную угрозу представляют корыстолюбивые бюрократы, ответственные 
+за выдачу лицензий, а они пострашнее крыс.</P>
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="net_4.htm" tppabs="http://book.itep.ru/4/net_4.htm"><FONT COLOR="lightblue">4 Сети передачи данных. Методы доступа</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="optic_32.htm" tppabs="http://book.itep.ru/3/optic_32.htm"><FONT COLOR="lightblue">3.2 Оптоволоконные каналы</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

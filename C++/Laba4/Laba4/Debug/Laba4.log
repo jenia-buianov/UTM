@@ -1,0 +1,38 @@
+﻿Построение начато 10.11.2016 8:31:12.
+     1>Проект "D:\UTM\C++\Laba4\Laba4\Laba4.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Laba4.cpp
+         Laba4.cpp
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(25): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(28): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(33): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(36): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(43): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(48): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(56): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(63): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(66): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(96): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(98): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 11.0\vc\include\string.h(110): см. объявление "strcpy"
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(150): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(365): warning C4101: countCows: неиспользованная локальная переменная
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(70): warning C4715: Cow::operator=: значение возвращается не при всех путях выполнения
+     1>d:\utm\c++\laba4\laba4\laba4.cpp(428): warning C4700: использована неинициализированная локальная переменная "number"
+       Link:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\UTM\C++\Laba4\Debug\Laba4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\UTM\C++\Laba4\Debug\Laba4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\UTM\C++\Laba4\Debug\Laba4.lib" /MACHINE:X86 Debug\Laba4.obj
+         Laba4.vcxproj -> D:\UTM\C++\Laba4\Debug\Laba4.exe
+     1>Построение проекта "D:\UTM\C++\Laba4\Laba4\Laba4.vcxproj" завершено (целевые объекты Build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:02.96

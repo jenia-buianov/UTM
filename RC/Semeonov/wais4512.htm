@@ -1,0 +1,825 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="WAIS
+Поисковая система
+
+">
+<TITLE>4.5.12 WAIS</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="goph4511.htm" tppabs="http://book.itep.ru/4/45/goph4511.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="arch4513.htm" tppabs="http://book.itep.ru/4/45/arch4513.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="goph4511.htm" tppabs="http://book.itep.ru/4/45/goph4511.htm"><FONT COLOR="lightblue">4.5.11 Gopher</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="arch4513.htm" tppabs="http://book.itep.ru/4/45/arch4513.htm"><FONT COLOR="lightblue">4.5.13 Система поиска файлов Archie</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.12 WAIS</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">WAIS (Wide Area Information Server) распределенная система поиска информации. Поиск производится по базам данных, содержащим текстовые документы (но допустимы также графические, звуковые или видео документы). Тематика баз данных и поиска произвольны. Базы данных могут иметь любую структуру, но пользователю не нужно знать языка управления этими базами. WAIS использует естественный управляющий язык. WAIS доступен в Интернет. Для пользователей, имеющих доступ только к электронной почте, предназначен интерфейс, размещенный по адресу waismail@quake.think.com. В сети 
+Интернет существует много серверов WAIS. Список депозитариев серверов достаточно широк, начать можно с анонимного FTP по адресу Think.com секция /wais, файл wais-sources.tar.Z (файл архивирован и 
+пересылка должна осуществляться в режиме BINARY). В настоящее время многие WAIS-сервера интегрированы в сети WEB.</P>
+
+<P ALIGN="JUSTIFY">Доступ к WAIS-клиентам возможен и напрямую с помощью команды TELNET по адресам:</P>
+<CENTER> <TABLE CELLSPACING=0 BORDER=10 CELLPADDING=2 WIDTH=737 bgcolor="ghostwhite">
+<TR><TD WIDTH="51%" VALIGN="TOP" bgcolor="gainsboro"><P>&nbsp;</TD>
+<TD WIDTH="26%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="JUSTIFY">Авторизация</TD>
+<TD WIDTH="23%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="JUSTIFY">Место расположения</TD>
+</TR>
+<TR><TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">quake.think.com (192.31.181.1)</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="JUSTIFY">(login: wais)</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+</TR>
+<TR><TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">sunsite.unc.edu (152.2.22.81)</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="JUSTIFY">(login: swais)</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+</TR>
+<TR><TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">info.funet.fi (128.214.6.102)</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="JUSTIFY">(login: wais)</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Финляндия</TD>
+</TR>
+<TR><TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">swais.cwis.uci.edu (128.200.15.2)</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="JUSTIFY">(login: swais)</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+</TR>
+<TR><TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">kunzu.cnidr.org (128.109.130.57)</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="JUSTIFY">(login: wais)</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+</TR>
+<TR><TD WIDTH="51%" VALIGN="TOP"><P ALIGN="JUSTIFY">nnsc.nsf.net (128.89.1.178)</TD>
+<TD WIDTH="26%" VALIGN="TOP"><P ALIGN="JUSTIFY">(alogin: wais)</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">Существуют клиент-серверы WAIS для систем MS-DOS, VMS, MVS, OS/2, UNIX и Macintosh, а также для GNU Emacs, NeXT, X-Windows, MS-Windows, Sunview и т.д. Эти продукты несколько отличаются друг от друга, но обычно процедура содержит следующие шаги:</P>
+
+<OL><LI> Пользователь выбирает набор баз данных, где будет проводиться поиск, из числа имеющихся.</LI>
+<LI> Формулируется задание на поиск, выбираются ключевые слова.</LI>
+<LI> В процессе поиска WAIS запрашивает информацию из всех указанных баз данных.</LI>
+<LI> Отображаются заголовки документов, отвечающих критериям отбора. Документы аранжируются согласно их степени соответствия условиям запроса.</LI>
+<LI> Для получения копии пользователь просто отбирает документы из предлагаемого списка.</LI>
+<LI> При необходимости пользователь может переформулировать критерии отбора и повторить поиск.</LI>
+<LI> Вновь найденные документы, если они не совпадают с уже известными будут добавлены в список.</LI></OL>
+
+<P ALIGN="JUSTIFY">Ниже приводится таблица команд WAIS</P></FONT>
+<CENTER> Таблица 4.5.13.1. Команды WAIS </CENTER>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=2 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD VALIGN="TOP" COLSPAN=2 bgcolor="gainsboro"><P ALIGN="CENTER">Основные команды</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">h</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдать перечень команд [help]</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">?</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">тоже что и h</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">q</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Уйти из WAIS (quit)</TD>
+</TR>
+<TR><TD VALIGN="TOP" COLSPAN=2><P ALIGN="CENTER">Смена текущей строки</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">DOWN</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сместиться на одну строку вниз</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">j</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">То же, что и DOWN</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ctrl-N</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">То же, что и DOWN</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">UP</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сместиться на одну строку вверх</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">k</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">То же, что и UP</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ctrl-P</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">То же, что и UP</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">число</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Переход к строке с указанным номером</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">/эталон</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Перейти к строке, начинающейся с эталона</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">J</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сместиться на один экран вниз</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ctrl-D</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">То же, что и J</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">K</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сместиться вверх на один экран</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ctrl-U</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">То же, что и K</TD>
+</TR>
+<TR><TD VALIGN="TOP" COLSPAN=2><P ALIGN="CENTER">Выбор источника</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">Пробел</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выбор или отмена выбора источника</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">=</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отменить выбор каких-либо источников</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">RETURN</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">После выбора источников запрашивает новое ключевое слово</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">r</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Заново отображает результат предшествующего поиска</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">v</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отображает техническую информацию об источнике</TD>
+</TR>
+<TR><TD VALIGN="TOP" COLSPAN=2><P ALIGN="CENTER">Выполнение поиска</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">RETURN</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Начало поиска после ввода ключевых слов</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">RETURN</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отображает результат при просмотре результата поиска</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">w</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Запрос новых ключевых слов</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">s</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Повторное отображение первоначального экрана</TD>
+</TR>
+<TR><TD VALIGN="TOP" COLSPAN=2><P ALIGN="CENTER">Чтение статьи</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">пробел</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отобразить следующий экран</TD>
+</TR>
+<TR><TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">q</TD>
+<TD WIDTH="79%" VALIGN="TOP"><P ALIGN="JUSTIFY">Прервать чтение статьи (quit).</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">Имеется возможность доступа к ресурсам системы WAIS и через электронную почту. Запрос посылается по адресу waismail@quake.think.com, строка Subject игнорируется. Далее (в теле сообщения) могут следовать команды (вертикальная черта (|) указывает на выбор параметров):<BR>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=3 WIDTH=800>
+<TR><TD WIDTH="24%" VALIGN="TOP"><P ALIGN="LEFT">help</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">отображение справочного файла</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><P ALIGN="LEFT">maxres number</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">установка максимального числа искомых документов</TD>
+</TR>
+</TABLE>
+
+search source-name | "source-name1 source-name2 ... " keywords</P>
+<P ALIGN="JUSTIFY">где: <I>source-name</I> имя источника, как оно было найдено в оглавлении сервера (с или без расширения .SRC). Если нужно провести поиск по нескольким источникам, их имена заключаются в двойные кавычки. <I>keywords</I> ключевые слова, по которым проводится поиск.</P>
+
+<P ALIGN="JUSTIFY">Можно сформулировать несколько запросов в одном e-mail. Если имя источника не будет узнано, вы получите список имен возможных источников.</P>
+<P ALIGN="JUSTIFY">retrieve docid </P>
+
+<P ALIGN="JUSTIFY">Извлечение копии документа из базы данных. <B>docid</B> является DocID (идентификатор найденного документа). Если вы посылаете несколько запросов, они должны быть разделены пустыми строками. docid должен строго соответствовать имени документа, полученного вами в результате запроса-поиска (включая пробелы, если они имелись). Могут копироваться не только текстовые документы. Такие документы будут пересланы в формате UUENCODE.</P>
+
+<P ALIGN="JUSTIFY">DocID: docid </P>
+<P ALIGN="JUSTIFY">То же, что и retrieve. Эта форма идентична по форме ответу на поисковый запрос. 
+Процедура делает возможным использовать replay в e-mail для копирования найденных документов.</P>
+<P ALIGN="JUSTIFY">Примеры использования WAIS</P>
+<P>telnet <I>quake.think.com<BR>
+</I>Trying 192.216.46.98 ... (IP-адрес сервера)<BR>
+Connected to quake.think.com.<BR>
+Escape character is '^]'.<BR>
+SunOS UNIX (wais)<BR>
+login: <I>wais </I>(ввод идентификатора)<BR>
+Last login: Sun Aug 27 01:57:07 from france.cityu.edu<BR>
+Welcome to swais, the text-terminal telnet client to WAIS.<BR>
+Please type user identifier (optional, i.e. user@host): <I>semenov@ns.itep.ru</P>
+</I><P ALIGN="JUSTIFY">(в качестве пароля предлагается напечатать ваш почтовый адрес).</P>
+
+<P ALIGN="JUSTIFY">TERM = (vt100) ibmpc (нужно ввести тип терминала, с которым вы работаете)</P>
+<P>Starting up. This may take awhile...<BR>
+SWAIS Source Selection Sources: 549</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=745>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">#</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">Server</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">Source</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Cost</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">001:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">103_cong_bills</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">002:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">104_cong_bills</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">003:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1992_cri</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">004:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1993_cri</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">005:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1994_cri</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">006:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1994_hob</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">007:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1994_record</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">008:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1994_register</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">009:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1994_unified_agenda</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">010:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1995_cri</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">011:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1995_hob</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">012:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1995_record</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">013:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1995_register</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">014:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.access.gpo.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">1995_unified_agenda</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">015:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ archie.au]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">aarnet-resource-guide</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">016:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ndadsb.gsfc.nasa.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">AAS_jobs</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">017:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ndadsb.gsfc.nasa.gov]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">AAS_meeting</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">018:</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ munin.ub2.lu.se]</TD>
+<TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">academic_email_conf</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Keywords:</P>
+<P ALIGN="JUSTIFY">&lt;space&gt; selects, w for keywords, arrows move, &lt;return&gt; searches, q 
+quits, ? for Help</P>
+<P ALIGN="JUSTIFY">Слово Free на правом поле означает бесплатный доступ. Сразу после вывода на экран оказывается подсвеченной позиция &lt;001&gt; (номера позиций проставлены на левом поле). В квадратных скобках приведены адреса серверов, доступ к которым может быть предоставлен, сразу за ним следует наименование базы данных или документа. Используя стрелки &lt;вверх&gt; и &lt;вниз&gt;, можно подсветить нужную вам позицию. После нажатия клавиши &lt;Enter&gt; (или на некоторых клавиатурах RETURN) позиция будет выбрана и вам будет предложена возможность ввести ключевые слова для последующего поиска. Выберем для примера aarnet-resource-guide.src.</P>
+
+<P>Enter keywords with spaces between them; &lt;return&gt; to search; ^C to cancel <BR>
+Keywords: <I>isdn&#9;</I>(в качестве ключевого слова введено ISDN).<BR>
+Searching aarnet-resource-guide.src...<BR>
+Initializing connection...<BR>
+Searching 1995_register<BR>
+Found 1 items.</P>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=2 WIDTH=791 bgcolor="ghostwhite">
+<TR><TD WIDTH="66%" VALIGN="TOP" COLSPAN=4><P ALIGN="JUSTIFY">SWAIS Search Results</TD>
+<TD WIDTH="34%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Items: 1</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">#</TD>
+<TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">Score</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">Source</TD>
+<TD WIDTH="23%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Title</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="JUSTIFY">Lines</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">001:</TD>
+<TD WIDTH="17%" VALIGN="TOP"><P ALIGN="JUSTIFY">[1000]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">(aarnet-resource)</TD>
+<TD WIDTH="23%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Charles Sturt University</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="JUSTIFY">66</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P>&lt;space&gt; selects, arrows move, w for keywords, s for sources, ? for help<BR>
+Retrieving: Charles Sturt University<BR>
+Getting "Charles Sturt University" from aarnet-resource-guide.src...<BR>
+WARNING: terminal cannot "scroll backwards" (press RETURN)</P>
+<P ALIGN="JUSTIFY">(ниже следует текст документа)</P>
+<P ALIGN="JUSTIFY">Charles Sturt University<BR>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">Address:</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Division of Information Technology PO Box 588 WAGGA WAGGA 2650</TD>
+</TR>
+</TABLE>
+
+E-mail: cc_director@csu.edu.au Phone: +61 69 222206 Fax: +61 69 222454</P>
+<P ALIGN="JUSTIFY">Description:</P>
+<P ALIGN="JUSTIFY">The Division of Information Technology offers computing services for teaching, research and university administration and is a centrally funded support service of the University.</P>
+<P ALIGN="JUSTIFY">The University has a Facom 340S, VAX 6320 and 6310 systems (VMS), a HP935 (HP-UX), and a SUN 4/75S, as well as a range of workstation-level Unix hosts.</P>
+
+<P ALIGN="JUSTIFY">Numerous PC and Mac Networks are spread through the faculties and divisions. ISDN links between the three campuses of CSU bring the ethernet/fibre "backbones" on each individual campus into a single university-wide TCPIP/LAT Network.</P>
+
+<P>Network Access: Systems are generally available via AARNet and Austpac.<BR>
+Who Can Use:<BR>
+Computing services are provided to Charles Sturt University community.<BR>
+Account for outside users are considered on a case by case basis.</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=9 WIDTH=737>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">Press any key to continue</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">(для того чтобы продолжить просмотр текста следует 
+нажать любую клавишу).</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Возможна и несколько другая форма доступа к WAIS (например, из ЭВМ SUN):</P>
+</FONT><P>ns<I>&gt; telnet info.funet.fi<BR>
+</I>Trying 128.214.6.21 ...<BR>
+Connected to info.funet.fi.<BR>
+Escape character is '^]'.<BR>
+SunOS UNIX (info)<BR>
+Finnish University and Research Network FUNET Information Service<BR>
+The following information services are available:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">gopher</TD>
+<TD WIDTH="84%" VALIGN="TOP"><P ALIGN="JUSTIFY">Menu-based global information tool</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">www</TD>
+<TD WIDTH="84%" VALIGN="TOP"><P ALIGN="JUSTIFY">World Wide Web, Global hypertext web</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">wais</TD>
+<TD WIDTH="84%" VALIGN="TOP"><P ALIGN="JUSTIFY">Wide Area Information Server, global databases on different topics</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">x500</TD>
+<TD WIDTH="84%" VALIGN="TOP"><P ALIGN="JUSTIFY">X.500 clients are on nic.funet.fi, login: dua, no password</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">archie</TD>
+<TD WIDTH="84%" VALIGN="TOP"><P ALIGN="JUSTIFY">Database of Internet Archive contents</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">exit</TD>
+<TD WIDTH="84%" VALIGN="TOP"><P ALIGN="JUSTIFY">Exit FUNET information services</TD>
+</TR>
+</TABLE>
+
+<P>Select service (gopher/www/wais/archie/exit) ? <I>wais </I>(выбран WAIS)<BR>
+Select WAIS interface:<BR>
+swais VT100-based WAIS client<BR>
+Select interface (return for back to main menu) ? <I>swais<BR>
+</I>Supported terminal types are: vt100, xterm<BR>
+Starting WAIS ..</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">Source Selection</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">Server Source</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Cost</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">001:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ archie.au]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">aarnet-resource-guide</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">002:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ munin.ub2.lu.se]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">academic_email_conf</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">003:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[wraith.cs.uow.edu.au]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">acronyms</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">004:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ archive.orst.edu]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">aeronautics</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">005:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ ftp.cs.colorado.edu]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">aftp-cs-colorado-edu</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">006:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[nostromo.oes.orst.ed]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">agricultural-market-news</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">007:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ archive.orst.edu]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">alt.drugs</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">008:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.oit.unc.edu]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">alt.gopher</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">009:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[sun-wais.oit.unc.edu]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">alt.sys.sun</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">010:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ wais.oit.unc.edu]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">alt.wais</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">011:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[alfred.ccs.carleton.]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">amiga-slip</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">012:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ munin.ub2.lu.se]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">amiga_fish_contents</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">Free</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">013:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 150.203.76.2]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">ANU-Aboriginal-EconPolicies</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">$0.00/minute</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">014:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ coombs.anu.edu.au]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">ANU-Aboriginal-Studies</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">$0.00/minute</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">015:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ coombs.anu.edu.au]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">ANU-Asian-Computing</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">$0.00/minute</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">016:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ coombs.anu.edu.au]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">ANU-Asian-Religions</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">$0.00/minute</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">017:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 150.203.76.2]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">ANU-Australian-Economics</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">$0.00/minute</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">018:</TD>
+<TD WIDTH="34%" VALIGN="TOP"><P ALIGN="JUSTIFY">[ 150.203.76.2]</TD>
+<TD WIDTH="40%" VALIGN="TOP"><P ALIGN="JUSTIFY">ANU-CAUT-Academics</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="JUSTIFY">$0.00/minute</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Российского пользователя не остановит и плата за ресурс, если она составляет $0.00. Выберем позицию agricultural-market-new, а в качестве ключевого слова введем price (кого не интересуют цены на продукты питания?):</P>
+<P>Keywords: <I>price<BR>
+</I>Searching agricultural-market-news.src...<BR>
+Initializing connection...<BR>
+Found 40 items. (найдено 40 записей)<BR>
+SWAIS Search Results Items: 40<BR>
+# Score Source Title Lines</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">001:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[1000]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">MG</TD>
+<TD WIDTH="49%" VALIGN="TOP" COLSPAN=3><P ALIGN="JUSTIFY">LS756</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">002:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[772]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">MG</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS754</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">211</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">003:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[557]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">AM</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS753</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">SUP%RIOR VIDEO</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">277</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">004:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[514]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">MG</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS750</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">155</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">005:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[500]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">ML</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS143</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">QUINCY AUCTION,QUINCY</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">158</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">006:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[486]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="JUSTIFY">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">WA</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">PY100</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">CHICKEN PURCHASES</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">480</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">007:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[457]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">RH</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS751</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">127</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">008:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[443]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS.</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">MN</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LL Re:</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">USDA 04/26/94 20:51</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">172</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">009:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[443]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">ML</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS144</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">TOPPENISH (RESEND)</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">161</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">010:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[400]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">KO</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS757</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">ADA WGTD AVG W/COWS</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">115</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">011:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[371]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">RH</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS764</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">138</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">012:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">KO</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS752</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">MCALESTER WGTD AVGW/COW</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">100</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">013:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">MG</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS752</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">91</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">014:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">MG</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS797</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">122</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">015:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">RH</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS750</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">107</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">016:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">RH</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS757</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">ROCKINGHAM FEEDER CATTLE</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">140</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">017:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">RH</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS758</TD>
+<TD WIDTH="28%" VALIGN="TOP"><FONT SIZE=1><P ALIGN="LEFT">STAUNTON UNION FEEDERCA</FONT></TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">102</TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">018:</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">[343]</TD>
+<TD WIDTH="21%" VALIGN="TOP"><P ALIGN="LEFT">(agricultural-ma)</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">Re:</TD>
+<TD WIDTH="7%" VALIGN="TOP"><P ALIGN="JUSTIFY">RH</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="JUSTIFY">LS795</TD>
+<TD WIDTH="28%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="8%" VALIGN="TOP"><P ALIGN="JUSTIFY">114</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">&lt;space&gt; selects, arrows move, w for keywords, s for sources, ? for help</P>
+<P ALIGN="JUSTIFY">Выбираем позицию &lt;3&gt;. Ниже следует текст, выданный в результате на экран.</P>
+
+<P>Retrieving: Re: AM LS753 SUPRIOR VIDEO "Re: SUP%RIOR<BR>
+VIDEO" from agricultural-market-news.src...<BR>
+SWAIS Document Display Page: 1<BR>
+Subject: AM LS753 SUP%RIOR VIDEO<BR>
+Date: Mon, 21 Aug 95 01:58:17 PM<BR>
+AM LS753<BR>
+Amarillo, Texas Mon Aug 21, 1995 USDA-TX Dept of Ag Market News<BR>
+Superior Video Auction - Final Report - Two day auction Aug 18 &amp; 19.<BR>
+Offerings &lt; 91,000</P>
+<P ALIGN="JUSTIFY">Trade and demand moderate to good. Cattle offered from 16 States, Mexico and Canada. Prices based on net weights after a 1-3 percent shrink or equivalent with a 4-10 cent slide on calves and 3-8 cent slide on yearlings. Offerings included 31 percent feeder steers and differs over 600 lbs and 69 percent feeders under 600 lbs.</P>
+<P>************************************************************<BR>
+Press any key to continue, 'q' to quit.<BR>
+Southcentral States: Texas, Oklahoma, New Mexico,<BR>
+Kansas and Missouri.<BR>
+************************************************************</P>
+<P ALIGN="JUSTIFY">Feeder Steers Medium and Large 1</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=730>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">Head</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">Weight</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">Avg Wt</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Price</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">Avg Price</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Delivery</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">220</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">425-425</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">425</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">74.10-74.10</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">74.10</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Current</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">84</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">625-625</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">625</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">67.35-67.35</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">67.35</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Current</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">60</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">850-850</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">850</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">62.00-62.00</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">62.00</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Current</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">190</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">525-525</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">525</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">66.25-66.25</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">66.25</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Septmbr</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">78</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">585-585</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">585</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">69.35-69.35</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">69.35</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Septmbr</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">130</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">740-740</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">740</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">64.85-64.85</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">64.85</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Septmbr</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">382</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">800-835</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">821</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">64.00-66.00</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">64.96</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Septmbr</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">540</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">860-860</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">860</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">64.35-64.35</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">64.35</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Septmbr</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP"><P ALIGN="JUSTIFY">70</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">360-360</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">360</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">77.50-77.50</TD>
+<TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">77.50</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">Oct+Nov</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Press any key to continue, 'q' to quit. (таблица напечатана с сокращениями)</P>
+<P ALIGN="JUSTIFY">Если вы выдали более одного ключевого слова, тогда все документы, содержащие любое из перечисленных слов будут включены в список найденных.</P>
+
+<P ALIGN="JUSTIFY">Если нужно узнать о WAIS больше (библиография, утилиты, исходные тексты), обращайтесь к Barbara Lincoln Brooks из WAIS inc. Библиография доступна по адресу ftp.wais.com в секции /pub/wais-inc-doc. Общую информацию по WAIS можно найти через FTP по адресу: 
+quake.think.com /wais/doc или sunsite.unc.edu /pub/docs/about-the-net/libsoft/wais.txt. Для любителей доступа через WWW: <A HREF="tppmsgs/msgs2.htm#286" tppabs="http://www.wais.com/">www.wais.com</A> или www.earn.net. 
+Те же, кто для целей поиска предпочитает gopher, могут воспользоваться сервером: gopher-gw.micro.umn.edu. Можно узнать кое-что о WAIS и через telnet: quake.think.com Login: wais.</P>
+
+<P ALIGN="JUSTIFY">Программы доступны по адресам (FTP): ftp.cnidr.org ftp.wais.com quake.think.com sunsite.unc.edu</P>
+<P ALIGN="JUSTIFY">По вопросам получения бесплатного программного обеспечения обращайтесь по адресу: freewais@cnidr.org. Подписной почтовый лист имеет адрес: wais-discussion@wais.com. Для подписки посылайте запрос по адресу (формат запросов описан в разделе LISTSERV): wais-discussion-request@wais.com. Группа новостей в USENET (FAQ): comp.infosystems.wais; полезную информацию можно получить и через анонимное FTP по адресу rtfm.mit.edu в каталоге 
+/pub/usenet/news.answers/wais-faq.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="goph4511.htm" tppabs="http://book.itep.ru/4/45/goph4511.htm"><FONT COLOR="lightblue">4.5.11 Gopher</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="arch4513.htm" tppabs="http://book.itep.ru/4/45/arch4513.htm"><FONT COLOR="lightblue">4.5.13 Система поиска файлов Archie</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

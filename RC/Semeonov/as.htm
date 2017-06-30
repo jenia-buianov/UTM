@@ -1,0 +1,94 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="AS
+автономная система
+
+
+">
+<TITLE>4.4.11.6 Автономные системы</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="cidr4115.htm" tppabs="http://book.itep.ru/4/44/cidr4115.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="m_polit.htm" tppabs="http://book.itep.ru/4/44/m_polit.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="cidr4115.htm" tppabs="http://book.itep.ru/4/44/cidr4115.htm"><FONT COLOR="lightblue">4.4.11.5 Бесклассовая интердоменная     маршрутизация (CIDR)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="m_polit.htm" tppabs="http://book.itep.ru/4/44/m_polit.htm"><FONT COLOR="lightblue">4.4.11.7 Маршрутная политика</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.11.6 Автономные системы</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">Базовым элементом технологии Интернет является модуль IP. Его центральной частью является таблица маршрутов, используемая для принятия решения о направлении IP-пакета по тому или иному пути. Формат таблицы маршрутов задается используемым протоколом маршрутизации, а содержание - определяет администратор сети. Прямая маршрутизация имеет место при обмене пакетами между машинами, входящими в одну сеть. Большинство современных протоколов маршрутизации являются динамическими, то есть такими, где таблицы маршрутизации изменяются по мере изменения структуры и параметров окружающей сети. Такие протоколы заметно повышают надежность сети в целом, так как при 
+выходе из строя какого-либо узла или канала связи поток пакетов может быть автоматически направлен в обход по резервному маршруту. При этом пользователи сети не должны ожидать момента, когда администратор сети вернется из отпуска, проснется или вернется из кафетерия и сам внесет необходимые коррективы.</P>
+
+<P ALIGN="JUSTIFY"><B>Автономной системой</B> называют такую локальную сеть или систему сетей, которые имеют единую администрацию и общую маршрутную политику.</P>
+
+<P ALIGN="JUSTIFY">Пользователь, связанный только с одним сервис-провайдером, должен принадлежать к общей с ним AS. Автономная система должна обязательно создаваться, когда оператор сети связан с более чем одной AS с отличной от его маршрутной политикой. Если же пользователь обращается к услугам двух или более сервис-провайдеров, придерживающихся различных маршрутных политик, то он должен создать свою независимую AS. Общим правилом является использование максимально возможного числа маршрутов. Это повышает надежность и способствует перераспределению нагрузки между каналами.</P>
+
+<P ALIGN="JUSTIFY">Внедрение идеологии автономных систем сделали возможным существенно облегчить процедуру маршрутизации, сократить требуемое число IP-адресов и создать гибкую и эффективную схему описания маршрутной политики.</P>
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="cidr4115.htm" tppabs="http://book.itep.ru/4/44/cidr4115.htm"><FONT COLOR="lightblue">4.4.11.5 Бесклассовая интердоменная     маршрутизация (CIDR)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="m_polit.htm" tppabs="http://book.itep.ru/4/44/m_polit.htm"><FONT COLOR="lightblue">4.4.11.7 Маршрутная политика</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

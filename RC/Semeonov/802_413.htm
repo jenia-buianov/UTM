@@ -1,0 +1,236 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Маркерная шина
+IEEE 802.4
+
+
+
+">
+<TITLE>4.1.3 IEEE 802.4 (Маркерная шина)</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="802_412.htm" tppabs="http://book.itep.ru/4/41/802_412.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="eth_411.htm" tppabs="http://book.itep.ru/4/41/eth_411.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="apply_42.htm" tppabs="http://book.itep.ru/4/42/apply_42.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="can_414.htm" tppabs="http://book.itep.ru/4/41/can_414.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="802_412.htm" tppabs="http://book.itep.ru/4/41/802_412.htm"><FONT COLOR="lightblue">4.1.2 IEEE 802.5 (Token Ring)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="eth_411.htm" tppabs="http://book.itep.ru/4/41/eth_411.htm"><FONT COLOR="lightblue">4.1.1 Ethernet (IEEE 802.3)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="apply_42.htm" tppabs="http://book.itep.ru/4/42/apply_42.htm"><FONT COLOR="lightblue">4.2 Наложенные сети</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="can_414.htm" tppabs="http://book.itep.ru/4/41/can_414.htm"><FONT COLOR="lightblue">4.1.4 Сети    управления и сбора данных в реальном масштабе времени (CAN)</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.1.3 IEEE 802.4 (Маркерная шина)</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="marker.jpg" tppabs="http://book.itep.ru/4/41/marker.jpg" ></P>
+
+<P ALIGN="justify">Стандарт IEEE 802.4 описывает свойства сетей, известных под названием маркерная 
+шина. С точки зрения правил предоставления доступа этот стандарт схож с token ring (см. <a 
+href="literat.htm#13point" tppabs="http://book.itep.ru/9/literat.htm#13point">[13]</a>, а также RFC-1042 и -1230). В качестве физической 
+среды используется 75-омный кабель. При необходимости построения сети типа дерева, а также для 
+увеличения длины сети используются повторители. Сеть способна обеспечить пропускную способность до 
+10 Мбит/с при полосе пропускания кабеля 12 МГц.</p>
+
+<p align="justify">Для доступа к сетевой среде станция должна получить пакет-маркер. Получив 
+маркер, сетевое устройство может начать передачу данных, а завершив эту процедуру, устройство 
+должно переслать маркер следующей сетевой станции. Передача маркера происходит до тех пор, пока он 
+не достигнет младшей станции, после чего он возвращается первой станции. Формат кадра, пересылаемого 
+по маркерной шине, имеет вид, представленный на рис. 4.1.3.1.</p>
+
+<p align="center"><img src="image187.gif" tppabs="http://book.itep.ru/4/41/image187.gif"></P>
+<P ALIGN="CENTER">Рис. 4.1.3.1. Формат кадров 802.4.</P>
+
+<P ALIGN="JUSTIFY">SD - (Start Delimiter) - стартовый байт-разделитель =**0**000, где * - символ, 
+кодируемый неманчестерским кодом; FC - (Frame Control) поле управления кадром = FFxxxxxx, где FF - 
+субполе формата кадра, а xxxxxx - биты типа кадра, SA и DA адреса отправителя и получателя, 
+соответственно. FSC - (Frame Control Sequence) контрольная сумма (4 байта). ED - (End Delimiter) 
+оконечный разграничитель =**1**11E (правый бит является 8-ым). MMM=000 - запрос, не требующий 
+подтверждения; MMM=001 - запрос, требующий подтверждения, MMM=010 - отклик на запрос. PPP - биты 
+приоритета (111 - высший приоритет, а 000 - низший). Значения кодов поля FC приведены в таблицах 
+4.1.3.1 и 4.1.3.2 (цифрами обозначен порядок передачи разрядов).</P>
+
+<P ALIGN="CENTER">Таблица 4.1.3.1. Коды поля FC</P></FONT>
+<CENTER> <TABLE BORDER=10 CELLSPACING=2 CELLPADDING=5 WIDTH=701 bgcolor="ghostwhite">
+<TR><TD WIDTH="8%" VALIGN="TOP" bgcolor="gainsboro">
+<P ALIGN="CENTER"><B>FF<BR>
+12</B></TD>
+<TD WIDTH="15%" VALIGN="TOP" bgcolor="gainsboro">
+<B><P ALIGN="CENTER">xxxxxx<BR>
+345678</B></TD>
+<TD WIDTH="76%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="JUSTIFY">Назначение</B></TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="CENTER">00</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">CCCCCC</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="JUSTIFY">Кадр управления доступом к сетевой среде</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="CENTER">01</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">MMMPPP</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="JUSTIFY">Кадр управления логическим каналом</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="CENTER">01</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">YYYYYY</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="JUSTIFY">Кадр управления станцией</TD>
+</TR>
+<TR><TD WIDTH="8%" VALIGN="TOP"><P ALIGN="CENTER">11</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">ZZZZZZ</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="JUSTIFY">Зарезервировано на будущее</TD>
+</TR>
+</TABLE></CENTER>
+
+<P ALIGN="JUSTIFY">Станции получают доступ к шине в результате соревновательной процедуры, 
+называемой “окно откликов”. Окно откликов представляет собой временной интервал, равный по 
+длительности одному системному такту, который в свою очередь равен времени распространения сигнала 
+по шине. Это время отсчитывается от момента окончания передачи кадра управления. В течение этого 
+времени станция-инициатор ожидает отклика от других станций. Любая станция сети, будучи владельцем 
+маркера, может запустить этот процесс с помощью посылки кадра п<B>оиск следующей станции</B>. 
+Запросы на подключение осуществляются путем отправки пакета у<B>становка следующей станции, </B>в 
+поле данных которого записывается адрес станции, запрашивающей доступ к шине. Адрес следующей 
+соседней станции меньше адреса станции-отправителя (маркер движется в направлении убывания адресов). 
+Обычно посылается кадр с одним окном откликов. При этом запросы могут посылать станции с адресами 
+не меньше, чем адрес ближайшего соседа. Если процесс инициализирован станцией с наименьшим номером, 
+то посылается пакет с двумя окнами откликов, одно для станции с номером меньше, чем у 
+предшественника, другое с адресом больше чем у предшественника. После этого станция ждет ответа в 
+течение одного такта. Если ответа нет, маркер передается следующей станции. Если же получен один 
+ответ, инициализируется подключение станции с помощью пакета <B>установка следующей станции</B>. 
+При получении более одного отклика возникает конфликт, для разрешения которого посылается пакет 
+<B>разрешение конфликта </B>с четырьмя окнами. Станции заносят свои запросы в окна в соответствии 
+с первыми двумя битами своего адреса. Если попытка разрешить конфликт при этом не удалась, пакет 
+осылается повторно. В новой попытке участвуют только станции, участвовавшие в первом раунде, а для 
+сравнения используются уже следующие два бита адреса. Процедура может завершиться подключением 
+одной из станций или исчерпыванием числа попыток.</P>
+
+<P ALIGN="JUSTIFY">Станция может отключиться от сети в любое время, но это вызовет инициализацию 
+системы и временное нарушение работы сети. Поэтому для отключения от сети станция должна дождаться 
+получения маркера, после чего она шлет пакет типа <B>установка следующей станции</B>, в поле данных 
+которого находится адрес ее преемника. Если держатель маркера получит пакет, показывающий наличие 
+в сети еще одного владельца маркера, он уничтожает свой маркер и переходит в режим ожидания. 
+Получив маркер, станция должна начать передачу данных или передать его следующей станции. После 
+передачи маркера станция в течение одного цикла прослушивает сеть, чтобы убедиться в активности 
+своего преемника. Если преемник не посылает ничего в течении секунды, станция повторяет передачу 
+маркера. Если и это не помогает, то посылается пакет <B>кто следующий?</B> с адресом преемника в 
+поле данных и тремя окнами откликов. Если станция обнаруживает в поле данных адрес своего 
+предшественника, она посылает кадр типа <B>установка следующей станции</B> по адресу отправителя. 
+В отсутствии кадра <B>установка следующей станции </B>станция посылает такой пакет самой себе с 
+двумя окнами для выявления активных сетевых устройств.</P>
+
+<P ALIGN="JUSTIFY">При обнаружении потери маркера запускается процедура инициализации сети, при 
+этом посылается пакет <B>требование маркера</B>. Станция, пославшая запрос, прослушивает шину и 
+при обнаружении сетевой активности выбывает из соревнования (имеется станция с большим, чем у нее 
+адресом). В сети определено 4 класса обслуживания (6, 4, 2, 0). Станция может передавать данные 
+класса 6 в течение допустимого времени удержания маркера THT (для класса 6). При M станций в сети 
+максимальное время ожидания будет равно THT*M. По завершении передачи данных класса 6 (или если 
+они не передавались вовсе) можно передавать данные класса 4. Аналогично определено время обращения 
+маркера для классов 4, 2 и 0. </P>
+
+<P ALIGN="CENTER">Таблица 4.1.3.2. Коды поля FC и типы кадров</P></FONT>
+<CENTER> <TABLE BORDER=10 CELLSPACING=2 CELLPADDING=5 WIDTH=600 bgcolor="ghostwhite">
+<TR><TD WIDTH="15%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Код поля FC</B></TD>
+<TD WIDTH="54%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="JUSTIFY">Тип кадра</B></TD>
+<TD WIDTH="31%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="JUSTIFY">Поле данных</B></TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0x0</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFT">Запрос маркера</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Код арбитража</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0x1</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFT">Поиск следующей станции (1 окно откликов)</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отсутствует</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0x2</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFT">Поиск следующей станции (два окна откликов)</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Адрес следующей станции</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0x3</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFTY">Кто следующий? (три окна откликов)</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отсутствует</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0x4</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFT">Разрешение конфликта (4 окна откликов)</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отсутствует</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0x8</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFT">Маркер</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отсутствует</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">0xD</TD>
+<TD WIDTH="54%" VALIGN="TOP"><P ALIGN="LEFT">Установка следующей станции</TD>
+<TD WIDTH="31%" VALIGN="TOP"><P ALIGN="JUSTIFY">Адрес следующей станции</TD>
+</TR>
+</TABLE></CENTER>
+
+<P ALIGN="JUSTIFY">Сети все шире внедряются в промышленность, науку, а в последнее время можно 
+ожидать появления сетей и в наших жилищах (первые опыты по созданию информационных сетей на основе 
+систем кабельного телевидения в США и Канаде уже успешно проведены). Для сбора измерительной 
+информации уже более десятилетия используется магистрально-модульный стандарт GPIB (IEC-625, 
+IEEE-488 или ГОСТ 26.003-80). Но этот стандарт ограничивает размер сети, имеет дорогостоящий 
+интерфейс, недостаточно надежен и гибок. Применение для этой цели RS-232 не слишком перспективно, 
+так как этот интерфейс предполагает соединение по схеме точка-точка. Возникла необходимость 
+создания сетей с дешевой магистралью и интерфейсом с пропускной способностью 128-1024 Кбит/c. 
+Примером такой сети можно считать CAN. Кто знает, возможно спустя несколько лет какая-то 
+модификация этой сети будет использована для сетевого управления бытовой техникой в вашей квартире. 
+Аппаратная реализация узлов комплексного управления бытовой техникой уже появились в продаже.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="802_412.htm" tppabs="http://book.itep.ru/4/41/802_412.htm"><FONT COLOR="lightblue">4.1.2 IEEE 802.5 (Token Ring)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="eth_411.htm" tppabs="http://book.itep.ru/4/41/eth_411.htm"><FONT COLOR="lightblue">4.1.1 Ethernet (IEEE 802.3)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="apply_42.htm" tppabs="http://book.itep.ru/4/42/apply_42.htm"><FONT COLOR="lightblue">4.2 Наложенные сети</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="can_414.htm" tppabs="http://book.itep.ru/4/41/can_414.htm"><FONT COLOR="lightblue">4.1.4 Сети    управления и сбора данных в реальном масштабе времени (CAN)</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

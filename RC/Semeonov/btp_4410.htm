@@ -1,0 +1,235 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="BOOTP
+bootstrap
+
+
+">
+<TITLE>4.4.10 Протокол загрузки BOOTP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="cops.htm" tppabs="http://book.itep.ru/4/4/cops.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="cops.htm" tppabs="http://book.itep.ru/4/4/cops.htm"><FONT COLOR="lightblue">4.4.9.7 Протокол COPS (Common Open Policy Service)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.10 Протокол загрузки BOOTP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<p ALIGN="justify">В больших сетях некоторые рабочие станции (например, Х-терминалы) могут не иметь системного диска, а операционная система и сетевое программное обеспечение загружается через сеть. Для этого рабочая станция должна иметь стартовую программу, записанную в ПЗУ. Такое постоянное запоминающее устройство часто производится на фирме, изготовившей эту рабочую станцию, и по этой причине не содержат информации ни об адресе сервера, ни даже о своем IP-адресе. Выше был описан протокол RARP, который способен решать подобные задачи для случая, когда сервер находится в пределах данной локальной сети. Ведь RARP выдает широковещательный запрос на связном уровне, а он не ретранслируется маршрутизаторами. Более мощным средством для загрузки бездисковых станций является протокол BOOTP (Bootstrap протокол, RFC-951, -1048, -1532). BOOTP пригоден и для загрузки бездисковых маршрутизаторов. BOOTP в качестве транспортного использует UDP-протокол. ЭВМ-клиент (порт=68), которая хочет воспользоваться BOOTP, посылает широковещательное сообщение (по адресу = 255.255.255.255). Сервер (порт=67) в отличии от случая RARP не обязательно должен находиться в пределах данной локальной сети. В поле IP-адрес клиента будет записано 0.0.0.0, так как клиент пока не знает своего адреса. Получив запрос через порт 67, маршрутизатор помещает свой IP-адрес в поле IP-адрес маршрутизатора (см. формат запроса на рис. 4.4.10.1) и пересылает запрос действительному BOOTP-серверу, увеличив на 1 значение поля Hop#. По пути к серверу может быть несколько маршрутизаторов (но обычно не больше 3). Сервер не знает физического адреса клиента. Воспользоваться ARP-запросом он не может, так как клиент пока не знает своего IP-адреса и на ARP-запрос не откликнется. У сервера, получившего запрос, имеется две возможности.</P>
+
+<p ALIGN="justify">1. Проанализировать пакет, извлечь из него физический адрес клиента и скорректировать ARP-таблицу.<br>
+2. Послать отклик, используя широковещательный адрес.</p>
+
+<p align="justify">Так как программа загрузки находится на прикладном уровне, и ей запрещено исправлять ARP-таблицы, реально доступен только второй путь.
+Использование разных номеров портов для сервера и клиента делает работу системы более эффективной. Когда отклик сервера является широковещательным, это позволяет не прерывать работу прикладных программ, работающих с
+номерами портов, отличными от 68 (порт Bootp-клиента). В Bootp ответственность за надежность связи лежит на ЭВМ-клиенте. При отсутствии отклика в
+отведенное время клиент повторяет Bootp-запрос. На IP-уровне, где данные не имеют контрольной суммы, целостность сообщения не гарантирована. Bootp
+требует, чтобы проверка контрольной суммы обязательно проводилась на UDP-уровне (следует заметить, что обычно это не является обязательным). Сервер читает UDP-дейтограммы через порт 67. Для повышения надежности обменов, как
+правило, блокируется фрагментация дейтограмм.</p>
+
+<p align="justify">Загрузка рабочих станций часто запускается броском напряжения сетевого питания. При этом несколько Bootp-процессов стартуют одновременно. Для того чтобы снизить вероятность столкновений, величина времени тайм-аута выбирается случайно в интервале 0-4сек. После каждого повторного запроса это время удваивается. Верхнее значение тайм-аута равно
+60сек. Для справок время загрузки бездискового x-терминала при
+благоприятных условиях может составлять около 20 сек.</p>
+
+<p align="justify">bootp осуществляет загрузку в два этапа. На первом этапе bootp лишь снабжает клиента информацией, где лежит нужные ему данные. Далее
+ЭВМ-клиент использует протокол RFTP для получения искомого загружаемого файла. Bootp-сервер не обязательно должен работать на той же машине, где
+хранятся загружаемые файлы, но он должен знать их имена. Формат Bootp-сообщений представлен на рис. 4.4.10.1.</p>
+
+<p align="center"><img src="image488.gif" tppabs="http://book.itep.ru/4/44/image488.gif"></p>
+<p ALIGN="CENTER">Рис. 4.4.10.1. Формат сообщений BOOTP</p>
+
+<p ALIGN="JUSTIFY">Поле <i>операция</i>=1 говорит о том, что
+данное сообщение запрос, а значение <i>операция</i>=2 указывает на то, что сообщение является откликом. Поля <i>H-тип</i> и <i>Hlen</i> определяют тип используемого оборудования и длину аппаратного адреса (для Ethernet H-тип=1, а HLen=6). ЭВМ-клиент кладет в поле <i>Hop#</i> (число шагов) нуль.
+Если BOOTP-сервер, получив запрос, решит передать его другой ЭВМ, он увеличит значение этого поля на 1, и так далее. Поле <i>идентификатор операции</i>
+содержит целое число, которое на бездисковых машинах позволяет связать в пары запросы и отклики. Поле <i>секунды</i> хранит время с момента
+начала процедуры загрузки (BOOT).</p>
+
+<p ALIGN="JUSTIFY">ЭВМ-клиент заполняет все последующие поля, если она этой информацией владеет, в противном случае поля обнуляются. Возможность
+указания имени BOOT(загрузочного)-файла позволяет учесть индивидуальность конфигурации конкретной ЭВМ и пожелания относительно загружаемой операционной системы. Поле <i>специфическая информация</i> поставщика содержит информацию,
+которая передается от сервера к ЭВМ-клиенту. Первые 4 октета этого поля носят название &quot;волшебное печенье&quot; (magic cookie) и определяют формат остальных субполей. Если в указанном поле имеется информация, субполе <i>волшебное печенье</i> имеет значение 99.130.83.99. Вслед за этим субполем следует последовательность субполей, содержащих один октет <i>тип</i>, опционный октет длина и многооктетное субполе значение. Стандарт
+предусматривает следующие разновидности субполей:</p>
+
+<p ALIGN="CENTER">Таблица 4.4.10.1 Разновидности субполей и их коды (BOOTP)</p>
+<div align="center">
+
+<table BORDER="10" CELLSPACING="1" CELLPADDING="5" WIDTH="800" bgcolor="ghostwhite">
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="JUSTIFY">Тип субполя</td>
+    <td WIDTH="10%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Код субполя</td>
+    <td WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="CENTER">Длина субполя в октетах</td>
+    <td WIDTH="46%" VALIGN="TOP" bgcolor="gainsboro"><p ALIGN="LEFT">Содержимое субполя</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="JUSTIFY">Заполнитель</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">-</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">Нули - используются для заполнения 
+        неиспользуемых полей</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Маска субсети</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">4</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">Маска
+    субсети в локальной сети</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Время дня</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">2</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">4</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">Время дня по универсальной шкале</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Маршрутизаторы</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">3</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">Список IP-адресов N/4 маршрутизаторов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Временные серверы</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">4</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 временных серверов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">IEN116 сервер</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">5</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 IEN116 серверов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Домейн-сервер</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">6</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 DNS-серверов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Log-сервер</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">7</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 log-серверов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Сервер квот</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">8</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 серверов квот</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Сервер принтера</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">9</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 серверов печати</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Impress</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">10</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 impress-серверов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">RLP-сервер</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">11</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">IP-адреса N/4 RLP серверов</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Имя ЭВМ</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">12</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">N</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">N байтов имени ЭВМ-клиента</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Размер Boot-файла</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">13</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">2</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">2-октетный размер boot-файла</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Зарезервировано</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">128-254</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">-</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">Зарезервировано для местного применения</td>
+  </tr>
+  <tr>
+    <td WIDTH="24%" VALIGN="TOP"><p ALIGN="LEFT">Конец</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">255</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="CENTER">-</td>
+    <td WIDTH="46%" VALIGN="TOP"><p ALIGN="LEFT">Конец списка</td>
+  </tr>
+</table>
+</div>
+
+<p ALIGN="JUSTIFY">Определены и другие субполя (RFC-1533), субполе конец (255) помечает конец поля. Хотя маска субсети может быть получена с помощью ICMP-запроса, стандарт требует, чтобы маска присылалась BOOT-сервером в ответ на каждый запрос, что исключает лишние ICMP-сообщения. Маска субсети
+может быть записана в поле <i>специфическая информация поставщика</i>, как это видно из таблицы. Время дня (тип=2) отсчитывается в секундах от 1-го января 1900 года. В новом протоколе DHCP (Dynamic Host Configuration Protocol, RFC-1531, протокол динамического конфигурирования системы) размер поля <i>специфическая информация поставщика</i> расширен до 312 байт.</p>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="cops.htm" tppabs="http://book.itep.ru/4/4/cops.htm"><FONT COLOR="lightblue">4.4.9.7 Протокол COPS (Common Open Policy Service)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

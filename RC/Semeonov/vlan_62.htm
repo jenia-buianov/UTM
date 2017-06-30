@@ -1,0 +1,120 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="VLAN
+Интранет
+
+
+">
+<TITLE>6.2 Виртуальные локальные сети VLAN,     Интранет</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="tech_61.htm" tppabs="http://book.itep.ru/6/tech_61.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="soft_7.htm" tppabs="http://book.itep.ru/7/soft_7.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="fwal_63.htm" tppabs="http://book.itep.ru/6/fwal_63.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="tech_61.htm" tppabs="http://book.itep.ru/6/tech_61.htm"><FONT COLOR="lightblue">6.1 Технические средства сетевой      безопасности</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm"><FONT COLOR="lightblue">6 Сетевая безопасность</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="soft_7.htm" tppabs="http://book.itep.ru/7/soft_7.htm"><FONT COLOR="lightblue">7 Программирование    для сетей (новые идеи, принципы и возможности)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="fwal_63.htm" tppabs="http://book.itep.ru/6/fwal_63.htm"><FONT COLOR="lightblue">6.3 Система Firewall</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>6.2 Виртуальные локальные сети VLAN,     Интранет</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">Широкое внедрение ИНТРАНЕТ, где группы разбросанных по сети пользователей локальных сетей объединяются друг с другом с помощью виртуальных каналов VLAN (Virtual Local Area Network; <A HREF="tppmsgs/msgs3.htm#364" tppabs="http://www.3com.com/nsc/200374.html">http://www.3com.com/nsc/200374.html</A>), потребовало разработки новых протоколов. Архитектура VLAN позволяет эффективно разделять трафик, лучше использовать полосу канала, гарантировать успешную совместную работу сетевого оборудования различных производителей и обеспечить высокую степень безопасности. При этом пакеты следуют между 
+портами в пределах локальной сети. В последнее время для задач построения VLAN разработан стандартный протокол IEEE 802.10 (3-ий сетевой уровень). Этот протокол предполагает, что пакеты VLAN имеют свои идентификаторы, которые и используются для их переключения. Протокол может поддерживать работу 500 пользователей и более. Полное название стандарта - IEEE 802.10 Interoperable 
+LAN/MAN Security (MAN - Metropolitan Area Network - региональная или муниципальная сеть). Стандарт принят в конце 1992 года. Количество VLAN в пределах одной сети практически не ограничено. Протокол позволяет шифровать часть заголовка и информационное поле пакетов.</P>
+
+<P ALIGN="justify">Стандарт ieee 802.10 определяет один протокольный блок данных (PDU), который носит название SDE (Secure Data Exchange) PDU. Заголовок пакета ieee 802.10 имеет внутреннюю и внешнюю секции и показан на рис. 6.2.1.</p>
+
+<p align="center"><img src="image614.gif" tppabs="http://book.itep.ru/6/image614.gif"></p>
+<p align="center">Рис. 6.2.1 Формат пакета IEEE 802.10</p>
+
+<p align="justify">&#9;Поле <i>чистый заголовок</i> включает в себя три субполя. <i>MDF</i> (Management Defined Field) является опционным и содержит информацию о способе обработки PDU. Четырехбайтовое субполе <i>said</i> (Security Association Identifier) - идентификатор сетевого объекта (VLAN ID). Субполе <i>802.10 LSAP</i> (Link Service Access Point) представляет собой код, 
+указывающий принадлежность пакета к протоколу vlan. Предусматривается режим, когда используется только этот заголовок.</p>
+
+<p align="justify">&#9;<i>Защищенный заголовок</i> копирует себе адрес отправителя из mac-заголовка (MAC - Media Access Control), что повышает надежность.</p>
+
+<p align="justify">&#9;Поле <i>ICV</i> (Integrity Check Value) - служит для защиты пакета от несанкционированной модификации. Для управления VLAN используется защищенная управляющая база данных <b>SMIB</b>(security management information base).</p>
+
+<p align="justify">&#9;Наличие VLAN ID (said) в пакете выделяет его из общего потока и переправляет на опорную магистраль, через которую и осуществляется доставка конечному адресату. Размер поля <i>data</i> определяется физической сетевой средой. Благодаря наличию mac-заголовка VLAN-пакеты обрабатываются как обычные сетевые кадры. По этой причине VLAN может работать в сетях TCP/IP (Appletalk или Decnet менее удобны). В среде типа Netbios работа практически невозможна. Сети ATM прозрачны для VLAN. Протокол VLAN поддерживается корпорацией cisco, 3com и др.. Хотя VLAN ориентирован на локальные сети, он может работать и в WAN, но заметно менее эффективно. В последнее 
+время разработано большое число специальных программных средств сетевой безопасности. Среди них Firewall занимает лидирующее положение.</p>
+
+<p align="justify">&#9;В разделе “Повторители, мосты (бриджи), мультиплексоры, переключатели и маршрутизаторы” упоминалась технология виртуальных сетей (vlan). Созданная для целей безопасности эта техника оказалась полезной для структуризации локальных сетей, приводящей к улучшению их рабочих 
+характеристик. В настоящее время доступны переключатели, маршрутизаторы и даже концентраторы, поддерживающие виртуальные сети.</p>
+
+<p align="justify">&#9;Виртуальные сети просто необходимы, когда локальная сеть в пределах одного здания совместно используется несколькими фирмами, а несанкционированный доступ к информации желательно ограничить. Принцип построения виртуальной сети показан на рис. 6.2.2.</p>
+
+<p align="center"><img src="image615.gif" tppabs="http://book.itep.ru/6/image615.gif"></P>
+<P ALIGN="CENTER">Рис. 6.2.2. Схема переключателя (или концентратора) с поддержкой VLAN.</P>
+
+<P ALIGN="JUSTIFY">&#9;Для формирования VLAN необходимо устройство, где возможно осуществлять управление тем, какие порты могут соединяться. Например, пусть запрограммирована возможность пересылки пакетов между портами 1, 3 и 6, 2 и 5, а также между портами 4, 7 и 8. Тогда пакет из порта 1 никогда не попадет в порт 2, а из порта 8 в порт 6 и т.д. Таким образом, переключатель как 
+бы разделяется на три независимых переключателя, принадлежащих различным виртуальным сетям. Управление матрицей переключения возможно через подключаемый из вне терминал или удаленным образом с использованием протокола SNMP. Если система переключателей, концентраторов (и возможно маршрутизаторов) запрограммирована корректно, возникнет три независимые виртуальные сети.</P>
+
+<P ALIGN="JUSTIFY">&#9;Данная технология может быть реализована не только в рамках локальной сети. Возможно выделение виртуальной сети в масштабах Интернет. В сущности, идея создания корпоративных сетей в Интернет (ИНТРАНЕТ) является обобщением идей виртуальных сетей на региональные сети.</P>
+
+<P ALIGN="JUSTIFY">&#9;Такая корпоративная сеть должна иметь один шлюз для входа в Интернет. Такой шлюз может выполнять функции Firewall, решая проблемы безопасности корпоративной сети.</P>
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="tech_61.htm" tppabs="http://book.itep.ru/6/tech_61.htm"><FONT COLOR="lightblue">6.1 Технические средства сетевой      безопасности</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm"><FONT COLOR="lightblue">6 Сетевая безопасность</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="soft_7.htm" tppabs="http://book.itep.ru/7/soft_7.htm"><FONT COLOR="lightblue">7 Программирование    для сетей (новые идеи, принципы и возможности)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="fwal_63.htm" tppabs="http://book.itep.ru/6/fwal_63.htm"><FONT COLOR="lightblue">6.3 Система Firewall</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

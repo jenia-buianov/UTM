@@ -1,0 +1,294 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="ARP
+преобразование IP->MAC
+
+
+">
+<TITLE>4.4.6 Протокол    преобразования адресов ARP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="xtp_445.htm" tppabs="http://book.itep.ru/4/44/xtp_445.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="parp_447.htm" tppabs="http://book.itep.ru/4/44/parp_447.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="xtp_445.htm" tppabs="http://book.itep.ru/4/44/xtp_445.htm"><FONT COLOR="lightblue">4.4.5 Протокол XTP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="parp_447.htm" tppabs="http://book.itep.ru/4/44/parp_447.htm"><FONT COLOR="lightblue">4.4.7 Прокси-ARP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.6 Протокол    преобразования адресов ARP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="arp.jpg" tppabs="http://book.itep.ru/4/44/arp.jpg"></P>
+
+<P ALIGN="justify">Любое устройство, подключенное к локальной сети (Ethernet, FDDI и т.д.), имеет уникальный физический сетевой адрес, заданный аппаратным образом. 6-байтовый Ethernet-адрес выбирает изготовитель сетевого интерфейсного оборудования из выделенного для него по лицензии адресного пространства. Если у машины меняется сетевой адаптер, то меняется и ее Ethernet-адрес.</p>
+
+<p align="justify">4-байтовый IP-адрес задает менеджер сети с учетом положения машины в сети Интернет. Если машина перемещается в другую часть сети Интернет, то ее IP-адрес должен быть изменен. Преобразование IP-адресов в сетевые выполняется с помощью arp-таблицы. Каждая машина сети имеет отдельную ARP-таблицу для каждого своего сетевого адаптера. Не трудно видеть, что существует проблема отображения физического адреса (6 байт для Ethernet) в пространство сетевых IP-адресов (4 байта) и наоборот.</p>
+
+<p align="justify">Протокол ARP (address resolution protocol, RFC-826) решает именно эту проблему - преобразует ARP- в Ethernet-адреса.</p>
+
+<p align="justify">Рассмотрим процедуру преобразования адресов при отправлении сообщения. Пусть прикладная программа одной ЭВМ отправляет сообщение другой. Прикладной программе IP-адрес места назначения обычно известен. Для определения 
+Ethernet-адреса просматривается ARP-таблица. Если для требуемого IP-адреса в ней присутствует Ethernet-адрес, то формируется и посылается соответствующий пакет. Если же с помощью ARP-таблицы не удается преобразовать адрес, то выполняется следующее:</p>
+
+<p align="justify">1. Всем машинам в сети посылается пакет с ARP-запросом (с широковещательным Ethernet-адресом места назначения).<br>
+2. Исходящий IP-пакет ставится в очередь.</p>
+
+<p align="justify">Каждая машина, принявшая ARP-запрос, в своем ARP-модуле сравнивает собственный IP-адрес с IP-адресом в запросе. Если IP-адрес совпал, то прямо по Ethernet-адресу отправителя запроса посылается ответ, содержащий как IP-адрес ответившей машины, так и ее Ethernet-адрес. После получения ответа на свой ARP-запрос машина имеет требуемую информацию о соответствии IP и Ethernet-адресов, формирует соответствующий элемент ARP-таблицы и отправляет IP-пакет, ранее поставленный в очередь. Если же в сети нет машины с искомым IP-адресом, то ARP-ответа не будет и не будет записи в ARP-таблицу. Протокол 
+IP будет уничтожать IP-пакеты, предназначенные для отправки по этому адресу.</p>
+
+<p align="justify">Протоколы верхнего уровня не могут отличить случай повреждения в среде ethernet от случая отсутствия машины с искомым IP-адресом. Во многих реализациях в случае, если IP-адрес не принадлежит локальной сети, внешний порт сети (gateway) или маршрутизатор откликается, выдавая свой физический адрес (режим прокси-ARP).</p>
+
+<p align="justify">Функционально, ARP делится на две части. Одна - определяет физический адрес при посылке пакета, другая отвечает на запросы других машин. ARP-таблицы имеют динамический характер, каждая запись в ней "живет" определенное время после чего удаляется. Менеджер сети может осуществить запись в ARP-таблицу, которая там будет храниться "вечно". ARP-пакеты вкладываются непосредственно в ethernet-кадры. Формат arp-пакета показан на рис. 4.4.6.1.</p>
+
+<p align="center"><img src="image368.gif" tppabs="http://book.itep.ru/4/44/image368.gif"></P>
+<P ALIGN="CENTER">Рис. 4.4.6.1. Формат пакета ARP</P>
+
+<I><P ALIGN="JUSTIFY">HA-Len</I> - длина аппаратного адреса; <I>PA-Len</I> – длина протокольного адреса (длина в байтах, например, для IP-адреса PA-Len=4). <I>Тип оборудования</I> - это тип интерфейса, для которого отправитель ищет адрес; код содержит 1 для Ethernet. Ниже представлена таблица 4.4.6.1 кодов оборудования.</P>
+
+<P ALIGN="CENTER">Таблица 4.4.6.1. Коды оборудования</P>
+<CENTER><TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=700 bgcolor="ghostwhite">
+<TR><TD WIDTH="28%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="CENTER">Код типа оборудования</TD>
+<TD WIDTH="72%" VALIGN="TOP" bgcolor="gainsboro"><P>Описание</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">1</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>Ethernet (10 Мбит/с)</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">2</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>Экспериментальный Ethernet (3 Мбит/с)</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">3</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>Радиолюбительская связь через X.25</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">4</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>Proteon ProNET маркерная кольцевая сеть (Token Ring)</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">5</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>Chaos</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">6</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>Сети IEEE 802</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP"><P ALIGN="CENTER">7</TD>
+<TD WIDTH="72%" VALIGN="TOP"><P>ARCNET</TD>
+</TR>
+</TABLE></CENTER>
+
+<P ALIGN="CENTER"><A NAME="point1">Таблица 4.4.6.2. Коды протоколов (для IP это 0800H).</P>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=700 bgcolor="ghostwhite">
+<TR><TD WIDTH="33%" VALIGN="TOP" COLSPAN=2 bgcolor="gainsboro">
+<P>Код типа протокола</TD>
+<TD WIDTH="67%" VALIGN="TOP" ROWSPAN=2 bgcolor="gainsboro">
+<P ALIGN="CENTER">Описание</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>Десятичное значение</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">Hex</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">512</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0200</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>XEROX PUP</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">513</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0201</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>PUP трансляция адреса</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">1536</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0600</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>XEROX NS IDP</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2048</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0800</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DOD Internet протокол (IP)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2049</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0801</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>X.75 Internet</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2050</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0802</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>NBS Internet</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2051</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0803</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>ECMA Internet</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2052</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0804</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Chaosnet</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2053</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0805</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>X.25 уровень 3</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2054</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0806</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Протокол трансляции адреса (ARP)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2055</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0807</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>XNS совместимость</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">2560</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">0A00</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Xerox IEEE-802.3 PUP</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">4096</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">1000</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Bercley Trailer</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">21000</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">5208</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>BBN Simnet</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">24577</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">6001</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC MOP Dump/Load</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">24578</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">6002</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC MOP удаленный терминал</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">24579</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">6003</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC DECnet фаза IV</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">24580</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">6004</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC LAT</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">24582</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">6005</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">24583</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">6006</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">32773</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">8005</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>HP Probe</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">32784</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">8010</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Excelan</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">32821</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">8035</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Реверсивный протокол ARP (RARP)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">32824</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">8038</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>DEC LANbridge</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">32923</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">8098</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>Appletalk</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="CENTER">33100</TD>
+<TD WIDTH="14%" VALIGN="TOP"><P ALIGN="CENTER">814C</TD>
+<TD WIDTH="67%" VALIGN="TOP"><P>SNMP</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">Поле <I>код операции</I> определяет, является ли данный пакет ARP-запросом (код = 1), ARP-откликом (2), RARP-запросом (3), или RARP-откликом (4). Это поле необходимо, как поле тип кадра в Ethernet пакетах, они идентичны для ARP-запроса и отклика.</P>
+
+<P>ARP-таблицы строятся согласно документу RFC-1213 и для каждого IP-адреса содержит четыре кода:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=700>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P>ifindex</TD>
+<TD WIDTH="75%" VALIGN="TOP">
+<P>Физический порт (интерфейс), соответствующий данному адресу;</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P>Физический адрес</TD>
+<TD WIDTH="75%" VALIGN="TOP">
+<P>MAC-адрес, например Ethernet-адрес;</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P>IP-адрес</TD>
+<TD WIDTH="75%" VALIGN="TOP">
+<P>IP-адрес, соответствующий физическому адресу;</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P>тип адресного соответствия</TD>
+<TD WIDTH="75%" VALIGN="TOP">
+<P>это поле может принимать 4 значения: 1 - вариант не стандартный и не подходит ни к одному из описанных ниже типов; 2 - 
+данная запись уже не соответствует действительности; 3 - постоянная привязка; 4 - динамическая привязка;</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">В SUN и некоторых других ЭВМ имеется программа arp, которая позволяет отобразить ARP-таблицу на экране. С флагом -a команда отображает всю таблицу, флаг –d позволяет стереть запись, а -s - служит для внесения записей в таблицу (последние два флага доступны для операторов с системными привилегиями). Команда ARP без флагов с адресом или именем ЭВМ выдаст соответствующую строку таблицы:</P>
+
+<I><P>arp 192.148.166.129<BR></I>
+Name: semenov.itep.ru<BR>
+Address: 192.148.166.129 (IP-адрес моей персональной ЭВМ)<BR>
+Aliases: yas<BR>
+А команда<BR>
+<I>arp nb<BR></I>выдаст запись<BR>
+nb (193.124.224.60) at 0:80:ad:2:24:b7 (запись для NetBlazer ИТЭФ)</P>
+<P ALIGN="JUSTIFY">ARP запросы могут решать и другие задачи. Так при загрузке сетевого обеспечения ЭВМ такой запрос может выяснить, а не присвоен ли идентичный IP-адрес какому-то еще объекту в сети. При смене физического интерфейса такой запрос может инициировать смену записи в ARP-таблице.</P>
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="xtp_445.htm" tppabs="http://book.itep.ru/4/44/xtp_445.htm"><FONT COLOR="lightblue">4.4.5 Протокол XTP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="parp_447.htm" tppabs="http://book.itep.ru/4/44/parp_447.htm"><FONT COLOR="lightblue">4.4.7 Прокси-ARP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

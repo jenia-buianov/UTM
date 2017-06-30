@@ -1,0 +1,1288 @@
+
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateEventSinkMap"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_EVENTSINK_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_EVENTSINK_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"EVENTSINK_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"PropNotifySinks"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateConnectionMap"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"CONNECTION_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"ConnectionPointIID"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"InheritanceType"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DeclSpec"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"OLECommands"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MFCDeclares"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MFCImplements"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"ATL_Declares"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateCOMMap"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"COM_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateConnectionPointMap"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"CONNECTION_POINT_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateMsgMap"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MSG_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GeneratePropertyMap"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"PROPERTY_MAP_Entries"
+			value      	(value Text ""))))
+	    (object Attribute
+		tool       	"MSVC"
+		name       	"default__Operation"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"Type"
+			value      	("MSVCOperationTypeSet" 0))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MSVCOperationTypeSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Normal"
+				value      	0)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Virtual_Override"
+				value      	1)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Message_Handler"
+				value      	2)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Dispatch_Handler"
+				value      	3)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Event_Firing_Function"
+				value      	4)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Event_Sink_Handler"
+				value      	5)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Std_OLE_Method"
+				value      	6)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Command_Parser"
+				value      	7)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Property_Get_Function"
+				value      	8)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Property_Set_Function"
+				value      	9)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Property_Notify_Function"
+				value      	10)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Macro_Generated_Function"
+				value      	11)))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_MSG_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MESSAGE_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_EVENT_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"EVENT_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_EVENTSINK_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"EVENTSINK_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"CallType"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DeclSpec"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"BodyImage"
+			value      	(value Text ""))))
+	    (object Attribute
+		tool       	"MSVC"
+		name       	"default__Role"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"Type"
+			value      	("MSVCAttributeTypeSet" 0))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MSVCAttributeTypeSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Normal"
+				value      	0)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Member_Property"
+				value      	1)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Get_Set_Property"
+				value      	2)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Dialog_Data"
+				value      	3)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Field_Data"
+				value      	4)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Stock_Property"
+				value      	5)))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DeclSpec"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"PointerBase"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"CallType"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"StockPropertyImplementation"
+			value      	"")))
+	    (object Attribute
+		tool       	"MSVC"
+		name       	"default__Has"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"Type"
+			value      	("MSVCAttributeTypeSet" 0))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MSVCAttributeTypeSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Normal"
+				value      	0)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Member_Property"
+				value      	1)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Get_Set_Property"
+				value      	2)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Dialog_Data"
+				value      	3)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Field_Data"
+				value      	4)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Stock_Property"
+				value      	5)))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DeclSpec"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"PointerBase"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"CallType"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"StockPropertyImplementation"
+			value      	"")))
+	    (object Attribute
+		tool       	"MSVC"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"Type"
+			value      	("MSVCAttributeTypeSet" 0))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"MSVCAttributeTypeSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Normal"
+				value      	0)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Member_Property"
+				value      	1)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Get_Set_Property"
+				value      	2)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Dialog_Data"
+				value      	3)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Field_Data"
+				value      	4)
+			    (object Attribute
+				tool       	"MSVC"
+				name       	"Stock_Property"
+				value      	5)))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DISPATCH_MAP_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"DeclSpec"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"PointerBase"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"CallType"
+			value      	"")
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"StockPropertyImplementation"
+			value      	"")))
+	    (object Attribute
+		tool       	"MSVC"
+		name       	"default__Module-Spec"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateIncludesGroup"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_INCLUDES_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateInsertLocation"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"MSVC"
+		name       	"default__Module-Body"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateIncludesGroup"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"AFX_INCLUDES_Entries"
+			value      	(value Text ""))
+		    (object Attribute
+			tool       	"MSVC"
+			name       	"GenerateInsertLocation"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"cg"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Model Integrator"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Web Publisher"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"TopLink"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"COM"
+		name       	"propertyId"
+		value      	"783606378")
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Class"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"TypeKinds"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"COM"
+				name       	"enum"
+				value      	100)
+			    (object Attribute
+				tool       	"COM"
+				name       	"record"
+				value      	101)
+			    (object Attribute
+				tool       	"COM"
+				name       	"module"
+				value      	102)
+			    (object Attribute
+				tool       	"COM"
+				name       	"interface"
+				value      	103)
+			    (object Attribute
+				tool       	"COM"
+				name       	"dispinterface"
+				value      	104)
+			    (object Attribute
+				tool       	"COM"
+				name       	"coclass"
+				value      	105)
+			    (object Attribute
+				tool       	"COM"
+				name       	"alias"
+				value      	106)
+			    (object Attribute
+				tool       	"COM"
+				name       	"union"
+				value      	107)
+			    (object Attribute
+				tool       	"COM"
+				name       	"max"
+				value      	108)
+			    (object Attribute
+				tool       	"COM"
+				name       	"(none)"
+				value      	109)))
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"kind"
+			value      	("TypeKinds" 109))
+		    (object Attribute
+			tool       	"COM"
+			name       	"uuid"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"version"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpcontext"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"dllname"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"alias"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Operation"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"id"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"id"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Module-Spec"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"filename"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"library"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"uuid"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"version"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpfile"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpcontext"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"lcid"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Param"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Version Control"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"propertyId"
+		value      	"783606378")
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Class"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"UpdateCode"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"UpdateModel"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"InstancingSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Private"
+				value      	221)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"PublicNotCreatable"
+				value      	213)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"SingleUse"
+				value      	214)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"GlobalSingleUse"
+				value      	215)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"MultiUse"
+				value      	219)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"GlobalMultiUse"
+				value      	220)))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"BaseSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"(none)"
+				value      	222)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"0"
+				value      	223)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"1"
+				value      	224)))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OptionBase"
+			value      	("BaseSet" 222))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OptionExplicit"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"OptionCompare"
+			value      	("CompareSet" 202))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Instancing"
+			value      	("InstancingSet" 219))
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"CompareSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"(none)"
+				value      	202)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Binary"
+				value      	203)
+			    (object Attribute
+				tool       	"Visual Basic"
+				name       	"Text"
+				value      	204)))))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Operation"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"LibraryName"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"AliasName"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"IsStatic"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ProcedureID"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ReplaceExistingBody"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"DefaultBody"
+			value      	(value Text ""))))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"New"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"WithEvents"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ProcedureID"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"PropertyName"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Subscript"
+			value      	"")))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Role"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"UpdateCode"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"New"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"WithEvents"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"FullName"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ProcedureID"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"PropertyName"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Subscript"
+			value      	"")))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Inherit"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ImplementsDelegation"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"FullName"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Param"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ByVal"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ByRef"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"Optional"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ParamArray"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"default__Module-Spec"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ProjectFile"
+			value      	"")
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"UpdateCode"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"UpdateModel"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ImportReferences"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"QuickImport"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"Visual Basic"
+			name       	"ImportBinary"
+			value      	FALSE)))
+	    (object Attribute
+		tool       	"Visual Basic"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"VisualStudio"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"XML_DTD"
+		name       	"propertyId"
+		value      	"809135966")
+	    (object Attribute
+		tool       	"XML_DTD"
+		name       	"default__Project"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"CreateMissingDirectories"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"Editor"
+			value      	("EditorType" 100))
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"StopOnError"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"EditorType"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"XML_DTD"
+				name       	"BuiltIn"
+				value      	100)
+			    (object Attribute
+				tool       	"XML_DTD"
+				name       	"WindowsShell"
+				value      	101)))))
+	    (object Attribute
+		tool       	"XML_DTD"
+		name       	"default__Class"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"Entity_SystemID"
+			value      	"")
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"Entity_PublicID"
+			value      	"")
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"NotationValue"
+			value      	"")
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"InternalValue"
+			value      	"")
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"ParameterEntity"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"ExternalEntity"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"Notation_SystemID"
+			value      	"")
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"Notation_PublicID"
+			value      	"")))
+	    (object Attribute
+		tool       	"XML_DTD"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"DefaultDeclType"
+			value      	"")))
+	    (object Attribute
+		tool       	"XML_DTD"
+		name       	"default__Module-Spec"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"Assign All"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"XML_DTD"
+			name       	"ComponentPath"
+			value      	"")))
+	    (object Attribute
+		tool       	"XML_DTD"
+		name       	"HiddenTool"
+		value      	FALSE))
+	quid       	"4768560502F3"))
+                                                                                           яЕШч „т-бС|њ cЃ° b}¬XPвп	O‘ДиЂ  ¬ЦFЌ8H…
+§в Z. ъ<ЉДuЏЂ]x€ЛЂЛ`IЂkИц їюА?YЮ‰&ѓ“VєЂY@cїеd№ќlyзјҐК5¶Жу6Зџ‡µ
+"Вѕ„’0NFЖчщ„l,|Ыа>мkћ° 7&B…mLw' Т,гѓГмсдXBвDL'с,¤’†ф’^gcЧЌЎ7ы€·NSw9ЌЫ©°ѓЯ@/?.8-YшгиЎҐэАЋ“ оЇ9я7яШP ЮПЧ†4&ЂТlЃXX>w рћ<}8—9›f3m8мЁ]9йЂ5yв .…рлј·ЬЫГсђ жNqа+§cЩЕ1Ћ
+ЂZhuFјKц„<yЃІ‚А  Ь‹:›‘–0џАэOµbњюАr%ОhїьЏ
+Їяў€цЂэЏРx
+ЏбдEDp Вуаs3pи‡
+јшѓяЂ{·8чћ  і_AaF3ЪЦњxҐJyясЬгGйtQ?0±DXЊxЎQАТ№Њ5mfШћ±бPх¬‹Ђ  CП@ Ш|@p"тЕгЦiG!м!ц.ў‰х` АN4”$©Wћ`сК~@8$у"xЂ9Џ: ‰јюбАjOяЏ™lЋБ" ЮуЮ =‚юјGФQА>Ђ>ЃЁ a ЮUіџя°Ш оЉ›уЗА3Uѓ бР‚yлмz–дxбgъ(”’@xЉI аbясfAЗ,q: ыПж‘џ34=\Ўpоѕ~ т–/ Ї?‡8@4Ў"г‚ў-зс`Ч<|°фNОG тЂјю#`@ФфАh8H!@а 7ћРQ  |Ђ;4J№с<ћqЂmз»
+xґАД "€Р1 *VЂf Ў0З“А}`‘”бцO йdxяюЉ_°ђd e °Ћl<|µ9wИи‚Аe­њьXз0_вЇ?p1ькЂ6Ђ7p°; М€µвўAВ№ј)cЌ°P‰АЂ;CА]w–ь 	Л"@Eёq»З'ВГЂЖДрС¤{ °h вWxжѕЎаА>aБРА4ў‰ їќ$ђГK	П)	0 Д=jO‚VЊОZQ°Bю P’7HЁНя=ѓФNЩZOиьЈU№¬що FНЎBђ•р:&НkЦаw†П¤P7uЙѓє§ч–МAЦ>Љ$И‹цFД  єDЫэ‚\‰Гш  амЃ  gе‹dъ5†Џt9ьњ/ЪжЂФЏ(‹muњВ0ЃqЄ, X"Љ#шр9Џ4СшA&?хмџ, `#ЂајҐaџ‰$АѓтИћз<ѓАФ~cЂFіЋБбxG’ЦДЛвМ`y[ >Ђ}Џ'ЉжPбSf$9P\,UДЖG­…0`яяСCґФ‚ѓАY Ї?…ѓ  О0	г	`3щ: U`sА|NјюN%`б^Йгы~!+¤+nДуЙА$к°TялПдгћtј(ZЌ¶Z‚Ј8АПяу  Ѓ«ПквР8бБг™ ±щЕ ђAЂ]ЮyК 9њ_бtQ>$ћG"Дг¦[ рV'З^<Г ;8жuњг|$(‰yо$Ђ6p#€@  KПљҐА«Е]qКЎГ8$ШqL9sfКДшйTQ;Ќирe :уЩ…0фв<Eа 4h<ћlА!µW/э`._юІЃ бcМьђвxx© цЂ#vЂАtL$`]CoЙг…њ5љЬ^”$шїь”Q>Ґ‡ И(цQа…ЙJCЬ»јюёTИБэЯ‰g4в, _яќyб,Ђм`§O'+€ѓЂ|Dф.уЪ& ?ЃМ o?Ћ#Ю9q8ОиЃр°ў†»@y?Дc«янра5БX  ЁћFёЫДJЈЃџяДX2Ђ pxyгаЂъпђ@дX@tpР?яэ8ПљA Ир• Оp2яшX`х ѕуgЬy<F$шrЂZtaдr иЮ^-ВЗ ЦГЂh&ю`">с­ЂѓФаfясеѓ  Юmpd ц@(Шяэ|Џ МPKzзрщИ&В
+ьA™PЈИКE0І.б ЂЭЭал8юК~j™RqIя’’јB&„(U!bJДФHЙQa |{а,Z9ЯнАЌqwE@МгЪ±Sъ$ f$ЖO™<C–l@р,2чьршо:h8ь<P›Е~0@?Лi°b9°ФhўAВЕ‡ћ/ Ґ‡›@h/ћxђ<&Ёў“‚О*¤NqВMЃЊ zп?ђ`2°р“ФOѓДЉшqЄ QD`6@р Шџaka:Љkч Ћ#.пВ АчячљH мxќ®#…ќёљЉ] йямр1яъ gяцЎВо0`сЯ2ЙО d ёаЫячЌ§ВЃѓямры СCHК	Ьp‘8ъUrq'Э!9Gьтіў Ђ(ўt¤8BЙДQшО`ў€юшq s‡ЋЂ> ‡Е±Ю  CПiЕЂРмфШQacиў}ЂД 0г„ fNыПшҐ….RОАh"p§оeзхЃ  ЋЮ иуUёу‚ђ(ў=„~дьIsщЏЋДJ(nщ>?яu\`Лў‰®€Em(р i ЫжeА љЉ'W‘%Pjѓ”-Чyи"X А2{AЖ|~`мqр^;ЃИрыПгґE'БаtTЪ(ЏAАб'ђ'њЙ<@ђrГ¦јюq Ж™ќc­SЂOWэWьQдFЃгя ДqѓyмПяѓеЏФPХ hxіZ'СА-µ‹4Љ`@€ћу®p°:NЗЄА~'qЦ0DшqбW‹» Шњр~, {Ь)w†ЫPЂ0 uаa ?эw‰Z	рp81ЂpџГ…љxђ;яяЧёy9jЂа'‘GРX1ъ`АндМш—;ђ0шЂ8Аvяъq/° ЬнG°яАеяъсў\ pO'@.
+‚ѕА,–иўY»@k ukRx~p;ЂеsйHОВ ™л /„‘ЂФE?р¶‡‡ІЖn:кќ§^,fУ8oяS:дЈ·bIA!
+Лз;КІ%б†^qBё©ДNQ¦Зv[`с, мOјрЃваёг”шАў…LЩВ4`E’A Т 0вAP  ЋPТ`Ї= іяО 4 B…ЃЧ'BЙЭtQ р‚8UЂqE
+па-±O©ЕtР?яэгuЂ?§|ќ0J@€'*юx8?СCк2ЂxЂ8mСBѕ>џя6БыякњGАX‘А:ЃЈяйНвe®Џ®3љ к(ЉЁрг8YжоeNјИЌЯяcЂй‚рUзт):<јм 47@  KПC`8|xх­Х p 2‚ВО"Јo?‘Д,с j мt,ъ<wџр >ш{њO‡Їт&Ж3™‡жшqцВ…з#ЅзЁАе¬H…'ю
+T m,АҐ 1С—џjsОВЈ‡nC†°°tриўkбш TD‰•yьиHгЂЊ лПфyё^мЗШ!f°x
+‡Ѕзр§>њќnРs«м¶ћущщ|qњP©–>`Р;yью'АЊаhЧ<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0043)http://www.caseclub.ru/articles/modeli.html -->
+<HTML><HEAD><TITLE>Использование моделей UML в процессе разработки программных систем</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<META 
+content="Использование моделей в процессе разработки программных систем, с примерами диаграмм" 
+name=description>
+<META content="MSHTML 6.00.2712.300" name=GENERATOR>
+<META 
+content="UML, примеры диаграмм, Rational Rose, программа, разработка, создание, IT, компонеты, методика создания, CASE, проектирование программных систем  " 
+name=keywords>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Использование моделей UML в процессе разработки программных систем.files/style.css" 
+rel=stylesheet></HEAD>
+<BODY bgColor=#ffffff>
+<DIV align=center>
+<CENTER>
+<TABLE height=1 cellPadding=0 width="100%" border=0 colspan="2">
+  <TBODY>
+  <TR>
+    <TD style="FONT-FAMILY: Verdana,Tahoma,arial" vAlign=top width=100 
+    bgColor=#9eb4fc><A href="http://www.caseclub.ru/"><IMG 
+      alt="Клуб разработчиков программных систем" 
+      src="Использование моделей UML в процессе разработки программных систем.files/caseclub1.gif"></A></TD>
+    <TD style="FONT-FAMILY: Verdana,Tahoma,arial" vAlign=top width=454 
+    bgColor=#9eb4fc>
+      <P align=center><SMALL><SMALL>
+      <H1><FONT color=#9eb4fc size=1>Rational</FONT></H1>
+      <CENTER>Почитайте, это интересно:<BR><A 
+      href="http://www.caseclub.ru/articles/soda.html">Что такое Rational 
+      SoDA</A></CENTER><BR></SMALL></SMALL></SMALL></SMALL></TD></TR>
+  <TR>
+    <TD style="FONT-FAMILY: Verdana,Tahoma,arial" width="100%" bgColor=#e3e3ca 
+    colSpan=2 height=23>
+      <P align=center><SMALL><SMALL><A 
+      href="http://www.caseclub.ru/info/index.html">О клубе</A> | <A 
+      href="http://www.caseclub.ru/rating/index.html">Рейтинги</A> | <A 
+      href="http://www.caseclub.ru/methods/">Методы</A> | <A 
+      href="http://www.caseclub.ru/tools/index.html">Средства</A> | <A 
+      href="http://www.caseclub.ru/doc/index.html">Документация</A> | <A 
+      href="http://www.caseclub.ru/info/auth.html">Авторам</A> 
+      |</SMALL></SMALL><SMALL><SMALL> <A 
+      href="http://www.caseclub.ru/info/guestbook.html">Гостевая</A> | <A 
+      href="http://www.caseclub.ru/forum/index.html">Форум</A></SMALL></SMALL></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+<H1 align=center><B><SPAN 
+style="mso-bidi-font-size: 10.0pt; mso-fareast-font-family: Times New Roman; mso-ansi-language: RU; mso-fareast-language: RU; mso-bidi-language: AR-SA"><FONT 
+size=4>Использование моделей UML в процессе разработки программных 
+систем</FONT></SPAN></B></H1>
+<DIV align=center>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width=640 border=0>
+  <TBODY>
+  <TR>
+    <TD><I><B><SPAN class=author><FONT size=2>Сергей 
+      Трофимов</FONT></SPAN></B></I></TD></CENTER>
+    <TD>
+      <P align=right><SPAN class=textsm><FONT 
+    size=2>13.02.2003</FONT></SPAN></P></TD></TR></TBODY></TABLE></DIV>
+<BLOCKQUOTE>
+  <H2><FONT size=3>Введение</FONT></H2>
+  <P class=MsoNormal>Процесс разработки программного обеспечения подразумевает 
+  создания множества артефактов, одним из видов которых являются модели. Модели 
+  – это абстракция, описывающая моделируемую систему с определенной точки зрения 
+  и на определенном уровне абстрагирования. Модели – это абстракции системы, 
+  которые создаются архитекторами и проектировщиками и представляют законченный 
+  взгляд на систему.</P>
+  <P class=MsoNormal>Модель – это самодостаточное представление системы и 
+  сотрудник, который работает с моделью и не нуждается в дополнительной 
+  информации для ее понимания.</P>
+  <P class=MsoNormal>Для создания моделей используются диаграммы в нотации 
+  Unified Modeling Language (UML).</P>
+  <P class=MsoNormal>Модели могут быть связаны между собой. В <SPAN lang=EN-US 
+  style="mso-ansi-language: EN-US">UML</SPAN> такая связь называется 
+  трассировкой. Подробнее о UML моделях в RUP читайте <A 
+  href="http://www.caseclub.ru/articles/rup_uml.html">здесь</A>.</P>
+  <H2><FONT size=3>Процесс разработки</FONT></H2>
+  <P class=MsoNormal>Процесс разработки согласно <SPAN lang=EN-US 
+  style="mso-ansi-language: EN-US">Rational</SPAN><SPAN lang=EN-US> </SPAN><SPAN 
+  lang=EN-US style="mso-ansi-language: EN-US">Unified</SPAN><SPAN lang=EN-US> 
+  </SPAN><SPAN lang=EN-US style="mso-ansi-language: EN-US">Process</SPAN> 
+  представляет собой совокупность следующих базовых рабочих процессов:</P>
+  <UL>
+    <LI>
+    <P class=MsoNormal 
+    style="MARGIN-LEFT: 64.35pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo1; tab-stops: list 64.35pt"><A 
+    href="http://www.caseclub.ru/articles/treb.html">Определение требований</A>; 
+    </P>
+    <LI>
+    <P class=MsoNormal 
+    style="MARGIN-LEFT: 64.35pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo1; tab-stops: list 64.35pt">Анализ; 
+    </P>
+    <LI>
+    <P class=MsoNormal 
+    style="MARGIN-LEFT: 64.35pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo1; tab-stops: list 64.35pt">Проектирование; 
+    </P>
+    <LI>
+    <P class=MsoNormal 
+    style="MARGIN-LEFT: 64.35pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo1; tab-stops: list 64.35pt">Реализация; 
+    </P>
+    <LI>
+    <P class=MsoNormal 
+    style="MARGIN-LEFT: 64.35pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo1; tab-stops: list 64.35pt">Тестирование. 
+    </P></LI></UL>
+  <H2><FONT size=3>Определение требований</FONT></H2>
+  <P class=MsoNormal>Процесс <A 
+  href="http://www.caseclub.ru/articles/treb.html">определения требований</A> 
+  заключается в сборе всех возможных требований, осознании контекста системы, 
+  определении функциональных и нефункциональных требований</P>
+  <P class=MsoNormal>Процесс определения требований включает создание следующих 
+  моделей:</P>
+  <UL>
+    <LI>
+    <P class=MsoNormal>Модели вариантов использования; </P>
+    <LI>
+    <P class=MsoNormal>Концептуальной модели. </P></LI></UL>
+  <P class=MsoNormal><SPAN lang=RU><IMG height=225 
+  alt="Пример UML диаграммы Use Case " 
+  src="Использование моделей UML в процессе разработки программных систем.files/rose2.1.gif" 
+  width=412 align=left border=0></SPAN>Основной в этом случае является модель 
+  вариантов использования, которая предназначена для определения требований к 
+  системе. Она включает в себя актантов, варианты использования и связи между 
+  ними. Для отображения этой модели язык <SPAN lang=EN-US 
+  style="mso-ansi-language: EN-US">UML</SPAN> предлагает использовать диаграммы 
+  <SPAN lang=EN-US style="mso-ansi-language: EN-US">Use</SPAN><SPAN lang=EN-US> 
+  </SPAN><SPAN lang=EN-US style="mso-ansi-language: EN-US">Case</SPAN> (вариант 
+  использования) совместно с моделями <SPAN lang=EN-US 
+  style="mso-ansi-language: EN-US">State</SPAN><SPAN lang=EN-US> </SPAN><SPAN 
+  lang=EN-US style="mso-ansi-language: EN-US">Diagram</SPAN> (диаграммы 
+  состояний). Последние используются для конкретизации вариантов использования 
+  системы.</P>
+  <P class=MsoNormal><SPAN lang=RU><IMG height=132 
+  alt="Пример UML диаграммы Statechart" 
+  src="Использование моделей UML в процессе разработки программных систем.files/rose2.3.gif" 
+  width=426 align=right border=0></SPAN>Концептуальная модель может создаваться 
+  в некоторых случаях для более точного определения контекста системы и 
+  представляет собой сущности предметной области и их связи. Для построения этой 
+  модели используются диаграммы классов.</P>
+  <H2><A name=Анализ><FONT size=3>Анализ</FONT></A></H2>
+  <P class=MsoNormal>Процесс анализа заключается в разборе требований 
+  полученных<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>на предыдущем 
+  этапе,<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>их уточнение и 
+  систематизация.</P>
+  <P class=MsoNormal>Процесс анализа создает аналитическую модель системы. 
+  Отличия аналитической модели от модели вариантов использования даны в таблице 
+  1</P>
+  <P class=MsoNormal>Таблица 1 Сравнение модели вариантов использования и 
+  аналитической модели</P>
+  <TABLE 
+  style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; MARGIN-LEFT: 36.45pt; BORDER-LEFT: medium none; WIDTH: 394.2pt; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt" 
+  cellSpacing=0 cellPadding=0 width="100%" border=1>
+    <TBODY>
+    <TR style="HEIGHT: 15.35pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2><STRONG>Модель 
+        вариантов использования</STRONG></FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-left-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial 
+        size=2><STRONG>Аналитическая модель</STRONG></FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Использует язык 
+        заказчика</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Использует язык 
+        разработчика</FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Внешний вид 
+        системы</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Внутренний вид 
+        системы</FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Структурирована по 
+        вариантам использования. Описывает структуру внешнего вида</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Структурирована по 
+        стереотипным классам и пакетам, описывает структуру внутреннего 
+        вида</FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Используется в 
+        первую очереди как соглашение меду заказчиком и разработчиками о том, 
+        что должна делать система, а чего не должна</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Используется в 
+        первую очередь разработчиками, для того чтобы понять, как система должна 
+        быть оформлена, т. е. Спроектирована и разработана</FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Может содержать 
+        избыточность, несовместимые требования и т.п.</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Не должна содержать 
+        избыточность, несовместимые требования<SPAN 
+        style="mso-spacerun: yes">&nbsp; </SPAN>и т.п.</FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Определяет 
+        функциональность системы, в т.ч. зависящую от архитектуры</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Описывает как 
+        функциональность реализуется в системе, включая функциональность, 
+        зависящую от архитектуры; дает наметки для 
+    проектирования</FONT></P></TD></TR>
+    <TR style="HEIGHT: 8pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 224.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=374>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Определяет варианты 
+        использования</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 6cm; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 8pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=284>
+        <P style="TEXT-INDENT: 0cm"><FONT face=Arial size=2>Определяет 
+        реализации вариантов использования, каждая из которых представляет собой 
+        анализ вариантов использования из модели вариантов 
+        использования</FONT></P></TD></TR></TBODY></TABLE>
+  <P class=MsoNormal>&nbsp;Для отображения модели используется диаграмма классов 
+  с применением стереотипов «граничный класс», «класс управления», «класс 
+  сущности». </P>
+  <P class=MsoNormal>Для детализации взаимодействия между классами используется 
+  диаграмма <SPAN lang=EN-US 
+  style="mso-ansi-language: EN-US">Collaboration</SPAN> (кооперации) 
+классов.</P>
+  <P class=MsoNormal><IMG height=387 alt="Пример UML диаграммы Collaboration" 
+  src="Использование моделей UML в процессе разработки программных систем.files/modeli1.gif" 
+  width=632 border=0></P>
+  <H2><FONT size=3>Проектирование</FONT></H2>
+  <P class=MsoNormal>В процессе проектирования создается архитектура системы, 
+  которая позволит реализовать и затем поддерживать все требования определенные 
+  на предыдущих этапах.</P>
+  <P class=MsoNormal>В процессе проектирования систем используются следующие 
+  модели:</P>
+  <UL>
+    <LI>
+    <P class=MsoNormal>Модель проектирования; </P>
+    <LI>
+    <P class=MsoNormal>Модель развертывания. </P></LI></UL>
+  <P class=MsoNormal>Модель проектирования – это объектная модель, которая 
+  описывает физическую реализацию вариантов использования и представляет собой 
+  абстракцию реализации системы и используется в качестве исходных данных для 
+  реализации. Сравнение моделей анализа и проектирования даны в таблице</P>
+  <TABLE 
+  style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt" 
+  cellSpacing=0 cellPadding=0 border=1>
+    <TBODY>
+    <TR style="HEIGHT: 9.3pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 203.85pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 9.3pt" 
+      vAlign=top width=340>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2><B>Модель 
+        анализа</B></FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 205.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 9.3pt; mso-border-left-alt: solid windowtext .5pt" 
+      vAlign=top width=343>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2><B>Модель 
+        проектирования</B></FONT></P></TD></TR>
+    <TR style="HEIGHT: 15.35pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 203.85pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=340>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Концептуальная 
+        модель, так как она является абстракцией системы и не затрагивает 
+        вопросов реализации</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 205.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=343>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Физическая 
+        модель, так как она является наброском реализации</FONT></P></TD></TR>
+    <TR style="HEIGHT: 15.35pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 203.85pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=340>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Не зависит от 
+        проекта (подходит разным проектам)</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 205.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=343>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Специфична для 
+        данной реализации</FONT></P></TD></TR>
+    <TR style="HEIGHT: 15.35pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 203.85pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=340>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Три 
+        концептуальных стереотипа – «сущность», «управление» и 
+        «граница»</FONT></P></TD>
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 205.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=343>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Любое число 
+        физических стереотипов в классах, зависит от языка 
+      реализации</FONT></P></TD></TR>
+    <TR style="HEIGHT: 15.35pt">
+      <TD 
+      style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 203.85pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 15.35pt; mso-border-top-alt: solid windowtext .5pt" 
+      vAlign=top width=340>
+        <P class=MsoNormal style="TEXT-INDENT: 0cm"><FONT size=2>Слабо 
+        формализована</F

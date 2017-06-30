@@ -1,0 +1,321 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Whois
+
+
+
+">
+<TITLE>4.5.8.1 Whois</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="frd_4582.htm" tppabs="http://book.itep.ru/4/45/frd_4582.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="frd_4582.htm" tppabs="http://book.itep.ru/4/45/frd_4582.htm"><FONT COLOR="lightblue">4.5.8.2 FRED</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.8.1 Whois</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="mirror1.jpg" tppabs="http://book.itep.ru/4/45/mirror1.jpg"></P>
+<P ALIGN="JUSTIFY">&#9;WHOIS обеспечивает каталожную службу для 
+пользователей сети (RFC-0954). Эта служба заключается в поиске e-mail адресов, почтовых адресов и телефонных номеров. WHOIS может поставлять информацию о сетях, о структуре доменов и т.д. Главная база данных, относящихся к сетям, поддерживается Регистрационной службой Интернет (InterNic). В действительности имена при регистрации доменов и при выдаче IP-адресов автоматически вводятся в 
+базу данных. Каждая запись в базе имеет уникальный идентификатор (handle), имя, тип записи и ряд других полей в зависимости от типа записи. База данных поддерживается в каждой сети независимо и взаимодействие между ними не всегда существует. </P>
+
+<P ALIGN="JUSTIFY">&#9;В системах UNIX имеется аналог этой службы – <B>rwho</B>, которая предоставляет даже несколько большую информацию, сообщая дополнительно о том, кто работает в данный момент в каждой из подключенных к сети машин. </P>
+
+<P ALIGN="JUSTIFY">&#9;Сейчас создан новый протокол WHOIS++, в котором учтены прежние недостатки. WHOIS доступно для пользователей Интернет с помощью команды telnet. Возможна посылка запросов и по электронной почте.</P>
+
+<P ALIGN="JUSTIFY">Обращение к базе данных производится по команде WHOIS (значение параметра заключается в угловые скобки). Обращение к местному клиент-серверу производится по форме:</P>
+
+<P ALIGN="JUSTIFY">WHOIS &lt;-h имя_сети&gt; идентификатор</P>
+<P ALIGN="JUSTIFY">Где <I>имя_сети</I> - адрес домена, куда вы собираетесь послать запрос (например, whois.internic.net); <I>идентификатор </I>- фамилия человека, название сети или домена, IP-адрес. С идентификатором могут использоваться специальные символы, определяющие тип поиска.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="15%" VALIGN="TOP"><B><P ALIGN="JUSTIFY">.</B> (точка)</TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">перед идентификатором задает поиск по фамилии;</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><B><P ALIGN="LEFT">!</B></TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">перед идентификатором задает поиск по handle;</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><B><P ALIGN="LEFT">... or</B></TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">после идентификатора определяет режим частичного поиска: все, что начинается с идентификатора подходит.</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><B><P ALIGN="LEFT">@</B></TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">(в идентификаторе) осуществляет поиск по e-mail адресу.</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><P ALIGN="LEFT">*</TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">перед идентификатором извлекает полный список рекордов, соответствующих идентификатору (например, сеть и все зарегистрированные пользователи).</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><B><P ALIGN="LEFT">%</B></TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">перед идентификатором извлекает список всех зарегистрированных пользователей узла (или региона).</TD>
+</TR>
+<TR><TD WIDTH="15%" VALIGN="TOP"><B><P ALIGN="LEFT">~</B></TD>
+<TD WIDTH="85%" VALIGN="TOP"><P ALIGN="LEFT">перед идентификатором выдает распечатку объекта, который точно соответствует идентификатору.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="LEFT">Эти символы могут использоваться и в комбинации. Результат поиска отображается либо в виде полного текста найденной записи, либо в виде списка строк, характеризующих найденные рекорды. В обоих случаях handle следует в скобках за именем.</P>
+
+<P ALIGN="JUSTIFY">Для получения информации в интерактивном режиме используется telnet по адресу whois.internic.net (или whois.ripe.net). Далее прописные буквы обозначают приемлемые сокращения; опционные параметры помещаются в угловые скобки.</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="LEFT">WHOIS</TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Вызов программы;</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="LEFT">?</TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Вызов справочного материала;</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="LEFT">HElp</TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Вызов полномасштабной справочной поддержки;</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="LEFT">Q, QUIT, Клавиша &lt;Enter&gt;</TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT"> Выход из WHOIS</TD>
+</TR>
+<TR><TD WIDTH="40%" VALIGN="TOP"><P ALIGN="LEFT">&lt;ключевое слово&gt;идентификатор</TD>
+<TD WIDTH="60%" VALIGN="TOP"><P ALIGN="LEFT">Поиск в базе записей, содержащих идентификатор, ключевое слово может использоваться, чтобы ограничить область поиска каким-то одним полем.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="LEFT">Можно использовать следующие ключевые слова:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">PErson</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">Ограничивает поиск людьми;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">DOmain</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">Ограничивает поиск доменами (например, DO EARN.NET);</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">HOst</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">Oграничивает поиск ЭВМ (например, HO PRINCETON);</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">NEtwork</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ограничивает поиск сетями (например, NE EBONE);</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">Organization</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">Ограничивает поиск организациями (например, O CERN)</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">NАme</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">То же что и лидирующая '.' в идентификаторе;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">HАndle</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">То же что и ! в идентификаторе;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">PАrtial</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">То же что и завершающая '.' в идентификаторе;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">Mailbox</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">То же что и @ в идентификаторе;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">EXPand</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">То же что и '*' в идентификаторе;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">SUBdisplay</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">То же что и '%' в идентификаторе;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">Full or '='</B></TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">Детально отображает каждый найденный объект;</TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP"><B><P ALIGN="LEFT">SUMmary or '$</B>'</TD>
+<TD WIDTH="76%" VALIGN="TOP"><P ALIGN="LEFT">Выдает лишь список найденного;</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Использование базы данных для получения списка лиц для коммерческих целей категорически запрещено (при выявлении расстрел на месте преступления :-)).</P>
+
+<P ALIGN="JUSTIFY">Пример использования WHOIS. </P>
+<I><P>telnet wais.ripe.net<BR>
+</I>Trying 39.13.5.97 ... (IP-адрес сервера)<BR>
+Connected to info.ripe.net.<BR>
+Escape character is '^]'.</P>
+<P>RIPE Network Coordination Centre (NCC)<BR>
+INTERACTIVE INFORMATION SERVICE<BR>
+Report bugs to &lt;ncc@ripe.net&gt;.<BR>
+Enter terminal type (? for help) [vt100]: <I>ibmpc<BR>
+</I>Number of lines your terminal can display ? [24]</P>
+<P ALIGN="CENTER">Information Services Menu</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=772>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>1 - About RIPE and the RIPE NCC</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>2 - Browse through the NCC Document Store (Gopher)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>3 - Keyword Search of the NCC Document Store (WAIS)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>4 - Search the RIPE Database (whois)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>(DISABLED)</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>5 - Browse through the NCC Document Store (WWW)</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>6 - HELP for mailing documents to the UK</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P>&nbsp;</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P>q - Quit</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Enter Selection: <I>4</I> (выбираем позицию 4 - WHOIS)</P>
+<P ALIGN="JUSTIFY">Enter search key [q to quit]: <I>msu.su.</I> (Проводим поиск записей, относящихся к домену msu.su). Система выдает:</P>
+<P>domain: MSU.SU<BR>
+descr: Lomonosov Moscow State University<BR>
+admin-c: SB16<BR>
+admin-c: DA196<BR>
+tech-c: DA196<BR>
+tech-c: SN4-RIPE<BR>
+zone-c: DA196<BR>
+nserver: unisun.radio-msu.net sun01a.desy.de<BR>
+nserver: ns1.barrnet.net ns2.barrnet.net<BR>
+sub-dom: npi cs srcc phys chem cogsci bio bog mics math geogr med<BR>
+sub-dom: econ rector logos geol lib sai journ cshe hist genebee<BR>
+sub-dom: law soc pvt<BR>
+changed: ada@radio-msu.net 950316<BR>
+source: RIPE<BR>
+person: Sergey F. Berezhnev<BR>
+address: Nuclear Physics Institute<BR>
+address: Moscow State University<BR>
+address: 119899 Moscow<BR>
+address: Russia<BR>
+phone: +7 095 932 8974<BR>
+phone: +7 095 939 5877<BR>
+fax-no: +7 095 932 8974<BR>
+e-mail: sfb@radio-msu.net<BR>
+nic-hdl: SB16<BR>
+notify: noc@radio-msu.net<BR>
+changed: ada@radio-msu.net 950303<BR>
+source: RIPE<BR>
+person: Dmitry A. Avdeyev<BR>
+address: Nuclear Physics Institute<BR>
+address: Moscow State University<BR>
+address: 119899 Moscow<BR>
+address: Russia<BR>
+phone: +7 095 932 8880<BR>
+phone: +7 095 939 5877<BR>
+fax-no: +7 095 932 8974<BR>
+e-mail: ada@radio-msu.net<BR>
+nic-hdl: DA196<BR>
+notify: ada@radio-msu.net<BR>
+mnt-by: RADIO-MSU-MNT<BR>
+changed: ada@radio-msu.net 950302<BR>
+source: RIPE<BR>
+person: Serge Yu. Nikiphorov<BR>
+address: Nuclear Physics Institute<BR>
+address: Moscow State University<BR>
+address: 119899 Moscow<BR>
+address: Russia<BR>
+phone: +7 095 932 8880<BR>
+phone: +7 095 939 5877<BR>
+e-mail: serg@radio-msu.net<BR>
+nic-hdl: SN4-RIPE<BR>
+changed: ada@radio-msu.net 950130<BR>
+source: RIPE<BR>
+Enter search key [q to quit]: <I>q</P></I>
+<P ALIGN="JUSTIFY">Еще один пример поиска в базе данных WHOIS, здесь задача решается с помощью команды, обращенной к серверу RIPE. Ищется информация об узле itep.ru: <I>whois –h whois.ripe.net itep.ru</I> (ЭВМ SUN):</P>
+<P>domain: ITEP.RU<BR>
+descr: Institute for Theoretical and Experimental Physics<BR>
+descr: ITEP, B.Cheremushkinskaja 25,<BR>
+descr: Moscow 117259, Russia.<BR>
+admin-c: Yuri Al. Semenov<BR>
+tech-c: Andrey N. Bobyshev<BR>
+zone-c: Andrey N. Bobyshev<BR>
+nserver: ns.itep.ru suncom.itep.ru sun01a.desy.de<BR>
+dom-net: 192.148.166.0 193.124.224.0 193.124.225.0 193.124.226.0<BR>
+remarks: fully-managed<BR>
+changed: bobyshev@cl.itep.ru 950218<BR>
+source: RIPE<BR>
+person: Yuri Al. Semenov<BR>
+address: Institute for Theoretical<BR>
+address: and Experimental Physics<BR>
+address: B.Cheremushkinskaja 25,<BR>
+address: Moscow 117259, Russia.<BR>
+phone: +7 095 1230292<BR>
+fax-no: +7 095 1236584<BR>
+e-mail: semenov@cl.itep.ru<BR>
+changed: bobyshev@cl.itep.ru 941005<BR>
+source: RIPE<BR>
+person: Andrey N. Bobyshev<BR>
+address: ITEP<BR>
+address: B.Cheremushkinskaja 25,<BR>
+address: Moscow 117259, Russia.<BR>
+phone: +7 095 1230292<BR>
+fax-no: +7 095 1236584<BR>
+e-mail: bobyshev@cl.itep.ru<BR>
+nic-hdl: AB293<BR>
+changed: bobyshev@cl.itep.ru 941005<BR>
+source: RIPE</P>
+
+<P ALIGN="JUSTIFY">Существуют и другие программы для поиска информации о клиентах сети Internet (например, knowbot). Обращение к такой программе может быть выполнено, в частности, командой telnet nri.reston.va.us 185 (185 - номер порта). После входа в систему вы можете выдать запрос информации о возможностях системы поиска, напечатав ?, или просто выдав команду query vanja ivanov. Пользователи могут послать запрос через e-mail по адресу mailserv@internic.net. Команды записываются в поле subject. Текст сообщения обычно пуст, если subject не содержит команд, то интерпретируется первая строка текста сообщения. Запросы должны начинаться со слова WHOIS. Например: WHOIS \!EARN (\ представляет собой символ esc). Служба WHOIS документирована в RFC-1400. С любыми вопросами следует обращаться по адресу action@internic.net. Исчерпывающую информацию о 
+WHOIS можно получить через анонимное FTP по адресам: nic.merit.edu /documents или sipb.mit.edu /pub/whois/whois-servers.list. Для этих же целей можно воспользоваться WWW: www.earn.net gnrt/whois.html или gopher: phantom.bsu.edu :4320/7whois%20rs.internic.net (число после двоеточия - номер порта). К материалам о WHOIS имеется доступ и с помощью telnet: 
+rs.internic.net.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="frd_4582.htm" tppabs="http://book.itep.ru/4/45/frd_4582.htm"><FONT COLOR="lightblue">4.5.8.2 FRED</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

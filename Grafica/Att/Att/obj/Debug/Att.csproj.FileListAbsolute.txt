@@ -1,0 +1,9 @@
+D:\UTM\Grafica\Att\Att\bin\Debug\Att.exe.config
+D:\UTM\Grafica\Att\Att\bin\Debug\Att.exe
+D:\UTM\Grafica\Att\Att\bin\Debug\Att.pdb
+D:\UTM\Grafica\Att\Att\obj\Debug\Att.csprojResolveAssemblyReference.cache
+D:\UTM\Grafica\Att\Att\obj\Debug\Att.Form1.resources
+D:\UTM\Grafica\Att\Att\obj\Debug\Att.Properties.Resources.resources
+D:\UTM\Grafica\Att\Att\obj\Debug\Att.csproj.GenerateResource.Cache
+D:\UTM\Grafica\Att\Att\obj\Debug\Att.exe
+D:\UTM\Grafica\Att\Att\obj\Debug\Att.pdb

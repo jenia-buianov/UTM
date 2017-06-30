@@ -1,0 +1,1119 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="
+
+
+">
+<TITLE>4.4.2 Протокол UDP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="l2pr.htm" tppabs="http://book.itep.ru/4/44/l2pr.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="tcp_443.htm" tppabs="http://book.itep.ru/4/44/tcp_443.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="l2pr.htm" tppabs="http://book.itep.ru/4/44/l2pr.htm"><FONT COLOR="lightblue">4.4.1.3 Протокол туннелей на сетевом уровне L2 (L2TP)</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="tcp_443.htm" tppabs="http://book.itep.ru/4/44/tcp_443.htm"><FONT COLOR="lightblue">4.4.3 Протокол TCP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.2 Протокол UDP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<CENTER><IMG SRC="udp.gif" tppabs="http://book.itep.ru/4/44/udp.gif"></center>
+
+
+<p align="justify"> Протокол UDP (user datagram protocol,
+RFC-768) является одним из основных протоколов, расположенных непосредственно
+над IP. Он предоставляет прикладным процессам транспортные услуги, немногим
+отличающиеся от услуг протокола IP. Протокол UDP обеспечивает доставку
+дейтограмм, но не требует подтверждения их получения. Протокол UDP не требует
+соединения с удаленным модулем UDP 
+("бессвязный" протокол). К заголовку IP-пакета udp добавляет поля <i>порт
+отправителя</i> и <i>порт получателя</i>, которые обеспечивают мультиплексирование
+информации между различными прикладными процессами, а также поля <i>длина</i>
+udp-дейтограммы и <i>контрольная сумма</i>, позволяющие поддерживать целостность
+данных. Таким образом, если на уровне ip для определения места доставки
+пакета используется адрес, на уровне UDP - номер порта.
+
+<p align="justify"> Примерами сетевых приложений, использующих
+UDP, являются NFS(network file system), TFTP(trivial file transfer
+protocol, RFC-1350), RPC (remote procedure call,
+RFC-1057) и SNMP (simple network management protocol,
+RFC-1157). Малые накладные расходы, связанные с форматом UDP, а также отсутствие
+необходимости подтверждения получения пакета, делают этот протокол наиболее
+популярным при реализации приложений мультимедиа, но главное его место
+работы - локальные сети и мультимедиа.
+
+<p align="justify"> Прикладные процессы и модули UDP взаимодействуют
+через UDP-порты. Эти порты нумеруются, начиная с нуля. Прикладной процесс,
+предоставляющий некоторые услуги (сервер), ожидает сообщений, направленных
+в порт, специально выделенный для этих услуг. Программа-сервер ждет, когда
+какая-нибудь программа-клиент запросит услугу.
+
+<p align="justify"> Например, сервер snmp всегда ожидает сообщения,
+адресованного в порт 161. Если клиент snmp желает получить услугу, он посылает
+запрос в UDP-порт 161 на машину, где работает сервер. На каждой машине
+может быть только один агент SNMP, т.к. существует только один порт 161.
+Данный номер порта является общеизвестным, т.е. фиксированным номером,
+официально выделенным в сети Internet
+для услуг SNMP. Общеизвестные номера портов определяются стандартами Internet
+(см. табл. 4.4.2.1).
+
+<p align="justify"> Данные, отправляемые прикладным процессом
+через модуль UDP, достигают места назначения как единое целое. Например,
+если процесс-отправитель производит 5 записей в порт, то процесс-получатель
+должен будет сделать 5 чтений. Размер каждого записанного сообщения будет
+совпадать с размером каждого прочитанного. Протокол UDP сохраняет границы
+сообщений, определяемые прикладным процессом. Он никогда не объединяет
+несколько сообщений в одно и не делит одно сообщение на части. Формат UDP-сообщений представлен ниже на рис. 4.4.2.1:
+
+<center><img src="image337.gif" tppabs="http://book.itep.ru/4/44/image337.gif"></center>
+<center>Рис. 4.4.2.1 Формат UDP-дейтограмм</center>
+
+<p align="justify"> Длина сообщения равна числу байт в UDP-дейтограмме,
+включая заголовок. Поле UDP контрольная сумма содержит код, полученный
+в результате контрольного суммирования UDP-заголовка и поля данные. Не
+трудно видеть, что этот протокол использует заголовок минимального размера
+(8 байт). Таблица номеров UDP-портов приведена ниже (4.4.2.1). Номера портов
+от 0 до 255 стандартизованы и использовать их в прикладных задачах не рекомендуется. Но и в интервале 255-1023 многие номера портов заняты, поэтому прежде чем использовать какой-то порт в своей программе, следует заглянуть в RFC-1700. Во второй колонке содержится стандартное имя, принятое в Internet,
+а в третей - записаны имена, принятые в unix.
+
+<p align="justify"> <a name="point1"> <b>Таблица 4.4.2.1</b> Номера UDP-портов
+(более полный перечень в RFC-1700; Если какой-то номер порта в перечне
+отсутствует, это не означает, что он не зарезервирован и его можно использовать,
+просто я сэкономил место)
+<br>
+<center><table border=10 cellspacing=2 cellpadding=5 width="800" bgcolor="ghostwhite">
+<tr>
+<td valign=top width="15%" bgcolor="gainsboro"><font face="arial">Десятич. номер порта</td>
+
+<td valign=top colspan="2" width="39%" bgcolor="gainsboro"><font face="arial">Обозначение порта</font></td>
+<td valign=top width="46%" bgcolor="gainsboro"><font face="arial">Описание</td>
+</tr>
+<tr>
+<td valign=top width="15%"> </td>
+<td valign=top width="22%"><font face="arial">в Интернет</font></td>
+<td valign=top width="17%"><font face="arial"><p align="center">в Unix</font></td>
+<td valign=top width="46%"> </td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">0</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Зарезервировано</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">1</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">TCPmux</font></td>
+<td valign=top width="17%"><center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">tcp Мультиплексор</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">2</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Compressnet</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Программа управления</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">3</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Compressnet</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Процесс сжатия</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">5</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">RJE</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Вход в удаленную задачу</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">7</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Echo</font></td>
+<td valign=top width="17%">
+<center><font face="arial">echo</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Эхо</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">9</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Discard</font></td>
+<td valign=top width="17%">
+<center><font face="arial">discard</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сброс</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">11</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Users</font></td>
+<td valign=top width="17%">
+<center><font face="arial">systat</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Активные пользователи</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">13</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Daytime</font></td>
+<td valign=top width="17%">
+<center><font face="arial">daytime</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Время дня</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">15</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">Netstat</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Кто работает или netstat</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">19</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Chargen</font></td>
+<td valign=top width="17%">
+<center><font face="arial">chargen</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Генератор символов</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">20</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">FTP-data</font></td>
+<td valign=top width="17%">
+<center><font face="arial">ftp-data</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">FTP (данные)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">21</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">FTP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">ftp</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол пересылки файлов
+(управление)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">23</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">telnet</font></td>
+<td valign=top width="17%">
+<center><font face="arial">telnet</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Подключение терминала</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">24</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Любая частная почтовая система</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">25</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SMTP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">smtp</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол передачи почтовых
+сообщений</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">31</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">MSG-auth</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Распознавание сообщения (аутентификация)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">35</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Любой частный принт-сервер</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">37</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Time</font></td>
+<td valign=top width="17%">
+<center><font face="arial">time</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Время</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">39</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">RLP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол поиска ресурсов</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">41</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Graphics</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Графика</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">42</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">nameserver</font></td>
+<td valign=top width="17%">
+<center><font face="arial">name</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сервер имен</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">43</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Nicname</font></td>
+<td valign=top width="17%">
+<center><font face="arial">whois</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Кто это? (whois-сервис)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">45</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">MPM</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Блок обработки входных сообщений</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">46</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">MPM-snd</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Блок обработки выходных сообщений</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">48</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Auditd</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Демон цифрового аудита</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">49</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">login</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол входа в ЭВМ</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">50</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">RE-mail-ck</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол удаленного контроля
+почтовым обменом</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">53</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Domain</font></td>
+<td valign=top width="17%">
+<center><font face="arial">nameserver</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сервер имен доменов (dns)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">57</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Любой частный терминальный
+доступ</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">59</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Любой частный файл-сервер</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">64</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">covia</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Коммуникационный интегратор
+(ci)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">66</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SQL*net</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Oracle SQL*net</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">67</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Bootps</font></td>
+<td valign=top width="17%">
+<center><font face="arial">Bootps</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол загрузки сервера</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">68</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Bootpc</font></td>
+<td valign=top width="17%">
+<center><font face="arial">bootpc</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол загрузки клиента</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">69</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">TFTP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">tftp</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Упрощенная пересылка файлов</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">70</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Gopher</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Gopher (поисковая система)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">71</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">Netrjs-1</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сервис удаленных услуг</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">77</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">rje</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Любой частный RJE-сервис</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">79</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Finger</font></td>
+<td valign=top width="17%">
+<center><font face="arial">finger</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">finger</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">80</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">WWW-HTTP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">World Wide Web HTTP</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">81</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Hosts2-NS</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сервер имен 2</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">87</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Любая частная терминальная
+связь</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">88</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Kerberos</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Kerberos</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">92</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">NPP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол сетевой печати</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">93</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">DCP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол управления приборами</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">95</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Supdup</font></td>
+<td valign=top width="17%">
+<center><font face="arial">supdup</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Supdup протокол</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">97</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Swift-rvf</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">swift-протокол удаленных
+виртуальных файлов</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">101</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Hostname</font></td>
+<td valign=top width="17%">
+<center><font face="arial">hostnames</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сервер имен ЭВМ для сетевого
+информационного центра</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">102</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">ISO-Tsap</font></td>
+<td valign=top width="17%">
+<center><font face="arial">iso-tsap</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">ISO-Tsap</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">103</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">GPPitnp</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Сети точка-точка</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">104</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">ACR-nema</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">ACR-nema digital IMAG. &
+comm. 300</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">108</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Snagas</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">sna-сервер доступа </font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">109</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">POP2</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Почтовый протокол pop2</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">110</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">POP3</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Почтовый протокол POP3</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">111</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SUNRPC</font></td>
+<td valign=top width="17%">
+<center><font face="arial">sunrpc</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">SUN microsystem RPC</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">113</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Auth</font></td>
+<td valign=top width="17%">
+<center><font face="arial">auth</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Служба распознавания</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">114</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Audionews</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Аудио-новости</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">115</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SFTP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Простой протокол передачи
+файлов</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">117</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">UUCP-path</font></td>
+<td valign=top width="17%">
+<center><font face="arial">uucp-path</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Служба паролей uucp</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">118</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SQLserv</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">SQL-сервер</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">119</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">NNTP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">NNTP</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Протокол передачи новостей</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">123</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">NTP</font></td>
+<td valign=top width="17%">
+<center><font face="arial">NTP</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сетевой протокол синхронизации</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">129</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">PWDgen</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Протокол генерации паролей</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">130-132</font></center>
+</td>
+<td valign=top width="22%"> </td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Cisco</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">133</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Statsrv</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Сервер статистики</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">134</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Ingres-net</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Ingres-net-сервис</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">135</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">LOC-srv</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Поисковый сервис</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">137</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Netbios-SSN</font></td>
+<td valign=top width="17%">
+<center><font face="arial">-</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Служба имен Netbios</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">138</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Netbios-DGM</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Служба дейтограмм netbios</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">139</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Netbios-SSN</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Служба сессий Netbios</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">147</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">ISO-IP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">ISO-IP</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">150</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SQL-net</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">SQL net</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">152</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">BFTP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Протокол фоновой пересылки
+файлов</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">156</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SQLsrv</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">SQL-сервер</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">158</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">PCmail-srv</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">PC почтовый сервер</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">161</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">SNMP</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Сетевой монитор SNMP</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">162</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">SNMP-trap</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">SNMP-ловушки</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">170</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Print-srv</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">postscript сетевой сервер
+печати</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">179</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">BGP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Динамический протокол внешней
+маршрутизации</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">191</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Prospero</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Служба каталогов Prospero</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">194</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">IRC</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Протокол Интернет для удаленных
+переговоров</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">201-206</font></center>
+</td>
+<td valign=top width="22%"> </td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Протоколы сетей Apple talk</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">213</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">IPX</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">ipx</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">348</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">CSI-SGWP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Протокол управления cabletron</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">396</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Netware-IP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Novell-Netware через IP</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">398</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Kryptolan</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Kryptolan</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">414</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Infoseek</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Infoseek (информационный
+поиск)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">418</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Hyper-g</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Hyper-g</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">444</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">SNPP</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Простой протокол работы со
+страницами</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">512</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">biff (exec)</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Unix Comsat (удаленное исполнение)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">513</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">Who</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Unix Rwho daemon</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">514</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">syslog</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Дневник системы</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">515</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">Printer</font></td>
+<td valign=top width="17%"> </td>
+<td valign=top width="46%"><font face="arial">Работа с буфером печати (spooler)</font></td>
+</tr>
+<tr>
+<td valign=top width="15%">
+<center><font face="arial">525</font></center>
+</td>
+<td valign=top width="22%"><font face="arial">-</font></td>
+<td valign=top width="17%">
+<center><font face="arial">Timed</font></center>
+</td>
+<td valign=top width="46%"><font face="arial">Драйвер времени</font></td>
+</tr>
+</table></center>
+<p ALING="Justify">Зарегистрировано ряд портов для стандартного
+применения и в диапазоне 1024-65535. Например:
+<br> 
+<center><table border=0 cellspacing=0 cellpadding=9 width="772" >
+<tr>
+<td valign=top width="26%"><b>Номер порта</b></td>
+<td valign=top width="29%"><b>Обозначение</b></td>
+<td valign=top width="45%"><b>Назначение</b></td>
+</tr>
+<tr>
+<td valign=top width="26%">1397</td>
+<td valign=top width="29%">Аudio-activmail</td>
+<td valign=top width="45%">Активная звуковая почта</td>
+</tr>
+<tr>
+<td valign=top width="26%">1398</td>
+<td valign=top width="29%">Video-activmail</td>
+<td valign=top width="45%">Активная видео-почта</td>
+</tr>
+<tr>
+<td valign=top width="26%">5002</td>
+<td valign=top width="29%">RFE</td>
+<td valign=top width="45%">Радио-Ethernet</td>
+</tr>
+<tr>
+<td valign=top width="26%">6000-6063</td>
+<td valign=top width="29%">X11</td>
+<td valign=top width="45%">Система X Windows</td>
+</tr>
+<tr>
+<td valign=top width="26%">7008</td>
+<td valign=top width="29%">AFS3-update</td>
+<td valign=top width="45%">Сервер-сервер актуализация</td>
+</tr>
+</table></center>
+
+<P ALIGN="justify">Модуль IP передает поступающий IP-пакет модулю
+UDP, если в заголовке этого пакета указан код протокола UDP. Когда модуль
+UDP получает дейтограмму от модуля IP, он проверяет контрольную сумму,
+содержащуюся в ее заголовке. Если контрольная сумма равна нулю, это означает,
+что отправитель ее не подсчитал. ICMP, IGMP, UDP и TCP протоколы имеют
+один и тот же алгоритм вычисления контрольной суммы (RFC-1071). Но вычисление
+контрольной суммы для UDP имеет некоторые особенности. Во-первых, длина
+UDP-дейтограммы может содержать нечетное число байт, в этом случае к ней
+добавляется нулевой байт, который служит лишь для унификации алгоритма
+и никуда не пересылается. Во-вторых, при расчете контрольной суммы для
+UDP и TCP добавляются 12-байтные псевдо-заголовки, содержащие IP-адреса
+отправителя и получателя, код протокола и длину дейтограммы (см. рис. 4.4.2.2).
+Как и в случае IP-дейтограммы, если вычисленная контрольная сумма равна
+нулю, в соответствующее поле будет записан код 65535.</P>
+
+<center><img src="image338.gif" tppabs="http://book.itep.ru/4/44/image338.gif"></CENTER>
+<CENTER>Рис. 4.4.2.2. Псевдозаголовок, используемый
+при расчете контрольной суммы</CENTER>
+
+<P ALIGN="justify">Если контрольная сумма правильная (или равна 0), то проверяется порт назначения, указанный в заголовке дейтограммы. Если прикладной процесс подключен к этому порту, то прикладное сообщение, содержащиеся в дейтограмме, становится в очередь к прикладному процессу для прочтения. В остальных случаях дейтограмма отбрасывается. Если дейтограммы поступают быстрее, чем их успевает обрабатывать прикладной процесс, то при переполнении очереди сообщений поступающие дейтограммы отбрасываются модулем UDP. Следует учитывать, что во многих посылках контрольное суммирование не охватывает адреса отправителя и места назначения. При некоторых схемах маршрутизации это приводит к зацикливанию пакетов в случае повреждения его адресной части (адресат не признает его "своим").</P>
+
+<P ALIGN="JUSTIFY">Так как максимальная длина IP-дейтограммы равна 65535 байтам, максимальная протяженность информационного поля UDP-дейтограммы
+составляет 65507 байт. На практике большинство систем работает с UDP-дейтограммами с длиной 8192 байта или менее. Детальное описание форматов, полей пакетов и пр. читатель может найти в RFC-768.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="l2pr.htm" tppabs="http://book.itep.ru/4/44/l2pr.htm"><FONT COLOR="lightblue">4.4.1.3 Протокол туннелей на сетевом уровне L2 (L2TP)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="inter_44.htm" tppabs="http://book.itep.ru/4/44/inter_44.htm"><FONT COLOR="lightblue">4.4 Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="tcp_443.htm" tppabs="http://book.itep.ru/4/44/tcp_443.htm"><FONT COLOR="lightblue">4.4.3 Протокол TCP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

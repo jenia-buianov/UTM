@@ -1,0 +1,763 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="BGP
+RIB
+маршрутная политика
+адресный префикс
+агрегатор
+
+
+
+
+">
+<TITLE>4.4.11.4 Внешний протокол BGP</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="igp44113.htm" tppabs="http://book.itep.ru/4/44/igp44113.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="cidr4115.htm" tppabs="http://book.itep.ru/4/44/cidr4115.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="igp44113.htm" tppabs="http://book.itep.ru/4/44/igp44113.htm"><FONT COLOR="lightblue">4.4.11.3 Протокол IGRP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="cidr4115.htm" tppabs="http://book.itep.ru/4/44/cidr4115.htm"><FONT COLOR="lightblue">4.4.11.5 Бесклассовая интердоменная     маршрутизация (CIDR)</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.11.4 Внешний протокол BGP</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<p ALIGN="JUSTIFY">Протокол BGP (RFC-1267, BGP-3; RFC-1268; RFC-1467, BGP-4; -1265-66, 1655) разработан компаниями IBM и CISCO. Главная цель BGP - сократить транзитный трафик. Местный трафик либо начинается, либо завершается в автономной системе (AS); в противном случае – это транзитный трафик. Системы без транзитного трафика не нуждаются в BGP (им достаточно EGP для
+общения с транзитными узлами). Но не всякая ЭВМ, использующая протокол BGP, является маршрутизатором, даже если она обменивается маршрутной информацией с пограничным маршрутизатором соседней автономной системы. AS передает информацию только о маршрутах, которыми она сама пользуется. BGP-маршрутизаторы обмениваются сообщениями об изменении маршрутов (UPDATE-сообщения, рис. 4.4.11.4.1). Максимальная длина таких сообщений составляет 4096 октетов, а
+минимальная 19 октетов. Каждое сообщение имеет заголовок фиксированного размера. Объем информационных полей зависит от типа сообщения.</p>
+
+<p ALIGN="center"><img src="image556.gif" tppabs="http://book.itep.ru/4/44/image556.gif"></p>
+<p align="center">Рис. 4.4.11.4.1. Формат BGP-сообщений об изменениях маршрутов</p>
+
+<p align="justify">Поле <i>маркер</i> содержит 16 октетов и его содержимое может легко интерпретироваться получателем. Если <i>тип</i> сообщения "OPEN", или если код идентификации в сообщении open равен нулю, то поле <i>маркер</i> должно быть заполнено единицами. Маркер может использоваться для обнаружения потери синхронизации в работе BGP-партнеров. Поле <i>длина</i> имеет два октета и определяет общую длину сообщения в октетах, включая заголовок. Значение этого поля должно лежать в пределах 19-4096. Поле <i>тип</i> представляет
+собой код разновидности сообщения и может принимать следующие значения:</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="850">
+  <tr>
+    <td width="9%" valign="top"><p align="justify">1</td>
+    <td width="34%" valign="top"><p align="justify">OPEN</td>
+    <td width="57%" valign="top"><p align="justify">(открыть)</td>
+  </tr>
+  <tr>
+    <td width="9%" valign="top"><p align="justify">2</td>
+    <td width="34%" valign="top"><p align="justify">UPDATE</td>
+    <td width="57%" valign="top"><p align="justify">(изменить)</td>
+  </tr>
+  <tr>
+    <td width="9%" valign="top"><p align="justify">3</td>
+    <td width="34%" valign="top"><p align="justify">NOTIFICATION</td>
+    <td width="57%" valign="top"><p align="justify">(внимание)</td>
+  </tr>
+  <tr>
+    <td width="9%" valign="top"><p align="justify">4</td>
+    <td width="34%" valign="top"><p align="justify">KEEPALIVE</td>
+    <td width="57%" valign="top"><p align="justify">(еще жив)</td>
+  </tr>
+</table>
+
+<p align="justify">После того как связь на транспортном протокольном уровне установлена, первое сообщение, которое должно быть послано - это OPEN. При успешном прохождении этого сообщения партнер должен откликнуться сообщением KEEPALIVE ("Еще жив"). После этого возможны любые сообщения. Кроме заголовка сообщение open содержит следующие поля (рис. 4.4.11.4.2):</p>
+
+<p align="center"><img src="image557.gif" tppabs="http://book.itep.ru/4/44/image557.gif"></p>
+<p align="center">Рис. 4.4.11.4.2 Формат сообщения open</p>
+
+<p align="justify">Поле <i>версия</i> описывает код версии используемого протокола, на сегодня для BGP он равен 4. Двух-октетное поле <i>моя автономная система</i> определяет код AS отправителя. Поле <i>время сохранения</i> характеризует время в секундах, которое отправитель предлагает занести в таймер сохранения. После получения сообщения OPEN BGP-маршрутизатор должен выбрать значение времени сохранения. Обычно выбирается меньшее из полученного в сообщении open и значения, определенного при конфигурации системы (0-3сек).
+Время сохранения определяет максимальное время в секундах между сообщениями KEEPALIVE и UPDATE или между двумя UPDATE-сообщениями. Каждому узлу в рамках BGP приписывается 4-октетный <i> идентификатор </i>(BGP-identifier, задается при инсталляции и идентичен для всех интерфейсов локальной сети). Если два узла установили два канала связи друг с другом, то согласно правилам должен будет сохранен канал, начинающийся в узле, BGP-идентификатор которого больше. Предусмотрен механизм разрешения проблемы при равных идентификаторах.</p>
+
+<p align="justify">Одно-октетный код идентификации позволяет организовать систему доступа, если он равен нулю, маркер всех сообщений заполняется единицами, а поле идентификационных данных должно иметь нулевую длину. При неравном нулю коде идентификации должна быть определена процедура доступа и алгоритм вычисления кодов поля маркера. Длина поля идентификационных
+данных определяется по формуле:</p>
+
+<p>Длина сообщения = 29 + длина поля идентификационных данных.<br>
+Минимальная длина сообщения open составляет 29 октетов, включая заголовок.</p>
+
+<p align="justify">Сообщения типа UPDATE (изменения) используются для передачи маршрутной информации между BGP-партнерами. Этот тип сообщения позволяет сообщить об одном новом маршруте или объявить о закрытии группы маршрутов, причем объявление об открытии нового и закрытии старых маршрутов возможно в пределах одного сообщения. Сообщение UPDATE всегда содержит стандартный 
+заголовок и может содержать другие поля в соответствии со схемой:</p>
+
+<p align="center"><img src="image558.gif" tppabs="http://book.itep.ru/4/44/image558.gif"></p>
+<p align="center">Рис. 4.4.11.4.3 Формат update-сообщения</p>
+
+<p align="justify">Если длина списка отмененных маршрутов равна нулю, ни один маршрут не отменен, а поле отмененные маршруты в сообщении отсутствует. Поле отмененные маршруты имеет переменную длину и содержит список IP-адресных префиксов маршрутов, которые стали недоступны. Каждая такая запись имеет формат:</p>
+
+<p align="center"><img src="image559.gif" tppabs="http://book.itep.ru/4/44/image559.gif"></p>
+
+<p align="justify">Длина <i>префикса </i>(в битах), равная нулю означает, что префикс соответствует всем IP-адресам, а сам имеет нулевой размер. Поле префикс содержит IP-адресные префиксы, за которыми следуют разряды, дополняющие их до полного числа октетов. Значения этих двоичных разрядов смысла не имеют.</p>
+
+<p align="justify">Нулевое значение полной длины списка атрибутов пути говорит о том, что информация о доступности сетевого уровня в UPDATE-сообщении отсутствует. Список атрибутов пути присутствует в любом UPDATE-сообщении. Этот список имеет переменную длину, а каждый атрибут содержит три составные части: тип атрибута, длину атрибута и значение атрибута. Тип атрибута представляет собой двух-октетное поле со структурой:</p>
+
+<p align="center"><img src="image560.gif" tppabs="http://book.itep.ru/4/44/image560.gif"></p>
+
+<p align="justify">Старший бит (бит0) поля <i>флаги</i> атрибута определяет, является ли атрибут опционным (бит0=1) или стандартным (well-known, бит0=0). Бит 1 этого поля определяет, является ли атрибут переходным (бит1=1) или непереходным (бит1=0). Для обычных атрибутов этот бит должен быть 
+равен 1. Третий бит (бит 2) поля Флагов атрибута определяет, является ли информация в опционном переходном атрибуте полной (бит2=0) или частичной (бит2=1). Для обычных и для опционных непереходных атрибутов этот бит должен быть равен нулю. Бит 3 поля <i>флагов атрибута</i> информирует о том, имеет ли длина атрибута один (бит3=0) октет или два октета (бит3=1). Бит3 может быть равен 1 только в случае, когда длина атрибута более 255 октетов. Младшие 4 бита октета <i>флагов атрибута</i> не используются (и должны обнуляться). Если бит3=0, то третий октет атрибута пути содержит длину поля данных атрибута в октетах. Если же бит3=1, то третий и четвертый октеты атрибута пути хранят длину поля данных атрибута. Остальные октеты поля атрибут пути характеризуют значение атрибута и интерпретируются согласно флагам атрибута.</p>
+
+<p align="justify">Атрибуты пути бывают "стандартные обязательные" (well-known mandatory), "стандартные на усмотрение оператора", "опционные переходные" и "опционные непереходные". Стандартные атрибуты должны распознаваться любыми BGP-приложениями. Опционные атрибуты могут не распознаваться некоторыми
+приложениями. Обработка нераспознанных атрибутов задается битом 1 поля флагов. Пути с нераспознанными переходными опционными атрибутами должны восприниматься, как рабочие. Один и тот же атрибут может появляться в списке атрибутов пути только один раз.</p>
+
+<p align="justify">Предусмотрены следующие разновидности кодов типа атрибута:</p>
+
+<p align="justify"><b>ORIGIN</b> (код типа = 1) - стандартный обязательный атрибут, который определяет происхождение путевой информации. Генерируется
+автономной системой, которая является источником маршрутной информации. Значение
+атрибута в этом случае может принимать следующие значения:</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="800" bgcolor="ghostwhite">
+  <tr>
+    <td width="15%" valign="top" bgcolor="gainsboro"><b><p align="center">Код атрибута</b></td>
+    <td width="85%" valign="top" bgcolor="gainsboro"><p align="justify">Описание</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">0</td>
+    <td width="85%" valign="top"><p align="justify">IGP - информация достижимости сетевого уровня
+    является внутренней по отношению к исходной автономной системе;</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">1</td>
+    <td width="85%" valign="top"><p align="justify">EGP - информация достижимости сетевого уровня получена с помощью внешнего протокола маршрутизации;</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="center">2</td>
+    <td width="85%" valign="top"><p align="justify">Incomplete - информация достижимости сетевого 
+    уровня получена каким-то иным способом.</td>
+  </tr>
+</table></div>
+
+<p align="justify"><b>AS_PATH</b> (код типа = 2) также является стандартным обязательным атрибутом, который составлен из совокупности сегментов пути. Атрибут определяет автономные системы, через которые доставлена маршрутная информация. Когда BGP-маршрутизатор передает описание маршрута, которое он получил от своего BGP-партнера, он модифицирует AS_PATH-атрибут, соответствующий этому маршруту, если информация передается за пределы автономной системы. Каждый сегмент AS_PATH состоит из трех частей <тип сегмента пути, длина сегмента пути и оценка сегмента пути>. Тип сегмента пути представляет в свою очередь однооктетное поле, которое может принимать
+следующие значения:</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="2" width="800" bgcolor="ghostwhite">
+  <tr>
+    <td width="18%" valign="top" bgcolor="gainsboro"><b><p align="center">Код типа сегмента</b></td>
+    <td width="82%" valign="top" bgcolor="gainsboro"><b><p align="justify">Описание</b></td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><b><p align="center">1</b></td>
+    <td width="82%" valign="top"><p align="justify">AS_set:
+    неупорядоченный набор маршрутов в update сообщении;</td>
+  </tr>
+  <tr>
+    <td width="18%" valign="top"><b><p align="center">2</b></td>
+    <td width="82%" valign="top"><p align="justify">AS_sequence:
+    упорядоченный набор маршрутов автономной системы в UPDATE-сообщении.</td>
+  </tr>
+</table></div>
+
+<p align="justify"><i>Длина сегмента пути</i> представляет собой одно-октетное поле, содержащее число as, записанных в поле <i>оценка сегмента пути</i>. Последнее поле хранит один или более кодов автономной системы, по два октета каждый.</p>
+
+<p align="justify"><b>NEXT_HOP</b> (код типа = 3) - стандартный обязательный атрибут, определяющий IP-адрес пограничного маршрутизатора, который должен рассматриваться как цель следующего шага на пути к точке назначения. </p>
+
+<p align="justify"><b>MULTI_EXIT_DISC</b> (код типа = 4) представляет
+собой опционный непереходной атрибут, который занимает 4 октета и является положительным целым числом. Величина этого атрибута может использоваться при выборе одного из нескольких путей к соседней автономной системе.</p>
+
+<p align="justify"><b>LOCAL_PREF</b> (код типа = 5) является опционным атрибутом, занимающим 4 октета. Он используется BGP-маршрутизатором, чтобы сообщить своим BGP-партнерам в своей собственной автономной системе степень предпочтения объявленного маршрута.</p>
+
+<p align="justify"><b>ATOMIC_AGGREGATE</b> (код типа = 6) представляет собой стандартный атрибут, который используется для информирования партнеров о выборе маршрута, обеспечивающего доступ к более широкому списку адресов.</p>
+
+<p align="justify"><b>aggregator</b> (код типа = 7) - опционный переходной атрибут с длиной в 6 октетов. Атрибут содержит последний код автономной системы, который определяет агрегатный маршрут (занимает два октета), и IP-адрес BGP-маршрутизатора, который сформировал этот маршрут (4 октета). 
+Объем информации о достижимости сетевого уровня равен (в октетах):</p>
+
+<p align="justify">Длина сообщения UPDATE - 23 - полная длина атрибутов пути - длина списка отмененных маршрутов. Информация о достижимости кодируется в следующей форме:</p>
+
+<p align="center"><img src="image561.gif" tppabs="http://book.itep.ru/4/44/image561.gif"></p>
+
+<p align="justify">Поле <i>длина</i> определяет длину IP-адресного префикса в битах. Если длина равна нулю, префикс соответствует всем IP-адресам. <i>Префикс</i> содержит IP-адресные префиксы и двоичные разряды, дополняющие код до целого числа октетов.</p>
+
+<p align="justify">Информация о работоспособности соседних маршрутизаторов получается из KEEPALIVE-сообщений, которые должны посылаться настолько часто, чтобы уложиться во время, отведенное таймером сохранения (hold). Обычно это время не должно превышать одной трети от времени сохранения, но не должно быть и меньше 1 секунды. Если выбранное значение времени сохранения равно нулю, периодическая посылка KEEPALIVE-сообщений не обязательна.</p>
+
+<p align="justify">NOTIFICATION-сообщения посылаются, когда обнаружена ошибка. BGP-связь при этом немедленно прерывается. Помимо заголовка NOTIFICATION-сообщение имеет следующие поля:</p>
+
+<p align="center"><img src="image562.gif" tppabs="http://book.itep.ru/4/44/image562.gif"></p>
+
+<p align="justify">Код ошибки представляет собой одно-октетное поле и указывает на тип данного сообщения. Возможны следующие коды ошибки:</p>
+
+<p align="center">Таблица 4.4.11.4.1. Коды ошибок</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="21%" valign="top" bgcolor="gainsboro"><b><p align="center">Код ошибки</b></td>
+    <td width="79%" valign="top" bgcolor="gainsboro"><p align="justify">Описание</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="top"><p align="center">1</td>
+    <td width="79%" valign="top"><p align="justify">Ошибка в заголовке сообщения.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="top"><p align="center">2</td>
+    <td width="79%" valign="top"><p align="justify">Ошибка в сообщении open</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="top"><p align="center">3</td>
+    <td width="79%" valign="top"><p align="justify">Ошибка в сообщении update</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="top"><p align="center">4</td>
+    <td width="79%" valign="top"><p align="justify">Истекло время сохранения</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="top"><p align="center">5</td>
+    <td width="79%" valign="top"><p align="justify">Ошибка машины конечных состояний</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="top"><p align="center">6</td>
+    <td width="79%" valign="top"><p align="justify">Прерывание</td>
+  </tr>
+</table></div>
+
+<p align="justify">При отсутствии фатальной ошибки BGP-партнер может в любой момент прервать связь, послав NOTIFICATION-сообщение с кодом ошибки <i>прерывание</i>.</p>
+
+<p align="justify">Одно-октетное поле <I>cубкод ошибки</I> предоставляет дополнительную информацию об ошибке. Каждый код ошибки может иметь один или более субкодов. Если поле содержит нуль, это означает, что никаких субкодов не определено.</p>
+
+<p align="center">Таблица 4.4.11.4.2 Субкоды ошибок</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="850" bgcolor="ghostwhite">
+  <tr>
+    <td width="34%" valign="top" bgcolor="gainsboro"><b><p align="justify">Ошибка</b></td>
+    <td width="13%" valign="top" bgcolor="gainsboro"><b><p align="justify">Субкод</b></td>
+    <td width="53%" valign="top" bgcolor="gainsboro"><b><p align="justify">Описание</b></td>
+  </tr>
+  <tr>
+    <td width="34%" valign="top"><p align="justify">Заголовок</td>
+    <td width="13%" valign="top"><p align="center">1<br>
+    2<br>
+    3</td>
+    <td width="53%" valign="top"><p align="justify">Соединение не синхронизовано<br>
+    Неверная длина сообщения<br>
+    Неверный тип сообщения</td>
+  </tr>
+  <tr>
+    <td width="34%" valign="top"><p align="justify">Сообщения OPEN</td>
+    <td width="13%" valign="top"><p align="center">1<br>
+    2<br>
+    3<br>
+    4<br>
+    5<br>
+    6</td>
+    <td width="53%" valign="top"><p align="justify">Неверный код версии<br>
+    Ошибочный код as-партнера<br>
+    Ошибочный идентификатор BGP<br>
+    Ошибка в коде идентификации<br>
+    Ошибка при идентификации<br>
+    Неприемлемое время сохранения</td>
+  </tr>
+  <tr>
+    <td width="34%" valign="top"><p align="justify">Сообщения UPDATE</td>
+    <td width="13%" valign="top"><p align="center">1<br>
+    2<br>
+    3<br>
+    4<br>
+    5<br>
+    6<br>
+    7<br>
+    8<br>
+    9<br>
+    10<br>
+    11</td>
+    <td width="53%" valign="top"><p align="justify">Ошибка в списке атрибутов<br>
+    Не узнан стандартный атрибут<br>
+    Отсутствует стандартный атрибут<br>
+    Ошибка в флагах атрибута<br>
+    Ошибка в длине атрибута<br>
+    Неправильный атрибут origin<br>
+    Циклический маршрут<br>
+    Ошибка в атрибуте next_hop<br>
+    Ошибка в опционном атрибуте<br>
+    Ошибка в сетевом поле<br>
+    Ошибка в as_path</font></td>
+  </tr>
+</table></div>
+
+<p align="justify">Вся маршрутная информация хранится в специальной базе данных RIB (routing information base). Маршрутная база данных BGP состоит из трех частей:</p>
+
+<table cellspacing="0" border="0" cellpadding="2" width="800">
+  <tr>
+    <td width="3%" valign="top"><p align="justify">1.</td>
+    <td width="17%" valign="top"><p align="justify">ADJ-RIBS-IN:</td>
+    <td width="80%" valign="top"><p align="justify">Запоминает маршрутную информацию, которая получена из update-сообщений. Это список маршрутов, из которого можно выбирать. (policy information base - PIB).</td>
+  </tr>
+  <tr>
+    <td width="3%" valign="top"><p align="justify">2.</td>
+    <td width="17%" valign="top"><p align="justify">LOC-RIB:</td>
+    <td width="80%" valign="top"><p align="justify">Содержит локальную маршрутную информацию, которую BGP-маршрутизатор отобрал, руководствуясь    маршрутной политикой, из ADJ-RIBS-IN.</td>
+  </tr>
+  <tr>
+    <td width="3%" valign="top"><p align="justify">3.</td>
+    <td width="17%" valign="top"><p align="justify">ADJ-RIBS-OUT:</td>
+    <td width="80%" valign="top"><p align="justify">Содержит информацию, которую локальный BGP-маршрутизатор отобрал для рассылки соседям с помощью UPDATE-сообщений.</td>
+  </tr>
+</table>
+
+<p align="justify">Так как разные BGP-партнеры могут иметь разную политику маршрутизации, возможны осцилляции маршрутов. Для исключения этого
+необходимо выполнять следующее правило: если используемый маршрут объявлен не рабочим (в процессе корректировки получено сообщение с соответствующим атрибутом), до переключения на новый маршрут необходимо ретранслировать сообщение о недоступности старого всем соседним узлам.</p>
+
+<p align="justify">Протокол BGP позволяет реализовать маршрутную политику, определяемую администратором AS (см. раздел "<a href="as.htm" tppabs="http://book.itep.ru/4/44/as.htm">Автономные
+системы и маршрутная политика</a>"). Политика отражается в конфигурационных файлах BGP. Маршрутная политика это не часть протокола, она определяет решения, когда место назначения достижимо несколькими путями, политика отражает
+соображения безопасности, экономические интересы и пр. Количество сетей в пределах одной AS не лимитировано. Один маршрутизатор на много сетей позволяет минимизировать таблицу маршрутов.</p>
+
+<p align="justify">BGP использует три таймера: <br>
+<b>Connectretry</b> (сбрасывается при инициализации и коррекции; 120 сек), <br>
+<b>Holdtime</b> (запускается при получении команд Update или Keepalive; 90сек) и <br>
+<b>keepalive</b> (запускается при посылке сообщения Keepalive; 30сек).</p>
+
+<p align="justify">BGP отличается от RIP и OSPF тем, что использует TCP в качестве транспортного протокола. Две системы, использующие BGP, связываются друг с другом и пересылают посредством TCP полные таблицы маршрутизации. В дальнейшем обмен идет только в случае каких-то изменений. ЭВМ, использующая BGP, не обязательно является маршрутизатором. Сообщения обрабатываются только после того, как они полностью получены.</p>
+
+<p align="justify">BGP является протоколом, ориентирующимся на вектор расстояния. Вектор описывается списком AS по 16 бит на AS. BGP регулярно (каждые 30сек) посылает соседям TCP-сообщения, подтверждающие, что узел жив (это не тоже самое что "Keepalive" функция в TCP). Если два BGP-маршрутизатора попытаются установить связь друг с другом одновременно, такие две связи могут быть установлены. Такая ситуация называется столкновением, одна из связей должна быть ликвидирована. При установлении связи маршрутизаторов сначала делается попытка реализовать высший из протоколов (например, BGP-4), если один из них не поддерживает эту версию, номер версии понижается.</p>
+
+<p align="justify">Протокол BGP-4 является усовершенствованной версией (по сравнению с BGP-3). Эта версия позволяет пересылать информацию о маршруте в рамках одного IP-пакета. Концепция классов сетей и субсети находятся вне рамок этой версии. Для того чтобы приспособиться к этому, изменена семантика и кодирование атрибута AS_PASS. Введен новый атрибут <b>LOCAL_PREF</b> (степень
+предпочтительности маршрута для собственной AS), который упрощает процедуру выбора маршрута. Атрибут INTER_AS_METRICSпереименован в MULTI_EXIT_DISC (4 октета; служит для выбора пути к одному из соседей). Введены новые атрибуты <b>ATOMIC_AGGREGATE</b> и <b>AGGREGATOR</b>, которые позволяют группировать маршруты. Структура данных отражается и на схеме принятия решения, которая имеет три фазы:</p>
+
+<p align="justify">
+<ol>
+<li> Вычисление степени предпочтения для каждого маршрута, полученного от соседней AS, и передача информации другим узлам местной AS.</li>
+
+<li> Выбор лучшего маршрута из наличного числа для каждой точки назначения и укладка результата в LOC-RIB.</li>
+
+<li> Рассылка информации из loc_rib всем соседним AS согласно политике, заложенной в RIB. Группировка маршрутов и редактирование маршрутной информации.</li></ol></p>
+
+<p align="justify">Бесклассовая интердоменная маршрутизация (CIDR- classless interdomain routing, RFC-1520, -1519) – способ избежать того, чтобы каждая С-сеть требовала свою таблицу маршрутизации. Основополагающий принцип CIDR заключается в группировке (агрегатировании) IP-адресов таким образом, чтобы сократить число входов в таблицах маршрутизации (RFC-1519, RFC-1518, RFC-1467, RFC-1466). Протокол совместим с RIP-2, OSPF и BGP-4. Основу протокола составляет идея бесклассовых адресов, где нет деления между полем сети и полем ЭВМ. Дополнительная информация, например 32-разрядная маска, выделяющая поле адреса сети, передается в рамках протокола маршрутизации. При этом выдерживается строгая иерархия адресов: провайдер > предприятие > отдел/здание > сегмент локальной сети. Групповой (агрегатный) адрес воспринимается маршрутизатором как один адрес. Группу может образовывать только непрерывная последовательность IP-адресов. Такой бесклассовый интернетовский адрес часто
+называется IP-префиксом. Так адрес 192.1.1.0/24 означает диапазон адресов 192.1.1.0 - 192.1.1.255, а адрес 192.1.128.0/17 описывает диапазон 192.1.128.0 - 192.1.255.255, таким образом, число, следующее после косой черты, задает количество двоичных разрядов префикса. Это представление используется при 
+описании политики маршрутизации и самих маршрутов (см. разд.4.4.11.4 – <a href="m_polit.htm" tppabs="http://book.itep.ru/4/44/m_polit.htm">"Маршрутная политика"</a>). Для приведенных примеров это в терминах масок выглядит следующим образом:</p>
+
+<p align="center"><img src="image563.gif" tppabs="http://book.itep.ru/4/44/image563.gif"></p>
+<p align="center">24 и 17 длины префикса сети.</p>
+
+<p align="justify">Следует помнить, что маски с разрывами здесь недопустимы. Ниже приведена таблица метрик маршрутизации для различных протоколов.</p>
+<div align="center">
+
+<table border="10" cellspacing="1" cellpadding="5" width="700" bgcolor="ghostwhite">
+  <tr>
+    <td width="15%" valign="top" bgcolor="gainsboro"><b><p align="justify">Протокол</b></td>
+    <td width="25%" valign="top" bgcolor="gainsboro"><b><p align="justify">Метрика</b></td>
+    <td width="15%" valign="top" bgcolor="gainsboro"><b><p align="center">Диапазон</b></td>
+    <td width="35%" valign="top" bgcolor="gainsboro"><b><p align="center">Код "маршрут недостижим"</b></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top"><p align="justify">RIP<br>
+    hello<br>
+    BGP</td>
+    <td width="25%" valign="top"><p align="justify">Число скачков<br>
+    Задержка в ms<br>
+    Не определена</td>
+    <td width="15%" valign="top"><p align="center">0-15<br>
+    0-29999<br>
+    0-65534</td>
+    <td width="35%" valign="top"><p align="center">16<br>
+    30000<br>
+    65535</td>
+  </tr>
+</table></div>
+
+<p align="justify">Колонка "маршрут недостижим"
+содержит коды метрики, которые говорят о недоступности маршрута. Обычно предполагается, что если послан пакет из точки  &lt;А&gt; в точку &lt;B&gt;, то маршруты их в одном и другом направлении совпадают. Но это не всегда так. Пример, когда маршруты пакетов "туда" и "обратно" не совпадают, представлен на рис. 4.4.11.4.4. В предложенной схеме имеется две ЭВМ "Место назначения" и "ЭВМ-отправитель", а также два маршрутизатора "GW-2" и "GW-1".</p>
+
+<p align="center"><img src="image564.gif" tppabs="http://book.itep.ru/4/44/image564.gif"></p>
+<p ALIGN="CENTER">Рис. 4.4.11.4.4. Пример разных маршрутов для пути "туда" и 
+"обратно".</p>
+
+<p ALIGN="JUSTIFY">Предполагается, что оператор находится в ЭВМ-отправителе. Команда traceroute 192.148.166.33 в этом случае выдаст:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="772">
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">1 GW-1</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.35)</td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">2 Место назначения</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.33)</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Команда же traceroute 192.148.165.80 распечатает:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="773">
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">1 GW-1</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.35)</td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">2 GW-2</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.7)</td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="LEFT">3 Место назначения</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.165.80)</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Команда traceroute -g 192.148.165.80 сообщит вам:</p>
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="773">
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">1 GW-1</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.35)</td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">2 ***** </td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">; В этом
+    режиме маршрутизатор не откликается</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">3 Место
+    назначения</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.165.80)</td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">4 GW-1</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.35)</td>
+  </tr>
+  <tr>
+    <td WIDTH="37%" VALIGN="TOP"><p ALIGN="JUSTIFY">5 ЭВМ-отправитель</td>
+    <td WIDTH="63%" VALIGN="TOP"><p ALIGN="JUSTIFY">(192.148.166.32)</td>
+  </tr>
+</table>
+
+<p ALIGN="JUSTIFY">Из приведенных примеров видна также полезность команды traceroute для понимания того, как движутся пакеты в сети. В некоторых случаях это может помочь оптимизировать маршрутизацию и улучшить пропускную способность сети.</p>
+
+<p ALIGN="JUSTIFY">Другой полезной командой является Netstat, которая позволяет получить разнообразную информацию о состоянии сети. Существует четыре
+модификации этой команды:</p>
+
+<p>-a отображает состояния всех соединений;<br>
+-i отображает значения конфигурационных параметров;<br>
+-r отображает таблицу маршрутов;<br>
+-v отображает статистику обмена локального Ethernet-интерфейса.</p>
+
+<p ALIGN="JUSTIFY">Например, команда netstat -r может выдать:</p>
+
+<p ALIGN="CENTER"><b>Routing tables</b> (таблицы маршрутизации)</p>
+<div align="center">
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="859">
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Destination</b></td>
+    <td WIDTH="19%" VALIGN="TOP"><b><p ALIGN="CENTER">Gateway</b></td>
+    <td WIDTH="11%" VALIGN="TOP"><b><p ALIGN="CENTER">Flags</b></td>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Refcnt</b></td>
+    <td WIDTH="15%" VALIGN="TOP"><b><p ALIGN="CENTER">Use</b></td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><b><p ALIGN="CENTER">Interface</b></td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">Stavropol-GW.ITEP.RU</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">nb</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><b><p ALIGN="CENTER">0</b></td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="CENTER">109</td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">ihep.su</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="CENTER">103</td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">m10.ihep.su</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="CENTER">16</td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">194.85.66.50</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="CENTER">455</td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">Kharkov.ITEP-Kharkov</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">nb</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="CENTER">105</td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">Bryansk-GW.ITEP.Ru</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">nb</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+    <td WIDTH="15%" VALIGN="TOP"><p ALIGN="CENTER">8113</td>
+    <td WIDTH="19%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">193.124.225.67</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">nb</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">ixwin.ihep.su</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">1</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">6450</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">ihep.su</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">14</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">192.148.166.21</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">nb</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">109</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">ihep.su</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">224</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">193.124.225.71</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">nb</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGHD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">10</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">194.85.112.0</td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">ITEP-FDDI-BBone.ITEP</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UGD</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">0</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">253</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+  <tr>
+    <td WIDTH="26%" VALIGN="TOP"><p ALIGN="JUSTIFY">default </td>
+    <td WIDTH="19%" VALIGN="TOP"><p ALIGN="CENTER">itepgw</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="CENTER">UG</td>
+    <td WIDTH="10%" VALIGN="TOP"><p ALIGN="CENTER">10</td>
+    <td WIDTH="17%" VALIGN="TOP" COLSPAN="2"><p ALIGN="CENTER">102497</td>
+    <td WIDTH="17%" VALIGN="TOP"><p ALIGN="CENTER">le0</td>
+  </tr>
+</table></div>
+
+<p ALIGN="JUSTIFY">Здесь приведен только фрагмент маршрутной таблицы. Колонка destination указывает на конечную точку маршрута (default - маршрут по
+умолчанию), колонка gateway – имена маршрутизаторов, через которые достижим
+адресат. Флаг "U" (Up) свидетельствует о том, что канал в рабочем состоянии. Флаг "G" указывает на то, что маршрут проходит через маршрутизатор (gateway). При этом вторая колонка таблицы содержит имя этого маршрутизатора. Если флаг
+"G" отсутствует, ЭВМ непосредственно связана с указанной сетью. Флаг "D" указывает на то, что маршрут был добавлен динамически. Если маршрут связан только с конкретной ЭВМ, а не с сетью, он помечается флагом "H" (host), при этом первая колонка таблицы содержит его IP-адрес. Базовая команда netstat может
+обеспечить следующую информацию:</p>
+
+<p ALIGN="center">Active Internet connections (активные Интернет связи)</p>
+<div align="center">
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Proto</b></td>
+    <td WIDTH="11%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Recv-Q</b></td>
+    <td WIDTH="11%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Send-Q</b></td>
+    <td WIDTH="20%" VALIGN="TOP"><b><p ALIGN="LEFT">Local Address</b></td>
+    <td WIDTH="27%" VALIGN="TOP"><b><p ALIGN="LEFT">Foreign Address</b></td>
+    <td WIDTH="23%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">(state)</b></td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.1313</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.sunrpc</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">TIME_WAIT</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.1312</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">193.124.18.65.smtp</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">SYN_SENT</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.1311</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.sunrpc</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">TIME_WAIT</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.1310</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.domain</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">TIME_WAIT</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.1309</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.sunrpc</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">TIME_WAIT</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">39</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">24576</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.nntp</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">Bryansk-GW.ITEP.1697</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">ESTABLISHED</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.telnet</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">semenov.1802</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">ESTABLISHED</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">tcp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">188</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.1033</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">xmart.desy.de.6000</td>
+    <td WIDTH="23%" VALIGN="TOP"><p ALIGN="JUSTIFY">ESTABLISHED</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">udp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">127.0.0.1.domain</td>
+    <td WIDTH="50%" VALIGN="TOP" COLSPAN="2"><p ALIGN="JUSTIFY">*.*</td>
+  </tr>
+  <tr>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">udp</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="20%" VALIGN="TOP"><p ALIGN="JUSTIFY">ns.domain</td>
+    <td WIDTH="50%" VALIGN="TOP" COLSPAN="2"><p ALIGN="JUSTIFY">*.*</td>
+  </tr>
+</table></div>
+
+<p ALIGN="center">Active UNIX domain sockets (активные UNIX-соединители домена)</p>
+<div align="center">
+
+<table CELLSPACING="0" BORDER="0" CELLPADDING="2" WIDTH="800">
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Address</b></td>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Type</b></td>
+    <td WIDTH="11%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Recv-Q</b></td>
+    <td WIDTH="12%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Send-Q</b></td>
+    <td WIDTH="12%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Vnode</b></td>
+    <td WIDTH="9%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Conn</b></td>
+    <td WIDTH="8%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Refs</b></td>
+    <td WIDTH="27%" VALIGN="TOP"><b><p ALIGN="JUSTIFY">Nextref Addr</b></td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">ff64b38c</td>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">stream</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">ff13187c</td>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="8%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">0 /dev/printer</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">ff64b28c</td>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">dgram</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="8%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+  </tr>
+  <tr>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">ff64698c</td>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">dgram</td>
+    <td WIDTH="11%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="12%" VALIGN="TOP"><p ALIGN="JUSTIFY">ff137fa8</td>
+    <td WIDTH="9%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="8%" VALIGN="TOP"><p ALIGN="JUSTIFY">0</td>
+    <td WIDTH="27%" VALIGN="TOP"><p ALIGN="JUSTIFY">0 /dev/log</td>
+  </tr>
+</table></div>
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="igp44113.htm" tppabs="http://book.itep.ru/4/44/igp44113.htm"><FONT COLOR="lightblue">4.4.11.3 Протокол IGRP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="cidr4115.htm" tppabs="http://book.itep.ru/4/44/cidr4115.htm"><FONT COLOR="lightblue">4.4.11.5 Бесклассовая интердоменная     маршрутизация (CIDR)</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

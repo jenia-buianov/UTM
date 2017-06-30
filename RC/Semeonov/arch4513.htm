@@ -1,0 +1,541 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Archie
+Поиск файлов
+
+">
+<TITLE>4.5.13 Система поиска файлов Archie</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="wais4512.htm" tppabs="http://book.itep.ru/4/45/wais4512.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="retr4514.htm" tppabs="http://book.itep.ru/4/45/retr4514.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="wais4512.htm" tppabs="http://book.itep.ru/4/45/wais4512.htm"><FONT COLOR="lightblue">4.5.12 WAIS</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="retr4514.htm" tppabs="http://book.itep.ru/4/45/retr4514.htm"><FONT COLOR="lightblue">4.5.14 Современные поисковые системы</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.13 Система поиска файлов Archie</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="JUSTIFY">ARCHIE - информационная система с наиболее эффективной системой поиска. Система разработана Аланом Эмтейджем, Питером Дойчем и Билом Хееланом из университетского вычислительного центра McGill, Канада. ARCHIE осуществляет поиск по более чем 1000 депозитариям мира допускающим 
+анонимный доступ и содержащим более 2100000 файлов. ARCHIE работает под Windows, MS-DOS, Macintosh, Unix в рамках сети INTERNET. Рекомендуется следовать следующим правилам (в последнее время система стала менее популярна, ее функции взяли на себя поисковые сервера):</P>
+
+<UL>
+<LI>избегайте проводить поиск в рабочие часы, так как большинство ARCHIE- серверов выполняют и другие локальные функции.</LI>
+<LI>запросы должны быть как можно конкретнее, это ускорит их выполнение.</LI>
+<LI>интерфейс на вашей ЭВМ снизит нагрузку удаленных серверов, поэтому рекомендуется использовать локальные интерфейсы.</LI>
+<LI>используйте ближайший к вам ARCHIE-сервер, это сократит нагрузку телекоммуникационных каналов и повысит надежность поиска.</LI></UL>
+
+<P ALIGN="JUSTIFY">Базы данных ARCHIE располагаются по адресам:</P>
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=2 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="57%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="JUSTIFY">Адрес ARCHIE</TD>
+<TD WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro"><P ALIGN="JUSTIFY">Страна</TD>
+<TD WIDTH="23%" VALIGN="TOP" bgcolor="gainsboro"><P>Число шагов из ITEPNet *)</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.au (139.130.4.6)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Австралия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">23</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.edvz.uni-linz.ac.at (140.78.3.8)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Австрия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.univie.ac.at (131.130.1.23)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Австрия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">17</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.uqam.ca (132.208.250.10)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Канада</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">21</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.funet.fi (128.214.6.102)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Финляндия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">9</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.th-darmstadt.de (130.83.128.118)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Германия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">13</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.doc.ic.ac.uk (146.169.11.3)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Англия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">16</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.ac.il (132.65.16.8)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Израиль</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">19</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.cs.huji.ac.il (132.65.6.15)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Израиль</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.unipi.it (131.114.21.10)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Италия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">12</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">Archie.uninett.no (128.39.2.20)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Норвегия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.kuis.kyoto-u.ac.jp</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Япония</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">29</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="JUSTIFY">archie.wide.ad.jp (133.4.3.6)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Япония</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="JUSTIFY">archie.kr</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Корея</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.sogang.ac.kr (163.239.1.11)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Корея</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.rediris.es (130.206.1.2)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Испания</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">12</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="JUSTIFY">archie.nz (130.195.9.4)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="LEFT">Новая Зеландия</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">25</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.luth.se (130.240.18.4)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Швеция</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">15</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.switch.ch (130.59.1.40)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Швейцария</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">15</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.ncu.edu.tw (140.115.19.24)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">Тайвань</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.ans.net (147.225.1.10)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">23</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.internic.net (198.49.45.10)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">16</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.rutgers.edu (128.6.18.15)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.sura.net (128.167.254.179)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P>&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="LEFT">archie.unl.edu (129.93.1.14)</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">США</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="JUSTIFY">20</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">*) Число шагов величина непостоянная и может изменяться со временем, сильно зависит от используемого маршрута.</P>
+
+<P ALIGN="JUSTIFY">Имеется возможность доступа к ARCHIE через локальный клиент-сервер, через команду telnet или с помощью электронной почты. В настоящее время доступна версия сервера 3.0. Команды, помеченные ниже (+) работают только с версией 3.0, помеченные же (*), работают только с предшествующими версиями. Для определения версии, с которой вы работаете, выдайте команду version. 
+Локальные серверы работают быстрее и надежнее. В публичном доступе имеются версии для MS-DOS, OS/2, VMS, NeXT, Unix, X-windows и Macintosh. Клиент-серверы доступны через анонимный FTP в каталогах /pub/archie/clients ли /archie/clients, обычно это строчные варианты. Существует и графическая версия (xarchie) для X-windows. Стандартное обращение к ARCHIE имеет форму:</P>
+
+<P ALIGN="JUSTIFY">ARCHIE &lt;-options&gt; последовательность символов | образ</P>
+<P ALIGN="JUSTIFY">где options могут быть:</P>
+
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=850>
+<TR><TD WIDTH="22%" VALIGN="TOP"><P ALIGN="JUSTIFY">o</TD>
+<TD WIDTH="78%" VALIGN="TOP"><P ALIGN="JUSTIFY">определяет имя выходного файла для запоминания 
+результата.</TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="TOP"><P ALIGN="JUSTIFY">l</TD>
+<TD WIDTH="78%" VALIGN="TOP"><P ALIGN="JUSTIFY">список найденных объектов по одной строке на 
+документ.</TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="TOP"><P ALIGN="JUSTIFY">t</TD>
+<TD WIDTH="78%" VALIGN="TOP"><P ALIGN="JUSTIFY">сортирует результат поиска по датам.</TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="TOP"><P ALIGN="JUSTIFY">m#</TD>
+<TD WIDTH="78%" VALIGN="TOP"><P ALIGN="JUSTIFY">определяет максимальное число найденных документов 
+(# от 0 до 1000), по умолчанию это число равно 95.</TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="TOP"><P ALIGN="LEFT">H archie-server</TD>
+<TD WIDTH="78%" VALIGN="TOP"><P ALIGN="JUSTIFY">специфицирует сервер, куда посылается запрос, в 
+отсутствии этого параметра используется сервер по умолчанию, если такой описан.</TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="TOP"><P ALIGN="JUSTIFY">L</TD>
+<TD WIDTH="78%" VALIGN="TOP"><P ALIGN="JUSTIFY">список известных серверов, включая текущий.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Например, команда (SUN): archie -L выдаст на экран:</P>
+<P ALIGN="JUSTIFY">Known archie servers:</P>
+<P>archie.ans.net (USA [NY])<BR>
+archie.rutgers.edu (USA [NJ])<BR>
+archie.sura.net (USA [MD])<BR>
+archie.unl.edu (USA [NE])<BR>
+archie.mcgill.ca (Canada)<BR>
+archie.funet.fi (Finland/Mainland Europe)<BR>
+archie.au (Australia)<BR>
+archie.doc.ic.ac.uk (Great Britain/Ireland)<BR>
+archie.wide.ad.jp (Japan)<BR>
+archie.ncu.edu.tw (Taiwan)<BR>
+* archie.funet.fi is the default Archie server.<BR>
+* For the most up-to-date list, write to an Archie server and give it the command `servers'.</P>
+<P ALIGN="JUSTIFY">Следующая группа options определяет разновидность поиска.</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">s</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">объект будет выбран, если имя файла/каталога содержит заданную последовательность символов. Поиск не зависит от того, строчные или заглавные буквы использованы в эталонной последовательности.</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">c</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">как и выше, но для поиска не безразличны строчные/заглавные буквы.</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">e</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">последовательность символов должна точно совпадать с образцом, с учетом использования заглавных и строчных символов. Это способ поиска по умолчанию.</TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP"><P ALIGN="JUSTIFY">r</TD>
+<TD WIDTH="91%" VALIGN="TOP"><P ALIGN="JUSTIFY">поиск образов, которые включают в себя специальные 
+символы, интерпретируемые до начала поиска.</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Результатом поиска может стать список FTP-адресов файлов или каталогов, соответствующих критериям отбора, указывается размер файлов, дата последней модификации и имя каталога, где этот файл лежит.</P>
+
+<P ALIGN="JUSTIFY">Для интерактивного попадания в ARCHIE-сервер используется команда telnet, в ответ на login следует ввести archie. Для того чтобы покинуть ARCHIE-сервер используются команды: exit, quit, bye. Кроме того, существуют следующие команды:</P>
+
+<center>
+<TABLE CELLSPACING=0 BORDER=10 CELLPADDING=2 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">help ?</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает полный список команд</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="LEFT">help &lt;имя команды&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает описание команды, возврат с помощью клавиши 
+&lt;Enter&gt;.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">help set variable</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает описание присвоения значения системной 
+переменной.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">list &lt;образ&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает список IP-адресов баз данных и дат их последней коррекции. Параметр, если он присутствует, обеспечивает отбор адресов с учетом соответствия этому параметру. Если нет параметра, то список будет содержать около 1000 адресов. list \.de$ даст адреса в Германии.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">manpage</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отображение страницы руководства по использованию Archie</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">servers</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает список серверов Archie</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">site (*) site-name</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Получение списка каталогов и субкаталогов 
+депозитария с именем site-name. Обычно это очень длинный список.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="LEFT">whatis &lt;строка&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Осуществляет поиск описания программы для string.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="LEFT">prog &lt;строка&gt;|&lt;образ&gt; 
+find(+)&lt;строка&gt;|&lt;образ&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Осуществляет поиск строки &lt;строка&gt; или образа &lt;образ&gt;, представляющий название искомого ресурса. Поиск может выполняться несколькими способами, определяемыми переменной search (команда set), которая также определяет, следует ли 
+интерпретировать параметр как string или pattern. Результат представляет собой список FTP- адресов, размеров найденных объектов и дат последней модификации. Число объектов в списке ограничивается переменной maxhits (команда set). Результат prog может быть отсортирован в соответствии с величиной 
+переменной sortby (команда set). По умолчанию переменные search, maxhits и sortby устанавливаются соответственно на точное соответствие string, 1000 объектов без сортировки результата</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="LEFT">mail &lt;email&gt; &lt;,email2...&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отсылает результат поиска по электронной почте по заданному адресу. При команде без параметров результат отсылается по адресу, заданному переменной 
+mailo (команда set).</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P ALIGN="LEFT">show &lt;переменная&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Отображает значение переменной с данным именем. В отсутствии параметра отображаются все переменные.</TD>
+</TR>
+<TR><TD WIDTH="32%" VALIGN="TOP"><P>set &lt;переменная&gt; &lt;значение&gt;</TD>
+<TD WIDTH="68%" VALIGN="TOP"><P ALIGN="JUSTIFY">Устанавливает значение одной из переменных ARCHIE.</TD>
+</TR>
+</TABLE></center>
+
+<P ALIGN="JUSTIFY">Используются следующие переменные:</P>
+<P ALIGN="JUSTIFY">compress(+) метод_архивации</P>
+<P ALIGN="JUSTIFY">Задает метод архивации (none или compress), используется до отправки почты 
+командой mail. По умолчанию none.</P>
+<P ALIGN="JUSTIFY">encode(+) метод_кодирования</P>
+<P ALIGN="JUSTIFY">Определяет метод кодирования (none или uuencode), используется при отправке по почте. Эта переменная игнорируется, если компрессии нет. По умолчанию none.</P>
+<P ALIGN="JUSTIFY">mailo email &lt;,email2...&gt;</P>
+<P ALIGN="JUSTIFY">Определяет e-mail адрес, куда будет послан результат, при выдаче команды без аргумента.</P>
+<P ALIGN="JUSTIFY">maxhits number</P>
+<P ALIGN="JUSTIFY">Определяет максимальное число отобранных объектов командой prog (0-1000). По умолчанию эта переменная равна 1000.</P>
+<P ALIGN="JUSTIFY">search search-value</P>
+<P ALIGN="JUSTIFY">Определяет вид проводимого поиска: prog string | prog string | pattern. search-values<FONT FACE="Times New Roman"> равны:</P></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="JUSTIFY">sub</TD>
+<TD WIDTH="75%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Частичное совпадение и независимость от 
+заглавная/сточная.</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="JUSTIFY">subcase</TD>
+<TD WIDTH="75%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">То же, но не безразлично 
+заглавный/сточный символы.</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="JUSTIFY">exact</TD>
+<TD WIDTH="75%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Точное соответствие образцу.</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP"><P ALIGN="JUSTIFY">regex pattern</TD>
+<TD WIDTH="75%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Интерпретируется перед началом поиска.</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP" ROWSPAN=6><P ALIGN="JUSTIFY">sortby sort-value</TD>
+<TD WIDTH="75%" VALIGN="TOP" COLSPAN=2><P ALIGN="JUSTIFY">Описывает то, как сортировать результаты 
+поиска по команде prog. Значения sort-values (параметр сортировки):</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">hostname</TD>
+<TD WIDTH="55%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сортировка по FTP-адресам в лексическом порядке</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">time</TD>
+<TD WIDTH="55%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сортировка по дате модификации, более поздние 
+сначала.</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">filename</TD>
+<TD WIDTH="55%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сортировка по именам файлов или каталогов в 
+лексическом порядке</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">none</TD>
+<TD WIDTH="55%" VALIGN="TOP"><P ALIGN="JUSTIFY">Никакой сортировки</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">size</TD>
+<TD WIDTH="55%" VALIGN="TOP"><P ALIGN="JUSTIFY">Сортировка документов по размеру</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">term terminal-type &lt;number-of-rows&lt;number-of-columns&gt;&gt;</P>
+<P ALIGN="JUSTIFY">Сообщает ARCHIE, какой терминал используется.</P>
+<P ALIGN="JUSTIFY">Доступ через электронную почту</P>
+
+<P ALIGN="JUSTIFY">Пользователи могут получить доступ к ARCHIE через электронную почту, послав запрос по адресу archie@archie.ac.il. Команды посылаются в теле сообщения. Командные строки начинаются всегда с первой колонки. Поле subject рассматривается как строка самого сообщения. При 
+этом допустимы следующие команды:</P>
+<center>
+<TABLE CELLSPACING=0 BORDER=10 CELLPADDING=2 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="35%" VALIGN="TOP"><P ALIGN="JUSTIFY">help</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Присылает файл HELP, при этом другие команды 
+сообщения игнорируются.</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>path return-address set mailto(+) return-address</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Определяет обратный адрес, отличный от того, что записан в заголовке</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>list pattern &lt;pattern2...&gt;</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает список адресов, где есть данные, соответствующие pattern, наиболее свежие по дате</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>site(*) site-name</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Выдает список каталогов и субкаталогов по адресу site-name</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>whatis string &lt;string2...&gt;</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ищется в базе данных описание программных продуктов, где содержится string. Прописные или строчные буквы роли не играет</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>prog pattern &lt;pattern2...&gt; find(+) pattern &lt;pattern2&gt;</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Поиск всех упоминаний ресурсов с именем pattern. Если несколько pattern помещено в одной строке, результат поиска будет прислан в одном сообщении. Если несколько prog помещено в строке, результат присылается в нескольких сообщениях, по одному на каждый prog. Результат представляет собой список адресов для FTP. Если pattern содержит пробелы, он должен быть заключен в кавычки. Поиск не зависит от того, заглавные или строчные буквы использованы в запросе.</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>compress(*)</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Полученный результат будет архивирован и перекодирован с помощью uuencode. В результате будет получен файл с расширением .Z. Сначала по получении сообщения следует обработать с помощью uudecode, а после этого следует выполнить программу uncompress</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>set compress(+) compress-method</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Специфицирует метод архивирования (none или compress) перед отправкой по почте. По умолчанию none</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P>set encode(+) encode-method</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Специфицирует метод кодирования (none или uuencode) перед отправкой по почте. По умолчанию none.</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P ALIGN="JUSTIFY">quit</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Ничего не производит, полезна в случае автоматического добавления подписи в конце сообщения.</TD>
+</TR>
+<TR><TD WIDTH="35%" VALIGN="TOP"><P ALIGN="LEFT">Description of pattern pattern</TD>
+<TD WIDTH="65%" VALIGN="TOP"><P ALIGN="JUSTIFY">Описывает последовательность символов, включая специальные символы. Символ перестает быть специальным, если перед ним стоит "\".</TD>
+</TR>
+</TABLE></center>
+
+<P ALIGN="JUSTIFY">К числу специальных символов относится:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">. (точка)</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Заменяет любые другие символы (wildcard).</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">^</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Появляется в начале pattern. При этом будет 
+искаться будет последовательность, следующая за "^". Например: "^efgh" узнает "efgh" или "efghij" 
+но не "abcdefgh".</TD>
+</TR>
+<TR><TD WIDTH="14%" VALIGN="TOP"><P ALIGN="JUSTIFY">$</TD>
+<TD WIDTH="86%" VALIGN="TOP"><P ALIGN="JUSTIFY">Появляется в конце pattern. Так, например: 
+"efghi$" узнает "efghi" или "abcdefghi" но не узнает "efghijkl".</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Если вы послали команду list \.de$ по электронной 
+почте или с помощью Telnet, вы получите следующий отклик:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=800>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">alice.fmi.uni-passau.de</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">132.231.1.180</TD>
+<TD WIDTH="11%" VALIGN="TOP"><P ALIGN="JUSTIFY">12:31</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">8 Aug 1993</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">askhp.ask.uni-karlsruhe.de</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">129.13.200.33</TD>
+<TD WIDTH="11%" VALIGN="TOP"><P ALIGN="JUSTIFY">12:25</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">8 Aug 1993</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">athene.uni-paderborn.de</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">131.234.2.32</TD>
+<TD WIDTH="11%" VALIGN="TOP"><P ALIGN="JUSTIFY">15:21</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">6 Aug 1993</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">bseis.eis.cs.tu-bs.de</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">134.169.33.1</TD>
+<TD WIDTH="11%" VALIGN="TOP"><P ALIGN="JUSTIFY">00:18</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">31 Jul 1993</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">clio.rz.uni-duesseldorf.de</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">134.99.128.3</TD>
+<TD WIDTH="11%" VALIGN="TOP"><P ALIGN="JUSTIFY">12:10</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">8 Aug 1993</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="JUSTIFY">cns.wtza-berlin.de</TD>
+<TD WIDTH="32%" VALIGN="TOP"><P ALIGN="JUSTIFY">141.16.244.4</TD>
+<TD WIDTH="11%" VALIGN="TOP"><P ALIGN="JUSTIFY">16:08</TD>
+<TD WIDTH="20%" VALIGN="TOP"><P ALIGN="JUSTIFY">31 Jul 1993</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">и т.д.</P>
+<P ALIGN="JUSTIFY">Если вы пошлете команду whatis compression по почте или посредством Telnet, вы получите следующий результат:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">RFC 468</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">Braden, R.T. FTP data compression 1973 March 8; 5p.</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">arc</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">PC compression program</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">deltac</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">Image compression using delta modulation</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">spl</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">Splay tree compression routines</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">squeeze</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">A file compression program</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">uncrunch</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">Uncompression program</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP"><P ALIGN="JUSTIFY">unsqueeze</TD>
+<TD WIDTH="81%" VALIGN="TOP"><P ALIGN="JUSTIFY">Uncompression programs (Пример взят из [1])</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">В ответ на команду find AMPS, вы получите:</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="58%" VALIGN="TOP"><P ALIGN="JUSTIFY">Host goliat.eik.bme.hu</TD>
+<TD WIDTH="42%" VALIGN="TOP"><P ALIGN="JUSTIFY">(152.66.115.2)</TD>
+</TR>
+</TABLE>
+
+<P>Last updated 00:02 3 Jan 1995<BR>
+Location: /pub/win3/util<BR>
+FILE -r--r--r-- 145312 bytes 11:18 22 Dec 1994 amps13.zip</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="58%" VALIGN="TOP"><P ALIGN="JUSTIFY">Host nic.switch.ch</TD>
+<TD WIDTH="42%" VALIGN="TOP"><P ALIGN="JUSTIFY">(130.59.1.40)</TD>
+</TR>
+</TABLE>
+
+<P>Last updated 01:17 11 Dec 1994<BR>
+Location: /mirror/novell/netwire/novuser/01<BR>
+FILE -rw-rw-r-- 177681 bytes 02:14 1 Nov 1994 amps15.zip</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="57%" VALIGN="TOP"><P ALIGN="JUSTIFY">Host faui43.informatik.uni.erlangen.de</TD>
+<TD WIDTH="43%" VALIGN="TOP"><P ALIGN="JUSTIFY">(131.188.1.43)</TD>
+</TR>
+</TABLE>
+
+<P>Last updated 01:31 11 Dec 1994<BR>
+Location:<BR>
+/mounts/epix/public/pub/pc/windows/cica_mirror/util<BR>
+FILE -r--r--r-- 145312 bytes 00:00 2 Jun 1994 amps13.zip</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=737>
+<TR><TD WIDTH="58%" VALIGN="TOP"><P ALIGN="JUSTIFY">Host ftp.luth.se</TD>
+<TD WIDTH="42%" VALIGN="TOP"><P ALIGN="JUSTIFY">(130.240.16.39)</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY">Last updated 17:53 13 Dec 1994</P>
+<P>Location: /pub/msdos/.1/.util<BR>
+FILE -r--r--r-- 145312 bytes 01:00 1 Jun 1994 amps13.zip</P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=738>
+<TR><TD WIDTH="50%" VALIGN="TOP"><P ALIGN="JUSTIFY">Host ftp.cyf</TD>
+<TD WIDTH="50%" VALIGN="TOP"><P ALIGN="JUSTIFY">kr.edu.pl&#9;(149.156.1.8)</TD>
+</TR>
+</TABLE>
+
+<P>Last updated 17:50 3 Jan 1995<BR>
+Location: /pub/mirror/ami/chipset_guides<BR>
+FILE -rw-r--r-- 111858 bytes 00:00 4 Apr 1994 scampsx.z06<BR>
+FILE -rw-r--r-- 46677 bytes 00:00 4 Apr 1994 scampsx.z07</P>
+
+<P ALIGN="JUSTIFY">Это лишь фрагмент выдачи реально она много длиннее. Видно, что один и тот же документ найден в нескольких депозитариях. Если у вас есть вопросы об ARCHIE, пишите Archie Group, Bunyip Information Systems Inc. по адресу info@bunyip.com. В случае обнаружения ошибок, а также с 
+комментариями следует обращаться по адресу archie-admin@bunyip.com. По вопросам, связанным с конкретными серверами можно обратиться по адресу archie-admin@address.of.archie.server, например, archie-admin@archie.ac.il. Список адресов для рассылки информации находится по адресу: archie-people@bunyip.com; для включения в подписной лист можно послать запрос по адресу: 
+archie-people-request@bunyip.com.</P>
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="wais4512.htm" tppabs="http://book.itep.ru/4/45/wais4512.htm"><FONT COLOR="lightblue">4.5.12 WAIS</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="dia_5.htm" tppabs="http://book.itep.ru/5/dia_5.htm"><FONT COLOR="lightblue">5 Диагностика локальных сетей и Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="retr4514.htm" tppabs="http://book.itep.ru/4/45/retr4514.htm"><FONT COLOR="lightblue">4.5.14 Современные поисковые системы</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

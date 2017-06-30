@@ -1,0 +1,9 @@
+E:\GC test\csharp_forms\csharp_forms\bin\Debug\csharp_forms.exe.config
+E:\GC test\csharp_forms\csharp_forms\bin\Debug\csharp_forms.exe
+E:\GC test\csharp_forms\csharp_forms\bin\Debug\csharp_forms.pdb
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.csprojResolveAssemblyReference.cache
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.Form1.resources
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.Properties.Resources.resources
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.csproj.GenerateResource.Cache
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.exe
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.pdb

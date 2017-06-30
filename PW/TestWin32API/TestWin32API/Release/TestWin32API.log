@@ -1,0 +1,18 @@
+﻿Построение начато 18.05.2017 9:34:47.
+     1>Проект "D:\UTM\PW\TestWin32API\TestWin32API\TestWin32API.vcxproj" в узле 2 (целевые объекты Build).
+       Файл проекта содержит ToolsVersion="14.0". Возможно, этот набор инструментов неизвестен или отсутствует (в этом случае проблему можно устранить, установив подходящую версию MSBuild), либо для данной сборки определено конкретное значение ToolsVersion в параметрах политики. Проект обрабатывается как имеющий ToolsVersion="4.0". Дополнительные сведения см. по ссылке http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\TestWin32API.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt TestWin32API.cpp
+         TestWin32API.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\UTM\PW\TestWin32API\Release\TestWin32API.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\UTM\PW\TestWin32API\Release\TestWin32API.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\UTM\PW\TestWin32API\Release\TestWin32API.lib" /MACHINE:X86 /SAFESEH Release\TestWin32API.res
+         Release\stdafx.obj
+         Release\TestWin32API.obj
+         Создание кода
+         Создание кода завершено
+         TestWin32API.vcxproj -> D:\UTM\PW\TestWin32API\Release\TestWin32API.exe
+     1>Построение проекта "D:\UTM\PW\TestWin32API\TestWin32API\TestWin32API.vcxproj" завершено (целевые объекты Build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:07.41

@@ -1,0 +1,565 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="WWW
+HTML
+World Wide Web
+всемирная паутина
+
+
+
+
+
+">
+<TITLE>4.5.6 WWW</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="xwin_455.htm" tppabs="http://book.itep.ru/4/45/xwin_455.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="http4561.htm" tppabs="http://book.itep.ru/4/45/http4561.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="xwin_455.htm" tppabs="http://book.itep.ru/4/45/xwin_455.htm"><FONT COLOR="lightblue">4.5.5 Протокол X-Windows</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="http4561.htm" tppabs="http://book.itep.ru/4/45/http4561.htm"><FONT COLOR="lightblue">4.5.6.1 Гипертекстный протокол HTTP</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.5.6 WWW</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P align="CENTER"><IMG SRC="web.jpg" tppabs="http://book.itep.ru/4/45/web.jpg"></P>
+<FONT size=4><p align="center">Определения и понятия</font></p>
+
+<p align="justify">Прежде чем передать что-то, надо это иметь. Люди общаются, используя естественные языки, ЭВМ обмениваются нуликами и единицами. Но даже в привычном для всех нас общении на родном языке иногда возникают проблемы, и тогда мы переспрашиваем партнера (это прием используют и коммуникационные системы). Когда же мы читаем, перед нами возникает последовательность 
+символов из хорошо известного с детства алфавита. Символы эти могут существенно варьироваться по форме своего изображения, но мы их все равно без труда распознаем.</p>
+
+<p align="justify">Получаемая нами информация поступает не только от общения с людьми, книгами или телевизором. Не мало крайне важных для жизни данных мы получаем о себе и окружающем мире по имеющимся у нас каналам органов чувств. Мы научились сопоставлять и перепроверять эти данные, когда это требуется. Успешное функционирование этих каналов передачи данных и средств их обработки 
+позволяет нам прожить относительно долгую жизнь. Любые же сбои могут повлиять на нашу судьбу самым драматическим образом.</p>
+
+<p align="justify">Человечество научилось усовершенствовать данные нам природой каналы информационного обмена. Сначала это были примитивные сигнальные системы типа костров на вершинах холмов (пропускная способность 0,5 бит/час). Появление письменности открыло возможность общения уже умерших людей с живыми, обеспечив процесс накопления знаний. Довольно большие объемы информации могли уже передаваться с использованием лошадей и кораблей на практически неограниченные расстояния. Но скорость такого обмена была ничтожна, доставка сообщения занимала часы, дни, а иногда и годы (никакого намека на работу современной почты я здесь не делаю).</p>
+
+<p align="justify">Гигантским шагом вперед стало изобретение электрического телеграфа, а позднее радио. Сегодня же мы узнаем о землетрясении в 20000 км от нас максимум через час из очередного телевизионного сборника новостей. Люди объясняются в любви с использованием электронной почты и делают покупки, не выходя из дома.</p>
+
+<p align="justify"> На нас обрушилась лавина информации. Диабетик узнает о прелестях сникерса, мужчины маются, слушая информацию о потрясающих особенностях прокладок с крылышками, о несмываемой губной помаде и т.д. и т.д.</p>
+
+<p align="justify">Мы стали получать слишком много совершенно ненужной информации. Миллионером станет человек, который предложит покупателям телевизор, отфильтровывающий информацию согласно требованиям зрителя. Таким образом, мы уже сталкиваемся с новыми информационными проблемами, хотя 
+нельзя сказать, что мы решили все старые. Сплошь и рядом мы узнаем слишком поздно о своих болезнях, об угрозах стихийных бедствий или об истинных свойствах того или иного политика.</p>
+
+<p align="justify">Эти же проблемы относятся и к Интернет. По электронной почте вы получаете сообщения от совершенно незнакомых людей, которые утверждают, что очень хотят вашего быстрого обогащения (хотя их цели диаметрально противоположны), или предлагающих вам какие-то товары или услуги, хотя вы их об этом не просили. </p>
+
+<p align="justify">К Интернет получили доступ десятки миллионов людей. Если в издательствах редакторы, заботясь о доходах и избегая убытков, блокируют доступ графоманов к широким массам читателей, такого механизма в Интернет не существует. Таким образом, программные средства, фильтрующие поток данных на входе вашего почтового или web-сервера, здесь также весьма актуальны. 
+Ниже даются некоторые определения понятий, используемых в разделах о протоколе http, www и информационном поиске.</p>
+
+<p align="justify">Рассмотрим некоторые свойства информации, например структурированность и ценность. <i>Структурированность</i> – это свойство, которое позволяет принимающей стороне выделить информацию в виде некоторого сигнала, обладающего некоторыми свойствами. <i>Ценность</i> данных 
+выражается через содержательность, полноту, оперативность и достоверность.</p>
+
+<p align="justify">При обработке и передаче данных важную роль играют знаки и знаковые системы. <i>Знак</i> – это материальный объект, который служит для обозначения другого объекта и используется для передачи информации о последнем. Примерами знаков могут служить ноты, цифры, жесты азбуки глухонемых, знаки регулирования уличного движения и т.д. Одной из разновидностей знака является <i>символ</i>. Разновидностью знаковых систем являются языки, самым сложным из 
+которых является естественный человеческий язык. Все проявления и применения знаков и знаковых систем изучает <i>семиотика</i>. Предметом семиотики является связь знаков друг с другом, с обозначаемыми ими объектами и явлениями, а также с субъектами их использующими для целей коммуникаций. Семиотика содержит в себе три раздела: семантика</i>, синтактика</i> и <i>прагматика</i>. </p>
+
+<p align="justify"><i>Семантика</i> изучает отношения между знаком и тем, что он обозначает или замещает. <i>Синтактика</i> знаковых систем изучает их структуру и правила соединения знаков.<i>Прагматика</i> изучает законы функционирования знаковой системы, как средства коммуникации субъектов. С прагматикой связаны такие понятия как ценность и цель.</p>
+
+<p align="justify">World Wide Web (всемирная сеть, WWW или 3W) представляет собой информационную систему, базирующуюся на использовании гипертекста. Разработка этой системы была начата Тимом Бернерс-Ли, которому в 1989 году пришла в голову мысль объединить гипертекст с Интернет. Идея впервые реализована в ЦЕРН (Женева). Доступ к WWW возможен только в рамках протоколов TCP/IP, но для использования 3w необязательно иметь сервер-клиент (browser) на вашей машине. С некоторыми ограничениями возможен доступ и через электронную почту (listserv@info.cern.ch). Если WWW-клиент-сервер не установлен, можно работать в режиме удаленного терминала. Весьма удобным программным интерфейсом для WWW является ms explorer, netscape и некоторые другие. Для подготовки 
+документов в рамках HTML (Hypertext Markup Language) пригоден любой текстовый редактор (например, emacs в UNIX-машинах, ME в MS-DOS или Winword, в последних версиях которого уже допускаются гиперссылки). При подготовке гипертекстов вы можете использовать язык HTML или взять одно из множества доступных программных средств, которые позволяют преобразовать ваш документ в необходимый формат. Документы в гипертексте связываются друг с другом определенным набором слов. 
+Пользователю не нужно знать, где находится тот или иной документ. Часто ссылки на серверы WWW начинаются с сокращения http:// (Hypertext Transfer Protocol). Гипертекст позволяет осуществлять ссылки-разъяснения на статьи, хранящиеся на удаленном сервере. Гипертекст подразумевает не только текстовые объекты (но и графические или звуковые), поэтому термин гиперсреда (hypermedia) более 
+правилен. WWW может проводить поиск ключевых слов и в специфических документах-индексах, в этом случае выдаются указатели на искомые документы. WWW может использовать различные форматы документов и работать с разнообразными структурами информации, обеспечивая доступ к информационной вселенной. На рис. 4.5.6.1 показан рост числа WEB-серверов, базирующихся на разных программных 
+продуктах (www.netcraft.com). В 2000 году скорость регистрации web-серверов достигла 1 в секунду.</p>
+
+<p align="center"><img src="image580.gif" tppabs="http://book.itep.ru/4/45/image580.gif"></p>
+<p align="center">Рис. 4.5.6.1. Рост числа web-серверов в период 1995-99 годов</p>
+
+<p align="justify">На февраль 1999 года число www-серверов равнялось 4.301.512.</p>
+<b><p align="justify">Что же такое гипертекст?</p>
+</b><p align="justify">Прежде всего, следует отметить, что гипертекст – это текст, состоящий из ascii-символов. Для обеспечения верстки и организации перекрестных ссылок в гипертексте используются слова-метки. Основу гипертекста составляют HTML-элементы. Такой элемент включает в себя имя, атрибуты, текст или гипертекст. HTML-элемент записывается в документ в виде (более
+подробное описание смотри в статье о <a href="html4562.htm" tppabs="http://book.itep.ru/4/45/html4562.htm">html</a>):</p>
+
+<p align="justify">&lt;имя_метки&gt; текст &lt;/имя_метки&gt;<br>
+&lt;имя_метки&gt; имя_атрибута=аргумент текст &lt;/имя_метки&gt;</p>
+<p align="justify">html-документ состоит из одного элемента: &lt;html&gt;</p>
+<p align="justify">.... &lt;/html&gt;, который состоит из html-элементов: &lt;head&gt;</p>
+<p align="justify">... &lt;/head&gt; и &lt;body&gt; ... &lt;/body&gt;, последние в свою очередь могут содержать различные списки, внутренние и внешние метки и т.д.. Элементы &lt;html&gt;, &lt;head&gt; и &lt;body&gt; для совместимости с более старыми текстами сделаны пока необязательными. В html имеется 6 уровней заголовков (&lt;h1&gt;, .... &lt;h6&gt;), из них первый 
+- главный. В версии HTML+ (и более поздних версиях) предусмотрены операторы позиционирования текста, например, &lt;p align="center"&gt;. head-элементы могут содержать в себе:</p>
+
+<p align="justify">&lt;isindex&gt;</p>
+<p align="justify">говорит о том, что данный документ допускает индексный поиск (база данных).</p>
+<p align="justify">&lt;title&gt; . . . &lt;/title&gt;</p>
+<p align="justify">описывает заголовок документа, этот заголовок характеризует содержимое окна.</p>
+<p align="justify">&lt;base href="url"&gt;</p>
+<p align="justify">сообщает имя файла, в котором хранится данный документ.</p>
+<p align="justify">&lt;link rev="relationship" rel="relationship" href="url"&gt;</p>
+
+<p align="justify">этот элемент позволяет установить связь между документом, содержащим метку (якорь), и документом, указанным в URL (Uniform Resource Locator). Атрибут rel устанавливает связь между HTML-файлом и URL. Атрибут rev (reverse) описывает взаимоотношения между URL и HTML-файлом.</p>
+
+<p align="justify">Элементы body могут содержать элементы:</p>
+<p align="justify">Текстовые элементы:</p>
+<p align="justify">&lt;p&gt; индицирует конец параграфа и начало нового.</p>
+<p align="justify">&lt;pre&gt; . . . &lt;/pre&gt;</p>
+<p align="justify">выделяет текст, который уже был сформатирован ранее (таблицы, программы, стихи, ...).</p>
+<p align="justify">&lt;blockquote&gt; . . . &lt;/blockquote&gt;</p>
+<p align="justify">ограничивает часть текста, который должен быть выделен кавычками.</p>
+<p align="justify">Гиперсвязи или якоря</p>
+<p align="justify">&lt;a name="anchor_name"&gt; . . . &lt;/a&gt;</p>
+<p align="justify">определяет заданную позицию в документе.</p>
+<p align="justify">&lt;a href="#anchor_name"&gt; . . . &lt;/a&gt;</p>
+<p align="justify">описывает ссылку на определенное место текущего документа.</p>
+<p align="justify">&lt;a href="url"&gt; . . . &lt;/a&gt;</p>
+<p align="justify">устанавливает связь с другим файлом или ресурсом.</p>
+<p align="justify">&lt;a href="url#anchor_name"&gt; . . . &lt;/a&gt;</p>
+<p align="justify">устанавливает связь с заданным местом в другом документе.</p>
+<p align="justify">&lt;a href="url?search_word+search_word"&gt; . . . &lt;/a&gt;</p>
+<p align="justify">посылает серверу эталонную строку для поиска.</p>
+<p align="justify">Различные системы поиска могут интерпретировать эту строку по-разному. Для того чтобы читатель незнакомый с гипертекстом, получил некоторое представление о том, как он выглядит, приведу пример:</p>
+<p>&lt;title&gt; Протоколы и ресурсы Интернет &lt;/title&gt;<br>
+&lt;h1&gt; Это уровень первого заголовка &lt;/h1&gt;<br>
+&lt;h2&gt; Уровень второго заголовка &lt;/h2&gt;<br>
+&lt;p&gt; Начало параграфа ....</p>
+<p align="justify">Вам уже ясно, что подготовка гипертекстов "вручную" изнурительная задача и вспомогательные программные средства не повредят, особенно если вы хотите, чтобы ваш текст выглядел привлекательно. Заметим, что управляющие слова-метки могут записываться как строчными, так и прописными буквами (&lt;H1&gt; = &lt;H1&gt;), но они могут восприниматься различными 
+программами просмотра по-разному (могут и игнорироваться вовсе). HTML поддерживает нумерованные (OL), ненумерованные (UL), и описательные списки (DL). Пример нумерованного списка:</p>
+
+<table cellspacing=0 border=0 cellpadding=2 width=504>
+<tr><td width="51%" valign="top"><p align="justify">Записано в гипертексте</td>
+<td width="49%" valign="top"><p align="justify">Отображено на экране </td>
+</tr>
+</table>
+
+<p align="justify">&lt;ol&gt;</p>
+<table cellspacing=0 border=0 cellpadding=2 width=505>
+<tr><td width="51%" valign="top"><p align="justify">&lt;li&gt; Белоруссия&lt;/li&gt; </td>
+<td width="49%" valign="top"><p align="justify">1. Белоруссия</td>
+</tr>
+<tr><td width="51%" valign="top"><p align="justify">&lt;li&gt; Россия&lt;/li&gt; </td>
+<td width="49%" valign="top"><p align="justify">2. Россия</td>
+</tr>
+<tr><td width="51%" valign="top"><p align="justify">&lt;li&gt; Украина&lt;/li&gt; </td>
+<td width="49%" valign="top"><p align="justify">3. Украина</td>
+</tr>
+</table>
+
+<p align="justify">&lt;/ol&gt;</p>
+<p align="justify">Примером описательного списка может служить:</p>
+<p>&lt;dl&gt;<br>
+&lt;dt&gt; ИТЭФ<br>
+&lt;dd&gt; Институт Теоретической и Экспериментальной Физики, Москва, Россия.<br>
+&lt;dt&gt; ИФВЭ<br>
+&lt;dd&gt; Институт Физики Высоких Энергий, Протвино.<br>
+&lt;/dl&gt;</p>
+<p align="justify">На экране это будет выглядеть примерно так:</p>
+<p align="justify">ИТЭФ </p> <dir><p>Институт Теоретической и Экспериментальной Физики, Москва.</p></dir>
+<p align="justify">ИФВЭ</p><dir> <p>Институт Физики Высоких Энергий, Протвино.</dir></p>
+<p align="justify">&lt;dt&gt; - метка определения, а &lt;dd&gt; - метка данных описания. Как &lt;dt&gt; так и &lt;dd&gt; могут содержать много параграфов, разделенных меткой &lt;p&gt;. Допускается вложение списков друг в друга, например &lt;fsu.html&gt;:</p>
+<p>&lt;ul&gt;<br>
+&lt;li&gt; Белоруссия&lt;/li&gt; <br>
+&lt;li&gt; Россия&lt;/li&gt; <br>
+&lt;dl&gt;<br>
+&lt;dt&gt; ИТЭФ<br>
+&lt;dd&gt; Институт Теоретической и Экспериментальной Физики, Москва.<br>
+&lt;dt&gt; ИФВЭ<br>
+&lt;dd&gt; Институт Физики Высоких Энергий, Протвино.<br>
+&lt;/dl&gt;<br>
+&lt;li&gt; Украина&lt;/li&gt; <br>
+&lt;/ul&gt;</p>
+
+<p align="justify"> Некоторые символы являются служебными для html и для их отображения на экране требуются определенные ухищрения. Например:</p></font>
+<table cellspacing=0 border=0 cellpadding=2 width=400>
+<tr><td width="36%" valign="top">
+<p align="center">Символ</td>
+<td width="64%" valign="top"><p align="justify">записывается как</td>
+</tr>
+<tr><td width="36%" valign="top"><p align="center">&lt;</td>
+<td width="64%" valign="top"><p align="justify">&amp;lt;</td>
+</tr>
+<tr><td width="36%" valign="top"><p align="center">&gt;</td>
+<td width="64%" valign="top"><p align="justify">&amp;gt;</td>
+</tr>
+<tr><td width="36%" valign="top"><p align="center">&amp;</td>
+<td width="64%" valign="top"><p align="justify">&amp;amp;</td>
+</tr>
+<tr><td width="36%" valign="top"><p align="center"></td>
+<td width="64%" valign="top">&amp;nbsp; (неразрывный пробел)</td>
+</tr>
+</table>
+
+<p align="justify">Символ ; (точка с запятой) является составной частью описания. Все предшествующее относилось к описанию представления текстов на экране. Теперь рассмотрим, как можно обозначить смысловые связи и ссылки друг на друга различных частей текста. Собственно именно ради этого и создавалась идеология гипертекстов. Метка, означающая наличие связи, имеет вид &lt;a&gt; и 
+происходит от слова anchor (якорь). В общем виде ссылка имеет следующий формат:</p>
+
+<p align="justify">&lt;a href="url"&gt; текст &lt;/a&gt;</p>
+<p align="justify">URL (universal resource locator) в простейшем случае может быть именем файла. Текст обозначает действительный текст в документе, который может быть подсвечен, выделен другим цветом или помечен цифрой. Этот текст говорит программе просмотра, что в URL можно найти связанную с данным документом информацию или изображение. При использовании программы типа MS IE (или Netscape) для вызова этой информации или изображения на экран достаточно указать мышкой на текст и нажать кнопку. Если URL указывает на объект, находящийся не в вашей сети эта процедура может занять некоторое время. Чтобы вас как-то развлечь, программа показывает вам вращающийся земной шар в 
+верхнем правом углу экрана. Метка &lt;A&gt; может использоваться и для ссылки на определенный раздел документа:</p>
+
+<p align="justify">&lt;a name="refname"&gt; текст &lt;/a&gt;,</p>
+<p align="justify">где refname является меткой в вашем документе. Пусть в файле fsu.html определена следующая ссылка-якорь:</p>
+
+<p align="justify">&lt;a name="итэф"&gt; ИТЭФ &lt;/a&gt;</p>
+<p align="justify">тогда, находясь в пределах этого документа, можно попасть в нужную точку с помощью:</p>
+<p align="justify">&lt;a href=#итэф&gt; У-10 &lt;/a&gt; протонный синхротрон.</p>
+<p align="justify">В другом документе может присутствовать встречная ссылка, например:</p>
+<p align="justify">У-10 в &lt;a href="fsu.html#итэф"&gt; ИТЭФ&gt;/a&gt;</p>
+<p align="justify">Теперь, при нажатии кнопки мышки на слове ИТЭФ, программа отобразит fsu.html и отметит позицию со словом ИТЭФ (ссылка name=итэф). Вообще говоря, вы можете ссылаться на метки-якоря в файлах, находящихся на другой машине (на другом конце земли :-) ), приводя полное наименование URL. В общем случае url указывает тип и место расположения ресурса:</p>
+
+<p align="justify">сервер://host.domain[:port]/path/объект,</p>
+<p align="justify">где в качестве сервера может стоять: FTP, Telnet, HTTP, Gopher, Wais, News. Path описывает проход к каталогу, где лежит объект. Если программа просмотра (Netscape) способна воспроизводить изображения, можно ввести ссылки на файлы, содержащие нужные для пояснения текста картинки, например:</p>
+
+<p align="justify">&lt;img src="имя_файла.gif"&gt;</p>
+<p align="justify">Обратите внимание, что здесь используется графический стандарт gif (Graphics Interchange Format). Приемлемы также графические форматы tiff, jpeg, rgb и hdf. Читатели, желающие сформировать титульную страницу (home page) своего института, фирмы или проекта, должны изучить предмет более углубленно, обратившись, например по адресу:</p>
+<p align="justify">
+<a href="tppmsgs/msgs2.htm#278" tppabs="http://info.cern.ch/hypertext/www/provider/overview.html">http://info.cern.ch/hypertext/www/provider/overview.html</a>.</p>
+<p align="justify">После этого недолгого экскурса в гипертекст, который является основой многих поисковых систем, вернемся к проблематике www. Следует заметить, что публично доступные клиент-серверы существуют для сред MS-DOS, VMS, MVS, UNIX, X-windows, Macintosh, NEXT. Это математическое обеспечение доступно через анонимный FTP из депозитария info.cern.ch секции /pub/www (или www.earn.net gnrt/www.html). Графические клиент-серверы доступны для UNIX, Windows, Macintosh, X-windows, Next.</p>
+
+<p align="justify">Режим удаленного терминала можно реализовать через telnet по адресу info.cern.ch (при этом не требуется иметь авторизацию на какой-либо ЭВМ ЦЕРН). Многие серверы при старте выходят на приглашение login. Обычно для входа в WWW при этом достаточно напечатать WWW. Никакого слова-пропуска не требуется. Программный пакет PCTCP (и некоторые другие) допускает настройку на 
+эмуляцию того или иного терминала, например:</p>
+
+<p align="justify">tn -x vt100 info.cern.ch, где info.cern.ch - адрес WWW-сервера, который предполагает работу с терминалом VT-100 (или его эмулятором). При работе в строчном режиме (режим меню) вам предлагается возможность выбора одного из пунктов меню. Для этого вы печатаете номер этого пункта и нажимаете клавишу &lt;enter&gt;. Если все меню на экране не помещается, вы можете 
+перемещаться по нему в любом направлении. Пояснения, содержащиеся на экране, позволяют работать c системой даже новичку.</p>
+
+<p align="justify">WWW-сервер в простом варианте выполняет лишь команды get имя_файла, приходящие от клиент-сервера пользователя. Остальная работа выполняется www-клиентом.</p>
+
+<p align="justify">Существует достаточно много "удаленных" тематических серверов, например:</p>
+
+<center> <table border=10 cellspacing=1 cellpadding=2 width=700  bgcolor="ghostwhite">
+<tr><td width="40%" bgcolor="gainsboro"><b><p align="left">Адрес</b></td>
+<td width="40%" bgcolor="gainsboro"><b><p align="left">Тематика</b></td>
+<td width="21%" bgcolor="gainsboro"><b><p align="left">Страна</b></td>
+</tr>
+<tr><td width="40%" valign="top"><p align="justify">vms.huji.ac.il (128.139.4.3)</td>
+<td width="40%" valign="top"><p align="left">Окружающая среда</td>
+<td width="21%" valign="top"><p align="left">Израиль</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="justify">info.cern.ch (128.141.201.74)</td>
+<td width="40%" valign="top"><p align="left">Физика высоких энергий</td>
+<td width="21%" valign="top"><p align="left">Швейцария</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">fatty.law.cornell.edu (132.236.108.5)</td>
+<td width="40%" valign="top"><p align="left">Законодательство</td>
+<td width="21%" valign="top"><p align="left">США</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">ukanaix.cc.ukans.edu (129.237.1.30)</td>
+<td width="40%" valign="top"><p align="left">История</td>
+<td width="21%" valign="top"><p align="left">США</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="justify">www.njit.edu (128.235.163.2)</td>
+<td width="40%" valign="top"><p>&nbsp;</td>
+<td width="21%" valign="top"><p align="left">США</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left"><a href="tppmsgs/msgs2.htm#279" tppabs="http://www.erg.abdn.ac.uk/"><font size=2>www.erg.abdn.ac.uk</font></a></td>
+<td width="40%" valign="top"><p align="left">Нейронные сети</td>
+<td width="21%" valign="top"><p align="left">Англия</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left"><a href="tppmsgs/msgs2.htm#280" tppabs="http://www.mech.gla.ac.uk/"><font size=2>www.mech.gla.ac.uk</font></a></td>
+<td width="40%" valign="top"><p>&nbsp;</td>
+<td width="21%" valign="top"><p align="left">Англия</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left"><a href="tppmsgs/msgs2.htm#281" tppabs="http://www.ai.univie.ac.at/"><font size=2>www.ai.univie.ac.at</font></a></td>
+<td width="40%" valign="top"><p>&nbsp;</td>
+<td width="21%" valign="top"><p align="left">Австрия</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">kal-el.ugr.es</td>
+<td width="40%" valign="top"><p>&nbsp;</td>
+<td width="21%" valign="top"><p align="left">Испания</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">opal.vcu.edu</td>
+<td width="40%" valign="top"><p align="left">Нанотехнология</td>
+<td width="21%" valign="top"><p align="left">США</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">galaxy.ph.tn.tudelft.nl</td>
+<td width="40%" valign="top"><p align="left">Распознавание образов</td>
+<td width="21%" valign="top"><p align="left">Нидерланды</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">info.funet.fi (128.214.6.102)</td>
+<td width="40%" valign="top"><p>&nbsp;</td>
+<td width="21%" valign="top"><p align="left">Финляндия</td>
+</tr>
+<tr><td width="40%" valign="top"><p align="left">fserv.kfki.hu (148.6.0.3)</td>
+<td width="40%" valign="top"><p>&nbsp;</td>
+<td width="21%" valign="top"><p align="left">Венгрия</td>
+</tr>
+</table></center> 
+
+<p align="justify">Список этот не является исчерпывающим, существуют клиент-серверы и в России. Появились и первые зеркальные www-депозитарии в России (например, xxx.itep.ru (“зеркало” сервера LANL – Лос-Аламос, США), store.in.ru (зеркальный сервер по Linux – Red Hat и RFC) и т.д.. Хотя в вышеприведенной таблице указана тематика серверов, не следует думать, что этим ограничивается 
+содержимое депозитариев. ЦЕРН является базовой организацией для справочных запросов (здесь работают многие авторы этой системы, www-bug@info.cern.ch). Для получения нужного файла по электронной почте следует послать mail по адресу listserv@info.cern.ch с командой send. Команда send присылает документ с данным www-адресом. Но следует иметь в виду ряд ограничений. Гипертекстные документы имеют стандартную ширину в 72 символа. В конце документа обычно имеется 
+список других адресов документов по данной или близкой тематике. Гипертекстный документ имеет связи, которые помещаются в квадратные скобки. Обратите внимание на то, что, несмотря на наличие имени listserv в начале, - это не listserv-сервер. Максимальное число строк, получаемое пользователем, при этом не превышает 1000 (хотя сегодня найдется немного желающих пользоваться 
+такой услугой, если имеется прямой доступ в Интернет). Все запросы мониторируются. При работе с графикой выбор того или иного объекта производится мышкой. Работая со строчным сервером, следует набрать номер строки меню и нажать клавишу &lt;enter&gt;. В WWW доступны некоторые команды 
+(параметры команд помещаются в угловые скобки &lt;&gt;, в квадратных скобках приведены сокращенные названия команд для построчного просмотра; используется полное или сокращенное имя команды.):</p>
+
+<center> <table border=10 cellspacing=1 cellpadding=5 width=700 bgcolor="ghostwhite">
+<tr><td width="15%" bgcolor="gainsboro"><p align="justify">Команда</td>
+<td width="20%" bgcolor="gainsboro"><p align="justify">Сокращение</td>
+<td width="65%" bgcolor="gainsboro"><p align="center">Назначение</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">help</td>
+<td width="20%" valign="top"><p align="center">[h]</td>
+<td width="65%" valign="top"><p align="justify">Выдает гипертекстный адрес текущего документа и список доступных команд, который является контекстно зависимым.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">manual</td>
+<td width="20%" valign="top"><p align="center">[m]</td>
+<td width="65%" valign="top"><p align="justify">Отображает пояснительные тексты, если таковые 
+имеются.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">quit</td>
+<td width="20%" valign="top"><p>&nbsp;</td>
+<td width="65%" valign="top"><p align="justify">Уход из www.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">up</td>
+<td width="20%" valign="top"><p align="center">[u]</td>
+<td width="65%" valign="top"><p align="justify">Перемещает текущую страницу документа вверх [предшествующий экран].</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">down</td>
+<td width="20%" valign="top"><p>&nbsp;</td>
+<td width="65%" valign="top"><p align="justify">Перемещает текущую страницу документа вниз [следующий экран].</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">top</td>
+<td width="20%" valign="top"><p align="center">[t]</td>
+<td width="65%" valign="top"><p align="justify">Устанавливает указатель в начало документа.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">bottom</td>
+<td width="20%" valign="top"><p align="center">[bo]</td>
+<td width="65%" valign="top"><p align="justify">Устанавливает указатель в конец документа.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">back</td>
+<td width="20%" valign="top"><p align="center">[b]</td>
+<td width="65%" valign="top"><p align="justify">Возвращает просмотр к предшествующему документу.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">home</td>
+<td width="20%" valign="top"><p align="center">[ho]</td>
+<td width="65%" valign="top"><p align="justify">Возврат к первому документу.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">next</td>
+<td width="20%" valign="top"><p align="center">[n]</td>
+<td width="65%" valign="top"><p align="justify">Осуществляет переход к просмотру следующего документа.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">previous</td>
+<td width="20%" valign="top"><p align="center">[p]</td>
+<td width="65%" valign="top"><p align="justify">Осуществляет переход к просмотру предшествующего документа.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">list</td>
+<td width="20%" valign="top"><p align="center">[l]</td>
+<td width="65%" valign="top"><p align="justify">Выдает пронумерованный список связей текущего документа, для отслеживания связей следует отпечатать соответствующий номер.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">recall</td>
+<td width="20%" valign="top"><p align="center">[r] &lt;number&gt;</td>
+<td width="65%" valign="top"><p align="justify">Если число опущено, выдает пронумерованный список документов, которые вы просмотрели. Для просмотра определенного документа выполните команду с соответствующим номером.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">find </td>
+<td width="20%" valign="top"><p align="center">[f] &lt;ключевое слово&gt;</td>
+<td width="65%" valign="top"><p align="justify">Поиск ключевых слов в индексе. Список находок отображается вместе со ссылками возможных дополнений. Ключевые слова отделяются пробелами. find можно и не печатать, если ключевое слово не совпадает ни с одной из команд www. Команда find выполнима не всегда.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">go</td>
+<td width="20%" valign="top"><p align="center">[g] docaddress</td>
+<td width="65%" valign="top"><p align="justify">Просмотр документа с данным гипертекстным адресом.</td>
+</tr>
+<tr><td width="15%" valign="top"><p align="justify">print</td>
+<td width="20%" valign="top"><p>&nbsp;</td>
+<td width="65%" valign="top"><p align="justify">Команда доступна только из unix. Печатает текущий документ. По умолчанию команда печати имеет имя lpr, но ее имя может быть определено переменной www_print_command.</td>
+</tr>
+</table></center> 
+
+<p align="justify">Стандартная форма обращения к www имеет вид:</p>
+<p align="justify">www &lt;option&gt; &lt;docaddress &lt;ключевое слово&gt;&gt;,</p>
+<p align="justify">где docaddress - гипертекстный адрес документа, который вы хотите просмотреть; а ключевое слово - объект поиска в индексе, предоставляемом docaddress. По умолчанию на экран вызывается первый документ. В нижней части экрана отображается строка выполнимых команд. Команды могут набираться как строчными, так и заглавными буквами. Имеются следующие возможности (опции):</p>
+
+<center> <table border=10 cellspacing=1 cellpadding=5 width=710  bgcolor="ghostwhite">
+<tr><td width="18%" valign="top"><p align="justify">-n</td>
+<td width="82%" valign="top"><p align="justify">Неинтерактивный режим. Документ форматируется и отображается на экране. Страницы разделяются символами form feed (FF)</td>
+</tr>
+<tr><td width="18%" valign="top"><p align="justify">-listrefs</td>
+<td width="82%" valign="top"><p align="justify">Добавляется список адресов всех ссылок вплоть до конца. Только не интерактивный режим</td>
+</tr>
+<tr><td width="18%" valign="top"><p align="justify">-pn</td>
+<td width="82%" valign="top"><p align="justify">Устанавливает длину страницы равной <b>n</b> строк. По умолчанию длина страницы равна 24 строкам. Команда без числа делает страницу бесконечной</td>
+</tr>
+<tr><td width="18%" valign="top"><p align="justify">-wn</td>
+<td width="82%" valign="top"><p align="justify">Устанавливает ширину страницы равной <b>n</b> колонкам. По умолчанию ширина равна 78, 79 или 80</td>
+</tr>
+<tr><td width="18%" valign="top"><p align="justify">-na</td>
+<td width="82%" valign="top"><p align="justify">Прячет ссылки в тексте, удобно при распечатке</td>
+</tr>
+<tr><td width="18%" valign="top"><p align="justify">-version</td>
+<td width="82%" valign="top"><p align="justify">Отображает версию используемой программы</td>
+</tr>
+</table></center> 
+
+<p align="justify">Для перехода к следующей странице достаточно нажать клавишу &lt;enter&gt;. Ниже приведен пример меню World Wide Web (в настоящее время данный вид доступа представляет скорее исторический интерес):</p>
+
+<p align="center">the world-wide web virtual library: subject catalogue<br>
+the www virtual library</p>
+<p>this is a distributed subject catalogue. see also arrangement by service type [1], and other 
+subject catalogues of network information [2].<br>
+mail to maintainers of the specified subject or www-request@info.cern.ch to add pointers to this 
+list, or if you would like to contribute to administration of a subject area.<br>
+see also how to put your data on the web [3]<br>
+aeronautics mailing list archive index [4]. see also nasa larc [5]<br>
+agriculture see agricultural info [6], almanac mail servers [7]<br>
+the agricultural genome [8] (national agricultural library, part of the u.s. department of 
+agriculture)<br>
+archaeology [9] separate list<br>
+astronomy and astrophysics [10] separate list.<br>
+1-64, back, &lt;return&gt; for more, quit, or help:</p>
+<p align="justify">Цифры в квадратных скобках представляют собой пункты меню. Для выбора одного из них достаточно напечатать его номер (после двоеточия) и нажать клавишу &lt;enter&gt;. Поиск возможен только в случае, когда в меню в нижней части экрана присутствует слово find. Рассмотренная выше версия является устаревшей, но она дает представление о том как работает WEB-сервер.</p>
+
+<p align="justify">URL (uniform resource locator) идентифицирует ресурс Internet. В общем виде URL имеет вид:</p>
+<p align="justify">access://host/path</p>
+<p align="justify">где access = {FTP, Gopher, Telnet, ...}; host = имя ЭВМ-сервера; path = имя файла, имя каталога, или другая информация о ресурсе.</p>
+<p align="justify">Например, url для анонимного FTP:</p>
+
+<p align="justify"><a href="tppmsgs/msgs2.htm#282" tppabs="ftp://ftp.rpi.edu/pub/communications/internet-cmc.txt">ftp.rpi.edu/pub/communications/internet-cmc.txt</a></p>
+<p align="justify">означает:</p>
+
+<p align="center"><img src="image581.gif" tppabs="http://book.itep.ru/4/45/image581.gif"><BR>
+
+<P ALIGN="JUSTIFY">Если вы не имеете WWW-клиент-сервера типа NetScape (где можно задать HTTP ресурс, который вы хотите получить), HTTP-ресурс может стать доступным для вас через  электронную почту. Пошлите через e-mail запрос по адресу listserv@info.cern.ch с текстом в теле сообщения (вариант сегодня достаточно архаичный):</P>
+<P>www URL<BR>
+Например, URL для:<BR>
+CNIDR Web Page: cnidr.org welcome.html<BR>
+имеет форму:<BR>
+http://cnidr.org/welcome.html<BR>
+Пошлите сообщение:<BR>
+</FONT>$ mail listserv@info.cern.ch<BR>
+www http://cnidr.org/welcome.html</P>
+<P ALIGN="JUSTIFY">и вы получите welcome.html страницу по электронной почте. Вы можете получить доступ к HTTP-документам с помощью telnet. Команда:</P>
+
+<P ALIGN="JUSTIFY">telnet info.cern.ch</P>
+<P ALIGN="JUSTIFY">вызовет базовую страницу WWW в ЦЕРН. Для того чтобы достичь нужного URL, введите команду:</P>
+<P ALIGN="JUSTIFY">go http://cnidr.org/welcome.html</P>
+<P ALIGN="JUSTIFY">В ЦЕРН WWW-команду возглавляет Tim Berners-Lee. Обнаруженные ошибки или предложения шлите по адресу www-bug@info.cern.ch. Почтовый подписной лист: www-talk@info.cern.ch. Для подписки пошлите запрос по адресу:</P>
+
+<P ALIGN="JUSTIFY">www-talk-request@info.cern.ch. В ЦЕРН работа WWW успешно дополняется другими информационными системами, например, библиотечной системой ALICE. Группа новостей в USENET: comp.infosystem.www.</P>
+
+<P ALIGN="JUSTIFY">Особенности гипертекста с его межуровневыми связями приводят к циклам при просмотре меню (возврат осуществляется по тому же маршруту, по какому вы пришли в данную точку). Это снижает эффективность поиска. Отчасти эти недостатки устранены в графическом интерфейсе NetScape. Графические интерфейсы требуют большой пропускной способности от информационных каналов 
+(желательно &gt; 64 Кб/с). Именно NetScape и MS Explorer стали наиболее популярными интерфейсами поисковых информационных систем и источником наибольших загрузок в телекоммуникационных каналах. Этот интерфейс наиболее естественно позволяет работать и с графическими объектами. Публично доступны версии NetScape для Windows, Unix и т.д. Если у вас уже работает WWW-сервер, нет необходимости заводить серверы GOPHER, Archie или WAIS - их услуги обычно доступны через WWW. Сейчас существует несколько разновидностей программ-надстроек типа NetScape, например MS Explorer, LYNX и некоторые другие.</P>
+
+<P ALIGN="JUSTIFY">Сегодня трудно найти какую-либо фирму, организацию или общественную группу, не представленную в Интернет своей Web-страницей. Эта технология широко используется в сфере рекламы и даже продажи товаров. Следствием этого стала актуальность проблем безопасности для 
+Web-серверов. Большинство этих проблем происходят от несовершенства программ. Несмотря на общеизвестный совет не использовать программы версии 1.0, ошибки и “дыры” встречаются и в более поздних версиях (например, в Apache V.1.1.1 или Netscape Navigator 2.0, MS Internet Explorer 3.0 и т.д.). Хотя функция Web-сервера принципиально проста: найти запрошенный URL и послать его 
+заказчику, реально практически все существующие сервера “обросли” конфигурационными опциями, интерфейсами для различных баз данных, снабжены адаптерами для разных версий HTTP и HTML, скриптами и модулями API. В результате исполняемый модуль WWW-сервера в несколько раз больше, чем 
+для FTP-сервера, что оставляет достаточно пространства для ошибок и возможностей для реализации хакерских замыслов.</P>
+
+<FONT SIZE=4><P ALIGN="CENTER"><B>4.5.6.1 Программное обеспечение WEB</B></FONT> </P>
+<P ALIGN="JUSTIFY">Существует достаточно широкий список программного обеспечения для формирования WEB-сервера. Структура и конфигурация этих серверов варьируется в широких пределах, но есть у них и немало общего. Рассмотрим основные каталоги, которые возникают при установке WEB-сервера.</P>
+
+<B><P ALIGN="JUSTIFY">Каталог конфигурации</B>. Здесь содержатся файлы, которые определяют рабочие характеристики сервера. Этот каталог жизненно важен, и необходимо максимально возможно ограничить круг лиц, которым разрешено изменять здесь что-либо.</P>
+
+<B><P ALIGN="JUSTIFY">Инструментальный каталог администратора</B>. Этот каталог содержит утилиты, которыми пользуется администратор сервера. Здесь могут располагаться программы управления доступом, генерации криптографических ключей и формирования поисковых индексов.</P>
+
+<B><P ALIGN="JUSTIFY">Каталог файла регистрации операций</B> (LOG-файла). Здесь фиксируются все процедуры доступа к серверу, а также все происходящие сбои и ошибки.</P>
+
+<B><P ALIGN="JUSTIFY">Каталог CGI</B>. В этом каталоге располагаются CGI-скрипты, которые используются для формирования документов с динамически изменяющимся содержимым, для организации доступа к базам данных и выполнения интерактивных задач. Здесь же могут находиться средства, которые позволяют администратору-программисту добавлять свои собственные функции сервера, расширяя его возможности.</P>
+
+<B><P ALIGN="JUSTIFY">Каталог документов</B> (корневой каталог документов). Этот каталог составляет основу иерархического дерева каталогов документов сервера. Каталог может включать субкаталоги типа html, java, icons и т.д.</P>
+<P ALIGN="JUSTIFY">Помимо перечисленных может присутствовать каталог security, где лежат параметры доступа (имена и пароли) авторизованных клиентов сервера.</P>
+
+<P ALIGN="JUSTIFY">Современные WEB-серверы трудно себе представить без CGI-скриптов (Common Gateway Interface). Эти скрипты позволяют существенно расширить возможности сервера, обеспечить доступ к базам данных, работать с документами, содержимое которых изменяется динамически, организовать игры в реальном масштабе времени, обрабатывать запросы клиентов, посылать сообщения 
+по электронной почте и многое другое. CGI-скрипты обеспечивают интерфейс между WEB-сервером и серверами GOPHER или FTP. Привлекательность CGI-скриптов и легкость их написания, к сожалению, дополняется тем, что совсем не просто написать их безошибочно.</P>
+
+<P ALIGN="JUSTIFY">CGI-скрипты (ISO 9636) представляют собой небольшие программы, которые являются независимыми от основной программы сервера. Когда удаленный пользователь запрашивает URL, который указывает на CGI-скрипт, сервер исполняет скрипт, передавая информацию о состоянии сессии. CGI-скрипт обрабатывает эти данные и выдает документ, который, вообще говоря, может быть и не только HTML-страницей. Среди информации, которую передает сервер CGI-скрипту, обычно присутствует строка запроса, содержащая данные, которые поступили от удаленного пользователя. Форма строки запроса произвольна. Она может содержать ключевые слова для поиска или SQL-предложение для обращения к серверу базы данных. Строка запроса может быть передана CGI-скрипту двумя способами. В первом случае она прикрепляется к URL. Например:</P>
+
+<P ALIGN="JUSTIFY">http://www.altavista.com/cgi-bin/query?pg=q&amp;what=web&amp;fmt=.&amp;q=question</P>
+<P ALIGN="JUSTIFY">Все, что следует после знака вопроса, представляет собой строку запроса. В этой версии строка запроса должна следовать требованиям записи URL, т.е. пробелы должны заменяться символом + (ключевым словом в приведенном запросе является question). CGI-скрипт извлекает строку запроса с учетом переменной конфигурации (environment). Альтернативой этому является посылка строки запроса CGI методом HTTP POST. Этот метод обычно 
+используется при заполнении пользователем форм и отправке их удаленному серверу. В этом случае WEB-сервер направляет строку запроса непосредственно на стандартный вход скрипта. Желательно пользоваться хорошо проверенными скриптами, а при написании новых следить за тем, чтобы они ни при каких обстоятельствах не допускали исполнения команд на машине сервера и не производили несанкционированной модификации файлов.</P>
+
+<P ALIGN="JUSTIFY">Пользователи WEB сервера, которые имеют доступ к документам и файлам поддержки обычно делятся на четыре категории: хозяин, автор, разработчик и администратор. Каждая их этих категорий имеет разные права доступа, показанные в таблице 4.5.6.1.</P>
+
+<P ALIGN="CENTER">Таблица 4.5.6.1. Возможности различных категорий пользователей WEB-сервера</P>
+
+<CENTER> <TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=850  bgcolor="ghostwhite">
+<TR><TD WIDTH="16%" ROWSPAN=2 bgcolor="gainsboro"><P ALIGN="JUSTIFY"> Пользователь</TD>
+<TD WIDTH="84%" COLSPAN=5 bgcolor="gainsboro"><P ALIGN="CENTER">Тип файла</TD>
+</TR>
+<TR><TD WIDTH="24%"><P ALIGN="CENTER">Конфигурационный</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">Инструментальный</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="CENTER">LOG-файл</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="CENTER">CGI</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">Документы</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">Хозяин</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">RW</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">R</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="CENTER">R</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="CENTER">RW</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">RW</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">Разработчик</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="CENTER">RW</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">RW</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">Автор</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="CENTER">R</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">RW</TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP"><P ALIGN="JUSTIFY">Клиент</TD>
+<TD WIDTH="24%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="23%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="13%" VALIGN="TOP"><P ALIGN="CENTER">-</TD>
+<TD WIDTH="9%" VALIGN="TOP"><P ALIGN="CENTER">R</TD>
+<TD WIDTH="15%" VALIGN="TOP"><P ALIGN="CENTER">R</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">R – разрешено чтение. W – разрешена запись и уничтожение.</P>
+<I><P ALIGN="JUSTIFY">Хозяином</I> в данном случае считается администратор узла, где размещен WEB-сервер. <I>Автор</I> занимается подготовкой документов и рисунков. <I>Разработчик</I> имеет сходные функции с автором, но в его обязанности входит также разработка и модификация CGI-скриптов и модулей сервера. <I>Клиент</I> (посетитель) может запускать скрипты и читать любые документы. Приведенная иерархия возможностей для пользователей гарантирует устойчивую работу и безопасность WEB-сервера.</P>
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="xwin_455.htm" tppabs="http://book.itep.ru/4/45/xwin_455.htm"><FONT COLOR="lightblue">4.5.5 Протокол X-Windows</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="seach458.htm" tppabs="http://book.itep.ru/4/45/seach458.htm"><FONT COLOR="lightblue">4.5.8 Поиск узлов и людей</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="http4561.htm" tppabs="http://book.itep.ru/4/45/http4561.htm"><FONT COLOR="lightblue">4.5.6.1 Гипертекстный протокол HTTP</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

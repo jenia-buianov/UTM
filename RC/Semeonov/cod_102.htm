@@ -1,0 +1,274 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Ethernet
+
+">
+<TITLE>10.2 Коды протоколов в Ethernet II</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="madr_103.htm" tppabs="http://book.itep.ru/10/madr_103.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><FONT COLOR="lightblue">10.11 Адреса    серверов ведущих фирм, работающих в сфере телекоммуникаций</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="madr_103.htm" tppabs="http://book.itep.ru/10/madr_103.htm"><FONT COLOR="lightblue">10.3 Стандартные    мультикастинг-адреса Интернет</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>10.2 Коды протоколов в Ethernet II</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+
+<CENTER> <TABLE BORDER=10 CELLSPACING=2 CELLPADDING=9 WIDTH=803 bgcolor="ghostwhite">
+<TR><TD WIDTH="20%" VALIGN="TOP" bgcolor="gainsboro">
+<B><P ALIGN="CENTER">Десятичный код</B></TD>
+<TD WIDTH="18%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="CENTER">Hex</B></TD>
+<TD WIDTH="62%" VALIGN="TOP" bgcolor="gainsboro">
+<B><P ALIGN="CENTER">Описание</B></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P ALIGN="CENTER">0-05DC</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Поле длины IEEE 802.3</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<P ALIGN="CENTER">512</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P ALIGN="CENTER">0200</TD>
+<TD WIDTH="62%" VALIGN="TOP">
+<P>XEROX PUP (PARC Universal Packet)</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">513</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0201</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Трансляция адреса для пакетов PUP</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">1536</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0600</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>XEROX NS IDP</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2048</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0800</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Internet протокол (IPv4)</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2049</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0801</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>X.75 Internet</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2050</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0802</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>NBS Internet</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2051</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0803</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>ECMA Internet</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2052</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0804</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Chaosnet</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2053</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0805</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>X.25 уровень 3</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2054</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0806</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Протокол трансляции адреса (ARP)</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2055</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0807</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>XNS совместимость</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">2560</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">0A00</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Xerox IEEE-802.3 PUP</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">4096</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">1000</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Berkley Trailer</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">21000</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">5208</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>BBN Simnet</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24577</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6001</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>DEC MOP Dump/Load</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24578</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6002</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>DEC MOP удаленный терминал</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24579</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6003</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>DEC DECnet фаза IV</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24580</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6004</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>DEC LAT (Local Area Transport)</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24582</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6005</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Диагностический протокол DEC</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24583</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6006</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Протокол пользователя DEC</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">24586</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">6010-6014</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Корпорация 3Com</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">28720</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">7030</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Proteon</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32773</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8005</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>HP Probe</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32776</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8008</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>AT&amp;T</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32784</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8010</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Excelan</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32787</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8013</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Диагностика SGI</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32788</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8014</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Сетевые игры SGI</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32793</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8019</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Apollo Computers</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32821</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8035</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Реверсивный протокол ARP (RARP)</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32824</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8038</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>DEC LANbridge</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32829</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">803D</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Ethernet шифрование DEC</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32831</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">803F</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Сетевой монитор трафика DEC</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32872</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8068</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>General Dynamics</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32873</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8069</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>AT&amp;T</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">32923</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">809B</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>AppleTalk</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">33011</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">80F3</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>AppleTalk AARP</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">33072</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8130</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Heyes Microcomputers</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">33079</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">8137-8138</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>NetWare IPX/SPX</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">33100</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">814C</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>SNMP</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">818D</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>Motorola Computer</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">81A5-81AE</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>RAD Network Devices</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">36865</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">9001</TD>
+<TD WIDTH="62%" VALIGN="TOP">
+<P>3Com(Bridge) XNS Sys Mgmt(Системное управление XNS)</TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP"><P ALIGN="CENTER">36866</TD>
+<TD WIDTH="18%" VALIGN="TOP"><P ALIGN="CENTER">9002</TD>
+<TD WIDTH="62%" VALIGN="TOP"><P>3Com(Bridge) TCP-IP System</TD>
+</TR>
+</TABLE></CENTER> 
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rec_101.htm" tppabs="http://book.itep.ru/10/rec_101.htm"><FONT COLOR="lightblue">10.1 Рекомендации CCITT по телекоммуникациям</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="adr_1011.htm" tppabs="http://book.itep.ru/10/adr_1011.htm"><FONT COLOR="lightblue">10.11 Адреса    серверов ведущих фирм, работающих в сфере телекоммуникаций</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="madr_103.htm" tppabs="http://book.itep.ru/10/madr_103.htm"><FONT COLOR="lightblue">10.3 Стандартные    мультикастинг-адреса Интернет</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

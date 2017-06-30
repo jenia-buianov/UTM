@@ -1,0 +1,96 @@
+BODY {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+P {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+BODY {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TR {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TD {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+FORM {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+INPUT {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+OPTION {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+SELECT {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TABLE {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TR {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TD {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+TH {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+A {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+OPTION {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+SELECT {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+A:link {
+	COLOR: blue; FONT-FAMILY: Arial; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: blue; FONT-FAMILY: Arial; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: blue; FONT-FAMILY: Arial; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: red; FONT-FAMILY: Arial; TEXT-DECORATION: underline
+}
+A.a0:link {
+	COLOR: blue; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a0:visited {
+	COLOR: blue; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a0:active {
+	COLOR: blue; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a0:hover {
+	COLOR: red; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a1:link {
+	COLOR: black; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a1:visited {
+	COLOR: black; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a1:active {
+	COLOR: black; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a1:hover {
+	COLOR: cyan; FONT-FAMILY: Times New Roman; TEXT-DECORATION: none
+}
+A.a2:link {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.a2:visited {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.a2:active {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.a2:hover {
+	COLOR: red; TEXT-DECORATION: none
+}

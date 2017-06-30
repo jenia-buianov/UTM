@@ -1,0 +1,175 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Firewall
+brannmauer
+сетевая безопасность
+
+
+
+
+
+">
+<TITLE>6.3 Система Firewall</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="vlan_62.htm" tppabs="http://book.itep.ru/6/vlan_62.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="soft_7.htm" tppabs="http://book.itep.ru/7/soft_7.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="intrusion.htm" tppabs="http://book.itep.ru/6/intrusion.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="vlan_62.htm" tppabs="http://book.itep.ru/6/vlan_62.htm"><FONT COLOR="lightblue">6.2 Виртуальные локальные сети VLAN,     Интранет</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm"><FONT COLOR="lightblue">6 Сетевая безопасность</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="soft_7.htm" tppabs="http://book.itep.ru/7/soft_7.htm"><FONT COLOR="lightblue">7 Программирование    для сетей (новые идеи, принципы и возможности)</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="intrusion.htm" tppabs="http://book.itep.ru/6/intrusion.htm"><FONT COLOR="lightblue">6.3.1 Список видов атак, зарегистрированных Network ICE</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>6.3 Система Firewall</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+<P ALIGN="CENTER"><IMG SRC="fire.jpg" tppabs="http://book.itep.ru/6/fire.jpg"></P>
+<P ALIGN="justify">&#9;Учитывая важность проблемы защиты, разработана специальная система <b>firewall</b> ("огненная стена”). Система <b>firewall </b>заменяет маршрутизатор или внешний порт сети (gateway). Защищенная часть сети размещается за ним. Пакеты, адресованные Firewall, обрабатываются локально, а не просто переадресуются. Пакеты же, которые адресованы объектам, 
+расположенным за Firewall, не доставляются. По этой причине хакер вынужден иметь дело с системой защиты ЭВМ Firewall. Схема взаимодействия Firewall с локальной сетью и внешним Интернет показана на рис. 6.3.1.</p>
+
+<p align="center"><img src="firewall.jpg" tppabs="http://book.itep.ru/6/firewall.jpg"></p>
+<p align="center">Рис. 6.3.1. Схема Firewall</p>
+
+<p align="justify">Такая схема проще и надежнее, так как следует заботиться о защите одной машины, а не многих. Экран, маршрутизатор и ЭВМ управления экраном объединены небольшой, незащищенной локальной сетью. Основные операции по защите осуществляются здесь на IP-уровне. Эту схему можно реализовать и на одной ЭВМ, снабженной двумя интерфейсами. При этом через один интерфейс осуществляется связь с Интернет, а через второй – с защищенной сетью. Такая ЭВМ совмещает функции маршрутизатора-шлюза, экрана и управления экраном. Возможна реализация Firewall, показанная на рис 6.3.2. Здесь функция экрана выполняется маршрутизатором.</p>
+
+<p align="center"><img src="image618.gif" tppabs="http://book.itep.ru/6/image618.gif"></P>
+<P ALIGN="CENTER">Рис. 6.3.2. Схема Firewall, где функцию экрана выполняет маршрутизатор</P>
+
+<P ALIGN="JUSTIFY">В этой схеме доступ из Интернет возможен только к прокси-серверу, ЭВМ из защищенной сети могут получить доступ к Интернет тоже только через прокси-сервер. Ни один пакет посланный из защищенной ЭВМ не может попасть в Интернет и, аналогично, ни один пакет из Интернет не может попасть непосредственно защищенной ЭВМ. Возможны и другие более изощренные схемы, например со вторым “внутренним” Firewall для защиты от внутренних угроз.</P>
+
+<P ALIGN="JUSTIFY">Недостатки FireWall происходят от ее преимуществ, осложняя доступ извне, система делает трудным и доступ наружу. По этой причине система FireWall должна выполнять функции DNS (сервера имен) для внешнего мира, не выдавая никакой информации об именах или адресах внутренних объектов, функции почтового сервера, поддерживая систему псевдонимов для своих клиентов. Псевдонимы не раскрываются при посылке почтовых сообщений во внешний мир. Служба FTP в системе может и отсутствовать, но если она есть, доступ возможен только в сервер FireWall и из него. Внутренние ЭВМ не могут установить прямую FTP-связь ни с какой ЭВМ из внешнего мира. Процедуры telnet и rlogin возможны только путем входа в сервер FireWall. Услуги типа NFS, rsh, rcp, finger и т.д. не допускаются. Ни одна из ЭВМ в защищенной сети не может быть обнаружена с помощью PING (ICMP) извне. И даже внутри сети будут возможны только определенные виды трафика между строго определенными машинами. Понятно, что в целях безопасности защищенная сеть не может иметь выходов во внешний мир 
+помимо системы <I>экран</I>, в том числе и через модемы. Экран конфигурируется так, чтобы маршрут по умолчанию указывал на защищенную сеть. Экран не принимает и не обрабатывает пакеты внутренних протоколов маршрутизации (например, RIP). ЭВМ из защищенной сети может адресоваться к экрану, но при попытке направить пакет с адресом из внешней сети будет выдан сигнал ошибки, так как маршрут по 
+умолчанию указывает назад в защищенную сеть. Для пользователей защищенной сети создаются специальные входы для FTP (см. библиографию раздела 6 <A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm">“Сетевая безопасность в Интернет”</A>), telnet 
+и других услуг. При этом не вводится каких-либо ограничений по транспортировке файлов в защищенную сеть и блокируется передача любых файлов из этой сети, даже в случае, когда инициатором FTP-сессии является клиент защищенной сети. Единственные протоколы, которым всегда позволен доступ к ЭВМ 
+Firewall являются SMTP (электронная почта) и NNTP (служба новостей). Внешние клиенты Интернет не могут получить доступа ни к одной из защищенных ЭВМ ни через один из протоколов. Если нужно обеспечить доступ внешним пользователям к каким-то данным или услугам, для этого можно использовать сервер, подключенный к незащищенной части сети (или воспользоваться услугами ЭВМ управления экраном, 
+что нежелательно, так как снижает безопасность). ЭВМ управления экраном может быть сконфигурирована так, чтобы не воспринимать внешние (приходящие не из защищенной сети) запросы типа FTP, telnet и пр., это дополнительно повысит безопасность. Стандартная система защиты здесь часто дополняется 
+программой wrapper (см. раздел 6 “Сетевая безопасность в Интернет”). Немалую пользу может оказать и хорошая система регистрации всех сетевых запросов. Системы FireWall часто используются и в корпоративных сетях, где отдельные части сети удалены друг от друга. В этом случае в качестве 
+дополнительной меры безопасности применяется шифрование пакетов. Система FireWall требует специального программного обеспечения. Следует иметь в виду, что сложная и дорогостоящая система FireWall не защитит от “внутренних” злоумышленников. Нужно тщательно продумать систему защиты 
+модемных каналов (сама система FireWall на них не распространяется, так как это не внешняя часть сети, а просто удаленный терминал).</P>
+
+<P ALIGN="JUSTIFY">Если требуется дополнительная степень защиты, при авторизации пользователей в защищенной части сети могут использоваться аппаратные средства идентификации, а также шифрование имен и паролей.</P>
+
+<P ALIGN="JUSTIFY">&#9;При выборе той или иной системы Firewall следует учитывать ряд обстоятельств.</P>
+<OL>
+
+<B><LI>Операционная система</B>. Существуют версии Firewall, работающие с UNIX и Windows NT. Некоторые производители модифицируют ОС с целью усиления безопасности. Выбирать следует ту ОС, которую вы знаете лучше.</LI>
+<B><LI>Рабочие протоколы</B>. Все Firewall могут работать с FTP (порт 21), e-mail (порт 25), HTTP (порт 80), NNTP (порт 119), Telnet (порт 23), Gopher (порт 70), SSL (порт 443) и некоторыми другими известными протоколами. Как правило, они не поддерживают SNMP.</LI>
+<B><LI>Типы фильтров</B>. Сетевые фильтры, работающие на прикладном уровне прокси-сервера, предоставляют администратору сети возможность контролировать информационные потоки, проходящие через Firewall, но они обладают не слишком высоким быстродействием. Аппаратные решения могут пропускать большие потоки, но они менее гибки. Существует также “схемный” уровень прокси, который 
+рассматривает сетевые пакеты, как черные ящики и определяет, пропускать их или нет. Отбор при этом осуществляется по адресам отправителя, получателя, номерам портов, типам интерфейсов и некоторым полям заголовка пакета.</LI>
+<B><LI>Система регистрации операций</B>. Практически все системы Firewall имеют встроенную систему регистрации всех операций. Но здесь бывает важно также наличие средств для обработки файлов с такого рода записями.</LI>
+<B><LI>Администрирование</B>. Некоторые системы Firewall снабжены графическими интерфейсами пользователя. Другие используют текстовые конфигурационные файлы. Большинство из них допускают удаленное управление.</LI>
+<B><LI>Простота</B>. Хорошая система Firewall должна быть простой. Прокси-сервер (экран) должен иметь понятную структуру и удобную систему проверки. Желательно иметь тексты программ этой части, так как это прибавит ей доверия.</LI>
+<B><LI>Туннелирование</B>. Некоторые системы Firewall позволяют организовывать туннели через Интернет для связи с удаленными филиалами фирмы или организации (системы Интранет). Естественно, что информация по этим туннелям передается в зашифрованном виде.</LI></OL>
+
+<P ALIGN="JUSTIFY">Информацию по системам Firewall можно найти по следующим адресам.</P>
+<center>
+<TABLE BORDER=10 CELLSPACING=1 CELLPADDING=5 WIDTH=800 bgcolor="ghostwhite">
+<TR><TD WIDTH="41%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="JUSTIFY">URL</B></TD>
+<TD WIDTH="59%" VALIGN="TOP" bgcolor="gainsboro"><B><P ALIGN="JUSTIFY">Содержание</B></TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY"><FONT SIZE="2">http://search.netscape.com/eng/mozilla/2.0/relnotes/demo/proxy-live.html</FONT></TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Автоматическая конфигурация прокси для Netscape и Microsoft броузеров</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.software.digital.com</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Alta Vista Firewall </TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.cyberguardcorp.com/</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">CyberGuard Firewall</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.raptor.com/</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Eagle Firewall</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.checkpoint.com/</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Firewall-1</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.tis.com/</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Gauntlet Firewall</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.on.com/</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">ON Guard Firewall</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">http://www.sctc.com</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">BorderWare Firewall</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">ftp://ftp.nec.com/pub/socks/</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">SOCKS прокси</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">ftp://ftp.tis.com/pub/firewalls/toolkit</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Средства для работы с Firewall</TD>
+</TR>
+<TR><TD WIDTH="41%" VALIGN="TOP"><P ALIGN="JUSTIFY">majordomo@greatcircle.com</TD>
+<TD WIDTH="59%" VALIGN="TOP"><P ALIGN="JUSTIFY">Подписной лист по проблематике Firewall. Для 
+подписки в тело сообщения следует поместить <I>subscribe firewall. </I>Там же имеется архив: 
+<A HREF="tppmsgs/msgs4.htm#461" tppabs="http://www.greatcircle.com/firewalls/">http://www.greatcircle.com/firewalls</A></TD>
+</TR>
+</TABLE></center>
+
+
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="vlan_62.htm" tppabs="http://book.itep.ru/6/vlan_62.htm"><FONT COLOR="lightblue">6.2 Виртуальные локальные сети VLAN,     Интранет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="secur_6.htm" tppabs="http://book.itep.ru/6/secur_6.htm"><FONT COLOR="lightblue">6 Сетевая безопасность</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="soft_7.htm" tppabs="http://book.itep.ru/7/soft_7.htm"><FONT COLOR="lightblue">7 Программирование    для сетей (новые идеи, принципы и возможности)</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="intrusion.htm" tppabs="http://book.itep.ru/6/intrusion.htm"><FONT COLOR="lightblue">6.3.1 Список видов атак, зарегистрированных Network ICE</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

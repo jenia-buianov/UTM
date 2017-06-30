@@ -1,0 +1,16 @@
+D:\UTM\Grafica\Attestation1\Attestation1\bin\Debug\Attestation1.exe.config
+D:\UTM\Grafica\Attestation1\Attestation1\obj\Debug\Attestation1.csprojResolveAssemblyReference.cache
+D:\UTM\Grafica\Attestation1\Attestation1\obj\Debug\Attestation1.Properties.Resources.resources
+D:\UTM\Grafica\Attestation1\Attestation1\obj\Debug\Attestation1.csproj.GenerateResource.Cache
+D:\UTM\Grafica\Attestation1\Attestation1\bin\Debug\Attestation1.exe
+D:\UTM\Grafica\Attestation1\Attestation1\bin\Debug\Attestation1.pdb
+D:\UTM\Grafica\Attestation1\Attestation1\obj\Debug\Attestation1.exe
+D:\UTM\Grafica\Attestation1\Attestation1\obj\Debug\Attestation1.pdb
+D:\UTM\Grafica\Examen\Attestation1\bin\Debug\Attestation1.exe.config
+D:\UTM\Grafica\Examen\Attestation1\obj\Debug\Attestation1.exe
+D:\UTM\Grafica\Examen\Attestation1\obj\Debug\Attestation1.pdb
+D:\UTM\Grafica\Examen\Attestation1\bin\Debug\Attestation1.exe
+D:\UTM\Grafica\Examen\Attestation1\bin\Debug\Attestation1.pdb
+D:\UTM\Grafica\Examen\Attestation1\obj\Debug\Attestation1.csprojResolveAssemblyReference.cache
+D:\UTM\Grafica\Examen\Attestation1\obj\Debug\Attestation1.Properties.Resources.resources
+D:\UTM\Grafica\Examen\Attestation1\obj\Debug\Attestation1.csproj.GenerateResource.Cache

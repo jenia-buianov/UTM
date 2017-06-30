@@ -1,0 +1,28 @@
+X:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.exe.config
+X:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.exe
+X:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.pdb
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello_world_sharp.Form1.resources
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello_world_sharp.Properties.Resources.resources
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.csproj.GenerateResource.Cache
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.exe
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.pdb
+X:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.csprojResolveAssemblyReference.cache
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.exe.config
+D:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.exe
+D:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.pdb
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.exe
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\Hello world sharp.pdb
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\mscorlib.dll
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\System.Net.Http.dll
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\System.Net.Http.xml
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\ru\mscorlib.resources.dll
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\ru\System.Net.Http.resources.dll
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\normidna.nlp
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\normnfc.nlp
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\normnfd.nlp
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\normnfkc.nlp
+D:\UTM\PW\Hello world sharp\Hello world sharp\bin\Debug\normnfkd.nlp
+D:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.csprojResolveAssemblyReference.cache
+D:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello_world_sharp.Form1.resources
+D:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello_world_sharp.Properties.Resources.resources
+D:\UTM\PW\Hello world sharp\Hello world sharp\obj\Debug\Hello world sharp.csproj.GenerateResource.Cache

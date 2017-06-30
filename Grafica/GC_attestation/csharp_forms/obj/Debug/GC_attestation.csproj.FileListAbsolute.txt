@@ -1,0 +1,24 @@
+E:\GC test\csharp_forms\csharp_forms\bin\Debug\csharp_forms.exe.config
+E:\GC test\csharp_forms\csharp_forms\bin\Debug\csharp_forms.exe
+E:\GC test\csharp_forms\csharp_forms\bin\Debug\csharp_forms.pdb
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.Form1.resources
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.Properties.Resources.resources
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\GC_attestation.csproj.GenerateResource.Cache
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.exe
+E:\GC test\csharp_forms\csharp_forms\obj\Debug\csharp_forms.pdb
+E:\GC test\GC_attestation\csharp_forms\bin\Debug\csharp_forms.exe.config
+E:\GC test\GC_attestation\csharp_forms\obj\Debug\csharp_forms.exe
+E:\GC test\GC_attestation\csharp_forms\obj\Debug\csharp_forms.pdb
+E:\GC test\GC_attestation\csharp_forms\bin\Debug\csharp_forms.exe
+E:\GC test\GC_attestation\csharp_forms\bin\Debug\csharp_forms.pdb
+E:\GC test\GC_attestation\csharp_forms\obj\Debug\GC_attestation.csprojResolveAssemblyReference.cache
+E:\GC test\GC_attestation\csharp_forms\obj\Debug\csharp_forms.Form1.resources
+E:\GC test\GC_attestation\csharp_forms\obj\Debug\csharp_forms.Properties.Resources.resources
+E:\GC test\GC_attestation\csharp_forms\obj\Debug\GC_attestation.csproj.GenerateResource.Cache
+D:\UTM\Grafica\GC_attestation\csharp_forms\bin\Debug\csharp_forms.exe.config
+D:\UTM\Grafica\GC_attestation\csharp_forms\obj\Debug\csharp_forms.exe
+D:\UTM\Grafica\GC_attestation\csharp_forms\obj\Debug\csharp_forms.pdb
+D:\UTM\Grafica\GC_attestation\csharp_forms\obj\Debug\GC_attestation.csprojResolveAssemblyReference.cache
+D:\UTM\Grafica\GC_attestation\csharp_forms\obj\Debug\csharp_forms.Form1.resources
+D:\UTM\Grafica\GC_attestation\csharp_forms\obj\Debug\csharp_forms.Properties.Resources.resources
+D:\UTM\Grafica\GC_attestation\csharp_forms\obj\Debug\GC_attestation.csproj.GenerateResource.Cache

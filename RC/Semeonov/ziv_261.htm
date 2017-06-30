@@ -1,0 +1,227 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="Lempel-Ziv лексиографическое упорядочение Хафман
+
+
+
+
+
+">
+<TITLE>2.6.1 Алгоритм Зива-Лемпеля</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="laa_262.htm" tppabs="http://book.itep.ru/2/26/laa_262.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="laa_262.htm" tppabs="http://book.itep.ru/2/26/laa_262.htm"><FONT COLOR="lightblue">2.6.2 Локально адаптивный алгоритм сжатия</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>2.6.1 Алгоритм Зива-Лемпеля</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+</B>
+<P ALIGN="JUSTIFY">Большинство алгоритмов сжатия базируется на последовательной схеме сжатия 
+Лемпеля-Зива (Lempel-Ziv, 1977). Этот алгоритм используется, в частности, стандартной процедурой UNIX Compress. Методики со статистическим моделированием могут обеспечить лучшее сжатие, но они заметно медленнее. Но существует алгоритм, который совмещает в себе лучшие из черт названных выше. Этот алгоритм не предусматривает последовательной обработки входных данных, а обрабатывает текст по-блочно. Здесь используется обратимое преобразование блока данных к виду, который позволяет эффективно сжать данные с помощью простых алгоритмов. Преобразование имеет целью сгруппировать символы так, чтобы вероятность появления последовательностей идентичных символов значительно возросла. Такой текст может быть легко сжат посредством локально-адаптивных алгоритмов в сочетании с кодировкой Хафмана и арифметической кодировкой.</P>
+<P ALIGN="JUSTIFY">Последовательность S, содержащая N символов ({S(0),… S(N-1)}), подвергается N 
+циклическим сдвигам (вращениям), лексикографической сортировке, а последний символ при каждом 
+вращении извлекается. Из этих символов формируется строка L, где i-ый символ является последним 
+символом i-го вращения. Кроме строки L создается индекс I исходной строки S в упорядоченном списке 
+вращений. Существует эффективный алгоритм восстановления исходной последовательности символов S на 
+основе строки L и индекса I. Процедура сортировки объединяет результаты вращений с идентичными 
+начальными символами. Предполагается, что символы в S соответствуют алфавиту, содержащему K 
+символов. </P>
+<P ALIGN="JUSTIFY">Для пояснения работы алгоритма возьмем последовательность S= “abraca” (N=6), 
+алфавит X = {‘a’,’b’,’c’,’r’}. </P>
+<P ALIGN="JUSTIFY">1. Формируем матрицу из N*N элементов, чьи строки представляют собой результаты 
+циклического сдвига (вращений) исходной последовательности S, отсортированных лексикографически. 
+По крайней мере одна из строк M содержит исходную последовательность S. Пусть I является индексом 
+строки S. В приведенном примере индекс I=1, а матрица M имеет вид:</P>
+<P ALIGN="CENTER"><TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=693>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">Номер строки</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P> </TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">0</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P ALIGN="JUSTIFY">aabrac</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">1</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P ALIGN="JUSTIFY">abraca</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">2</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P ALIGN="JUSTIFY">acaabr</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">3</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P ALIGN="JUSTIFY">bracaa</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">4</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P ALIGN="JUSTIFY">caabra</TD>
+</TR>
+<TR><TD WIDTH="36%" VALIGN="TOP"><P ALIGN="CENTER">5</TD>
+<TD WIDTH="64%" VALIGN="TOP"><P ALIGN="JUSTIFY">racaab</TD>
+</TR>
+</TABLE>
+</P>
+
+<P ALIGN="JUSTIFY">2. Пусть строка L представляет собой последнюю колонку матрицы M с символами L[0],…,L[N-1] (соответствуют M[0,N-1],…,M[N-1,N-1]). Формируем строку последних символов вращений. Окончательный результат характеризуется (L,I). В данном примере L=’caraab’, I =1.</P>
+<P ALIGN="JUSTIFY">Процедура декомпрессии использует L и I. Целью этой процедуры является получение исходной последовательности из N символов (S).</P>
+<P ALIGN="JUSTIFY">1. Сначала вычисляем первую колонку матрицы M (F). Это делается путем сортировки символов строки L. Каждая колонка исходной матрицы M представляет собой перестановки исходной последовательности S. Таким образом, первая колонка F и L являются перестановками S. Так как строки в</FONT> <FONT FACE="Times New Roman">M упорядочены, размещение символов в F также упорядочено. F=’aaabcr’.</P>
+<P ALIGN="JUSTIFY">2. Рассматриваем ряды матрицы M, которые начинаются с заданного символа ch. Строки матрицы М упорядочены лексикографически, поэтому строки, начинающиеся с ch упорядочены аналогичным образом. Определим матрицу M’, которая получается из строк матрицы M путем циклического сдвига на один символ вправо. Для каждого i=0,…, N-1 и каждого j=0,…,N-1,</P>
+<P ALIGN="JUSTIFY">M’[i,j] = m[i,(j-1) mod N]</P>
+<P ALIGN="JUSTIFY">В рассмотренном примере M и M’ имеют вид:</P>
+<CENTER> <TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=448>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">Строка</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">M</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">M’</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">0</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">aabrac</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">caabra</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">1</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">abraca</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">aabraс</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">2</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">acaabr</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">racaab</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">3</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">bracaa</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">abraca</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">4</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">caabra</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">acaabr</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP"><P ALIGN="CENTER">5</TD>
+<TD WIDTH="29%" VALIGN="TOP"><P ALIGN="CENTER">racaab</TD>
+<TD WIDTH="41%" VALIGN="TOP"><P ALIGN="CENTER">bracaa</TD>
+</TR>
+</TABLE></CENTER> 
+
+<P ALIGN="JUSTIFY">	Подобно M каждая строка M’ является вращением S, и для каждой строки M 
+существует соответствующая строка M’. M’ получена из M так, что строки M’ упорядочены 
+лексикографически, начиная со второго символа. Таким образом, если мы рассмотрим только те строки 
+M’, которые начинаются с заданного символа ch, они должны следовать упорядоченным образом с учетом 
+второго символа. Следовательно, для любого заданного символа ch, строки M, которые начинаются с ch, 
+появляются в том же порядке что и в M’, начинающиеся с ch. В нашем примере это видно на примере 
+строк, начинающихся с ‘a’. Строки ‘aabrac’, ‘abraca’ и ‘acaabr’ имеют номера 0, 1 и 2 в M и 1, 3, 
+4 в M’.</P>
+<P ALIGN="JUSTIFY">	Используя F и L, первые колонки M и M’ мы вычислим вектор Т, который 
+указывает на соответствие между строками двух матриц, с учетом того, что для каждого j = 0,…,N-1 
+строки j M’ соответствуют строкам T[j] M.</P>
+<P ALIGN="JUSTIFY">	Если L[j] является к-ым появлением ch в L, тогда T[j]=1, где F[i] является 
+к-ым появлением ch в F. Заметьте, что Т представляет соответствие один в один между элементами F и 
+элементами L, а F[T[j]] = L[j]. В нашем примере T равно: (4 0 5 1 2 3).</P>
+<P ALIGN="JUSTIFY">	3. Теперь для каждого i = 0,…, N-1 символы L[i] и F[i] являются 
+соответственно последними и первыми символами строки i матрицы M. Так как каждая строка является 
+вращением S, символ L[i] является циклическим предшественником символа F[i] в S. Из Т мы имеем 
+F[T[j]] = L[j]. 
+Подставляя i =T[j], мы получаем символ L[T(j)], который циклически предшествует символу L[j] в S. </P>
+<P ALIGN="JUSTIFY">	Индекс I указывает на строку М, где записана строка S. Таким образом, 
+последний символ S равен L[I]. Мы используем вектор T для получения предшественников каждого 
+символа: для каждого i = 0,…,N-1 S[N-1-i] = L[T<SUP>i</SUP>[I]], где T<SUP>0</SUP>[x] =x, а 
+T<SUP>i+1</SUP>[x] = T[T<SUP>i</SUP>[x]. Эта процедура позволяет восстановить 
+первоначальную последовательность символов S (‘abraca’). </P>
+<P ALIGN="JUSTIFY">	Последовательность T<SUP>i</SUP>[I] для i =0,…,N-1 не обязательно является 
+перестановкой чисел 0,…,N-1. Если исходная последовательность S является формой Z<SUP>p</SUP> для 
+некоторой подстановки Z и для некоторого p>1, тогда последовательность T<SUP>i</SUP>[I] для i = 
+0,…,N-1 будет также формой Z<SUP>’p</SUP> для некоторой 
+субпоследовательности Z’. Таким образом, если S = ‘cancan’, Z = ‘can’ и p=2, последовательность 
+T<SUP>i</SUP>[I] для i = 0,…,N-1 будет [2,4,0,2,4,0].</P>
+<P ALIGN="JUSTIFY">	Описанный выше алгоритм упорядочивает вращения исходной последовательности 
+символов S и формирует строку L, состоящую из последних символов вращений. Для того, чтобы понять, 
+почему такое упорядочение приводит к более эффективному сжатию, рассмотрим воздействие на 
+отдельную букву в обычном слове английского текста.</P>
+<P ALIGN="JUSTIFY">Возьмем в качестве примера букву “t” в слове ‘the’ и предположим, что исходная 
+последовательность содержит много таких слов. Когда список вращений упорядочен, все вращения, 
+начинающиеся с ‘he’, будут взаимно упорядочены. Один отрезок строки L будет содержать 
+непропорционально большое число ‘t’, перемешанных с другими символами, которые могут предшествовать 
+‘he’, такими как пробел, ‘s’, ‘T’ и ‘S’.</P>
+<P ALIGN="JUSTIFY">Аналогичные аргументы могут быть использованы для всех символов всех слов, таким 
+образом, любая область строки L будет содержать большое число некоторых символов. В результате 
+вероятность того, что символ ‘ch’ встретится в данной точке L, весьма велика, если ch встречается 
+вблизи этой точки L, и мала в противоположном случае. Это свойство способствует эффективной работе 
+локально адаптивных алгоритмов сжатия, где кодируется относительное положение идентичных символов. 
+В случае применения к строке L, такой кодировщик будет выдавать малые числа, которые могут 
+способствовать эффективной работе последующего кодирования, например, посредством алгоритма 
+Хафмана.</P>
+<P ALIGN="JUSTIFY"> </P>
+<P ALIGN="CENTER"> <B> Ссылки </B></P><OL>
+<LI> J.Ziv and A.Lempel. A universal algorithm for sequential data compression. IEEE Transactions on Information Theory. Vol. IT-23, N.3, May 1977, pp. 337-343. </LI>
+<LI> J.Ziv and A.Lempel. Compression of individual sequences via variable rate coding. IEEE Transactions on Information Theory. Vol. IT-24. N.5, September 1978, pp. 530-535.</LI>
+<LI> M.Burrows and D.J.Wheeler. A block-sorting Lossless Data Compression Algorithm. Digital Systems Research Center.  SRC report 124. May 10, 1994. </LI>
+<LI> J.L.Bently, D.D.Sleator, R.E.Tarjan, and V.K.Wei. A locally adaptive data compression algorithm. Communications of the ACM, Vol. 29, No. 4, April 1986, pp. 320-330 </LI>
+<LI> <A HREF="tppmsgs/msgs2.htm#212" tppabs="http://www.ics.uci.edu/%7edan/pubs/DataCompression.html"> http://www.ics.uci.edu/~dan/pubs/DataCompression.html (Saleem Bhatti)</A></LI>
+<LI> <A HREF="tppmsgs/msgs2.htm#213" tppabs="http://www.speednet/%7espenser/ted/DataCompression.html"> http://www.speednet/~spenser/ted/DataCompression.html</A></LI>
+<LI> <A HREF="tppmsgs/msgs2.htm#214" tppabs="http://www.iicm.edu/jucs_1_8/differencial_ziv_lempel_text/html/paper.html">http://www.iicm.edu/jucs_1_8/differencial_ziv_lempel_text/html/paper.html</A></LI> </OL>
+
+
+
+
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="comp_26.htm" tppabs="http://book.itep.ru/2/26/comp_26.htm"><FONT COLOR="lightblue">2.6 Методы сжатия информации</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="chan_3.htm" tppabs="http://book.itep.ru/3/chan_3.htm"><FONT COLOR="lightblue">3 Каналы передачи данных</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="laa_262.htm" tppabs="http://book.itep.ru/2/26/laa_262.htm"><FONT COLOR="lightblue">2.6.2 Локально адаптивный алгоритм сжатия</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>

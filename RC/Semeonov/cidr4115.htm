@@ -1,0 +1,93 @@
+<HTML><HEAD>
+<!-- Meta http equivalent was here                                     -->
+<META NAME="keywords" CONTENT="CIDR
+
+">
+<TITLE>4.4.11.5 Бесклассовая интердоменная     маршрутизация (CIDR)</TITLE>
+</HEAD>
+<BODY background="gainsboro" tppabs="http://book.itep.ru/gainsboro" link="#0000FF">
+
+<center>
+<table BORDER="0" CELLSPACING="1" CELLPADDING="5" bgcolor="ghostwhite">
+  <tr>
+    <td VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><p align="center">
+
+<A HREF="bgp44114.htm" tppabs="http://book.itep.ru/4/44/bgp44114.htm">  <IMG ALIGN=BOTTOM ALT="previous" SRC="k_prev.jpg" tppabs="http://book.itep.ru/k_prev.jpg"></A>
+
+
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm">   <IMG ALIGN=BOTTOM ALT="up"   SRC="k_up.jpg" tppabs="http://book.itep.ru/k_up.jpg"></A>
+
+
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><IMG ALIGN=BOTTOM ALT="down" SRC="k_down.jpg" tppabs="http://book.itep.ru/k_down.jpg"></A>
+
+
+<A HREF="as.htm" tppabs="http://book.itep.ru/4/44/as.htm"><IMG ALIGN=BOTTOM ALT="next" SRC="k_next.jpg" tppabs="http://book.itep.ru/k_next.jpg"></A>
+
+<A HREF="intro1.htm" tppabs="http://book.itep.ru/1/intro1.htm">  <IMG ALIGN=BOTTOM ALT="index" SRC="k_indx.jpg" tppabs="http://book.itep.ru/k_indx.jpg"></A>
+<BR>
+
+<B> <FONT COLOR="white">Previous: </FONT></B>
+<A HREF="bgp44114.htm" tppabs="http://book.itep.ru/4/44/bgp44114.htm"><FONT COLOR="lightblue">4.4.11.4 Внешний протокол BGP</FONT></A>
+
+
+<B><FONT COLOR="white">&nbsp;&nbsp; UP:</FONT> </B>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+<BR>
+
+
+<B><FONT COLOR="white"> Down:</FONT></B>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A><BR>
+
+
+<B><FONT COLOR="white">&nbsp; &nbsp; Next:</FONT></B>
+<A HREF="as.htm" tppabs="http://book.itep.ru/4/44/as.htm"><FONT COLOR="lightblue">4.4.11.6 Автономные системы</FONT></A>
+
+</TD></TR>
+<TR><TD ALIGN=CENTER>   
+<FONT color="#0000FF" size=6><B>4.4.11.5 Бесклассовая интердоменная     маршрутизация (CIDR)</B></FONT><br>
+<FONT size=3>Семенов Ю.А. (ГНЦ ИТЭФ)</FONT></p>
+
+</TD></TR>
+<TR><TD>
+<!--new-->
+
+<P ALIGN="JUSTIFY">Вряд ли отцы-создатели Интернет предполагали, что когда-либо, тем более при их жизни возникнет дефицит IP-адресов. Уже в 1996 году было зарегистрировано более 100000 сетей. Разбивка сетей на три класса <B>A, B</B> и <B>С</B> уже не может отвечать современным требованиям. Сеть класса <B>А</B> с ее 16000000 адресов слишком велика, а класса <B>С</B> с 254 адресами, как 
+правило, слишком мала. Сети класса <B>B</B> с 65536 машинами может показаться оптимальными, но на практике каждая из этих сетей не обеспечивает оптимального использования адресного пространства и всегда остаются неиспользованные адреса (для классов B и <B>A</B> количество пустующих адресов оказывается обычно значительным). Адресные блоки заказываются администраторами, которые полагают, 
+что однажды их организация или фирма станет великой с тысячами ЭВМ (пока же у них есть всего несколько машин). Надо сказать, что такие оптимистические прогнозы сбываются крайне редко. Проблема маршрутизации может быть решена путем реализации более глубокой структурной иерархии, где каждый IP-адрес имеет код страны, региона, города, сети, но при этом размер адреса должен существенно превышать 32 разряда, так как адреса неизбежно будут использоваться крайне не 
+эффективно - ведь Китаю и Монако будут выделены равные адресные зоны. Это может стать возможным при внедрении технологии IPv6.</P>
+
+<P ALIGN="JUSTIFY">&#9;Если бы в адресах класса С для кода номера ЭВМ было выделено 10 или 11 бит (1024-2048), ситуация была бы более приемлемой. Маршрутизатор рассматривает IP-адресную среду на двух уровнях - адрес сети и адрес ЭВМ, при этом практически они работают только с адресами сетей. Число записей в маршрутной таблице должно будет быть равным половине миллиона записей (по числу блоков С-адресов).</P>
+
+<P ALIGN="JUSTIFY">Проблема может быть решена, если забыть про разбиение всей совокупности IP-адресов на классы. Такая модель реализуется в рамках протокола CIDR (Classless InterDomain Routing). В этой модели каждой сети ставится в соответствие определенное число смежных блоков по 256 адресов. Далее используется известное географическое зонное распределение IP-адресов (см. <A HREF="inc_4113.htm" tppabs="http://book.itep.ru/4/41/inc_4113.htm">Ethernet в Интернет</A>, а также RFC-1519). Протокол при просмотре маршрутных таблиц предполагает применение специальных масок и индексных механизмов.</P>
+
+
+
+
+</TD></TR>
+
+<TR bgcolor="steelblue"><TD VALIGN="TOP" bgcolor="steelblue" LINK="#0000FF"><P ALIGN="center">
+
+<FONT color="white"><B> Previous: </B></FONT>
+<A HREF="bgp44114.htm" tppabs="http://book.itep.ru/4/44/bgp44114.htm"><FONT COLOR="lightblue">4.4.11.4 Внешний протокол BGP</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;UP:</B></FONT>
+<A HREF="rut_4411.htm" tppabs="http://book.itep.ru/4/44/rut_4411.htm"><FONT COLOR="lightblue">4.4.11 Протоколы    маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</FONT></A>
+
+
+<BR>
+
+<FONT color="white"><B>  Down:</B></FONT>
+<A HREF="proc_45.htm" tppabs="http://book.itep.ru/4/45/proc_45.htm"><FONT COLOR="lightblue">4.5 Процедуры Интернет</FONT></A>
+
+
+
+<FONT color="white"><B> &nbsp; &nbsp;Next:</B></FONT>
+<A HREF="as.htm" tppabs="http://book.itep.ru/4/44/as.htm"><FONT COLOR="lightblue">4.4.11.6 Автономные системы</FONT></A>
+
+</TD>
+  </TR>
+</table>
+</BODY>
+</HTML>
